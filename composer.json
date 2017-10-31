@@ -1,7 +1,7 @@
 {
     "name": "texasexes/d8-theme-main",
     "description": "Texas Exes D8 Main Theme",
-    "type": "drupal-theme",
+    "type": "drupal-theme-custom",
     "license": "MIT",
     "authors": [
         {
