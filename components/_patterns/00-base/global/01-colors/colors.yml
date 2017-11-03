@@ -17,6 +17,28 @@ items:
     value: '#333'
   - name: $black
     value: black
+  - name: $orange-lt3
+    value: '#f0d3c0'
+  - name: $orange-lt2
+    value: '#ff9c57'
+  - name: $orange-lt
+    value: '#e47126'
+  - name: $orange
+    value: '#cc652b'
+  - name: $orange-dk
+    value: '#b25412'
+  - name: $blue-lt
+    value: '#008fcc'
+  - name: $blue
+    value: '#005f87'
+  - name: $blue-dk
+    value: '#002b3d'
+  - name: $gray-lt5
+    value: '#e7e7e7'
+  - name: $gray-lt3
+    value: '#c8c8c8'
+  - name: $gray-lt
+    value: '#464646'
 meta:
   description: >-
     To add to these items, use Sass variables that start with <code>$</code> in
