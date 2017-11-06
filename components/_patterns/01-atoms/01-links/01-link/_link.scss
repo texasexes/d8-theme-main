@@ -1,0 +1,13 @@
+/// Link
+%link {
+  color: $color-link;
+  cursor: pointer;
+
+  &:hover {
+    color: $color-link--hover;
+  }
+}
+
+.link {
+  @extend %link;
+}

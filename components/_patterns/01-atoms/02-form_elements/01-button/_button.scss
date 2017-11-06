@@ -1,0 +1,42 @@
+@mixin button($bg:$orange, $color:$white, $hoverBg: $gray, $hoverColor: $white) {
+  background-color: $bg;
+  border: none;
+  border-radius: 5px;
+  color: $color;
+  cursor: pointer;
+  display: block;
+  line-height: 1.4;
+  padding: 0.5em 1em;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  &:visited {
+    color: $color;
+  }
+
+  &:hover {
+    background-color: $hoverBg;
+    color: $hoverColor;
+  }
+}
+
+.button {
+  @include button;
+
+  &--alt-1 {
+    @include button($blue-lt, $white, $gray, $white);
+
+    border-radius: 5px;
+    font-size: 0.65em;
+    padding: 0.65em 1em;
+  }
+
+  &--alt-2 {
+    @include button($gray-lt3, $gray-lt, $gray-lt5, $gray-lt);
+
+    border-radius: 5px;
+    font-size: 0.65em;
+    padding: 0.65em 1em;
+  }
+}
