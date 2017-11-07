@@ -2,23 +2,31 @@
 // Generic header styles:
 // All arguments are optional. If not defined, the defaults below will be used
 //
-@mixin heading($font-family: $font-heading, $font-size: 2rem, $line-height: 1.4, $color: inherit, $color-link: inherit, $color-link-hover: inherit, $font-weight: 700, $margin: 0 0 0.5em) {
+@mixin heading(
+  $color: inherit,
+  $color-link: inherit,
+  $color-link-hover: inherit,
+  $font-family: $font-heading,
+  $font-size: 2rem,
+  $font-weight: 700,
+  $line-height: 1.4,
+  $margin: 0 0 0.5em) {
   color: #{$color};
   font-family: #{$font-family};
-  font-weight: #{$font-weight};
-  font-style: normal;
   font-size: #{$font-size};
+  font-style: normal;
+  font-weight: #{$font-weight};
   line-height: #{$line-height};
   margin: #{$margin};
   width: auto;
 
-  &__link {
-    color: $color-link;
-
-    &:hover {
-      color: $color-link-hover;
-    }
-  }
+  // &__link {
+  //   color: $color-link;
+  //
+  //   &:hover {
+  //     color: $color-link-hover;
+  //   }
+  // }
 }
 
 .h1 {
@@ -26,7 +34,7 @@
 }
 
 .h2 {
-  @include heading($font-size: 1.8rem)
+  @include heading($font-size: 1.8rem);
 }
 
 .h3 {

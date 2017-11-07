@@ -13,7 +13,7 @@
  */
 #}
 {% set button_base_class = button_base_class|default('button') %}
-{% set button_attributes = [] %}
+{% set button_attributes = button_attributes|default([]) %}
 
 <button
   {{ bem(button_base_class, (button_modifiers), button_blockname) }}

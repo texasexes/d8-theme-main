@@ -1,5 +1,10 @@
-@mixin button($bg:$orange, $color:$white, $hoverBg: $gray, $hoverColor: $white) {
-  background-color: $bg;
+@mixin button(
+  $background-color: $color-button--bg,
+  $background-color--hover: $color-button--bg--hover,
+  $color: $color-button--text,
+  $color--hover: $color-button--text--hover,
+  $color--visited: $color-button--text--visited) {
+  background-color: $background-color;
   border: none;
   border-radius: 5px;
   color: $color;
@@ -12,12 +17,12 @@
   text-transform: uppercase;
 
   &:visited {
-    color: $color;
+    color: $color--visited;
   }
 
   &:hover {
-    background-color: $hoverBg;
-    color: $hoverColor;
+    background-color: $background-color--hover;
+    color: $color--hover;
   }
 }
 
@@ -25,17 +30,22 @@
   @include button;
 
   &--alt-1 {
-    @include button($blue-lt, $white, $gray, $white);
+    @include button(
+      $background-color: $color-button--alt-1--bg
+    );
 
-    border-radius: 5px;
     font-size: 0.65em;
     padding: 0.65em 1em;
   }
 
   &--alt-2 {
-    @include button($gray-lt3, $gray-lt, $gray-lt5, $gray-lt);
+    @include button(
+      $background-color: $color-button--alt-2--bg,
+      $background-color--hover: $color-button--alt-2--bg--hover,
+      $color: $color-button--alt-2--text,
+      $color--hover: $color-button--alt-2--text--hover
+    );
 
-    border-radius: 5px;
     font-size: 0.65em;
     padding: 0.65em 1em;
   }

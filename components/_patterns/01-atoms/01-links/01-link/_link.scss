@@ -1,13 +1,17 @@
 /// Link
-%link {
-  color: $color-link;
+@mixin link(
+  $color: $color-link,
+  $color--hover: $color-link--hover,
+  $font-family: $font-link) {
+  color: $color;
   cursor: pointer;
+  font-family: $font-family;
 
   &:hover {
-    color: $color-link--hover;
+    color: $color--hover;
   }
 }
 
 .link {
-  @extend %link;
+  @include link;
 }

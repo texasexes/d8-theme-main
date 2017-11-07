@@ -1,5 +1,21 @@
-$color-border: $gray-light;
+
+// Links
 $color-link: $orange-dk;
 $color-link--hover: $gray-light;
 
-$color-heading: $gray-darker;
+// Button
+$color-button--bg: $orange;
+$color-button--bg--hover: $gray;
+$color-button--text: $white;
+$color-button--text--hover: $white;
+$color-button--text--visited: $color-button--text;
+
+$color-button--alt-1--bg: $blue-lt;
+
+$color-button--alt-2--bg: $gray-lt3;
+$color-button--alt-2--bg--hover: $gray-lt;
+$color-button--alt-2--text: $gray-lt;
+$color-button--alt-2--text--hover: $gray-lt5;
+
+// Blockquote
+$color-blockquote--border: $gray-lt;
