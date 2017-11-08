@@ -1,0 +1,19 @@
+{#
+/**
+ * Available variables:
+
+ * - img_base_class - base class name
+ * - img_modifiers - array of modifiers to add to the base classname
+ * - img_blockname - blockname prepended to the base classname
+
+ * - img_attributes - attributes key/value pair for link attributes
+ */
+#}
+
+{% set img_base_class = img_base_class|default('img') %}
+{% set img_attributes = img_attributes|default([]) %}
+
+  <img
+    {{ bem(img_base_class, (img_modifiers), img_blockname) }}
+    {{ add_attributes(img_attributes) }}
+  />

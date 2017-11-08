@@ -1,0 +1,11 @@
+@mixin img {
+  display: block;
+  height: auto;
+  width: 100%;
+}
+
+.img,
+.image__img,
+.card__img {
+  @include img;
+}

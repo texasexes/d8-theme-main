@@ -1,0 +1,8 @@
+img_modifiers:
+  1:
+    logo
+img_attributes:
+  src:
+    '../../images/logo.png'
+  alt:
+    'Logo'

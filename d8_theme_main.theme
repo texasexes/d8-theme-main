@@ -4,3 +4,77 @@
  * @file
  * Functions to support theming in the Pattern Lab theme.
  */
+
+// storing img_blockname in attributes so that I can pass it on
+function d8_theme_main_preprocess_responsive_image_formatter(&$variables) {
+  if (isset($variables['item'])){
+    $itemParent = $variables['item']->getParent();
+    $fieldName = $itemParent->getName();
+    $fieldNameBundle = $itemParent->getFieldDefinition()->getType();
+    $variables['responsive_image']['#attributes']['field_info']['field_name'] = $fieldName;
+    $variables['responsive_image']['#attributes']['field_info']['field_name_bundle'] = $fieldNameBundle;
+
+    $fieldParent = $variables['item']->getEntity();
+    $fieldParentBundle = $fieldParent->getType();
+    $fieldParentBundleType = $fieldParent->getEntityTypeId();
+    $variables['responsive_image']['#attributes']['field_info']['field_parent_bundle'] = $fieldParentBundle;
+    $variables['responsive_image']['#attributes']['field_info']['field_parent_bundle_type'] = $fieldParentBundleType;
+  }
+
+  if (isset($variables['url'])) {
+    $variables['responsive_image']['#attributes']['img_blockname'] = "link";
+  }
+}
+
+// fixes bug where style_name is never set
+ function d8_theme_main_preprocess_responsive_image(&$variables) {
+   if (isset($variables['responsive_image_style_id'])) {
+     $variables['img_element']['#style_name'] = $variables['responsive_image_style_id'];
+   }
+ }
+
+// retrieving img_blockname from attributes so that it can be used in the BEM class
+// then unsetting it so it doesn't display as an attribute
+function d8_theme_main_preprocess_image(&$variables) {
+
+  if (isset($variables['attributes']['img_blockname'])) {
+    $variables['img_blockname'] = implode($variables['attributes']['img_blockname']);
+    unset($variables['attributes']['img_blockname']);
+  }
+
+  if (isset($variables['attributes']['field_info'])) {
+    unset($variables['attributes']['field_info']);
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK().
+ */
+ function d8_theme_main_theme_suggestions_responsive_image_formatter_alter(array &$suggestions, array $variables) {
+   $itemParent = $variables['item']->getParent();
+   $fieldName = $itemParent->getName();
+   $fieldNameBundle = $itemParent->getFieldDefinition()->getType();
+
+   $fieldParent = $variables['item']->getEntity();
+   $fieldParentBundle = $fieldParent->getType();
+   $fieldParentBundleType = $fieldParent->getEntityTypeId();
+
+   array_push($suggestions, $variables['theme_hook_original'] . "__" . $fieldParentBundleType);
+   array_push($suggestions, $variables['theme_hook_original'] . "__" . $fieldParentBundleType . "__" . $fieldParentBundle);
+   array_push($suggestions, $variables['theme_hook_original'] . "__" . $fieldParentBundleType . "__" . $fieldName);
+   array_push($suggestions, $variables['theme_hook_original'] . "__" . $fieldParentBundleType . "__" . $fieldName . "__" . $fieldParentBundle);
+
+ }
+function d8_theme_main_theme_suggestions_image_alter(array &$suggestions, array $variables) {
+
+  $fieldParentBundle = $variables['attributes']['field_info']['field_parent_bundle'];
+  $fieldParentBundleType = $variables['attributes']['field_info']['field_parent_bundle_type'];
+  $fieldName = $variables['attributes']['field_info']['field_name'];
+  $fieldNameBundle = $variables['attributes']['field_info']['field_name_bundle'];
+
+  array_push($suggestions, $variables['theme_hook_original'] . "__" . $fieldParentBundleType);
+  array_push($suggestions, $variables['theme_hook_original'] . "__" . $fieldParentBundleType . "__" . $fieldParentBundle);
+  array_push($suggestions, $variables['theme_hook_original'] . "__" . $fieldParentBundleType . "__" . $fieldName);
+  array_push($suggestions, $variables['theme_hook_original'] . "__" . $fieldParentBundleType . "__" . $fieldName . "__" . $fieldParentBundle);
+
+}
