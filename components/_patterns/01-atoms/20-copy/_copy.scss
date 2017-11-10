@@ -1,0 +1,9 @@
+// Copy
+
+.copy__link {
+  @include link;
+}
+
+.copy__button {
+  @include button;
+}

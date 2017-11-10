@@ -1,0 +1,12 @@
+@mixin flex-grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.flex-grid {
+  @include flex-grid;
+}
+
+.test-flex-grid__flex-grid {
+  @extend .flex-grid;
+}

@@ -1,0 +1,169 @@
+{#
+/**
+ * Available variables:
+ * - copy_base_class - base classname of the wrapper
+ * - copy_modifiers - array of modifiers to add to the base classname of the wrapper
+ * - copy_blockname - blockname prepended to the base classname of the wrapper(s) and each component
+ *
+ * - copy_img_src - the actual image file location
+ * - copy_img_alt - (optional) the alt text for screen readers and when the image cannot load
+ * - copy_img_url - Url the image should link to. Defaults to copy_link_url
+ *
+ * - copy_copy_base_class - base classname of the copy wrapper - defaults to 'copy__copy'
+ * - copy_copy_modifiers - array of modifiers to add to the base classname of the copy wrapper
+ * - copy_copy_blockname - blockname prepended to the base classname of the copy wrapper
+ *
+ * - copy_title - the content of the title component
+ * - copy_title_link - (optional) the url the title should link to. Defaults to copy_link_url.
+ * - copy_title_base_class - base classname of the title component. Defaults to "title"
+ * - copy_title_blockname - blockname to add to the base classname of the title - defaults to copy_base_class
+ * - copy_title_modifiers - array of modifiers to add to the base classname of the title
+ * - copy_title_link_base_class - base class to add to the title link - defaults to 'title-link'
+ *
+ * - copy_subtitle - the content of the subtitle component
+ * - copy_subtitle_link - (optional) the url the subtitle should link to
+ * - copy_subtitle_base_class - base classname of the subtitle component. Defaults to "subtitle"
+ * - copy_subtitle_modifiers - array of modifiers to add to the base classname of the subtitle
+ *
+ * - copy_body - the content of the body component
+ * - copy_body_base_class - base classname of the body component. Defaults to "body"
+ * - copy_body_modifiers - array of modifiers to add to the base classname of the body
+ *
+ * - copy_link_text - the content of the link component
+ * - copy_link_url - the url the link should link to
+ * - copy_link_base_class - base classname of the link component. Defaults to "link"
+ * - copy_link_blockname - override link blockname. Defaults to copy_base_class
+ * - copy_link_attributes - array of attribute,value pairs for the link attribute
+ * - copy_link_modifiers - array of modifiers to add to the base classname of the link
+ *
+ * - copy_button_content - the content of the button component
+ * - copy_button_url - the url the button should link to
+ * - copy_button_base_class - base classname of the button component. Defaults to "button"
+ * - copy_button_attributes - array of attribute,value pairs for the button attribute
+ * - copy_button_modifiers - array of modifiers to add to the base classname of the button
+ */
+#}
+{% set copy_base_class = 'copy' %}
+
+  <div {{ bem(copy_base_class, (copy_modifiers), copy_blockname) }}>
+  {%- block copy_block -%}
+    {%- for copy_item in copy_items -%}
+        {# Title #}
+        {%- if copy_item.title -%}
+          {%- if copy_item.link_attributes -%}
+            {%- embed "@atoms/01-links/link/link.twig" with {
+              "link_attributes": copy_item.link_attributes,
+              "link_base_class": copy_item.link_base_class,
+              "link_modifiers": copy_item.link_modifiers,
+              "link_blockname": copy_base_class,
+            } -%}
+              {%- block link_content -%}
+                {%- include "@atoms/03-text/01-heading/_heading.twig" with {
+                  "heading_level": 2,
+                  "heading_content": copy_item.title,
+                  "heading_base_class": copy_item.base_class,
+                  "heading_blockname": copy_base_class,
+                  "heading_modifiers": copy_item.modifiers,
+                } -%}
+              {%- endblock -%}
+            {%- endembed -%}
+          {%- else -%}
+            {%- include "@atoms/03-text/01-heading/_heading.twig" with {
+              "heading_level": 2,
+              "heading_content": copy_item.title,
+              "heading_base_class": copy_item.base_class,
+              "heading_blockname": copy_base_class,
+              "heading_modifiers": copy_item.modifiers,
+            } -%}
+          {%- endif -%}
+        {%- endif -%}
+        {# End Title #}
+
+        {# Subtitle #}
+        {%- if copy_item.subtitle -%}
+          {%- if copy_item.link_attributes -%}
+            {%- embed "@atoms/01-links/link/link.twig" with {
+              "link_attributes": copy_item.link_attributes,
+              "link_base_class": copy_item.link_base_class,
+              "link_modifiers": copy_item.link_modifiers,
+              "link_blockname": copy_base_class,
+            } -%}
+              {%- block link_content -%}
+                {%- include "@atoms/03-text/01-heading/_heading.twig" with {
+                  "heading_level": 3,
+                  "heading_content": copy_item.subtitle,
+                  "heading_base_class": copy_item.base_class,
+                  "heading_blockname": copy_base_class,
+                  "heading_modifiers": copy_item.modifiers,
+                } -%}
+              {%- endblock -%}
+            {%- endembed -%}
+          {%- else -%}
+            {%- include "@atoms/03-text/01-heading/_heading.twig" with {
+              "heading_level": 3,
+              "heading_content": copy_item.subtitle,
+              "heading_base_class": copy_item.base_class,
+              "heading_blockname": copy_base_class,
+              "heading_modifiers": copy_item.modifiers,
+            } -%}
+          {%- endif -%}
+        {%- endif -%}
+        {# End Title #}
+
+        {# Body #}
+        {%- if copy_item.body -%}
+          {%- if copy_item.link_attributes -%}
+            {%- embed "@atoms/01-links/link/link.twig" with {
+              "link_attributes": copy_item.link_attributes,
+              "link_base_class": copy_item.link_base_class,
+              "link_modifiers": copy_item.link_modifiers,
+              "link_blockname": copy_base_class,
+            } -%}
+              {%- block link_content -%}
+                {%- include "@atoms/03-text/02-paragraph/paragraph.twig" with {
+                  "paragraph_content": copy_item.body,
+                  "paragraph_base_class": copy_item.base_class,
+                  "paragraph_blockname": copy_base_class,
+                  "paragraph_modifiers": copy_item.modifiers,
+                } -%}
+              {%- endblock -%}
+            {%- endembed -%}
+          {%- else -%}
+            {%- include "@atoms/03-text/02-paragraph/paragraph.twig" with {
+              "paragraph_content": copy_item.body,
+              "paragraph_base_class": copy_item.base_class,
+              "paragraph_blockname": copy_base_class,
+              "paragraph_modifiers": copy_item.modifiers,
+            } -%}
+          {%- endif -%}
+        {%- endif -%}
+        {# End Body #}
+
+        {# Button #}
+        {%- if copy_item.button_attributes -%}
+          {%- include "@atoms/02-form_elements/01-button/00-button.twig" with {
+            "button_content": copy_item.button,
+            "button_attributes": copy_item.button_attributes,
+            "button_base_class": copy_item.base_class,
+            "button_blockname": copy_base_class,
+            "button_modifiers": copy_item.modifiers,
+          } -%}
+        {%- endif -%}
+        {# End Button #}
+
+        {# Link #}
+        {%- if copy_item.link_attributes -%}
+          {%- include "@atoms/01-links/link/link.twig" with {
+            "link_content": copy_item.link,
+            "link_attributes": copy_item.link_attributes,
+            "link_base_class": copy_item.link_base_class,
+            "link_modifiers": copy_item.link_modifiers,
+            "link_blockname": copy_base_class,
+          } -%}
+        {%- endif -%}
+        {# End Link #}
+
+
+    {%- endfor -%}
+  {%- endblock -%}
+  </div>

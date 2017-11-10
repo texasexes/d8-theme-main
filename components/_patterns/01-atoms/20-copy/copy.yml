@@ -1,0 +1,73 @@
+copy_items:
+  # Image
+  1:
+    img_attributes:
+      src:
+          '../../images/fpo_16x9.png'
+      alt:
+        "This is the hero image's alt text"
+
+  # Title
+  2:
+    base_class:
+      title
+    label:
+      "This is a Title Label"
+    title:
+      "This is a Title"
+
+  # Title
+  3:
+    base_class:
+      title
+    label:
+      "This is a Title Label"
+    title:
+      "This is a Title with a link wrapper."
+    link_attributes:
+      url: "#"
+    modifiers:
+      1:
+        link
+
+  # Subtitle
+  4:
+    base_class:
+      subtitle
+    subtitle:
+      "This is a subtitle."
+
+  # Subtitle
+  5:
+    base_class:
+      subtitle
+    subtitle:
+      "This is subtitle with a link wrapper."
+    link_attributes:
+      url: "#"
+    modifiers:
+      1:
+        link
+
+  # Body
+  6:
+    base_class:
+      body
+    body:
+      'This is a body. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+
+  # Link
+  7:
+    link:
+      'This is a Link'
+    link_attributes:
+      href:
+        '#'
+
+  # Button
+  8:
+    button:
+      'This is a Button'
+    button_attributes:
+      href:
+        '#'

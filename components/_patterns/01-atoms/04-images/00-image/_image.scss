@@ -1,11 +1,20 @@
-@mixin img {
+@mixin image {
   display: block;
   height: auto;
   width: 100%;
 }
 
-.img,
-.image__img,
+// When an image is a block, this is it's class (BEM)
+.img {
+  @include image;
+}
+
+// An img that is an element of a card block
 .card__img {
-  @include img;
+  @extend .img;
+}
+
+// An img that is an element of an inset block
+.inset__img {
+  @extend .img;
 }

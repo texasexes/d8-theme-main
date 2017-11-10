@@ -1,0 +1,92 @@
+@mixin grid-item($columns: '') {
+  flex-grow: 1;
+  margin-bottom: 1em;
+  width: 100%;
+
+  @include large {
+    margin: 0 3% 3% 0;
+    width: auto;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  @if $columns == 2 {
+    @include large {
+      width: 48.2%;
+
+      &:nth-child(2n) {
+        margin-right: 0;
+      }
+    }
+  }
+
+  @if $columns == 3 {
+    @include large {
+      width: 31%;
+
+      &:nth-child(3n) {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+.grid-item {
+  @include grid-item;
+}
+
+.flex-grid__grid-item {
+  @extend .grid-item;
+
+  // With Columns
+  .flex-grid--columns-2 & {
+    @include grid-item(2);
+  }
+
+  .flex-grid--columns-3 & {
+    @include grid-item(3);
+  }
+
+  // Pattern Lab Specific
+  .flex-grid--pl & {
+    background-color: rgba(0, 0, 0, 0.2);
+    min-height: 100px;
+
+    &:nth-of-type(odd) {
+      background: yellow;
+    }
+
+    &:nth-of-type(even) {
+      background: lightblue;
+    }
+  }
+}
+
+.test-flex-grid__grid-item {
+  @extend .grid-item;
+
+  // With Columns
+  .test-flex-grid__flex-grid--columns-2 & {
+    @include grid-item(2);
+  }
+
+  .test-flex-grid__flex-grid--columns-3 & {
+    @include grid-item(3);
+  }
+
+  // Pattern Lab Specific
+  .test-flex-grid__flex-grid--pl & {
+    background-color: rgba(0, 0, 0, 0.2);
+    min-height: 100px;
+
+    &:nth-of-type(odd) {
+      background: yellow;
+    }
+
+    &:nth-of-type(even) {
+      background: lightblue;
+    }
+  }
+}

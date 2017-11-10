@@ -12,6 +12,7 @@
   }
 }
 
+// When a link is a block, this is it's class (BEM)
 .link {
   @include link;
 }

@@ -7,6 +7,7 @@
   margin: #{$margin};
 }
 
+// When a paragraph is a block, this is it's class (BEM)
 .paragraph {
   @include paragraph;
 }

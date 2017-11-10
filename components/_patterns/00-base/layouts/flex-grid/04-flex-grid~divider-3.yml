@@ -1,0 +1,15 @@
+flex_grid_label:
+  "3-Column Divider Example"
+flex_grid_modifiers:
+  1:
+    divider
+  2:
+    pl
+  3:
+    columns-3
+items:
+  one:
+  two:
+  three:
+  four:
+  five:

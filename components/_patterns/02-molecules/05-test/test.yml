@@ -1,0 +1,27 @@
+test_grid_modifiers:
+  1:
+    columns-2
+  2:
+    pl
+test_items:
+  # Image
+  1:
+    img_attributes:
+      src:
+          '../../images/fpo_16x9.png'
+  # Title
+  2:
+    title:
+      "This is a base hero Title"
+    base_class:
+      title
+
+  # Subtitle
+  3:
+    subtitle:
+      "This is the base hero subtitle nisl tempus convallis quis ac lectus."
+    base_class:
+      subtitle
+  # Link
+  5:
+    link_url:

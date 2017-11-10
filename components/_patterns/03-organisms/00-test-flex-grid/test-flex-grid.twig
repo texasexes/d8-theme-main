@@ -1,0 +1,28 @@
+{% set test_flex_grid_base_class = 'test-flex-grid' %}
+
+{% embed "@base/layouts/flex-grid/00-flex-grid.twig" with {
+  "flex_grid_modifiers": test_flex_grid_modifiers,
+  "flex_grid_blockname": test_flex_grid_base_class,
+}%}
+
+  {% block flex_grid_content %}
+    {% for i in 1..5 %}
+
+      {% embed "@base/layouts/grid-item/_grid-item.twig" with {
+        "grid_item_blockname": test_flex_grid_base_class,
+      } %}
+        {% block grid_item_content %}
+
+          {% embed "@molecules/05-test/test.twig" with {
+            "test_items": test_flex_grid_items,
+          }%}
+          {% endembed %}
+
+        {% endblock grid_item_content %}
+      {% endembed %}
+
+    {% endfor %}
+
+  {% endblock flex_grid_content %}
+
+{% endembed %}
