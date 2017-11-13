@@ -11,3 +11,8 @@
 .paragraph {
   @include paragraph;
 }
+
+// An paragraph that is an element of a paragraph-01 block
+.paragraph-01__paragraph {
+  @extend .paragraph;
+}

@@ -29,7 +29,7 @@
 
 {% block item_block %}
   {% include "@atoms/03-text/02-paragraph/paragraph.twig" with {
-    "paragraph_content": item.content|render|striptags,
     "paragraph_attributes": item.attributes,
+    "paragraph_content": item.content|render|striptags,
   } %}
 {% endblock %}

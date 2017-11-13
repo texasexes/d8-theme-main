@@ -2,27 +2,22 @@
 {# This var is set to prevent add_attributes griping about an empty var #}
 {% set flex_grid_attributes = flex_grid_attributes|default([]) %}
 
-{% if flex_grid_label %}
-  {% include "@atoms/03-text/01-heading/_heading.twig" with {
-    "heading_level": 2,
-    "heading_content": flex_grid_label,
-  } %}
-{% endif %}
+{% set flex_grid_content_temp %}
+  {% for item in items %}
+    {% include "@base/layouts/grid-item/_grid-item.twig" with {
+      "grid_item_blockname": flex_grid_base_class,
+      "grid_item_content": item,
+    } %}
+  {% endfor %}
+{% endset %}
+
+{% set flex_grid_content = flex_grid_content|default(flex_grid_content_temp) %}
+
 <div
   {{ bem(flex_grid_base_class, (flex_grid_modifiers), flex_grid_blockname) }}
   {{ add_attributes(flex_grid_attributes) }}
 >
-  {% block flex_grid_content %}
-    {% for item in items %}
-
-      {% embed "@base/layouts/grid-item/_grid-item.twig" with {
-        "grid_item_blockname": flex_grid_base_class,
-      } %}
-        {% block grid_item_content %}
-          {{ item }}
-        {% endblock grid_item_content %}
-      {% endembed %}
-
-    {% endfor %}
-  {% endblock flex_grid_content %}
+  {% block flex_grid_block %}
+    {{ flex_grid_content }}
+  {% endblock flex_grid_block %}
 </div>

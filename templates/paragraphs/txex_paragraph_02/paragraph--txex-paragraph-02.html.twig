@@ -1,0 +1,32 @@
+{% extends "paragraph.html.twig" %}
+
+{% set paragraph_02_base_class = 'paragraph-02' %}
+
+{% block content %}
+
+  {#% for key, child in content['field_para_in_para'] if key|first != '#' %#}
+    <!-- <div>{#{ child }#}</div> -->
+  {#% endfor %#}
+
+  {% set flex_grid_content %}
+    {% for key, child in content['field_para_in_para'] if key|first != '#' %}
+      {% include "@base/layouts/grid-item/_grid-item.twig" with {
+        "grid_item_blockname": paragraph_02_base_class,
+        "grid_item_content": child,
+      } %}
+    {% endfor %}
+  {% endset %}
+
+  {% embed "@organisms/00-flex-layout-1/flex-layout-1.twig" with {
+    "flex_layout_1_modifiers": {1 : 'columns-3' },
+    "flex_layout_1_base_class": paragraph_02_base_class,
+    "flex_grid_content": flex_grid_content,
+  }%}
+
+  {% endembed %}
+
+{% endblock content %}
+
+{# https://drupal.stackexchange.com/questions/208723/iterate-through-multiple-value-content-field-in-twig-template
+https://drupal.stackexchange.com/questions/174742/loop-through-child-elements-in-twig-like-elementchildren
+#}

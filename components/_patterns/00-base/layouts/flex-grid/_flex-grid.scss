@@ -7,6 +7,14 @@
   @include flex-grid;
 }
 
-.test-flex-grid__flex-grid {
+.flex-layout-1__flex-grid {
+  @extend .flex-grid;
+}
+
+.paragraph-01__flex-grid {
+  @extend .flex-grid;
+}
+
+.paragraph-02__flex-grid {
   @extend .flex-grid;
 }

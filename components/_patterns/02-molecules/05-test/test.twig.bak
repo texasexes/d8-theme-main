@@ -6,37 +6,40 @@
   "flex_grid_blockname": test_blockname,
 }%}
 
-  {% block flex_grid_block %}
-
-    {% embed "@base/layouts/grid-item/_grid-item.twig" with {
-      "grid_item_blockname": flex_grid_base_class,
-      "grid_item_content": grid_item_content_1
-    } %}
-
-      {% block grid_item_block %}
-        {{ parent() }}
-        {% for item in test_items %}
-          {%- if item.img_attributes -%}
-
-            {%- include "@atoms/04-images/00-image/00-image.twig" with {
-              "img_attributes": item.img_attributes,
-              "img_blockname": test_base_class,
-            } -%}
-
-          {%- endif -%}
-        {% endfor %}
-      {% endblock grid_item_block %}
-
-    {% endembed %}
+  {% block flex_grid_content %}
 
 
-    {% embed "@base/layouts/grid-item/_grid-item.twig" with {
-      "grid_item_blockname": flex_grid_base_class,
-      "grid_item_content": grid_item_content_2
-    } %}
+      <!-- <div class="flex-grid__item">{#{ item }#}</div> -->
 
-      {% block grid_item_block %}
-        {{ parent()}}
+
+
+        {% embed "@base/layouts/grid-item/_grid-item.twig" with {
+          "grid_item_blockname": flex_grid_base_class,
+        } %}
+          {% block grid_item_content %}
+
+      {% block test_block_1 %}
+      {{ parent() }}
+            {% for item in test_items %}
+              {%- if item.img_attributes -%}
+
+                {%- include "@atoms/04-images/00-image/00-image.twig" with {
+                  "img_attributes": item.img_attributes,
+                  "img_blockname": test_base_class,
+                } -%}
+
+              {%- endif -%}
+            {% endfor %}
+      {% endblock test_block_1 %}
+
+          {% endblock grid_item_content %}
+        {% endembed %}
+
+
+
+
+    <div class="flex-grid__item">
+      {% block test_block_2 %}
         {% for item in test_items %}
           {# Title #}
           {%- if item.title -%}
@@ -153,11 +156,10 @@
           {%- endif -%}
           {# End Link #}
         {% endfor %}
-      {% endblock grid_item_block %}
+      {% endblock test_block_2 %}
+    </div>
 
-    {% endembed %}
 
-
-  {% endblock flex_grid_block %}
+  {% endblock flex_grid_content %}
 
 {% endembed %}

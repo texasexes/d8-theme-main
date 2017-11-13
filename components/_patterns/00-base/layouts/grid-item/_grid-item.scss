@@ -64,20 +64,20 @@
   }
 }
 
-.test-flex-grid__grid-item {
+.flex-layout-1__grid-item {
   @extend .grid-item;
 
   // With Columns
-  .test-flex-grid__flex-grid--columns-2 & {
+  .flex-layout-1__flex-grid--columns-2 & {
     @include grid-item(2);
   }
 
-  .test-flex-grid__flex-grid--columns-3 & {
+  .flex-layout-1__flex-grid--columns-3 & {
     @include grid-item(3);
   }
 
   // Pattern Lab Specific
-  .test-flex-grid__flex-grid--pl & {
+  .flex-layout-1__flex-grid--pl & {
     background-color: rgba(0, 0, 0, 0.2);
     min-height: 100px;
 
@@ -88,5 +88,31 @@
     &:nth-of-type(even) {
       background: lightblue;
     }
+  }
+}
+
+.paragraph-01__grid-item {
+  @extend .grid-item;
+
+  // With Columns
+  .paragraph-01__flex-grid--columns-2 & {
+    @include grid-item(2);
+  }
+
+  .paragraph-01__flex-grid--columns-3 & {
+    @include grid-item(3);
+  }
+}
+
+.paragraph-02__grid-item {
+  @extend .grid-item;
+
+  // With Columns
+  .paragraph-02__flex-grid--columns-2 & {
+    @include grid-item(2);
+  }
+
+  .paragraph-02__flex-grid--columns-3 & {
+    @include grid-item(3);
   }
 }
