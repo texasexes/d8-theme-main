@@ -10,7 +10,10 @@ hero_items:
       "This is a base hero Title"
     base_class:
       title
-      
+    modifiers:
+      1:
+        alt-1
+
   # Subtitle
   3:
     subtitle:

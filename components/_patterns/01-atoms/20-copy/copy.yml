@@ -15,6 +15,9 @@ copy_items:
       "This is a Title Label"
     title:
       "This is a Title"
+    modifiers:
+      1:
+        "alt-1"
 
   # Title
   3:

@@ -3,7 +3,7 @@
   // padding: 1em;
   position: relative;
 
-  .copy__title {
+  .hero__title {
     @include heading($font-size: 1.3rem);
     @include no-bottom;
 
@@ -12,7 +12,7 @@
     }
   }
 
-  .copy__title {
+  .hero__title {
     display: inline-block;
     padding: 0.25em 0.5em;
     background-color: $gray-lightest;
@@ -23,13 +23,13 @@
     // left: 3%;
   }
 
-  .copy__subtitle {
+  .hero__subtitle {
     @include heading($font-size: 1rem);
     @include no-bottom;
     // color: $gray;
   }
 
-  .copy__subtitle {
+  .hero__subtitle {
     font-size: 2em;
     margin: 2em;
 
@@ -37,18 +37,18 @@
     // left: 3%;
   }
 
-  .copy__body {
+  .hero__body {
     margin: 0.7em 0 1em;
 
     // position: relative;
     // left: 3%;
   }
 
-  .copy__link {
+  .hero__link {
     @include link;
   }
 
-  .copy__button {
+  .hero__button {
     @include button;
     // display: block;
     margin: auto;
@@ -93,13 +93,13 @@
     border-style: solid;
   }
 
-  .copy__title {
+  .hero__title {
     position: relative;
     // top: -4em;
     margin-bottom: 1em;
   }
 
-  .copy__subtitle {
+  .hero__subtitle {
     position: relative;
     // left: 0;
     font-size: 2em;
@@ -121,7 +121,7 @@
     position: static;
   }
 
-  .copy__title {
+  .hero__title {
     font-size: 2em;
     margin: 0;
     padding: 0;
@@ -129,7 +129,7 @@
     border-style: none;
   }
 
-  .copy__subtitle {
+  .hero__subtitle {
     padding: 1em 0;
     margin: 0;
     font-size: 1em;

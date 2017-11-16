@@ -62,7 +62,7 @@
                   "heading_level": 2,
                   "heading_content": copy_item.title,
                   "heading_base_class": copy_item.base_class,
-                  "heading_blockname": copy_base_class,
+                  "heading_blockname": copy_blockname,
                   "heading_modifiers": copy_item.modifiers,
                 } -%}
               {%- endblock -%}
@@ -72,7 +72,7 @@
               "heading_level": 2,
               "heading_content": copy_item.title,
               "heading_base_class": copy_item.base_class,
-              "heading_blockname": copy_base_class,
+              "heading_blockname": copy_blockname,
               "heading_modifiers": copy_item.modifiers,
             } -%}
           {%- endif -%}
@@ -93,7 +93,7 @@
                   "heading_level": 3,
                   "heading_content": copy_item.subtitle,
                   "heading_base_class": copy_item.base_class,
-                  "heading_blockname": copy_base_class,
+                  "heading_blockname": copy_blockname,
                   "heading_modifiers": copy_item.modifiers,
                 } -%}
               {%- endblock -%}
@@ -103,7 +103,7 @@
               "heading_level": 3,
               "heading_content": copy_item.subtitle,
               "heading_base_class": copy_item.base_class,
-              "heading_blockname": copy_base_class,
+              "heading_blockname": copy_blockname,
               "heading_modifiers": copy_item.modifiers,
             } -%}
           {%- endif -%}
@@ -123,7 +123,7 @@
                 {%- include "@atoms/03-text/02-paragraph/paragraph.twig" with {
                   "paragraph_content": copy_item.body,
                   "paragraph_base_class": copy_item.base_class,
-                  "paragraph_blockname": copy_base_class,
+                  "paragraph_blockname": copy_blockname,
                   "paragraph_modifiers": copy_item.modifiers,
                 } -%}
               {%- endblock -%}
@@ -132,7 +132,7 @@
             {%- include "@atoms/03-text/02-paragraph/paragraph.twig" with {
               "paragraph_content": copy_item.body,
               "paragraph_base_class": copy_item.base_class,
-              "paragraph_blockname": copy_base_class,
+              "paragraph_blockname": copy_blockname,
               "paragraph_modifiers": copy_item.modifiers,
             } -%}
           {%- endif -%}
@@ -145,7 +145,7 @@
             "button_content": copy_item.button,
             "button_attributes": copy_item.button_attributes,
             "button_base_class": copy_item.base_class,
-            "button_blockname": copy_base_class,
+            "button_blockname": copy_blockname,
             "button_modifiers": copy_item.modifiers,
           } -%}
         {%- endif -%}
