@@ -1,0 +1,12 @@
+link_modifiers:
+  1:
+    alt
+  2:
+    more-link
+link_attributes:
+  target:
+    _blank
+  href:
+    "#"
+link_content:
+  "This is my link text"

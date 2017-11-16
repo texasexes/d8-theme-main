@@ -1,0 +1,18 @@
+// Create a mixin for paragraph styles that can be implemented
+// in components with other classnames.
+@mixin paragraph(
+  $margin: 0 0 1em,
+  $font-family: $font-paragraph) {
+  font-family: #{$font-family};
+  margin: #{$margin};
+}
+
+// When a paragraph is a block, this is it's class (BEM)
+.paragraph {
+  @include paragraph;
+}
+
+// An paragraph that is an element of a paragraph-01 block
+.paragraph-01__paragraph {
+  @extend .paragraph;
+}

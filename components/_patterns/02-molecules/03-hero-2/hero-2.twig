@@ -1,0 +1,30 @@
+
+{% set hero_base_class = 'hero-2' %}
+
+<div {{ bem(hero_base_class, (hero_modifiers), hero_blockname) }}>
+
+
+    {% embed "@atoms/21-inset/inset.twig" with {
+      "inset_items": hero_items,
+      "inset_blockname": hero_base_class,
+    }%}
+      {% block inset_block  %}
+        {{ parent() }}
+        {{ dummy_inset_block }}
+      {% endblock %}
+    {% endembed %}
+
+
+  {% block hero_copy_block %}
+    {% embed "@atoms/20-copy/copy.twig" with {
+      "copy_items": hero_items,
+      "copy_blockname": hero_base_class,
+    }%}
+      {% block copy_block  %}
+        {{ parent() }}
+        {{ dummy_copy_block }}
+      {% endblock %}
+    {% endembed %}
+  {% endblock %}
+
+</div>

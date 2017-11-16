@@ -1,0 +1,49 @@
+hero_modifiers:
+  1:
+    bottom
+hero_items:
+  # Image
+  1:
+    img_attributes:
+      src:
+          '../../images/fpo_16x9.png'
+      alt:
+        "This is the hero image's alt text"
+
+  # Title
+  2:
+    base_class:
+      title
+    label:
+      "This is a hero-left Label"
+    title:
+      "This is a hero-left title"
+    modifiers:
+      1:
+        no-space
+    blockname:
+
+  # Subtitle
+  3:
+    base_class:
+      subtitle
+    subtitle:
+      "This is the hero subtitle nisl tempus convallis quis ac lectus."
+    modifiers:
+      1:
+        no-space
+
+  # Body
+  4:
+    body:
+      'This is the hero body porta dapibus. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.'
+    base_class:
+      body
+
+  # Link
+  5:
+    link_attributes:
+
+  # Button
+  6:
+    button_attributes:

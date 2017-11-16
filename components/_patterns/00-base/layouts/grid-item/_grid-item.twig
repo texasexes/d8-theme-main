@@ -1,0 +1,13 @@
+{# A grid-item uses this class along with the blockname whenever it is an element (BEM)#}
+{% set grid_item_base_class = 'grid-item' %}
+{# This var is set to prevent add_attributes griping about an empty var #}
+{% set grid_item_attributes = grid_item_attributes|default([]) %}
+
+<div
+  {{ bem(grid_item_base_class, (grid_item_modifiers), grid_item_blockname) }}
+  {{ add_attributes(grid_item_attributes) }}
+>
+  {% block grid_item_block %}
+    {{ grid_item_content }}
+  {% endblock %}
+</div>

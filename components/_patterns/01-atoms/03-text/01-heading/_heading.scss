@@ -1,0 +1,95 @@
+//
+// Generic header styles:
+// All arguments are optional. If not defined, the defaults below will be used
+//
+@mixin heading(
+  $color: inherit,
+  $color-link: inherit,
+  $color-link-hover: inherit,
+  $font-family: $font-heading,
+  $font-size: 2rem,
+  $font-weight: 700,
+  $line-height: 1.4,
+  $margin: 0 0 0.5em) {
+  color: #{$color};
+  font-family: #{$font-family};
+  font-size: #{$font-size};
+  font-style: normal;
+  font-weight: #{$font-weight};
+  line-height: #{$line-height};
+  margin: #{$margin};
+  width: auto;
+
+  // &__link {
+  //   color: $color-link;
+  //
+  //   &:hover {
+  //     color: $color-link-hover;
+  //   }
+  // }
+}
+
+.h1 {
+  @include heading;
+}
+
+.h2 {
+  @include heading($font-size: 1.8rem);
+}
+
+.h3 {
+  @include heading($font-size: 1.4rem, $line-height: 1.6);
+}
+
+.h4 {
+  @include heading($font-size: 1.2rem, $line-height: 1.6, $font-weight: 600);
+}
+
+.h5,
+.h6 {
+  @include heading($font-size: 1.1rem, $line-height: 2, $font-weight: 600);
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+.hero__title {
+  &--alt-1 {
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+    box-shadow: 5px 5px 3px #2d2d2d;
+    padding: 0 0.5em;
+  }
+}
+
+// TODO: BEM selectors should be applied to wysiwyg-created content
+
+.text-long {
+  h1 {
+    @extend .h1;
+  }
+
+  h2 {
+    @extend .h2;
+  }
+
+  h3 {
+    @extend .h3;
+  }
+
+  h4 {
+    @extend .h4;
+  }
+
+  h5 {
+    @extend .h5;
+  }
+
+  h6 {
+    @extend .h6;
+  }
+}

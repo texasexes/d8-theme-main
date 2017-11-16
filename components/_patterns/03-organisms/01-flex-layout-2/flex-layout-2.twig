@@ -1,0 +1,25 @@
+{% set flex_layout_2_base_class = flex_layout_2_base_class|default('flex-layout-2') %}
+
+{% embed "@base/layouts/flex-grid/00-flex-grid.twig" with {
+  "flex_grid_modifiers": flex_layout_2_modifiers,
+  "flex_grid_blockname": flex_layout_2_base_class,
+  "flex_grid_items": flex_layout_2_items,
+}%}
+
+    {% block flex_grid_block %}
+
+        {# content for patternlab #}
+        {% if flex_grid_item.test_items_1 %}
+          {% set flex_grid_item %}
+            {%- include "@molecules/05-test/test.twig" with {
+              "test_items_1": flex_grid_item.test_items_1,
+              "test_items_2": flex_grid_item.test_items_2,
+            } -%}
+          {% endset %}
+        {% endif %}
+
+
+        {{ parent() }}
+    {% endblock flex_grid_block %}
+
+{% endembed %}

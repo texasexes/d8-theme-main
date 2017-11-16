@@ -1,0 +1,53 @@
+@mixin button(
+  $background-color: $color-button--bg,
+  $background-color--hover: $color-button--bg--hover,
+  $color: $color-button--text,
+  $color--hover: $color-button--text--hover,
+  $color--visited: $color-button--text--visited) {
+  background-color: $background-color;
+  border: none;
+  border-radius: 5px;
+  color: $color;
+  cursor: pointer;
+  display: block;
+  line-height: 1.4;
+  padding: 0.5em 1em;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  &:visited {
+    color: $color--visited;
+  }
+
+  &:hover {
+    background-color: $background-color--hover;
+    color: $color--hover;
+  }
+}
+
+// When a button is a block, this is it's class (BEM)
+.button {
+  @include button;
+
+  &--alt-1 {
+    @include button(
+      $background-color: $color-button--alt-1--bg
+    );
+
+    font-size: 0.65em;
+    padding: 0.65em 1em;
+  }
+
+  &--alt-2 {
+    @include button(
+      $background-color: $color-button--alt-2--bg,
+      $background-color--hover: $color-button--alt-2--bg--hover,
+      $color: $color-button--alt-2--text,
+      $color--hover: $color-button--alt-2--text--hover
+    );
+
+    font-size: 0.65em;
+    padding: 0.65em 1em;
+  }
+}

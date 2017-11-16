@@ -1,0 +1,22 @@
+{% extends "paragraph.html.twig" %}
+
+  {% block content %}
+
+    {% set tempArray1 = [] %}
+    {% set tempArray2 = [] %}
+
+    {% for key, child in content|without('field_txex_p01_image','field_variant') if key|first != '#' %}
+      {% set tempArray1 = tempArray1|merge({(key) : (child),}) %}
+    {% endfor %}
+
+    {% for key, child in content.field_txex_p01_image if key|first != '#' %}
+      {% set tempArray2 = tempArray2|merge({(key) : (child),}) %}
+    {% endfor %}
+
+    {% include "@molecules/04-hero/hero.twig" with {
+      "hero_modifiers": {"1": content.field_variant[0]['#markup']|clean_class, "2": "right"},
+      "dummy_inset_block": tempArray2,
+      "dummy_copy_block": tempArray1,
+    }%}
+
+  {% endblock %}

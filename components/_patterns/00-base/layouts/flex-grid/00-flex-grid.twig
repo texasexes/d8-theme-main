@@ -1,0 +1,20 @@
+{% set flex_grid_base_class = flex_grid_base_class|default('flex-grid') %}
+{# This var is set to prevent add_attributes griping about an empty var #}
+{% set flex_grid_attributes = flex_grid_attributes|default([]) %}
+
+
+<div
+  {{ bem(flex_grid_base_class, (flex_grid_modifiers), flex_grid_blockname) }}
+  {{ add_attributes(flex_grid_attributes) }}
+>
+  {% for flex_grid_item in flex_grid_items %}
+    {% block flex_grid_block %}
+
+      {% include "@base/layouts/grid-item/_grid-item.twig" with {
+        "grid_item_blockname": flex_grid_blockname|default(flex_grid_base_class),
+        "grid_item_content": flex_grid_item,
+      } %}
+
+    {% endblock flex_grid_block %}
+  {% endfor %}
+</div>
