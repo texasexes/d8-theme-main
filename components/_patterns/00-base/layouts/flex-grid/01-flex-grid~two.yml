@@ -5,7 +5,7 @@ flex_grid_modifiers:
     pl
   2:
     columns-2
-items:
+flex_grid_items:
   1:
   2:
   3:

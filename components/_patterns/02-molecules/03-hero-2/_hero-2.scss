@@ -1,4 +1,4 @@
-.hero {
+.hero-2 {
   @include clearfix;
   // padding: 1em;
   position: relative;
@@ -58,11 +58,11 @@
   }
 }
 
-.hero__inset {
+.hero-2__inset {
   line-height: 0;
 }
 
-.hero__copy {
+.hero-2__copy {
   position: absolute;
   top: 0;
   width: 50%;
@@ -70,19 +70,19 @@
 }
 
 // Variations
-.hero--bg {
+.hero-2--bg {
   background-color: $gray-lightest;
   padding: 1em;
 }
 
-.hero--bottom {
-  .hero__copy {
+.hero-2--bottom {
+  .hero-2__copy {
     position: relative;
     top: -4em;
     width: 100%;
   }
 
-  .hero__copy::before {
+  .hero-2__copy::before {
     position: absolute;
     content: "";
     top: 0;
@@ -107,13 +107,13 @@
   }
 }
 
-.hero--left,
-.hero--right {
-  .hero__inset {
+.hero-2--left,
+.hero-2--right {
+  .hero-2__inset {
     width: 80%;
   }
 
-  .hero__copy {
+  .hero-2__copy {
     padding: 3% 1em;
     margin: 0;
     width: 20%;
@@ -135,24 +135,24 @@
     font-size: 1em;
   }
 
-  &.hero--50,
-  &.hero--50 {
-    .hero__inset,
-    .hero__copy {
+  &.hero-2--left-50,
+  &.hero-2--right-50 {
+    .hero-2__inset,
+    .hero-2__copy {
       width: 50%;
     }
   }
 }
 
-.hero--left {
-  .hero__inset {
+.hero-2--left {
+  .hero-2__inset {
     padding-left: 0 0 0 10px;
     float: right;
   }
 }
 
-.hero--right {
-  .hero__inset {
+.hero-2--right {
+  .hero-2__inset {
     padding: 0 10px 0 0;
     float: left;
   }

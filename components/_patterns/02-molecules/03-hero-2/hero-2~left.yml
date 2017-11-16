@@ -1,23 +1,21 @@
 hero_modifiers:
   1:
-    right
-  2:
-    "50"
+    left
 hero_items:
   # Image
   1:
     img_attributes:
       src:
-          '../../images/fpo_square.png'
+          '../../images/fpo_16x9.png'
       alt:
         "This is the hero image's alt text"
 
   # Title
   2:
     label:
-      "This is a hero-right 50 Label"
+      "This is a hero-left Label"
     title:
-      "This is a hero-right 50 title"
+      "This is a hero-left title"
     modifiers:
       1:
         no-space

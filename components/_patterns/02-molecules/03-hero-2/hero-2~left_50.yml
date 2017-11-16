@@ -1,8 +1,8 @@
 hero_modifiers:
   1:
-    right
+    left
   2:
-    "50"
+    left-50
 hero_items:
   # Image
   1:
@@ -15,9 +15,9 @@ hero_items:
   # Title
   2:
     label:
-      "This is a hero-right 50 Label"
+      "This is a hero-left 50 Label"
     title:
-      "This is a hero-right 50 title"
+      "This is a hero-left 50 title"
     modifiers:
       1:
         no-space

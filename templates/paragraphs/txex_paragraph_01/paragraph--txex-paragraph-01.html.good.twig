@@ -13,10 +13,12 @@
       {% set tempArray2 = tempArray2|merge({(key) : (child),}) %}
     {% endfor %}
 
-    {% include "@molecules/04-hero/hero.twig" with {
-      "hero_modifiers": {"1": content.field_variant[0]['#markup']|clean_class, "2": "right"},
-      "dummy_inset_block": tempArray2,
-      "dummy_copy_block": tempArray1,
+    {% include "@molecules/05-test/test.twig" with {
+      "test_modifiers": {"1": content.field_variant[0]['#markup']|clean_class},
+      "test_blockname": "paragraph-01",
+      "flex_grid_item": "",
+      "test_items_1": tempArray1,
+      "test_items_2": tempArray2,
     }%}
 
   {% endblock %}

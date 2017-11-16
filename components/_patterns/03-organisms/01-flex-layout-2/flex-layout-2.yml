@@ -1,8 +1,8 @@
-flex_layout_1_modifiers:
+flex_layout_2_modifiers:
   1:
     pl
 
-flex_layout_1_items:
+flex_layout_2_items:
   # Items 1
   1:
     test_items_1:

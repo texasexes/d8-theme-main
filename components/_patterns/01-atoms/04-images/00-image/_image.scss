@@ -18,3 +18,8 @@
 .inset__img {
   @extend .img;
 }
+
+// An img that is an element of a paragraph block
+.paragraph__img {
+  @extend .img;
+}

@@ -1,36 +1,61 @@
 @mixin grid-item($columns: '') {
-  flex-grow: 1;
+  flex: 1 1 0; //flex grow, flex shrink, flex basis
   margin-bottom: 1em;
-  width: 100%;
+  // width: 100%;
 
   @include large {
-    margin: 0 3% 3% 0;
-    width: auto;
+    padding: 3%;
+    // width: auto;
   }
 
   &:last-child {
-    margin-right: 0;
+    // padding-right: 0;
   }
 
   @if $columns == 2 {
     @include large {
-      width: 48.2%;
+      // width: 48.2%;
+      flex: 1 0 50%; //flex grow, flex shrink, flex basis
 
       &:nth-child(2n) {
-        margin-right: 0;
+        // margin-right: 0;
       }
     }
   }
 
   @if $columns == 3 {
     @include large {
-      width: 31%;
+      // width: 31%;
+      flex: 1 0 33%; //flex grow, flex shrink, flex basis
 
       &:nth-child(3n) {
-        margin-right: 0;
+        // padding-right: 0;
       }
     }
   }
+
+  @if $columns == 4 {
+    @include large {
+      // width: 31%;
+      flex: 1 1 25%; //flex grow, flex shrink, flex basis
+
+      &:nth-child(4n) {
+        // padding-right: 0;
+      }
+    }
+  }
+
+  @if $columns == 5 {
+    @include large {
+      // width: 31%;
+      flex: 1 1 20%; //flex grow, flex shrink, flex basis
+
+      &:nth-child(5n) {
+        // padding-right: 0;
+      }
+    }
+  }
+
 }
 
 .grid-item {
@@ -49,6 +74,14 @@
     @include grid-item(3);
   }
 
+  .flex-grid--columns-4 & {
+    @include grid-item(4);
+  }
+
+  .flex-grid--columns-5 & {
+    @include grid-item(5);
+  }
+
   // Pattern Lab Specific
   .flex-grid--pl & {
     background-color: rgba(0, 0, 0, 0.2);
@@ -64,6 +97,27 @@
   }
 }
 
+.test__grid-item {
+  @extend .grid-item;
+
+  // With Columns
+  .test__flex-grid--columns-2 & {
+    @include grid-item(2);
+  }
+
+  .test__flex-grid--columns-3 & {
+    @include grid-item(3);
+  }
+
+  .test__flex-grid--columns-4 & {
+    @include grid-item(4);
+  }
+
+  .test__flex-grid--columns-5 & {
+    @include grid-item(5);
+  }
+}
+
 .flex-layout-1__grid-item {
   @extend .grid-item;
 
@@ -76,8 +130,63 @@
     @include grid-item(3);
   }
 
+  .flex-layout-1__flex-grid--columns-4 & {
+    @include grid-item(4);
+  }
+
+  .flex-layout-1__flex-grid--columns-5 & {
+    @include grid-item(5);
+  }
+
   // Pattern Lab Specific
   .flex-layout-1__flex-grid--pl & {
+    background-color: rgba(0, 0, 0, 0.2);
+    min-height: 100px;
+
+    &:nth-of-type(odd) {
+      background: yellow;
+    }
+
+    &:nth-of-type(even) {
+      background: lightblue;
+    }
+  }
+}
+
+.flex-layout-2__grid-item {
+  @extend .grid-item;
+
+  // With Columns
+  .flex-layout-2__flex-grid--columns-2 & {
+    @include grid-item(2);
+    &:first-child {
+      color: red;
+    }
+  }
+
+  .flex-layout-2__flex-grid--columns-3 & {
+    @include grid-item(3);
+    &:first-child {
+      color: red;
+    }
+  }
+
+  .flex-layout-2__flex-grid--columns-4 & {
+    @include grid-item(4);
+    &:first-child {
+      color: red;
+    }
+  }
+
+  .flex-layout-2__flex-grid--columns-5 & {
+    @include grid-item(5);
+    &:first-child {
+      color: red;
+    }
+  }
+
+  // Pattern Lab Specific
+  .flex-layout-2__flex-grid--pl & {
     background-color: rgba(0, 0, 0, 0.2);
     min-height: 100px;
 
@@ -102,6 +211,14 @@
   .paragraph-01__flex-grid--columns-3 & {
     @include grid-item(3);
   }
+
+  .paragraph-01__flex-grid--columns-4 & {
+    @include grid-item(4);
+  }
+
+  .paragraph-01__flex-grid--columns-5 & {
+    @include grid-item(5);
+  }
 }
 
 .paragraph-02__grid-item {
@@ -114,5 +231,13 @@
 
   .paragraph-02__flex-grid--columns-3 & {
     @include grid-item(3);
+  }
+
+  .paragraph-02__flex-grid--columns-4 & {
+    @include grid-item(4);
+  }
+
+  .paragraph-02__flex-grid--columns-5 & {
+    @include grid-item(5);
   }
 }

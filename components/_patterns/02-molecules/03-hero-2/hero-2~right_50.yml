@@ -2,7 +2,7 @@ hero_modifiers:
   1:
     right
   2:
-    "50"
+    right-50
 hero_items:
   # Image
   1:

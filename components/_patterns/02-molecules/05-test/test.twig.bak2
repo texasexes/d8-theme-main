@@ -1,0 +1,157 @@
+{% set test_base_class = 'flex-grid' %}
+
+{% embed "@base/layouts/flex-grid/00-flex-grid.twig" with {
+  "flex_grid_base_class": test_base_class,
+  "flex_grid_modifiers": test_grid_modifiers,
+  "flex_grid_blockname": test_blockname,
+  "flex_grid_items": test_items,
+}%}
+
+  {% block flex_grid_block %}
+
+        {% for item in test_items %}
+          {%- if item.img_attributes -%}
+
+            {% set flex_grid_item %}
+              {%- include "@atoms/04-images/00-image/00-image.twig" with {
+                "img_attributes": item.img_attributes,
+                "img_blockname": test_base_class,
+              } -%}
+            {% endset %}
+
+            {{ parent() }}
+
+          {%- endif -%}
+        {% endfor %}
+
+
+    {% embed "@base/layouts/grid-item/_grid-item.twig" with {
+      "grid_item_blockname": flex_grid_base_class,
+    } %}
+
+      {% block grid_item_block %}
+        {#{ parent()}#}
+        {% for item in test_items %}
+          {# Title #}
+          {%- if item.title -%}
+            {%- if item.link_attributes -%}
+              {%- embed "@atoms/01-links/link/link.twig" with {
+                "link_attributes": item.link_attributes,
+                "link_base_class": item.link_base_class,
+                "link_modifiers": item.link_modifiers,
+                "link_blockname": test_base_class,
+              } -%}
+                {%- block link_content -%}
+                  {%- include "@atoms/03-text/01-heading/_heading.twig" with {
+                    "heading_level": 2,
+                    "heading_content": item.title,
+                    "heading_base_class": item.base_class,
+                    "heading_modifiers": item.modifiers,
+                    "heading_blockname": test_base_class,
+                  } -%}
+                {%- endblock -%}
+              {%- endembed -%}
+            {%- else -%}
+              {%- include "@atoms/03-text/01-heading/_heading.twig" with {
+                "heading_level": 2,
+                "heading_content": item.title,
+                "heading_base_class": item.base_class,
+                "heading_modifiers": item.modifiers,
+                "heading_blockname": test_base_class,
+              } -%}
+            {%- endif -%}
+          {%- endif -%}
+          {# End Title #}
+
+          {# Subtitle #}
+          {%- if item.subtitle -%}
+            {%- if item.link_attributes -%}
+              {%- embed "@atoms/01-links/link/link.twig" with {
+                "link_attributes": item.link_attributes,
+                "link_base_class": item.link_base_class,
+                "link_modifiers": item.link_modifiers,
+                "link_blockname": test_base_class,
+              } -%}
+                {%- block link_content -%}
+                  {%- include "@atoms/03-text/01-heading/_heading.twig" with {
+                    "heading_level": 3,
+                    "heading_content": item.subtitle,
+                    "heading_base_class": item.base_class,
+                    "heading_modifiers": item.modifiers,
+                    "heading_blockname": test_base_class,
+                  } -%}
+                {%- endblock -%}
+              {%- endembed -%}
+            {%- else -%}
+              {%- include "@atoms/03-text/01-heading/_heading.twig" with {
+                "heading_level": 3,
+                "heading_content": item.subtitle,
+                "heading_base_class": item.base_class,
+                "heading_modifiers": item.modifiers,
+                "heading_blockname": test_base_class,
+              } -%}
+            {%- endif -%}
+          {%- endif -%}
+          {# End Title #}
+
+          {# Body #}
+          {%- if item.body -%}
+            {%- if item.link_attributes -%}
+              {%- embed "@atoms/01-links/link/link.twig" with {
+                "link_attributes": item.link_attributes,
+                "link_base_class": item.link_base_class,
+                "link_modifiers": item.link_modifiers,
+                "link_blockname": test_base_class,
+              } -%}
+                {%- block link_content -%}
+                  {%- include "@atoms/03-text/02-paragraph/paragraph.twig" with {
+                    "paragraph_content": item.body,
+                    "paragraph_base_class": item.base_class,
+                    "paragraph_modifiers": item.modifiers,
+                    "paragraph_blockname": test_base_class,
+                  } -%}
+                {%- endblock -%}
+              {%- endembed -%}
+            {%- else -%}
+              {%- include "@atoms/03-text/02-paragraph/paragraph.twig" with {
+                "paragraph_content": item.body,
+                "paragraph_base_class": item.base_class,
+                "paragraph_modifiers": item.modifiers,
+                "paragraph_blockname": test_base_class,
+              } -%}
+            {%- endif -%}
+          {%- endif -%}
+          {# End Body #}
+
+          {# Button #}
+          {%- if item.button_attributes -%}
+            {%- include "@atoms/02-form_elements/01-button/00-button.twig" with {
+              "button_content": item.button,
+              "button_attributes": item.button_attributes,
+              "button_base_class": item.base_class,
+              "button_modifiers": item.modifiers,
+              "button_blockname": test_base_class,
+            } -%}
+          {%- endif -%}
+          {# End Button #}
+
+          {# Link #}
+          {%- if item.link_attributes -%}
+            {%- include "@atoms/01-links/link/link.twig" with {
+              "link_content": item.link,
+              "link_attributes": item.link_attributes,
+              "link_base_class": item.link_base_class,
+              "link_modifiers": item.link_modifiers,
+              "link_blockname": test_base_class,
+            } -%}
+          {%- endif -%}
+          {# End Link #}
+        {% endfor %}
+      {% endblock grid_item_block %}
+
+    {% endembed %}
+
+
+  {% endblock flex_grid_block %}
+
+{% endembed %}
