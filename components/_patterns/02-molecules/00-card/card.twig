@@ -1,0 +1,16 @@
+
+  {% embed "@base/layouts/flexbox/00-flexbox.twig" with {
+    "flexbox_modifiers": card_modifiers,
+    "flexbox_items": card_sections,
+    "flexbox_extra": card_flexbox_extra,
+  }%}
+
+    {% block flexbox_block %}
+      {% include "@base/layouts/flexbox/00-flexbox.twig" with {
+        "flexbox_modifiers": {1 : 'vertical'},
+        "flexbox_items": flexbox_item.card_section_items,
+        "flexbox_extra": flexbox_item.card_section_flexbox_extra,
+      }%}
+    {% endblock flexbox_block %}
+
+  {% endembed %}

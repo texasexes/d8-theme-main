@@ -1,0 +1,21 @@
+{% set flexbox_base_class = flexbox_base_class|default('flexbox') %}
+{# This var is set to prevent add_attributes griping about an empty var #}
+{% set flexbox_attributes = flexbox_attributes|default([]) %}
+
+
+<div
+  {{ bem(flexbox_base_class, (flexbox_modifiers), flexbox_blockname, flexbox_extra) }}
+  {{ add_attributes(flexbox_attributes) }}
+>
+  {% for flexbox_item in flexbox_items %}
+    {% block flexbox_block %}
+
+      {% include "@base/layouts/flexbox-item/_flexbox-item.twig" with {
+        "flexbox_item_blockname": flexbox_blockname|default(flexbox_base_class),
+        "flexbox_item_modifiers": flexbox_modifiers,
+        "flexbox_item_content": flexbox_item,
+      } %}
+
+    {% endblock flexbox_block %}
+  {% endfor %}
+</div>
