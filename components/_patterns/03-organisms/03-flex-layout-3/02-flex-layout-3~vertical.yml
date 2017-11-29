@@ -1,29 +1,36 @@
 flex_layout_3_modifiers:
   1:
-    pl
+    pl-2
   2:
     vertical
   3:
 flex_layout_3_items:
 # Item 1
   1:
+    flex_layout_3_items_modifiers:
+      1:
+        horizontal
     flex_layout_3_items_flexbox_extra:
       1:
-        flexbox__item
+        vertical
       2:
-        flexbox__item--vertical
-      3:
+        pl-2
     card_sections:
     # Section 1
       1:
-        card_section_flexbox_extra:
+        flexbox_section_modifiers:
           1:
-            flexbox__item
+            vertical
           2:
-            flexbox__item--horizontal
+            pl-1
+        flexbox_section_flexbox_extra:
+          1:
+            horizontal
+          2:
+            feature-33
           3:
-            flexbox__item--feature-33
-        card_section_items:
+            pl
+        flexbox_section_items:
           # Image
           1:
             img_attributes:
@@ -31,21 +38,25 @@ flex_layout_3_items:
                   '../../images/fpo_16x9.png'
     # Section 2
       2:
-        card_section_flexbox_extra:
+        flexbox_section_modifiers:
           1:
-            flexbox__item
+            vertical
           2:
-            flexbox__item--horizontal
+            pl-1
+        flexbox_section_flexbox_extra:
+          1:
+            horizontal
+          2:
+            feature-33
           3:
-            flexbox__item--feature-33
-        card_section_items:
+            pl
+        flexbox_section_items:
           # Title
           2:
             title:
               "Card 1 Title"
             base_class:
               title
-
           # Subtitle
           3:
             subtitle:
@@ -54,23 +65,30 @@ flex_layout_3_items:
               subtitle
 # Item 2
   2:
+    flex_layout_3_items_modifiers:
+      1:
+        horizontal
     flex_layout_3_items_flexbox_extra:
       1:
-        flexbox__item
+        vertical
       2:
-        flexbox__item--vertical
-      3:
+        pl-2
     card_sections:
     # Section 1
       1:
-        card_section_flexbox_extra:
+        flexbox_section_modifiers:
           1:
-            flexbox__item
+            vertical
           2:
-            flexbox__item--horizontal
+            pl-1
+        flexbox_section_flexbox_extra:
+          1:
+            horizontal
+          2:
+            feature-33
           3:
-            flexbox__item--feature-33
-        card_section_items:
+            pl
+        flexbox_section_items:
           # Image
           1:
             img_attributes:
@@ -78,14 +96,19 @@ flex_layout_3_items:
                   '../../images/fpo_square.png'
     # Section 2
       2:
-        card_section_flexbox_extra:
+        flexbox_section_modifiers:
           1:
-            flexbox__item
+            vertical
           2:
-            flexbox__item--horizontal
+            pl-1
+        flexbox_section_flexbox_extra:
+          1:
+            horizontal
+          2:
+            feature-33
           3:
-            flexbox__item--feature-33
-        card_section_items:
+            pl
+        flexbox_section_items:
           # Title
           2:
             title:
@@ -107,44 +130,55 @@ flex_layout_3_items:
               "Google"
 # Item 3
   3:
+    flex_layout_3_items_modifiers:
+      1:
+        horizontal
     flex_layout_3_items_flexbox_extra:
       1:
-        flexbox__item
+        vertical
       2:
-        flexbox__item--vertical
-      3:
+        pl-2
     card_sections:
     # Section 1
       1:
-        card_section_flexbox_extra:
+        flexbox_section_modifiers:
           1:
-            flexbox__item
+            vertical
           2:
-            flexbox__item--horizontal
+            pl-1
+        flexbox_section_flexbox_extra:
+          1:
+            horizontal
+          2:
+            feature-33
           3:
-            flexbox__item--feature-33
-        card_section_items:
+            pl
+        flexbox_section_items:
           # Image
           1:
             img_attributes:
               src:
                   '../../images/fpo_square.png'
       2:
-        card_section_flexbox_extra:
+        flexbox_section_modifiers:
           1:
-            flexbox__item
+            vertical
           2:
-            flexbox__item--horizontal
+            pl-1
+        flexbox_section_flexbox_extra:
+          1:
+            horizontal
+          2:
+            feature-33
           3:
-            flexbox__item--feature-33
-        card_section_items:
+            pl
+        flexbox_section_items:
           # Title
           2:
             title:
               "Card 3 Title"
             base_class:
               title
-
           # Subtitle
           3:
             subtitle:

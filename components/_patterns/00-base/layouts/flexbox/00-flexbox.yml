@@ -7,18 +7,23 @@ flexbox_modifiers:
     pl_flexbox-item
 flexbox_items:
   1:
+    flexbox_item_content:
+      "test"
     img_attributes:
       src:
           '../../images/trans_3x1.png'
   2:
+    flexbox_item_content:
     img_attributes:
       src:
           '../../images/trans_3x1.png'
   3:
+    flexbox_item_content:
     img_attributes:
       src:
           '../../images/trans_3x1.png'
   4:
+    flexbox_item_content:
     img_attributes:
       src:
           '../../images/trans_3x1.png'

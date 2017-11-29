@@ -5,26 +5,34 @@ card_modifiers:
     pl
 card_sections:
   1:
-    card_section_flexbox_extra:
+    flexbox_section_modifiers:
       1:
-        flexbox__item
+        vertical
       2:
-        flexbox__item--horizontal
-      3:
-        flexbox__item--pl
-    card_section_items:
+        pl-1
+    flexbox_section_flexbox_extra:
+      1:
+        horizontal
+      2:
+        pl
+    flexbox_section_items:
       # Image
       1:
         img_attributes:
           src:
               '../../images/fpo_16x9.png'
   2:
-    card_section_flexbox_extra:
+    flexbox_section_modifiers:
       1:
-        flexbox__item
+        vertical
       2:
-        flexbox__item--horizontal
-    card_section_items:
+        pl-1
+    flexbox_section_flexbox_extra:
+      1:
+        horizontal
+      2:
+        pl
+    flexbox_section_items:
       # Title
       2:
         title:
