@@ -1,6 +1,6 @@
 {% extends "paragraph.html.twig" %}
 
-{% block content %}
+{% block paragraph %}
 
 {% set tempArray1 = [] %}
 {% set tempArray2 = [] %}
@@ -27,14 +27,17 @@
   {% set tempArray5 = tempArray5|merge({(key) : (child['#markup']),}) %}
 {% endfor %}
 {% set tempArray5 = tempArray5|default({1 : 'horizontal', 2 : 'feature-100' }) %}
-{{ kint(tempArray5) }}
+
+{% set tempArray5 = tempArray5|merge({'paragraph-wrapper' : 'paragraph-wrapper',}) %}
+{#{ kint(content) }#}
 
   {% include "@molecules/00-card/card.twig" with {
     "card_modifiers": tempArray5,
     "card_sections": tempArray3,
+    "card_flexbox_extra": {1 : 'vertical'},
     "flexbox_section_modifiers": {1 : 'vertical', 2 : 'pl'},
     "flexbox_section_flexbox_extra": tempArray5,
   }%}
 
 
-{% endblock content %}
+{% endblock paragraph %}

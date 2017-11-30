@@ -1,5 +1,5 @@
 ---
-el: ".paragraph"
+el: ".p"
 title: "Default Paragraph"
 ---
 ## Paragraph Styling

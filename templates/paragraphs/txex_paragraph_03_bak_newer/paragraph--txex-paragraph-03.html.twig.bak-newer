@@ -21,22 +21,15 @@
   {% endfor %}
   {% set tempArray5 = tempArray5|default({1 : 'horizontal', 2 : 'feature-100' }) %}
 
-
-{% set tempArray5 = tempArray5|merge({'paragraph-wrapper' : 'paragraph-wrapper',}) %}
 {# "flexbox_modifiers_additional": {1 : 'horizontal', 2 : 'feature-100', 3 : 'ADDITIONAL-2'} #}
-  {% include "@base/layouts/flexbox/00-flexbox.twig" with {
+  {% embed "@base/layouts/flexbox/00-flexbox.twig" with {
     "flexbox_modifiers": tempArray5,
     "flexbox_items": paragraph_02_items,
-    "flexbox_modifiers_additional": {1 : 'vertical'}
   }%}
-
-  {#% include "@molecules/00-card/card.twig" with {
-    "card_modifiers": tempArray5,
-    "card_sections": paragraph_02_items,
-    "card_flexbox_extra": {1 : 'vertical'},
-    "flexbox_section_modifiers": {1 : 'vertical', 2 : 'pl'},
-    "flexbox_section_flexbox_extra": tempArray5,
-  }%#}
+    {% block flexbox_block %}
+      {{ parent() }}
+    {% endblock flexbox_block %}
+  {% endembed %}
 
 {% endblock paragraph %}
 

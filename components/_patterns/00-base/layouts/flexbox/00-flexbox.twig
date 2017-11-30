@@ -2,8 +2,8 @@
 {# This var is set to prevent add_attributes griping about an empty var #}
 {% set flexbox_attributes = flexbox_attributes|default([]) %}
 
-{% if nested_flexbox_modifiers %}
-  {% set flexbox_extra = bem2('item', (nested_flexbox_modifiers), 'flexbox') %}
+{% if flexbox_modifiers_additional %}
+  {% set flexbox_extra = bem2('item', (flexbox_modifiers_additional), 'flexbox') %}
 {% endif %}
 
 {% set natural_flexbox_bem = bem2(flexbox_base_class, (flexbox_modifiers), flexbox_blockname, (flexbox_extra)) %}
@@ -129,6 +129,11 @@
       {% set flexbox_section_modifiers =  flexbox_item.flexbox_section_modifiers %}
       {% set flexbox_section_items =  flexbox_item.flexbox_section_items %}
       {% set flexbox_section_flexbox_extra =  flexbox_item.flexbox_section_flexbox_extra %}
+    {# using nested-flexbox.twig #}
+      {% set flexbox_section_modifiers =  flexbox_item.flexbox_section_modifiers %}
+      {% set flexbox_section_items =  flexbox_item.flexbox_section_items %}
+      {% set flexbox_section_modifiers_additional =  flexbox_item.flexbox_section_modifiers_additional %}
+
     {% else %}
       {# FOR DRUPAL when using card.twig #}
       {% set flexbox_section_items =  flexbox_item %}
@@ -141,6 +146,7 @@
         "flexbox_item_blockname": flexbox_blockname|default(flexbox_base_class),
         "flexbox_item_modifiers": flexbox_modifiers,
         "flexbox_item_content": flexbox_item,
+        "flexbox_item_modifiers_additional": flexbox_section_modifiers,
       } %}
 
     {% endblock flexbox_block %}
