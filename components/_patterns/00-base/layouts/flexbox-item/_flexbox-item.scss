@@ -1,6 +1,7 @@
+$standard-margin: 10%;
 .flexbox__item {
   flex: 1 1 0; //flex-grow flex-shrink flex-basis
-  margin-right: 2%;
+  margin-right: $standard-margin;
 }
 
 .flexbox__item {
@@ -93,14 +94,14 @@
 }
 
 .flexbox__item--feature-100 {
-  margin: 0 2.5%;
+  // margin: 0 2.5%;
   &:nth-of-type(1) {
     flex: 0 0 100%;
     align-self: space-around;
-    margin: 0 0 2% 0;
+    margin: 0 0 $standard-margin 0;
   }
   &:last-of-type {
-    margin-right: 2.5%;
+    // margin-right: 2.5%;
   }
 }
 
