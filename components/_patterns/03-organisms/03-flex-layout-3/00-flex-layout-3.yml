@@ -3,8 +3,6 @@ flex_layout_3_modifiers:
     pl-2
   2:
     horizontal
-  3:
-    feature-100
 flex_layout_3_items:
 # Item 1
   1:
@@ -16,8 +14,6 @@ flex_layout_3_items:
         pl-2
       2:
         horizontal
-      3:
-        feature-100
     card_sections:
     # Section 1
       1:
@@ -72,8 +68,6 @@ flex_layout_3_items:
         pl-2
       2:
         horizontal
-      3:
-        feature-100
     card_sections:
     # Section 1
       1:

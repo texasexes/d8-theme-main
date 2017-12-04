@@ -1,4 +1,7 @@
 
+{#% set card_modifiers = card_modifiers|default([]) %#}
+{#% set card_modifiers = card_modifiers|merge({'card' : 'card'}) %#}
+
   {% embed "@base/layouts/flexbox/00-flexbox.twig" with {
     "flexbox_modifiers": card_modifiers,
     "flexbox_items": card_sections,
