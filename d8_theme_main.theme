@@ -1,5 +1,5 @@
 <?php
-
+require_once('modules/contrib/devel/kint/kint/Kint.class.php');
 /**
  * @file
  * Functions to support theming in the Pattern Lab theme.
@@ -78,3 +78,17 @@ function d8_theme_main_theme_suggestions_image_alter(array &$suggestions, array 
   array_push($suggestions, $variables['theme_hook_original'] . "__" . $fieldParentBundleType . "__" . $fieldName . "__" . $fieldParentBundle);
 
 }
+
+// function d8_theme_main_preprocess_paragraph(&$variables) {
+//   // Kint::dump( $_SERVER );
+//   // Kint::dump( $variables );
+//
+//   if ($variables['paragraph']->hasField('field_view_mode')) {
+//     $view_mode = $variables['paragraph']->field_view_mode->value;
+//     if (isset($variables['content']['field_ref_node']['0']['#view_mode'])) {
+//       $variables['content']['field_ref_node']['0']['#view_mode'] = $view_mode;
+//       unset($variables['content']['field_ref_node']['0']['#cache']['keys']);
+//     }
+//   }
+//
+// }

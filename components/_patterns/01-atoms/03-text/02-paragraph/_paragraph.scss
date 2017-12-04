@@ -8,11 +8,11 @@
 }
 
 // When a paragraph is a block, this is it's class (BEM)
-.paragraph {
+.p {
   @include paragraph;
 }
 
 // An paragraph that is an element of a paragraph-01 block
-.paragraph-01__paragraph {
-  @extend .paragraph;
+.p-01__paragraph {
+  @extend .p;
 }

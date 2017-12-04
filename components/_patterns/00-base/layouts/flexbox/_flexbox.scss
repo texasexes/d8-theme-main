@@ -1,0 +1,38 @@
+.flexbox {
+  display: flex;
+  justify-content: center;
+  // align-items: center;
+}
+
+.flexbox--horizontal {
+  flex-direction: row;
+  justify-content: stretch;
+  align-items: stretch;
+}
+
+.flexbox--feature-33 {
+
+}
+
+.flexbox--feature-50 {
+
+}
+
+.flexbox--feature-66 {
+
+}
+
+.flexbox--feature-100 {
+  flex-wrap: wrap;
+}
+
+.flexbox--vertical {
+  flex-direction: column;
+  justify-content: space-between;
+  // justify-content: flex-start;
+}
+
+.flexbox--paragraph-wrapper {
+  height: 100%;
+  width: 100%;
+}

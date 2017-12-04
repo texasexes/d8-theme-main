@@ -1,0 +1,121 @@
+flex_layout_3_modifiers:
+  1:
+    pl-2
+  2:
+    horizontal
+flex_layout_3_items:
+# Item 1
+  1:
+    flex_layout_3_items_modifiers:
+      1:
+        horizontal
+    flex_layout_3_items_flexbox_extra:
+      1:
+        pl-2
+      2:
+        horizontal
+    card_sections:
+    # Section 1
+      1:
+        flexbox_section_modifiers:
+          1:
+            vertical
+          2:
+            pl-1
+        flexbox_section_flexbox_extra:
+          1:
+            horizontal
+          2:
+            pl
+        flexbox_section_items:
+          # Image
+          1:
+            img_attributes:
+              src:
+                  '../../images/fpo_16x9.png'
+    # Section 2
+      2:
+        flexbox_section_modifiers:
+          1:
+            vertical
+          2:
+            pl-1
+        flexbox_section_flexbox_extra:
+          1:
+            horizontal
+          2:
+            pl
+        flexbox_section_items:
+          # Title
+          2:
+            title:
+              "Card 1 Title"
+            base_class:
+              title
+          # Subtitle
+          3:
+            subtitle:
+              "This is the subtitle for Card 1."
+            base_class:
+              subtitle
+# Item 2
+  2:
+    flex_layout_3_items_modifiers:
+      1:
+        horizontal
+    flex_layout_3_items_flexbox_extra:
+      1:
+        pl-2
+      2:
+        horizontal
+    card_sections:
+    # Section 1
+      1:
+        flexbox_section_modifiers:
+          1:
+            vertical
+          2:
+            pl-1
+        flexbox_section_flexbox_extra:
+          1:
+            horizontal
+          2:
+            pl
+        flexbox_section_items:
+          # Image
+          1:
+            img_attributes:
+              src:
+                  '../../images/fpo_square.png'
+    # Section 2
+      2:
+        flexbox_section_modifiers:
+          1:
+            vertical
+          2:
+            pl-1
+        flexbox_section_flexbox_extra:
+          1:
+            horizontal
+          2:
+            pl
+        flexbox_section_items:
+          # Title
+          2:
+            title:
+              "Card 2 Title"
+            base_class:
+              title
+          # Subtitle
+          3:
+            subtitle:
+              "This is the subtitle for Card 2."
+            base_class:
+              subtitle
+          # Link
+          5:
+            link_attributes:
+              href:
+                "http://www.google.com"
+            link:
+              "Google"

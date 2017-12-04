@@ -14,7 +14,7 @@
 #}
 
 {# Base class when standalone, combined w/ blockname whenever it is an element (BEM)#}
-{% set paragraph_base_class = paragraph_base_class|default('paragraph') %}
+{% set paragraph_base_class = paragraph_base_class|default('p') %}
 {# This var is set to prevent add_attributes griping about an empty var #}
 {% set paragraph_attributes = paragraph_attributes|default([]) %}
 

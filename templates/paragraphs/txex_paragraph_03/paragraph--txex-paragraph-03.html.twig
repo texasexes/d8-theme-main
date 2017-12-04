@@ -1,0 +1,45 @@
+{% extends "paragraph.html.twig" %}
+
+{% block paragraph %}
+
+  {% set paragraph_02_items = [] %}
+  {% set tempArray4 = [] %}
+  {% set tempArray5 = [] %}
+
+
+  {% for key, child in content['field_para_in_para'] if key|first != '#' %}
+    {% set paragraph_02_items = paragraph_02_items|merge({ (key) : (child)}) %}
+  {% endfor %}
+
+
+  {% for key, child in content.field_variant if key|first != '#' %}
+    {% set tempArray4 = tempArray4|merge({(key) : (child),}) %}
+  {% endfor %}
+
+  {% for key, child in tempArray4 %}
+    {% set tempArray5 = tempArray5|merge({(key) : (child['#markup']),}) %}
+  {% endfor %}
+  {% set tempArray5 = tempArray5|default({1 : 'horizontal', 2 : 'feature-100' }) %}
+
+
+{% set tempArray5 = tempArray5|merge({'paragraph-wrapper' : 'paragraph-wrapper',}) %}
+{# "flexbox_modifiers_additional": {1 : 'horizontal', 2 : 'feature-100', 3 : 'ADDITIONAL-2'} #}
+  {% include "@base/layouts/flexbox/00-flexbox.twig" with {
+    "flexbox_modifiers": tempArray5,
+    "flexbox_items": paragraph_02_items,
+    "flexbox_modifiers_additional": {1 : 'vertical'}
+  }%}
+
+  {#% include "@molecules/00-card/card.twig" with {
+    "card_modifiers": tempArray5,
+    "card_sections": paragraph_02_items,
+    "card_flexbox_extra": {1 : 'vertical'},
+    "flexbox_section_modifiers": {1 : 'vertical', 2 : 'pl'},
+    "flexbox_section_flexbox_extra": tempArray5,
+  }%#}
+
+{% endblock paragraph %}
+
+{# https://drupal.stackexchange.com/questions/208723/iterate-through-multiple-value-content-field-in-twig-template
+https://drupal.stackexchange.com/questions/174742/loop-through-child-elements-in-twig-like-elementchildren
+#}
