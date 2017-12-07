@@ -1,15 +1,19 @@
 {% set flexbox_base_class = flexbox_base_class|default('flexbox') %}
-{# This var is set to prevent add_attributes griping about an empty var #}
-{% set flexbox_attributes = flexbox_attributes|default([]) %}
+{#% set flexbox_blockname = flexbox_blockname|default('flexbox') %#}
+
+{% set flexbox_base_class_additional = flexbox_base_class_additional|default(flexbox_base_class) %}
+{% set flexbox_blockname_additional = flexbox_blockname_additional|default('item') %}
+
 
 {% if flexbox_modifiers_additional %}
-  {% set flexbox_extra = bem2('item', (flexbox_modifiers_additional), 'flexbox') %}
+  {% set flexbox_extra = bem2(flexbox_blockname_additional, (flexbox_modifiers_additional), flexbox_base_class_additional) %}
 {% endif %}
 
 {% set natural_flexbox_bem = bem2(flexbox_base_class, (flexbox_modifiers), flexbox_blockname, (flexbox_extra)) %}
 {% set finished_flexbox_bem = {'class' : natural_flexbox_bem} %}
 
-
+{# This var is set to prevent add_attributes griping about an empty var #}
+{% set flexbox_attributes = flexbox_attributes|default([]) %}
 <div
   {#{ bem(flexbox_base_class, (flexbox_modifiers), flexbox_blockname, flexbox_extra) }#}
   {{ add_attributes(finished_flexbox_bem) }}
@@ -133,6 +137,8 @@
       {% set flexbox_section_modifiers =  flexbox_item.flexbox_section_modifiers %}
       {% set flexbox_section_items =  flexbox_item.flexbox_section_items %}
       {% set flexbox_section_modifiers_additional =  flexbox_item.flexbox_section_modifiers_additional %}
+    {# using card-simple.twig #}
+      {% set flexbox_section_base_class =  flexbox_item.flexbox_section_base_class %}
 
     {% else %}
       {# FOR DRUPAL when using card.twig #}

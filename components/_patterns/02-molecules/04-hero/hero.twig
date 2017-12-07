@@ -1,74 +1,16 @@
 {#
-/**
- * Available variables:
- * - hero_base_class - base classname of the wrapper
- * - hero_modifiers - array of modifiers to add to the base classname of the wrapper
- * - hero_blockname - blockname prepended to the base classname of the wrapper(s) and each component
- *
- * - hero_img_src - the actual image file location
- * - hero_img_alt - (optional) the alt text for screen readers and when the image cannot load
- * - hero_img_url - Url the image should link to. Defaults to hero_link_url
- *
- * - hero_copy_base_class - base classname of the copy wrapper - defaults to 'hero__copy'
- * - hero_copy_modifiers - array of modifiers to add to the base classname of the copy wrapper
- * - hero_copy_blockname - blockname prepended to the base classname of the copy wrapper
- *
- * - hero_title - the content of the title component
- * - hero_title_link - (optional) the url the title should link to. Defaults to hero_link_url.
- * - hero_title_base_class - base classname of the title component. Defaults to "title"
- * - hero_title_blockname - blockname to add to the base classname of the title - defaults to hero_base_class
- * - hero_title_modifiers - array of modifiers to add to the base classname of the title
- * - hero_title_link_base_class - base class to add to the title link - defaults to 'title-link'
- *
- * - hero_subtitle - the content of the subtitle component
- * - hero_subtitle_link - (optional) the url the subtitle should link to
- * - hero_subtitle_base_class - base classname of the subtitle component. Defaults to "subtitle"
- * - hero_subtitle_modifiers - array of modifiers to add to the base classname of the subtitle
- *
- * - hero_body - the content of the body component
- * - hero_body_base_class - base classname of the body component. Defaults to "body"
- * - hero_body_modifiers - array of modifiers to add to the base classname of the body
- *
- * - hero_link_text - the content of the link component
- * - hero_link_url - the url the link should link to
- * - hero_link_base_class - base classname of the link component. Defaults to "link"
- * - hero_link_blockname - override link blockname. Defaults to hero_base_class
- * - hero_link_attributes - array of attribute,value pairs for the link attribute
- * - hero_link_modifiers - array of modifiers to add to the base classname of the link
- *
- * - hero_button_content - the content of the button component
- * - hero_button_url - the url the button should link to
- * - hero_button_base_class - base classname of the button component. Defaults to "button"
- * - hero_button_attributes - array of attribute,value pairs for the button attribute
- * - hero_button_modifiers - array of modifiers to add to the base classname of the button
- */
+
 #}
 {% set hero_base_class = 'hero' %}
 
-<div {{ bem(hero_base_class, (hero_modifiers), hero_blockname) }}>
+{% embed "@base/layouts/flexbox/00-flexbox.twig" with {
+  "flexbox_modifiers": hero_modifiers,
+  "flexbox_items": hero_items,
+  "flexbox_base_class": hero_base_class,
+}%}
 
+  {% block flexbox_block %}
+    {{ flexbox_item }}
+  {% endblock flexbox_block %}
 
-    {% embed "@atoms/21-inset/inset.twig" with {
-      "inset_items": hero_items,
-      "inset_blockname": hero_base_class,
-    }%}
-      {% block inset_block  %}
-        {{ parent() }}
-        {{ dummy_inset_block }}
-      {% endblock %}
-    {% endembed %}
-
-
-  {% block hero_copy_block %}
-    {% embed "@atoms/20-copy/copy.twig" with {
-      "copy_items": hero_items,
-      "copy_blockname": hero_base_class,
-    }%}
-      {% block copy_block  %}
-        {{ parent() }}
-        {{ dummy_copy_block }}
-      {% endblock %}
-    {% endembed %}
-  {% endblock %}
-
-</div>
+{% endembed %}

@@ -1,16 +1,19 @@
 {# A grid-item uses this class along with the blockname whenever it is an element (BEM)#}
-{% set flexbox_item_base_class = 'item' %}
+{% set flexbox_item_base_class = flexbox_item_base_class|default('item') %}
 {% set flexbox_item_blockname = flexbox_item_blockname|default('flexbox') %}
-{# This var is set to prevent add_attributes griping about an empty var #}
-{% set flexbox_item_attributes = flexbox_item_attributes|default([]) %}
+
+{% set flexbox_item_base_class_additional = flexbox_item_base_class_additional|default(flexbox_item_base_class) %}
+{% set flexbox_item_blockname_additional = flexbox_item_blockname_additional|default(flexbox_item_blockname) %}
 
 {% if flexbox_item_modifiers_additional %}
-  {% set flexbox_item_extra = bem2('item', (flexbox_item_modifiers_additional), 'flexbox') %}
+  {% set flexbox_item_extra = bem2(flexbox_item_base_class_additional, (flexbox_item_modifiers_additional), flexbox_item_blockname_additional) %}
 {% endif %}
 
 {% set natural_flexbox_item_bem = bem2(flexbox_item_base_class, (flexbox_item_modifiers), flexbox_item_blockname, (flexbox_item_extra)) %}
 {% set finished_flexbox_item_bem = {'class' : natural_flexbox_item_bem} %}
 
+{# This var is set to prevent add_attributes griping about an empty var #}
+{% set flexbox_item_attributes = flexbox_item_attributes|default([]) %}
 <div
   {#{ bem(flexbox_item_base_class, (flexbox_item_modifiers), flexbox_item_blockname) }#}
   {{ add_attributes(finished_flexbox_item_bem) }}

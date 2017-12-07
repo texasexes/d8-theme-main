@@ -1,0 +1,152 @@
+$standard-margin: 10%;
+.simple__item {
+  // flex: 1 1 0; //flex-grow flex-shrink flex-basis
+  // margin-right: $standard-margin;
+}
+
+.simple__item {
+  &:last-of-type {
+    // margin-right: 0;
+  }
+}
+
+.simple.simple__item--section {
+  // position: static;
+}
+
+.simple.simple__item--section:nth-of-type(2) {
+  position: absolute;
+  width: 35%;
+  bottom: 0;
+  left: 0;
+  margin: 0 0 5% 5%;
+  padding: 3%;
+  // background-color: #462146;
+  background-color: #404040;
+}
+
+.simple--full-image {
+  .simple__item--section:nth-of-type(2) {
+    left: auto;
+    right: 0;
+    height: 100%;
+    width: 35%;
+    margin: 0;
+    margin-right: auto;
+    background-color: rgba( 64, 64, 64, 0.7);
+    z-index: 20;
+  }
+}
+
+.simple--half-image {
+  .simple__item--section:nth-of-type(1) {
+    float: left;
+    height: 100%;
+    width: 50%;
+  }
+  .simple__item--section:nth-of-type(2) {
+    position: static;
+    float: right;
+    height: 100%;
+    width: 50%;
+    margin: 0;
+    margin-right: auto;
+    background-color: rgba( 64, 64, 64, 1);
+    z-index: 20;
+  }
+}
+
+// Pattern Lab Specific
+.simple__item--pl {
+
+  &:nth-of-type(odd) {
+    background-color: yellow;
+  }
+
+  &:nth-of-type(even) {
+    background-color: lightblue;
+  }
+}
+
+.simple__item--pl-1 {
+
+  &:nth-of-type(odd) {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+
+  &:nth-of-type(even) {
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+}
+
+.simple__item--pl-2 {
+
+  &:nth-of-type(odd) {
+    background-color: orange;
+  }
+
+  &:nth-of-type(even) {
+    background-color: purple;
+  }
+}
+
+.simple__item--pl_simple-item {
+  // flex-basis: auto;
+  // width: 300px;
+  // height: 300px;
+}
+
+.simple__item--pl.simple__item--feature {
+  &:nth-of-type(1) {
+    background: red;
+  }
+}
+
+.simple__item--feature-25 {
+  &:nth-of-type(1) {
+    // flex: 0 0 25%;
+  }
+}
+
+.simple__item--feature-33 {
+  &:nth-of-type(1) {
+    // flex: 0 0 33%;
+  }
+}
+
+.simple__item--feature-50 {
+  &:nth-of-type(1) {
+    // flex: 0 0 50%;
+  }
+}
+
+.simple__item--feature-66 {
+  &:nth-of-type(1) {
+    // flex: 0 0 66%;
+  }
+}
+
+.simple__item--feature-75 {
+  &:nth-of-type(1) {
+    // flex: 0 0 75%;
+  }
+}
+
+.simple__item--feature-100 {
+  // margin: 0 2.5%;
+  &:nth-of-type(1) {
+    // flex: 0 0 100%;
+    // align-self: space-around;
+    // margin: 0 0 $standard-margin 0;
+  }
+  &:last-of-type {
+    // margin-right: 2.5%;
+  }
+}
+
+.simple__item--feature-33,
+.simple__item--feature-66,
+.simple__item--feature-100 {
+  // border-style: solid;
+  // border-width: 1px;
+}

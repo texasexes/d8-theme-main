@@ -8,18 +8,15 @@ hero_items:
   2:
     title:
       "This is a base hero Title"
-    base_class:
-      title
     modifiers:
       1:
         alt-1
-
+      2:
+        title
   # Subtitle
   3:
     subtitle:
       "This is the base hero subtitle nisl tempus convallis quis ac lectus."
-    base_class:
-      subtitle
-  # Link
-  5:
-    link_url:
+    modifiers:
+      1:
+        subtitle

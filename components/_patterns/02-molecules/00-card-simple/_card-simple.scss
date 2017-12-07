@@ -1,0 +1,36 @@
+.card-simple {
+  position: relative;
+}
+
+.card-simple::before {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    content: " ";
+    // background-color: rgba(136, 76, 46, 0.3);
+    background-color: rgba(64, 64, 64, .3);
+    z-index: 10;
+}
+
+.card-simple__item:nth-of-type(2) {
+  position: absolute;
+  width: 35%;
+  bottom: 0;
+  left: 0;
+  margin: 0 0 5% 5%;
+  padding: 3%;
+  // background-color: #462146;
+  background-color: #404040;
+}
+
+
+.card-simple__item:nth-of-type(2) {
+  left: auto;
+  right: 0;
+  height: 100%;
+  width: 35%;
+  margin: 0;
+  margin-right: auto;
+  background-color: rgba( 64, 64, 64, 0.7);
+  z-index: 20;
+}

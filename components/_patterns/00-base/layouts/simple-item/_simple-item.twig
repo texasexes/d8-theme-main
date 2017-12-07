@@ -1,0 +1,22 @@
+{# A grid-item uses this class along with the blockname whenever it is an element (BEM)#}
+{% set simple_item_base_class = 'item' %}
+{% set simple_item_blockname = simple_item_blockname|default('simple') %}
+{# This var is set to prevent add_attributes griping about an empty var #}
+{% set simple_item_attributes = simple_item_attributes|default([]) %}
+
+{% if simple_item_modifiers_additional %}
+  {% set simple_item_extra = bem2('item', (simple_item_modifiers_additional), 'simple') %}
+{% endif %}
+
+{% set natural_simple_item_bem = bem2(simple_item_base_class, (simple_item_modifiers), simple_item_blockname, (simple_item_extra)) %}
+{% set finished_simple_item_bem = {'class' : natural_simple_item_bem} %}
+
+<div
+  {#{ bem(simple_item_base_class, (simple_item_modifiers), simple_item_blockname) }#}
+  {{ add_attributes(finished_simple_item_bem) }}
+  {{ add_attributes(simple_item_attributes) }}
+>
+  {% block simple_item_block %}
+    {{ simple_item_content }}
+  {% endblock %}
+</div>

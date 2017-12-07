@@ -1,0 +1,21 @@
+
+{#% set card_modifiers = card_modifiers|default([]) %#}
+{#% set card_modifiers = card_modifiers|merge({'card' : 'card'}) %#}
+
+  {% embed "@base/layouts/flexbox/00-flexbox.twig" with {
+    "flexbox_base_class": 'card-simple',
+    "flexbox_modifiers": card_modifiers,
+    "flexbox_items": card_sections,
+    "flexbox_modifiers_additional": card_flexbox_extra,
+  }%}
+
+    {% block flexbox_block %}
+      {% include "@base/layouts/flexbox/00-flexbox.twig" with {
+        "flexbox_base_class": flexbox_section_base_class,
+        "flexbox_modifiers": flexbox_section_modifiers,
+        "flexbox_items": flexbox_section_items,
+        "flexbox_modifiers_additional": flexbox_section_flexbox_extra,
+      }%}
+    {% endblock flexbox_block %}
+
+  {% endembed %}

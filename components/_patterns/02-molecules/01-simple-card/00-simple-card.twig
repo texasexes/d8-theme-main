@@ -1,0 +1,19 @@
+
+{#% set simple-card_modifiers = simple-card_modifiers|default([]) %#}
+{#% set simple-card_modifiers = simple-card_modifiers|merge({'simple-card' : 'simple-card'}) %#}
+
+  {% embed "@base/layouts/simple/00-simple.twig" with {
+    "simple_modifiers": simple_card_modifiers,
+    "simple_items": simple_card_sections,
+    "simple_modifiers_additional": simple_card_simple_extra,
+  }%}
+
+    {% block simple_block %}
+      {% include "@base/layouts/simple/00-simple.twig" with {
+        "simple_modifiers": simple_section_modifiers,
+        "simple_items": simple_section_items,
+        "simple_modifiers_additional": simple_section_simple_extra,
+      }%}
+    {% endblock simple_block %}
+
+  {% endembed %}

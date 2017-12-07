@@ -66,6 +66,24 @@
   }
 }
 
+.simple__h2 {
+  @extend .h2;
+  color: white;
+}
+
+.simple__h3 {
+  @extend .h3;
+  color: white;
+}
+
+.simple__h2--title {
+
+}
+
+.simple__h3--subtitle {
+
+}
+
 // TODO: BEM selectors should be applied to wysiwyg-created content
 
 .text-long {

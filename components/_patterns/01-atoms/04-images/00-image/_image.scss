@@ -23,3 +23,8 @@
 .paragraph__img {
   @extend .img;
 }
+
+// An img that is an element of a simple block
+.simple__img {
+  @extend .img;
+}

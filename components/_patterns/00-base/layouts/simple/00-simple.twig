@@ -1,0 +1,154 @@
+{% set simple_base_class = simple_base_class|default('simple') %}
+{# This var is set to prevent add_attributes griping about an empty var #}
+{% set simple_attributes = simple_attributes|default([]) %}
+
+{% if simple_modifiers_additional %}
+  {% set simple_extra = bem2('item', (simple_modifiers_additional), 'simple') %}
+{% endif %}
+
+{% set natural_simple_bem = bem2(simple_base_class, (simple_modifiers), simple_blockname, (simple_extra)) %}
+{% set finished_simple_bem = {'class' : natural_simple_bem} %}
+
+
+<div
+  {#{ bem(simple_base_class, (simple_modifiers), simple_blockname, simple_extra) }#}
+  {{ add_attributes(finished_simple_bem) }}
+  {{ add_attributes(simple_attributes) }}
+>
+  {% for simple_item in simple_items %}
+
+    {# ***** Start Patternlab Section 1 ***** #}
+    {# Image #}
+    {%- if simple_item.img_attributes -%}
+      {% set simple_item %}
+        {%- include "@atoms/04-images/00-image/00-image.twig" with {
+          "img_attributes": simple_item.img_attributes,
+          "img_blockname": simple_base_class,
+        } -%}
+      {% endset %}
+    {%- endif -%}
+    {# End Image #}
+    {# Title #}
+    {%- if simple_item.title -%}
+      {% set simple_item %}
+        {%- if simple_item.link_attributes -%}
+          {%- embed "@atoms/01-links/link/link.twig" with {
+            "link_attributes": simple_item.link_attributes,
+            "link_modifiers": simple_item.link_modifiers,
+            "link_blockname": simple_base_class,
+          } -%}
+            {%- block link_content -%}
+              {%- include "@atoms/03-text/01-heading/_heading.twig" with {
+                "heading_level": 2,
+                "heading_content": simple_item.title,
+                "heading_modifiers": simple_item.modifiers,
+                "heading_blockname": simple_base_class,
+              } -%}
+            {%- endblock -%}
+          {%- endembed -%}
+        {%- else -%}
+          {%- include "@atoms/03-text/01-heading/_heading.twig" with {
+            "heading_level": 2,
+            "heading_content": simple_item.title,
+            "heading_modifiers": simple_item.modifiers,
+            "heading_blockname": simple_base_class,
+          } -%}
+        {%- endif -%}
+      {% endset %}
+    {%- endif -%}
+    {# End Title #}
+    {# Subtitle #}
+    {%- if simple_item.subtitle -%}
+      {% set simple_item %}
+        {%- if simple_item.link_attributes -%}
+          {%- embed "@atoms/01-links/link/link.twig" with {
+            "link_attributes": simple_item.link_attributes,
+            "link_modifiers": simple_item.link_modifiers,
+            "link_blockname": simple_base_class,
+          } -%}
+            {%- block link_content -%}
+              {%- include "@atoms/03-text/01-heading/_heading.twig" with {
+                "heading_level": 3,
+                "heading_content": simple_item.subtitle,
+                "heading_modifiers": simple_item.modifiers,
+                "heading_blockname": simple_base_class,
+              } -%}
+            {%- endblock -%}
+          {%- endembed -%}
+        {%- else -%}
+          {%- include "@atoms/03-text/01-heading/_heading.twig" with {
+            "heading_level": 3,
+            "heading_content": simple_item.subtitle,
+            "heading_modifiers": simple_item.modifiers,
+            "heading_blockname": simple_base_class,
+          } -%}
+        {%- endif -%}
+      {% endset %}
+    {%- endif -%}
+    {# End Title #}
+    {# Body #}
+    {%- if simple_item.body -%}
+      {% set simple_item %}
+        {%- include "@atoms/03-text/02-paragraph/paragraph.twig" with {
+          "paragraph_content": simple_item.body,
+          "paragraph_modifiers": simple_item.modifiers,
+          "paragraph_blockname": simple_base_class,
+        } -%}
+      {% endset %}
+    {%- endif -%}
+    {# End Body #}
+    {# Button #}
+    {%- if simple_item.button_attributes -%}
+      {% set simple_item %}
+        {%- include "@atoms/02-form_elements/01-button/00-button.twig" with {
+          "button_content": simple_item.button,
+          "button_attributes": simple_item.button_attributes,
+          "button_modifiers": simple_item.modifiers,
+          "button_blockname": simple_base_class,
+        } -%}
+      {% endset %}
+    {%- endif -%}
+    {# End Button #}
+    {# Link #}
+    {%- if simple_item.link_attributes -%}
+      {% set simple_item %}
+        {%- include "@atoms/01-links/link/link.twig" with {
+          "link_content": simple_item.link,
+          "link_attributes": simple_item.link_attributes,
+          "link_modifiers": simple_item.link_modifiers,
+          "link_blockname": simple_base_class,
+        } -%}
+      {% endset %}
+    {%- endif -%}
+    {# End Link #}
+    {# ***** End Patternlab Section 1 ***** #}
+
+    {# ***** Start Patternlab Section 2 ***** #}
+    {# using simple.twig for now #}
+    {%- if simple_item.simple_section_items -%}
+      {% set simple_section_modifiers =  simple_item.simple_section_modifiers %}
+      {% set simple_section_items =  simple_item.simple_section_items %}
+      {% set simple_section_simple_extra =  simple_item.simple_section_simple_extra %}
+    {# using nested-simple.twig #}
+      {% set simple_section_modifiers =  simple_item.simple_section_modifiers %}
+      {% set simple_section_items =  simple_item.simple_section_items %}
+      {% set simple_section_modifiers_additional =  simple_item.simple_section_modifiers_additional %}
+
+    {% else %}
+      {# FOR DRUPAL when using simple.twig #}
+      {% set simple_section_items =  simple_item %}
+    {%- endif -%}
+    {# ***** End Patternlab Section 2 ***** #}
+
+    {% block simple_block %}
+
+      {% include "@base/layouts/simple-item/_simple-item.twig" with {
+        "simple_item_blockname": simple_blockname|default(simple_base_class),
+        "simple_item_modifiers": simple_modifiers,
+        "simple_item_content": simple_item,
+        "simple_item_modifiers_additional": simple_section_modifiers,
+      } %}
+
+    {% endblock simple_block %}
+  {% endfor %}
+</div>

@@ -1,0 +1,42 @@
+simple_card_modifiers:
+  1:
+    fifth-image
+simple_card_sections:
+  1:
+    simple_section_modifiers:
+    simple_section_simple_extra:
+      1:
+        section
+    simple_section_items:
+      # Image
+      1:
+        img_attributes:
+          src:
+              '../../images/fpo_16x4.png'
+  2:
+    simple_section_modifiers:
+    simple_section_simple_extra:
+      1:
+        section
+    simple_section_items:
+      # Title
+      2:
+        title:
+          "You belong here."
+        modifiers:
+          1:
+            title
+      # Subtitle
+      3:
+        subtitle:
+          "This is the base Simple Card subtitle."
+        modifiers:
+          1:
+            subtitle
+      # Link
+      4:
+        link_attributes:
+          href:
+            "http://www.google.com"
+        link:
+          "Base Simple Card Link"
