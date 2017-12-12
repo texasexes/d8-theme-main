@@ -1,0 +1,26 @@
+layout_base_class:
+  flexbox
+layout_modifiers:
+  1:
+    pl
+  2:
+    horizontal
+  3:
+    feature-100
+layout_items:
+  1:
+    img_attributes:
+      src:
+          '../../images/trans_3x1.png'
+  2:
+    img_attributes:
+      src:
+          '../../images/trans_3x1.png'
+  3:
+    img_attributes:
+      src:
+          '../../images/trans_3x1.png'
+  4:
+    img_attributes:
+      src:
+          '../../images/trans_3x1.png'

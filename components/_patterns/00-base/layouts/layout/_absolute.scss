@@ -1,0 +1,14 @@
+.absolute {
+  position: relative;
+  overflow: auto;
+}
+
+.simple--full-image::before {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  content: " ";
+  // background-color: rgba(136, 76, 46, 0.3);
+  background-color: rgba(64, 64, 64, .3);
+  z-index: 10;
+}

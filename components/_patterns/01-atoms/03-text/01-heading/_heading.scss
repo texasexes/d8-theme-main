@@ -76,12 +76,14 @@
   color: white;
 }
 
-.simple__h2--title {
-
+.absolute__h2--title,
+.flexbox__h2--title {
+  @extend .h2;
 }
 
-.simple__h3--subtitle {
-
+.absolute__h3--subtitle,
+.flexbox__h3--subtitle {
+  @extend .h3;
 }
 
 // TODO: BEM selectors should be applied to wysiwyg-created content

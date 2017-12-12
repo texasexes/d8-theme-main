@@ -1,0 +1,27 @@
+{# A grid-item uses this class along with the blockname whenever it is an element (BEM)#}
+{% set item_base_class = item_base_class|default('item') %}
+{% set item_blockname = item_blockname|default('DEFAULT-ITEM-WRAPPER') %}
+
+{# not necessary #}
+{% set item_base_class_additional = item_base_class_additional %}
+{% set item_blockname_additional = item_blockname_additional %}
+{# END not necessary #}
+
+{% if item_modifiers_additional %}
+  {% set item_extra = bem2(item_base_class_additional, (item_modifiers_additional), item_blockname_additional) %}
+{% endif %}
+
+{% set natural_item_bem = bem2(item_base_class, (item_modifiers), item_blockname, (item_extra)) %}
+{% set finished_item_bem = {'class' : natural_item_bem} %}
+
+{# This var is set to prevent add_attributes griping about an empty var #}
+{% set item_attributes = item_attributes|default([]) %}
+<div
+  {#{ bem(item_base_class, (item_modifiers), item_blockname) }#}
+  {{ add_attributes(finished_item_bem) }}
+  {{ add_attributes(item_attributes) }}
+>
+  {% block item_block %}
+    {{ item_content }}
+  {% endblock %}
+</div>
