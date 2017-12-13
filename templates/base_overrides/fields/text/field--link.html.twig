@@ -1,0 +1,8 @@
+{% extends "field.html.twig" %}
+
+{% block item_block %}
+  {% include "@atoms/01-links/link/link.twig" with {
+    "link_content": item.content['#url']|render,
+    "link_attributes": item.attributes,
+  } %}
+{% endblock %}

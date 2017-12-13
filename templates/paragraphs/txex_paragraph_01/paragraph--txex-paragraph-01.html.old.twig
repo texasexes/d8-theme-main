@@ -8,39 +8,35 @@
 {% set tempArray4 = [] %}
 {% set tempArray5 = [] %}
 
-{% for key, child in content.field_media_image_01 if key|first != '#' %}
+{% for key, child in content.field_txex_p01_image if key|first != '#' %}
   {% set tempArray1 = tempArray1|merge({(key) : (child),}) %}
 {% endfor %}
 
-{% for key, child in content|without('field_media_image_01','field_variant_02') if key|first != '#' %}
+{% for key, child in content|without('field_txex_p01_image','field_variant') if key|first != '#' %}
   {% set tempArray2 = tempArray2|merge({(key) : (child),}) %}
 {% endfor %}
 
 {% set tempArray3 = tempArray3|merge({0 : (tempArray1),}) %}
 {% set tempArray3 = tempArray3|merge({1 : (tempArray2),}) %}
 
-{% for key, child in content.field_variant_02 if key|first != '#' %}
+{% for key, child in content.field_variant if key|first != '#' %}
   {% set tempArray4 = tempArray4|merge({(key) : (child),}) %}
 {% endfor %}
+
 {% for key, child in tempArray4 %}
   {% set tempArray5 = tempArray5|merge({(key) : (child['#markup']),}) %}
 {% endfor %}
-
-{# NOT using this instead #}
-{#% set tempArray4 = {1 : 'full-image',2 : 'text-33'}%#}
-{#% set tempArray5 = tempArray5|merge(tempArray4) %#}
-{# end NOT using this instead #}
-
 {% set tempArray5 = tempArray5|default({1 : 'horizontal', 2 : 'feature-100' }) %}
 
 {% set tempArray5 = tempArray5|merge({'paragraph-wrapper' : 'paragraph-wrapper',}) %}
+{#{ kint(content) }#}
 
-  {% include "@molecules/01-card-new/00-card-new.twig" with {
-    "card_base_class": 'absolute',
+  {% include "@molecules/00-card/card.twig" with {
     "card_modifiers": tempArray5,
     "card_sections": tempArray3,
-    "layout_section_modifiers": {1 : 'vertical'},
-    "layout_section_layout_extra": tempArray5,
+    "card_flexbox_extra": {1 : 'vertical'},
+    "flexbox_section_modifiers": {1 : 'vertical', 2 : 'pl'},
+    "flexbox_section_flexbox_extra": tempArray5,
   }%}
 
 

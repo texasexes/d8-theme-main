@@ -10,11 +10,14 @@ $standard-margin: 5%;
   }
 }
 
+.flexbox__item--reverse-order:nth-of-type(1) {
+  order: 2;
+}
+
 .flexbox__item--vertical {
   flex: 0 0 auto; //flex-grow flex-shrink flex-basis
   justify-content: stretch;
   margin: 0;
-
 }
 
 .flexbox__item--feature-25 {

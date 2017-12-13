@@ -86,6 +86,11 @@
   @extend .h3;
 }
 
+.absolute__h4--slug,
+.flexbox__h4--slug {
+  @extend .h4;
+}
+
 // TODO: BEM selectors should be applied to wysiwyg-created content
 
 .text-long {

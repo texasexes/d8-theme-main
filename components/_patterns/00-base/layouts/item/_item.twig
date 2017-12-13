@@ -16,6 +16,7 @@
 
 {# This var is set to prevent add_attributes griping about an empty var #}
 {% set item_attributes = item_attributes|default([]) %}
+{#{ kint(item_content) }#}
 <div
   {#{ bem(item_base_class, (item_modifiers), item_blockname) }#}
   {{ add_attributes(finished_item_bem) }}

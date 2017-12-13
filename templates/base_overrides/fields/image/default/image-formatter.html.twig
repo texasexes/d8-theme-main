@@ -17,7 +17,7 @@
   {% embed "@atoms/01-links/link/link.twig" with {
     "link_attributes": {'href': url|render,},
     "link_base_class": image_formatter_link_base_class,
-    "link_modifiers": {'1' : 'image',},
+    "link_modifiers": {1 : 'image',},
     "link_blockname": image_formatter_blockname|default('link-image'),
   } %}
     {% block link_content %}

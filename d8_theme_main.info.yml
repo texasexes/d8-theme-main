@@ -1,6 +1,6 @@
 name: Texas Exes D8 Main Theme
 type: theme
-description: Theme based on <a href="http://emulsify.info">Emulsify</a>.
+description: Texas Exes primary theme based on <a href="http://emulsify.info">Emulsify</a>.
 base theme: stable
 core: 8.x
 
@@ -62,3 +62,6 @@ component-libraries:
   pages:
     paths:
       - components/_patterns/05-pages
+  paragraph-templates:
+    paths:
+      - templates/paragraphs
