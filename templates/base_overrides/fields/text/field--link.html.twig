@@ -1,8 +1,17 @@
 {% extends "field.html.twig" %}
 
+
+
 {% block item_block %}
+
+{% set linkAttributes = [] %}
+{% set linkAttributes = linkAttributes|merge({"href" : (item.content['#url']|render)}) %}
+{% if item.attributes %}
+  {% set linkAttributes = linkAttributes|merge(item.attributes) %}
+{% endif %}
+
   {% include "@atoms/01-links/link/link.twig" with {
-    "link_content": item.content['#url']|render,
-    "link_attributes": item.attributes,
+    "link_content": item.content['#title'],
+    "link_attributes": linkAttributes,
   } %}
 {% endblock %}

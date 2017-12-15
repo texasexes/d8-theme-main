@@ -89,6 +89,10 @@
 .absolute__h4--slug,
 .flexbox__h4--slug {
   @extend .h4;
+  display: inline-block;
+  padding: .25em .75em;
+  background-color: $orange-dk;
+  color: $near-white;
 }
 
 // TODO: BEM selectors should be applied to wysiwyg-created content

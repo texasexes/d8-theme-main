@@ -9,11 +9,16 @@
 {% set tempArray5 = [] %}
 
 {% for key, child in content.field_media_image_01 if key|first != '#' %}
-  {% set tempArray1 = tempArray1|merge({(key) : (child),}) %}
+  {% if {(key) : (child),}|render is not empty %}
+    {% set tempArray1 = tempArray1|merge({(key) : (child),}) %}
+  {% endif %}
 {% endfor %}
 
 {% for key, child in content|without('field_media_image_01','field_variant_01') if key|first != '#' %}
-  {% set tempArray2 = tempArray2|merge({(key) : (child),}) %}
+  {% if {(key) : (child),}|render is not empty %}
+    {% set tempArray2 = tempArray2|merge({(key) : (child),}) %}
+  {% endif %}
+
 {% endfor %}
 
 {% set tempArray3 = tempArray3|merge({0 : (tempArray1),}) %}

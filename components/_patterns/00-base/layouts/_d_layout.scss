@@ -2,3 +2,30 @@
   max-width: 1300px;
   margin: 0 auto;
 }
+
+.layout-node-form {
+  .layout-region.layout-region-node-main,
+  .layout-region.layout-region-node-secondary,
+  .layout-region.layout-region-node-footer {
+    float: none;
+    width: 90%;
+    margin: auto;
+    padding-right: 0;
+  }
+
+  .layout-region.layout-region-node-main {
+    width: 100%;
+  }
+}
+
+// Drupal hack because icon positioning is based on ems and something weird
+// happens when additional styles are added to the entity edit screen
+.field-multiple-drag {
+  a.tabledrag-handle .handle {
+    padding: 0;
+    margin: auto;
+    height: 1.5em;
+    width: 1.5em;
+    background-position: 0 0;
+  }
+}
