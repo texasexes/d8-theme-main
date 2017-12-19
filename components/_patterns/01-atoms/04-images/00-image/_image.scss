@@ -23,3 +23,13 @@
 .paragraph__img {
   @extend .img;
 }
+
+// An img that is an element of a absolute block
+.absolute__img {
+  @extend .img;
+}
+
+// An img that is an element of a flexbox block
+.flexbox__img {
+  @extend .img;
+}

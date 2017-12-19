@@ -7,7 +7,7 @@
   $color-link: inherit,
   $color-link-hover: inherit,
   $font-family: $font-heading,
-  $font-size: 2rem,
+  $font-size: 2em,
   $font-weight: 700,
   $line-height: 1.4,
   $margin: 0 0 0.5em) {
@@ -34,20 +34,20 @@
 }
 
 .h2 {
-  @include heading($font-size: 1.8rem);
+  @include heading($font-size: 1.8em);
 }
 
 .h3 {
-  @include heading($font-size: 1.4rem, $line-height: 1.6);
+  @include heading($font-size: 1.4em, $line-height: 1.6);
 }
 
 .h4 {
-  @include heading($font-size: 1.2rem, $line-height: 1.6, $font-weight: 600);
+  @include heading($font-size: 1.2em, $line-height: 1.6, $font-weight: 600);
 }
 
 .h5,
 .h6 {
-  @include heading($font-size: 1.1rem, $line-height: 2, $font-weight: 600);
+  @include heading($font-size: 1.1em, $line-height: 2, $font-weight: 600);
 }
 
 .h1,
@@ -64,6 +64,35 @@
     box-shadow: 5px 5px 3px #2d2d2d;
     padding: 0 0.5em;
   }
+}
+
+.simple__h2 {
+  @extend .h2;
+  color: white;
+}
+
+.simple__h3 {
+  @extend .h3;
+  color: white;
+}
+
+.absolute__h2--title,
+.flexbox__h2--title {
+  @extend .h2;
+}
+
+.absolute__h3--subtitle,
+.flexbox__h3--subtitle {
+  @extend .h3;
+}
+
+.absolute__h4--slug,
+.flexbox__h4--slug {
+  @extend .h4;
+  display: inline-block;
+  padding: .25em .75em;
+  background-color: $orange-dk;
+  color: $near-white;
 }
 
 // TODO: BEM selectors should be applied to wysiwyg-created content

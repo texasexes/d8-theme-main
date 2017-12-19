@@ -27,7 +27,7 @@
 }
 
 // When a button is a block, this is it's class (BEM)
-.button {
+.txex-button {
   @include button;
 
   &--alt-1 {

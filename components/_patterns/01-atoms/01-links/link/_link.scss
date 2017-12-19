@@ -20,3 +20,18 @@
 .card__link {
   @extend .link;
 }
+
+.simple__link {
+  @extend .link;
+  text-decoration: none;
+}
+
+.absolute__link {
+  @extend .link;
+  text-decoration: none;
+}
+
+.flexbox__link {
+  @extend .link;
+  text-decoration: none;
+}

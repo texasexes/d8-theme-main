@@ -16,3 +16,8 @@ main_menu:
     components/_patterns/02-molecules/menus/main-menu/main-menu.js: {}
   dependencies:
     - core/drupal
+
+global-css:
+  css:
+    theme:
+      dist/style.css: {}

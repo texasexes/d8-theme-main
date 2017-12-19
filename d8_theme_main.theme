@@ -15,7 +15,7 @@ function d8_theme_main_preprocess_responsive_image_formatter(&$variables) {
     $variables['responsive_image']['#attributes']['field_info']['field_name_bundle'] = $fieldNameBundle;
 
     $fieldParent = $variables['item']->getEntity();
-    $fieldParentBundle = $fieldParent->getType();
+    // $fieldParentBundle = $fieldParent->getType();
     $fieldParentBundleType = $fieldParent->getEntityTypeId();
     $variables['responsive_image']['#attributes']['field_info']['field_parent_bundle'] = $fieldParentBundle;
     $variables['responsive_image']['#attributes']['field_info']['field_parent_bundle_type'] = $fieldParentBundleType;
@@ -56,7 +56,7 @@ function d8_theme_main_preprocess_image(&$variables) {
    $fieldNameBundle = $itemParent->getFieldDefinition()->getType();
 
    $fieldParent = $variables['item']->getEntity();
-   $fieldParentBundle = $fieldParent->getType();
+  //  $fieldParentBundle = $fieldParent->getType();
    $fieldParentBundleType = $fieldParent->getEntityTypeId();
 
    array_push($suggestions, $variables['theme_hook_original'] . "__" . $fieldParentBundleType);

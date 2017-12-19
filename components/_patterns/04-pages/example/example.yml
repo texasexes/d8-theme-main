@@ -1,7 +1,7 @@
 example_modifiers:
   1:
     pl
-example_flexbox_extra:
+example_layout_extra:
   1:
     horizontal
   2:
@@ -16,10 +16,12 @@ example_items:
     flex_layout_3_items:
     # Item 1
       1:
-        flex_layout_3_items_modifiers:
+        card_base_class:
+          flexbox
+        card_modifiers:
           1:
             vertical
-        flex_layout_3_items_flexbox_extra:
+        card_layout_extra:
           1:
             pl-2
           2:
@@ -27,17 +29,17 @@ example_items:
         card_sections:
         # Section 1
           1:
-            flexbox_section_modifiers:
+            layout_section_modifiers:
               1:
                 vertical
               2:
                 pl-1
-            flexbox_section_flexbox_extra:
+            layout_section_layout_extra:
               1:
                 vertical
               2:
                 pl
-            flexbox_section_items:
+            layout_section_items:
               # Image
               1:
                 img_attributes:
@@ -45,17 +47,17 @@ example_items:
                       '../../images/fpo_4x3.png'
         # Section 2
           2:
-            flexbox_section_modifiers:
+            layout_section_modifiers:
               1:
                 vertical
               2:
                 pl-1
-            flexbox_section_flexbox_extra:
+            layout_section_layout_extra:
               1:
                 vertical
               2:
                 pl
-            flexbox_section_items:
+            layout_section_items:
               # Title
               2:
                 title:
@@ -78,10 +80,12 @@ example_items:
     flex_layout_3_items:
     # Item 1
       1:
-        flex_layout_3_items_modifiers:
+        card_base_class:
+          flexbox
+        card_modifiers:
           1:
             horizontal
-        flex_layout_3_items_flexbox_extra:
+        card_layout_extra:
           1:
             vertical
           2:
@@ -89,19 +93,19 @@ example_items:
         card_sections:
         # Section 1
           1:
-            flexbox_section_modifiers:
+            layout_section_modifiers:
               1:
                 vertical
               2:
                 pl-1
-            flexbox_section_flexbox_extra:
+            layout_section_layout_extra:
               1:
                 horizontal
               2:
                 feature-33
               3:
                 pl
-            flexbox_section_items:
+            layout_section_items:
               # Image
               1:
                 img_attributes:
@@ -109,19 +113,19 @@ example_items:
                       '../../images/fpo_16x9.png'
         # Section 2
           2:
-            flexbox_section_modifiers:
+            layout_section_modifiers:
               1:
                 vertical
               2:
                 pl-1
-            flexbox_section_flexbox_extra:
+            layout_section_layout_extra:
               1:
                 horizontal
               2:
                 feature-33
               3:
                 pl
-            flexbox_section_items:
+            layout_section_items:
               # Title
               2:
                 title:
@@ -136,10 +140,12 @@ example_items:
                   subtitle
     # Item 2
       2:
-        flex_layout_3_items_modifiers:
+        card_base_class:
+          flexbox
+        card_modifiers:
           1:
             horizontal
-        flex_layout_3_items_flexbox_extra:
+        card_layout_extra:
           1:
             vertical
           2:
@@ -147,19 +153,19 @@ example_items:
         card_sections:
         # Section 1
           1:
-            flexbox_section_modifiers:
+            layout_section_modifiers:
               1:
                 vertical
               2:
                 pl-1
-            flexbox_section_flexbox_extra:
+            layout_section_layout_extra:
               1:
                 horizontal
               2:
                 feature-33
               3:
                 pl
-            flexbox_section_items:
+            layout_section_items:
               # Image
               1:
                 img_attributes:
@@ -167,19 +173,19 @@ example_items:
                       '../../images/fpo_square.png'
         # Section 2
           2:
-            flexbox_section_modifiers:
+            layout_section_modifiers:
               1:
                 vertical
               2:
                 pl-1
-            flexbox_section_flexbox_extra:
+            layout_section_layout_extra:
               1:
                 horizontal
               2:
                 feature-33
               3:
                 pl
-            flexbox_section_items:
+            layout_section_items:
               # Title
               2:
                 title:
@@ -201,10 +207,12 @@ example_items:
                   "Google"
     # Item 3
       3:
-        flex_layout_3_items_modifiers:
+        card_base_class:
+          flexbox
+        card_modifiers:
           1:
             horizontal
-        flex_layout_3_items_flexbox_extra:
+        card_layout_extra:
           1:
             vertical
           2:
@@ -212,38 +220,38 @@ example_items:
         card_sections:
         # Section 1
           1:
-            flexbox_section_modifiers:
+            layout_section_modifiers:
               1:
                 vertical
               2:
                 pl-1
-            flexbox_section_flexbox_extra:
+            layout_section_layout_extra:
               1:
                 horizontal
               2:
                 feature-33
               3:
                 pl
-            flexbox_section_items:
+            layout_section_items:
               # Image
               1:
                 img_attributes:
                   src:
                       '../../images/fpo_square.png'
           2:
-            flexbox_section_modifiers:
+            layout_section_modifiers:
               1:
                 vertical
               2:
                 pl-1
-            flexbox_section_flexbox_extra:
+            layout_section_layout_extra:
               1:
                 horizontal
               2:
                 feature-33
               3:
                 pl
-            flexbox_section_items:
+            layout_section_items:
               # Title
               2:
                 title:

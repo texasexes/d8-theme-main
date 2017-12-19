@@ -1,23 +1,52 @@
 {% extends "paragraph.html.twig" %}
 
-{% set paragraph_02_base_class = 'paragraph-02' %}
+{% block paragraph %}
 
-{% block content %}
+{% set tempArray1 = [] %}
+{% set tempArray2 = [] %}
+{% set tempArray3 = [] %}
+{% set tempArray4 = [] %}
+{% set tempArray5 = [] %}
 
-  {% set paragraph_02_items = [] %}
-  {% for key, child in content['field_para_in_para'] if key|first != '#' %}
-    {% set paragraph_02_items = paragraph_02_items|merge({ (key) : (child)}) %}
-  {% endfor %}
+{% for key, child in content.field_media_image_01 if key|first != '#' %}
+  {% if {(key) : (child),}|render is not empty %}
+    {% set tempArray1 = tempArray1|merge({(key) : (child),}) %}
+  {% endif %}
+{% endfor %}
 
-  {% include "@organisms/00-flex-layout-1/flex-layout-1.twig" with {
-    "flex_layout_1_modifiers": {1 : 'columns-2' },
-    "flex_layout_1_base_class": paragraph_02_base_class,
-    "flex_layout_1_items": paragraph_02_items,
+{% for key, child in content|without('field_media_image_01','field_variant_01') if key|first != '#' %}
+  {% if {(key) : (child),}|render is not empty %}
+    {% set tempArray2 = tempArray2|merge({(key) : (child),}) %}
+  {% endif %}
+
+{% endfor %}
+
+{% set tempArray3 = tempArray3|merge({0 : (tempArray1),}) %}
+{% set tempArray3 = tempArray3|merge({1 : (tempArray2),}) %}
+
+{% for key, child in content.field_variant_01 if key|first != '#' %}
+  {% set tempArray4 = tempArray4|merge({(key) : (child),}) %}
+{% endfor %}
+{% for key, child in tempArray4 %}
+  {% set tempArray5 = tempArray5|merge({(key) : (child['#markup']),}) %}
+{% endfor %}
+
+{# NOT using this instead #}
+{#% set tempArray4 = {1 : 'full-image',2 : 'text-33'}%#}
+{#% set tempArray5 = tempArray5|merge(tempArray4) %#}
+{# end NOT using this instead #}
+
+{% set tempArray5 = tempArray5|default({1 : 'horizontal', 2 : 'feature-100' }) %}
+
+{% set tempArray5 = tempArray5|merge({'paragraph-wrapper' : 'paragraph-wrapper',}) %}
+
+  {% include "@molecules/01-card-new/00-card-new.twig" with {
+    "card_base_class": 'flexbox',
+    "card_modifiers": tempArray5,
+    "card_sections": tempArray3,
+    "layout_section_modifiers": {1 : 'vertical'},
+    "layout_section_layout_extra": tempArray5,
   }%}
 
 
-{% endblock content %}
-
-{# https://drupal.stackexchange.com/questions/208723/iterate-through-multiple-value-content-field-in-twig-template
-https://drupal.stackexchange.com/questions/174742/loop-through-child-elements-in-twig-like-elementchildren
-#}
+{% endblock paragraph %}
