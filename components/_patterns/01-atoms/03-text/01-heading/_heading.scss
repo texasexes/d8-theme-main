@@ -7,7 +7,7 @@
   $color-link: inherit,
   $color-link-hover: inherit,
   $font-family: $font-heading,
-  $font-size: 2rem,
+  $font-size: 2em,
   $font-weight: 700,
   $line-height: 1.4,
   $margin: 0 0 0.5em) {
@@ -34,20 +34,20 @@
 }
 
 .h2 {
-  @include heading($font-size: 1.8rem);
+  @include heading($font-size: 1.8em);
 }
 
 .h3 {
-  @include heading($font-size: 1.4rem, $line-height: 1.6);
+  @include heading($font-size: 1.4em, $line-height: 1.6);
 }
 
 .h4 {
-  @include heading($font-size: 1.2rem, $line-height: 1.6, $font-weight: 600);
+  @include heading($font-size: 1.2em, $line-height: 1.6, $font-weight: 600);
 }
 
 .h5,
 .h6 {
-  @include heading($font-size: 1.1rem, $line-height: 2, $font-weight: 600);
+  @include heading($font-size: 1.1em, $line-height: 2, $font-weight: 600);
 }
 
 .h1,

@@ -7,14 +7,14 @@
   .layout-region.layout-region-node-main,
   .layout-region.layout-region-node-secondary,
   .layout-region.layout-region-node-footer {
-    float: none;
-    width: 90%;
-    margin: auto;
-    padding-right: 0;
+    // float: none;
+    // width: 90%;
+    // margin: auto;
+    // padding-right: 0;
   }
 
   .layout-region.layout-region-node-main {
-    width: 100%;
+    // width: 100%;
   }
 }
 
@@ -27,5 +27,13 @@
     height: 1.5em;
     width: 1.5em;
     background-position: 0 0;
+  }
+}
+
+.paragraph--view-mode--preview {
+  padding-right: 0;
+  &.flexbox--paragraph-wrapper,
+  &.absolute--paragraph-wrapper {
+    font-size: .74em;
   }
 }
