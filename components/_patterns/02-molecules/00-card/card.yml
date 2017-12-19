@@ -1,0 +1,53 @@
+card_modifiers:
+  1:
+    horizontal
+  2:
+    pl
+card_sections:
+  1:
+    flexbox_section_modifiers:
+      1:
+        vertical
+      2:
+        pl-1
+    flexbox_section_flexbox_extra:
+      1:
+        horizontal
+      2:
+        pl
+    flexbox_section_items:
+      # Image
+      1:
+        img_attributes:
+          src:
+              '../../images/fpo_16x9.png'
+  2:
+    flexbox_section_modifiers:
+      1:
+        vertical
+      2:
+        pl-1
+    flexbox_section_flexbox_extra:
+      1:
+        horizontal
+      2:
+        pl
+    flexbox_section_items:
+      # Title
+      2:
+        title:
+          "Card Title"
+        link_attributes:
+          href:
+            "http://www.google.com"
+      # Subtitle
+      3:
+        subtitle:
+          "This is the base card subtitle."
+      # Link
+      4:
+        link_attributes:
+          href:
+            "http://www.google.com"
+        link:
+          "Base Card Link"
