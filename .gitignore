@@ -1,5 +1,5 @@
 # Ignore compiled files.
-dist
+#dist
 vendor
 
 # Pattern Lab (ignored initially)
