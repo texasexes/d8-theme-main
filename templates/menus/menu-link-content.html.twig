@@ -1,0 +1,36 @@
+{#
+/**
+ * @file
+ * Default theme implementation to present a menu link entity entity.
+ *
+ * Available variables:
+ * - menu_link_content: Menu link entity.
+ *
+ * @see template_preprocess_menu_link_content()
+ *
+ * @ingroup themeable
+ */
+#}
+
+{% set entityObject = elements['#menu_link_content'] %}
+{% set rendered_content = content|without('field_mie_para_ref','field_mie_new_column') %}
+
+{% if content.field_mie_para_ref.0 %}
+  <div class="flexbox flexbox--horizontal">
+    <div class="flexbox__item flexbox__item--feature-33">
+      {{ content.field_mie_para_ref }}
+    </div>
+    <div class="flexbox__item flexbox__item--feature-33">
+      {% if rendered_content %}
+        {{ rendered_content }}
+      {% endif %}
+    </div>
+  </div>
+{% else %}
+  <div>
+    {#{ kint(content.field_mie_column.0['#markup']) }#}
+    {% if rendered_content %}
+      {{ rendered_content }}
+    {% endif %}
+  </div>
+{% endif %}
