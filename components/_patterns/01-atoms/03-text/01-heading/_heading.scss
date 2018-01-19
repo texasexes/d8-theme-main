@@ -68,11 +68,13 @@
 
 .simple__h2 {
   @extend .h2;
+
   color: white;
 }
 
 .simple__h3 {
   @extend .h3;
+
   color: white;
 }
 
@@ -89,8 +91,9 @@
 .absolute__h4--slug,
 .flexbox__h4--slug {
   @extend .h4;
+
   display: inline-block;
-  padding: .25em .75em;
+  padding: 0.25em 0.75em;
   background-color: $orange-dk;
   color: $near-white;
 }
