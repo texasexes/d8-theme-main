@@ -32,8 +32,9 @@
 
 .paragraph--view-mode--preview {
   padding-right: 0;
+
   &.flexbox--paragraph-wrapper,
   &.absolute--paragraph-wrapper {
-    font-size: .74em;
+    font-size: 0.74em;
   }
 }

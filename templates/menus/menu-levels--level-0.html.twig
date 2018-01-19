@@ -12,7 +12,7 @@
     'flexbox__item',
     item.is_expanded ? 'menu-item--expanded',
     item.is_collapsed ? 'menu-item--collapsed',
-    item.in_active_trail ? 'menu-item--active-trail',
+    item.in_active_trail ? 'menu-item--active-trail'
   ] %}
 
   <li{{ item.attributes.addClass(menu_item_classes) }}>
@@ -26,7 +26,8 @@
         'menu-type-' ~ item.content['#view_mode'],
       ] %}
 
-      <div{{ create_attribute().addClass(menu_dropdown_classes) }}>
+      {% set menu_inline_style = 'height:' ~ item.entity.field_mie_dropdown_height.0.value ~ 'em' %}
+      <div{{ create_attribute().addClass(menu_dropdown_classes).setAttribute('style', menu_inline_style) }}>
         {{ rendered_content }}
       </div>
     {% endif %}

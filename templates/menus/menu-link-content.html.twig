@@ -13,24 +13,39 @@
 #}
 
 {% set entityObject = elements['#menu_link_content'] %}
-{% set rendered_content = content|without('field_mie_para_ref','field_mie_new_column') %}
+{% set content_for_render = content|without('field_mie_para_ref','field_mie_dropdown_height') %}
+{% set para_count = content.field_mie_para_ref.0['#paragraph'].fields.field_para_ref_02.getvalue|length %}
+{% if para_count == 1 %}
+  {% set layout_feature_class = 'flexbox__item--feature-20' %}
+{% elseif para_count == 2 %}
+  {% set layout_feature_class = 'flexbox__item--feature-40' %}
+{% elseif para_count == 3 %}
+  {% set layout_feature_class = 'flexbox__item--feature-60' %}
+{% elseif para_count == 4 %}
+  {% set layout_feature_class = 'flexbox__item--feature-80' %}
+{% endif %}
+{% set layout_item_classes = [
+  'flexbox__item',
+  layout_feature_class,
+]
+%}
 
 {% if content.field_mie_para_ref.0 %}
   <div class="flexbox flexbox--horizontal">
-    <div class="flexbox__item flexbox__item--feature-33">
+    <div {{ create_attribute().addClass(layout_item_classes) }}>
       {{ content.field_mie_para_ref }}
     </div>
-    <div class="flexbox__item flexbox__item--feature-33">
-      {% if rendered_content %}
-        {{ rendered_content }}
+    <div {{ create_attribute().addClass(layout_item_classes) }}>
+      {% if content_for_render %}
+        {{ content_for_render }}
       {% endif %}
     </div>
   </div>
 {% else %}
   <div>
     {#{ kint(content.field_mie_column.0['#markup']) }#}
-    {% if rendered_content %}
-      {{ rendered_content }}
+    {% if content_for_render %}
+      {{ content_for_render }}
     {% endif %}
   </div>
 {% endif %}

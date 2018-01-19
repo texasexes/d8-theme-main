@@ -12,8 +12,7 @@
     'flexbox__item',
     item.is_expanded ? 'menu-item--expanded',
     item.is_collapsed ? 'menu-item--collapsed',
-    item.in_active_trail ? 'menu-item--active-trail',
-    item.entity.field_mie_new_column.0.value ? 'new-column'
+    item.in_active_trail ? 'menu-item--active-trail'
   ] %}
 
   <li{{ item.attributes.addClass(menu_item_classes) }}>
@@ -28,7 +27,6 @@
       ] %}
 
       <div{{ create_attribute().addClass(menu_dropdown_classes) }}>
-        {#{ kint(item.entity.field_mie_new_column.0.value) }#}
         {{ rendered_content }}
       </div>
     {% endif %}

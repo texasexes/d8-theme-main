@@ -21,3 +21,11 @@ global-css:
   css:
     theme:
       dist/style.css: {}
+
+fonts:
+  css:
+    theme:
+      //cloud.typography.com/737040/6549592/css/fonts.css: { type: external }
+  css:
+    theme:
+      //fonts.googleapis.com/css?family=Rubik: { type: external }
