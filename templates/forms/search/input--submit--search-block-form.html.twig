@@ -1,0 +1,12 @@
+
+{% include "@atoms/02-form_elements/01-button/00-button.twig" with {
+  "button_attributes": {'type' :'submit', 'title' : 'Submit your search.'},
+  "button_modifiers": {1 : 'search',},
+}%}
+{#% include "@atoms/02-form_elements/01-button/00-button.twig" with {
+  "button_attributes": {'type' :'reset', 'title' : 'Reset your search.'},
+  "button_modifiers": {1 : 'reset',},
+}%#}
+<!-- <script type="text/javascript">
+  document.querySelector('.txex-button--reset').addEventListener('click', function() {  this.parentNode.querySelector('input').focus();});
+</script> -->

@@ -1,0 +1,54 @@
+{#
+/**
+ * @file
+ * Theme override to display a region.
+ *
+ * Available variables:
+ * - content: The content for this region, typically blocks.
+ * - attributes: HTML attributes for the region div.
+ * - region: The name of the region variable as defined in the theme's
+ *   .info.yml file.
+ *
+ * @see template_preprocess_region()
+ */
+#}
+{% if content %}
+  <div{{ attributes.addClass('footer-region') }}>
+    <div class="footer-region__wrapper">
+      <div class="footer-region__item">
+        <a href="/" title="Home" rel="home" class="site-logo-2">
+          <img src="/themes/custom/d8-theme-main/images/logo-2.svg" alt="Home">
+        </a>
+        <address>
+          Ex-Students Association of The University of Texas <br>
+          2110 San Jacinto Blvd., Austin, TX 78712 | <a href="tel:1-512-840-5700">512-840-5700</a>
+        </address>
+        {{ content }}
+      </div>
+      <div class="footer-region__item">
+        <span class="footer-region__social-title">Keep in touch</span><br>
+        <a href="https://www.facebook.com/texasexes/" title="Facebook"  target="_blank" class="icon-footer">
+          <img src="/themes/custom/d8-theme-main/images/icon-footer-fb.svg" alt="Facebook Icon">
+        </a>
+        <a href="https://twitter.com/TexasExes" title="Twitter"  target="_blank" class="icon-footer">
+          <img src="/themes/custom/d8-theme-main/images/icon-footer-twitter.svg" alt="Twitter Icon">
+        </a>
+        <a href="https://www.instagram.com/texasexes/" title="Instagram" target="_blank" class="icon-footer">
+          <img src="/themes/custom/d8-theme-main/images/icon-footer-insta.svg" alt="Instagram Icon">
+        </a>
+      </div>
+      <div class="footer-region__item">
+        <span class="footer-region__sponsor-title">Thank you to our sponsors</span>
+        <a href="/" title="Bank of America"  target="_blank" class="sponsor-footer">
+          <img src="/themes/custom/d8-theme-main/images/2018redesign-homepage6_03.png" alt="Bank of America Logo">
+        </a>
+        <a href="/" title="Southwest Airlines"  target="_blank" class="sponsor-footer">
+          <img src="/themes/custom/d8-theme-main/images/2018redesign-homepage6_06.png" alt="Southwest Airlines Logo">
+        </a>
+        <a href="/" title="Liberty Mutual Insurance" target="_blank" class="sponsor-footer">
+          <img src="/themes/custom/d8-theme-main/images/2018redesign-homepage6_09.png" alt="Liberty Mutual Insurance Logo">
+        </a>
+      </div>
+    </div>
+  </div>
+{% endif %}

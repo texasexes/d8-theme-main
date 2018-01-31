@@ -1,0 +1,23 @@
+{#
+/**
+ * Available variables:
+
+ * - use_base_class - base class name
+ * - use_modifiers - array of modifiers to add to the base classname
+ * - use_blockname - blockname prepended to the base classname
+
+ * - use_attributes - attributes key/value pair for link attributes
+ */
+#}
+{# An image uses this class along with the blockname whenever it is an element (BEM)#}
+{#% set use_base_class = use_base_class|default('use') %#}
+{# This var is set to prevent add_attributes griping about an empty var #}
+{% set use_attributes = use_attributes|default([]) %}
+
+<use
+    {#{ bem(use_base_class, (use_modifiers), use_blockname) }#}
+    {{ add_attributes(use_attributes) }} >
+  {%- block use_content -%}
+    {{- use_content -}}
+  {%- endblock -%}
+</use>

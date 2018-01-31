@@ -25,7 +25,5 @@ global-css:
 fonts:
   css:
     theme:
-      //cloud.typography.com/737040/6549592/css/fonts.css: { type: external }
-  css:
-    theme:
-      //fonts.googleapis.com/css?family=Rubik: { type: external }
+      //cloud.typography.com/737040/6549592/css/fonts.css: { type: external, minified: true }
+      //fonts.googleapis.com/css?family=Rubik: { type: external, minified: true }

@@ -1,0 +1,18 @@
+<form novalidate="novalidate" onsubmit="return false;">
+  <div class="searchbox sbx-custom">
+    <div role="search" class="sbx-custom__wrapper">
+      <input type="search" name="search" placeholder="Search" autocomplete="off" required="required" class="sbx-custom__input">
+      {% include "@atoms/02-form_elements/01-button/00-button.twig" with {
+        "button_attributes": {'type' :'submit', 'title' : 'Submit your search.'},
+        "button_modifiers": {1 : 'search',},
+      }%}
+      {% include "@atoms/02-form_elements/01-button/00-button.twig" with {
+        "button_attributes": {'type' :'reset', 'title' : 'Reset your search.'},
+        "button_modifiers": {1 : 'reset',},
+      }%}
+    </div>
+  </div>
+</form>
+<script type="text/javascript">
+  document.querySelector('.txex-button--reset').addEventListener('click', function() {  this.parentNode.querySelector('input').focus();});
+</script>

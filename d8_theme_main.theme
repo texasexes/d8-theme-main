@@ -92,3 +92,21 @@ function d8_theme_main_theme_suggestions_image_alter(array &$suggestions, array 
 //   }
 //
 // }
+
+// Adding theme suggestions to form submit items
+function d8_theme_main_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  $form['actions']['submit']['#attributes']['data-twig-suggestion'] = $form['#form_id'];
+  $form['keys']['#attributes']['data-twig-suggestion'] = $form['#form_id'];
+}
+
+function d8_theme_main_theme_suggestions_input_alter(&$suggestions, array $variables) {
+  $element = $variables['element'];
+  if (isset($element['#attributes']['data-twig-suggestion'])) {
+    $suggestions[] = 'input__' . $element['#type'] . '__' . $element['#attributes']['data-twig-suggestion'];
+  }
+}
+
+function d8_theme_main_theme_suggestions_form_alter(&$suggestions, array $variables) {
+  $element = $variables['element'];
+  $suggestions[] = 'form__' . $element['#form_id']; // Machine name of form.
+}

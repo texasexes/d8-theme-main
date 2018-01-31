@@ -1,0 +1,13 @@
+input_attributes:
+  type: "checkbox"
+  id: "checkbox-group-item-1"
+  name: "checkbox-group"
+  value: "checkbox-group-item-1-checked"
+input_modifiers:
+  1:
+    checkbox
+input_label:
+  "Checkbox Item 1"
+input_label_attributes:
+  for:
+    "checkbox-group-item-1"

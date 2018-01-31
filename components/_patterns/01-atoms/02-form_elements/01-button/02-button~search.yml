@@ -1,0 +1,8 @@
+button_modifiers:
+  1:
+    'search'
+button_attributes:
+  type:
+    'submit'
+  title:
+    'Submit your search.'

@@ -1,0 +1,25 @@
+{#
+/**
+ * Available variables:
+ * - label_base_class - the base classname
+ * - label_modifiers - array of modifiers to add to the base classname
+ * - label_blockname - blockname prepended to the base classname
+ * - label_content - the content of the label (typically text)
+ * - label_attributes - array of attribute,value pairs
+ *
+ * Available blocks:
+ * - label_content - used to replace the content of the label with something other than text
+ *   for example: A formatted text field in Drupal
+ */
+#}
+{% set label_base_class = label_base_class|default('label') %}
+{% set label_attributes = label_attributes|default([]) %}
+
+<label
+  {{ bem(label_base_class, (label_modifiers), label_blockname) }}
+  {{ add_attributes(label_attributes) -}}
+>
+  {%- block label_content -%}
+    {{- label_content -}}
+  {%- endblock -%}
+</label>

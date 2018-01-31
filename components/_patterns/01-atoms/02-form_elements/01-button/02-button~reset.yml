@@ -1,0 +1,8 @@
+button_modifiers:
+  1:
+    'reset'
+button_attributes:
+  type:
+    'reset'
+  title:
+    'Reset your search.'
