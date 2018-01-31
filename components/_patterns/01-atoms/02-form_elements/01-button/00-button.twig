@@ -17,10 +17,17 @@
 {# This var is set to prevent add_attributes griping about an empty var #}
 {% set button_attributes = button_attributes|default([]) %}
 
+{% import "@atoms/02-form_elements/01-button/button-icons.html" as icons %}
+
 <button
   {{ bem(button_base_class, (button_modifiers), button_blockname) }}
   {{ add_attributes(button_attributes) -}}
 >
+  {% if 'search' in button_modifiers %}
+    {{ icons.search_icon }}
+  {% elseif  'reset' in button_modifiers %}
+    {{ icons.reset_icon }}
+  {% endif %}
   {%- block button_content -%}
     {{- button_content -}}
   {%- endblock -%}

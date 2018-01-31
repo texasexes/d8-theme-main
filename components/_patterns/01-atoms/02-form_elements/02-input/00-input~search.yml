@@ -1,0 +1,8 @@
+input_attributes:
+  title: "Enter the terms you wish to search for."
+  type: "search"
+  size: "15"
+  maxlength: "128"
+input_modifiers:
+  1:
+    search
