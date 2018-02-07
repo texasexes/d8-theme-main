@@ -1,0 +1,12 @@
+txex_two_column:
+  label: 'TXEX - Two column 20/80'
+  category: 'Texas Exes Layouts'
+  template: templates/layout/layout_discovery/layout--two-column-20-80
+  default_region: main
+  regions:
+    sidebar:
+      label: Sidebar
+    subheader:
+      label: Sub-header
+    main:
+      label: 'Main content'

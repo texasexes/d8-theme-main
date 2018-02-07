@@ -96,3 +96,7 @@ $standard-margin: 0;
   // border-style: solid;
   // border-width: 1px;
 }
+
+.flexbox__item--region-layout:first-of-type {
+  margin-right: 60px;
+}

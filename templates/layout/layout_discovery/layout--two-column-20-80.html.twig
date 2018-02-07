@@ -1,0 +1,24 @@
+{% set tempArray1 = [] %}
+{% set tempArray2 = [] %}
+{% set tempArray3 = [] %}
+{% set tempArray4 = [] %}
+{% set tempArray5 = [] %}
+
+{% set tempArray1 = tempArray1|merge({'sidebar' : (content.sidebar),}) %}
+
+{% set tempArray2 = tempArray2|merge({'subheader' : (content.subheader),}) %}
+{% set tempArray2 = tempArray2|merge({'main' : (content.main),}) %}
+
+{% set tempArray3 = tempArray3|merge({0 : (tempArray1),}) %}
+{% set tempArray3 = tempArray3|merge({1 : (tempArray2),}) %}
+
+
+{% set tempArray5 = tempArray5|merge({1 : 'horizontal', 2 : 'feature-20', 3 : 'region-layout' }) %}
+
+{% include "@molecules/01-card-new/00-card-new.twig" with {
+  "card_base_class": 'flexbox',
+  "card_modifiers": tempArray5,
+  "card_sections": tempArray3,
+  "layout_section_modifiers": {1 : 'vertical'},
+  "layout_section_layout_extra": {1 : 'horizontal', 2 : 'feature-20', 3 : 'region-layout' },
+}%}

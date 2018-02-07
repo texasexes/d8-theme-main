@@ -50,7 +50,7 @@
   text-decoration: none;
 
   img {
-    width: 18em;
+    width: 14.5em;
   }
 }
 
@@ -125,10 +125,10 @@
   }
 
   // & a[href^="tel:"]:before {
-  .site-logo-2:before {
-    // content: "\260e";
-    // content: "\1F918";
-    font-size: 4em;
-    content: "\1F996";
-  }
+  // .site-logo-2:before {
+  //   // content: "\260e";
+  //   // content: "\1F918";
+  //   font-size: 4em;
+  //   content: "\1F996";
+  // }
 }
