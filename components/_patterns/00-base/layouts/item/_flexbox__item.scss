@@ -97,6 +97,10 @@ $standard-margin: 0;
   // border-width: 1px;
 }
 
+.flexbox__item--region-layout {
+  max-width: 630px;
+}
+
 .flexbox__item--region-layout:first-of-type {
   margin-right: 60px;
 }
