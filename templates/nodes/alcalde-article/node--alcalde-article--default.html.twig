@@ -1,0 +1,45 @@
+{% extends  "node.html.twig" %}
+{% set attributes = attributes.addClass('article-alcalde') %}
+  {% block title %}
+
+      <a href="/" title="Alcalde"  target="_blank" class="alcalde-logo">
+        <img src="/themes/custom/d8-theme-main/images/2017alcalde-sitelogo.svg" alt="Alcalde Logo">
+      </a>
+      <a href="https://twitter.com/TexasExes" title="Twitter"  target="_blank" class="icon-article">
+        <img src="/themes/custom/d8-theme-main/images/article-icon-share-twitter.svg" alt="Twitter Icon">
+      </a>
+      <a href="https://www.facebook.com/texasexes/" title="Facebook"  target="_blank" class="icon-article">
+        <img src="/themes/custom/d8-theme-main/images/article-icon-share-facebook.svg" alt="Facebook Icon">
+      </a>
+      <a href="javascript:window.print();" title="Print"  target="_blank" class="icon-article">
+        <img src="/themes/custom/d8-theme-main/images/article-icon-print.svg" alt="Print Icon">
+      </a>
+
+  {% endblock title %}
+
+  {% block submitted %}{% endblock submitted %}
+
+  {% block content %}
+  {{ content.field_txex_ref_media_01 }}
+
+  {{ title_prefix }}
+    <h2{{ title_attributes }}>
+      {{ label }}
+    </h2>
+  {{ title_suffix }}
+
+  <footer>
+    <div{{ author_attributes }}>
+      By {{- content.field_txex_ref_content_01 -}}
+      {{- node.getCreatedTime|format_date('txex_datetime_01') -}}
+      {{ metadata }}
+    </div>
+  </footer>
+
+
+
+  <div{{ content_attributes }}>
+    {{ content|without('field_txex_ref_media_01','field_txex_ref_content_01') }}
+  </div>
+
+  {% endblock content %}
