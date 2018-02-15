@@ -1,0 +1,8 @@
+img_attributes:
+  src:
+    '../../images/txex/9x10_900x1000.png'
+  alt:
+    "Image - Portrait Medium"
+img_modifiers:
+  1:
+    pl

@@ -1,21 +1,54 @@
+// pattern Lab
+$image-background-color: $grey-a;
 
 // Links
-$color-link: $orange-dk;
-$color-link--hover: $gray-light;
+$color-link: $burnt-orange;
+$color-link--hover: $grey-a;
+
+// Misc
+$divider-color: $grey-a;
 
 // Button
-$color-button--bg: $orange;
-$color-button--bg--hover: $gray;
-$color-button--text: $white;
-$color-button--text--hover: $white;
-$color-button--text--visited: $color-button--text;
+$color-button--bg: $burnt-orange;
+$color-button--bg--hover: $grey-a;
+$color-button--text: $light-mushroom;
+$color-button--text--hover: $light-mushroom;
+$color-button--text--visited: $grey-4;
 
-$color-button--alt-1--bg: $blue-lt;
+$color-button--alt-1--bg: $dark-purple;
 
-$color-button--alt-2--bg: $gray-lt3;
-$color-button--alt-2--bg--hover: $gray-lt;
-$color-button--alt-2--text: $gray-lt;
-$color-button--alt-2--text--hover: $gray-lt5;
+$color-button--alt-2--bg: $grey-a;
+$color-button--alt-2--bg--hover: $grey-4;
+
+$color-button--alt-2--text: $grey-a;
+$color-button--alt-2--text--hover: $grey-4;
 
 // Blockquote
-$color-blockquote--border: $gray-lt;
+$color-blockquote--border: $grey-a;
+
+// menus
+$main-menu-highlight: $dark-purple;
+$main-menu-sub-highlight: $medium-purple;
+$main-menu-vertical-border: $light-purple;
+
+$menu-text-color-1: $grey-2;
+$menu-text-color-4: $grey-4;
+$menu-text-color-6: $grey-a;
+$menu-text-color-2: $light-mushroom;
+$menu-text-color-3: $dark-mushroom;
+$menu-text-color-5: $burnt-orange;
+
+// heading
+$heading-background: $burnt-orange;
+$heading-color: $light-mushroom;
+
+// search block
+$input-border-color: $grey-a;
+$input-focus-border-color: $burnt-orange;
+$icon-color: $grey-a;
+
+// cards
+
+
+// layout
+$absolute-background-color-1: $dark-purple;

@@ -1,0 +1,8 @@
+img_attributes:
+  src:
+    '../../images/txex/3x2_999x666.png'
+  alt:
+    "Image - Landscape Medium"
+img_modifiers:
+  1:
+    pl

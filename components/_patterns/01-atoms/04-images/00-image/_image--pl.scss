@@ -1,0 +1,7 @@
+// Pattern Lab Specific
+.img.img {
+  &--pl {
+    width: 25%;
+    background-color: $image-background-color;
+  }
+}

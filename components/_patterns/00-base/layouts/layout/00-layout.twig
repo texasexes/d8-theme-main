@@ -43,7 +43,7 @@
           } -%}
             {%- block link_content -%}
               {%- include "@atoms/03-text/01-heading/_heading.twig" with {
-                "heading_level": 2,
+                "heading_level": layout_item.level,
                 "heading_content": layout_item.title,
                 "heading_modifiers": layout_item.modifiers,
                 "heading_blockname": card_base_class,
@@ -52,7 +52,7 @@
           {%- endembed -%}
         {%- else -%}
           {%- include "@atoms/03-text/01-heading/_heading.twig" with {
-            "heading_level": 2,
+            "heading_level": layout_item.level,
             "heading_content": layout_item.title,
             "heading_modifiers": layout_item.modifiers,
             "heading_blockname": card_base_class,
@@ -72,7 +72,7 @@
           } -%}
             {%- block link_content -%}
               {%- include "@atoms/03-text/01-heading/_heading.twig" with {
-                "heading_level": 3,
+                "heading_level": layout_item.level,
                 "heading_content": layout_item.subtitle,
                 "heading_modifiers": layout_item.modifiers,
                 "heading_blockname": card_base_class,
@@ -81,7 +81,7 @@
           {%- endembed -%}
         {%- else -%}
           {%- include "@atoms/03-text/01-heading/_heading.twig" with {
-            "heading_level": 3,
+            "heading_level": layout_item.level,
             "heading_content": layout_item.subtitle,
             "heading_modifiers": layout_item.modifiers,
             "heading_blockname": card_base_class,

@@ -1,0 +1,8 @@
+img_attributes:
+  src:
+    '../../images/txex/1x1_1000x1000.png'
+  alt:
+    "Image - Square"
+img_modifiers:
+  1:
+    pl

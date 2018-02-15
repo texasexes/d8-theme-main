@@ -5,7 +5,7 @@
   $font-family: $font-link) {
   color: $color;
   cursor: pointer;
-  font-family: $font-family;
+  font-family: $font-link;
 
   &:hover {
     color: $color--hover;
@@ -30,7 +30,17 @@
 .absolute__link {
   @extend .link;
 
+  font-size: 15px;
+  line-height: 21px;
+
   text-decoration: none;
+
+  &:after {
+    content: "\25b6";
+    padding-left: 1em;
+    font-size: .5em;
+    vertical-align: middle;
+  }
 }
 
 .flexbox__link {

@@ -4,21 +4,26 @@
 //
 @mixin heading(
   $color: inherit,
-  $color-link: inherit,
-  $color-link-hover: inherit,
-  $font-family: $font-heading,
-  $font-size: 2em,
-  $font-weight: 700,
-  $line-height: 1.4,
-  $margin: 0 0 0.5em) {
+  // $color-link: inherit,
+  // $color-link-hover: inherit,
+  $font-family: $font-heading-1,
+  $font-size: 3.82em,
+  $font-style: normal,
+  $font-weight: 400,
+  $letter-spacing: -.005em,
+  $line-height: .835em,
+  $text-transform: none) {
   color: #{$color};
   font-family: #{$font-family};
   font-size: #{$font-size};
-  font-style: normal;
+  font-style: #{$font-style};
   font-weight: #{$font-weight};
+  letter-spacing: #{$letter-spacing};
   line-height: #{$line-height};
-  margin: #{$margin};
+  text-transform: #{$text-transform};
   width: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 
   // &__link {
   //   color: $color-link;
@@ -30,11 +35,12 @@
 }
 
 .h1 {
-  @include heading;
+  @include heading($color: $white, $text-transform: uppercase);
+  margin: 0 0 10px;
 }
 
 .h2 {
-  @include heading($font-size: 1.8em);
+  @include heading($color: $white, $font-size: 1.31em, $line-height: 1.29em, $font-family: $font-heading-2 );
 }
 
 .h3 {
@@ -66,36 +72,51 @@
   }
 }
 
-.simple__h2 {
-  @extend .h2;
+.absolute,
+.flexbox {
+  &__h1{
+    &--title {
+      @extend .h1;
+    }
+  }
 
-  color: white;
+  &__h2{
+    &--title {
+      @extend .h2;
+    }
+
+    &--subtitle {
+      @extend .h2;
+    }
+  }
+
+  &__h3{
+    &--subtitle {
+      @extend .h3;
+    }
+  }
+
+  &__h4{
+    &--slug {
+      @extend .h4;
+
+      display: inline-block;
+      padding: 0.25em 0.75em;
+      background-color: $heading-background;
+      color: $heading-color;
+    }
+  }
+
 }
 
-.simple__h3 {
-  @extend .h3;
-
-  color: white;
-}
-
-.absolute__h2--title,
-.flexbox__h2--title {
-  @extend .h2;
-}
-
-.absolute__h3--subtitle,
-.flexbox__h3--subtitle {
-  @extend .h3;
-}
-
-.absolute__h4--slug,
-.flexbox__h4--slug {
-  @extend .h4;
-
-  display: inline-block;
-  padding: 0.25em 0.75em;
-  background-color: $orange-dk;
-  color: $near-white;
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  &--level-1 {
+  }
 }
 
 // TODO: BEM selectors should be applied to wysiwyg-created content

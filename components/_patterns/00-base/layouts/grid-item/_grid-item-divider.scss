@@ -7,7 +7,7 @@
     position: relative;
 
     &::after {
-      background-color: $gray-lighter;
+      background-color: $divider-color;
       content: "";
       display: block;
       height: 100%;

@@ -1,44 +1,28 @@
 items:
+  - name: $dark-purple
+    value: '#37354c'
+  - name: $medium-purple
+    value: '#3c3b56'
+  - name: $light-purple
+    value: '#4c486a'
+  - name: $grey-2
+    value: '#222'
+  - name: $grey-4
+    value: '#444'
+  - name: $grey-5
+    value: '#555'
+  - name: $grey-7
+    value: '#777'
+  - name: $grey-a
+    value: '#aaa'
   - name: $white
     value: white
-  - name: $near-white
-    value: '#f2f2f2'
-  - name: $gray-lightest
-    value: '#e5e5e5'
-  - name: $gray-lighter
-    value: '#ccc'
-  - name: $gray-light
-    value: '#999'
-  - name: $gray
-    value: '#666'
-  - name: $gray-dark
-    value: '#4c4c4c'
-  - name: $gray-darker
-    value: '#333'
-  - name: $black
-    value: black
-  - name: $orange-lt3
-    value: '#f0d3c0'
-  - name: $orange-lt2
-    value: '#ff9c57'
-  - name: $orange-lt
-    value: '#e47126'
-  - name: $orange
-    value: '#cc652b'
-  - name: $orange-dk
-    value: '#b25412'
-  - name: $blue-lt
-    value: '#008fcc'
-  - name: $blue
-    value: '#005f87'
-  - name: $blue-dk
-    value: '#002b3d'
-  - name: $gray-lt5
-    value: '#e7e7e7'
-  - name: $gray-lt3
-    value: '#c8c8c8'
-  - name: $gray-lt
-    value: '#464646'
+  - name: $dark-mushroom
+    value: '#96967f'
+  - name: $light-mushroom
+    value: '#f6f6f2'
+  - name: $burnt-orange
+    value: '#cb6015'
 meta:
   description: >-
     To add to these items, use Sass variables that start with <code>$</code> in
