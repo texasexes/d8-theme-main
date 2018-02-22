@@ -13,7 +13,7 @@ card_sections:
       1:
         vertical
       2:
-        background-color-4
+        background-color-1
     layout_section_layout_extra:
       1:
         horizontal
@@ -33,7 +33,7 @@ card_sections:
       1:
         vertical
       2:
-        background-color-4
+        background-color-1
     layout_section_layout_extra:
       1:
         horizontal
