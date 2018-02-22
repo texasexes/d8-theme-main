@@ -3,9 +3,21 @@
   padding: 30px;
   // background-color: #404040;
 
-  // &--background-color-1 {
-  //   background-color: $absolute-background-color-1;
-  // }
+  &--background-color-1 {
+    background-color: $absolute-background-color-1;
+  }
+
+  &--background-color-2 {
+    background-color: $absolute-background-color-2;
+  }
+
+  &--background-color-3 {
+    background-color: $white;
+  }
+
+  &--text-alt-1 {
+    color: $white;
+  }
 }
 
 .absolute__item--full-image:nth-of-type(2) {
@@ -55,7 +67,7 @@
   top: 0;
   left: 0;
   margin-top: 50px;
-  margin-left: 50px;
+  margin-left: 100px;
 }
 
 // Top Right Quadrant
@@ -63,7 +75,7 @@
   top: 0;
   right: 0;
   margin-top: 50px;
-  margin-right: 50px;
+  margin-right: 100px;
 }
 
 // Bottom Right Quadrant
@@ -71,7 +83,7 @@
   bottom: 0;
   right: 0;
   margin-bottom: 50px;
-  margin-right: 50px;
+  margin-right: 100px;
 }
 
 // Bottom Left Quadrant
@@ -79,5 +91,12 @@
   bottom: 0;
   left: 0;
   margin-bottom: 50px;
-  margin-left: 50px;
+  margin-left: 100px;
+}
+
+// Bottom Left Quadrant
+.absolute__item--overlay-left:nth-of-type(2) {
+  top: 0;
+  bottom: 0;
+  left: 0;
 }

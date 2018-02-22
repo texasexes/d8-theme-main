@@ -6,11 +6,9 @@
   {% set tempArray4 = [] %}
   {% set tempArray5 = [] %}
 
-
   {% for key, child in content['field_para_ref_01'] if key|first != '#' %}
     {% set paragraph_21_items = paragraph_21_items|merge({ (key) : (child)}) %}
   {% endfor %}
-
 
   {% for key, child in content.field_variant_01 if key|first != '#' %}
     {% set tempArray4 = tempArray4|merge({(key) : (child),}) %}
@@ -20,7 +18,9 @@
     {% set tempArray5 = tempArray5|merge({(key) : (child['#markup']),}) %}
   {% endfor %}
 
-{% set tempArray5 = tempArray5|merge({'paragraph-wrapper' : 'paragraph-wrapper',}) %}
+  {% set layout_level = layout_level + 1 %}
+  {% set tempArray5 = tempArray5|merge({'layout_level' : ('layout-level-'~layout_level),}) %}
+  {% set tempArray5 = tempArray5|merge({'paragraph-wrapper' : 'paragraph-wrapper',}) %}
 
   {% include "@base/layouts/layout/00-layout.twig" with {
     "layout_attributes": attributes.addClass(classes),

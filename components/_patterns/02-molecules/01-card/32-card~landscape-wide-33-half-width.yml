@@ -1,66 +1,65 @@
 card_base_class:
-  absolute
+  flexbox
 card_modifiers:
   1:
-    4q
+    horizontal
   2:
-    text-33
+    feature-33
   3:
-    pl
+    pl-half-width
 card_sections:
   1:
     layout_section_modifiers:
       1:
         vertical
       2:
-        pl-1
+        background-color-4
     layout_section_layout_extra:
       1:
-        4q
+        horizontal
       2:
-        text-33
-      3:
-        pl
+        feature-33
     layout_section_items:
       # Image
       1:
         img_attributes:
           src:
-              '../../images/txex/3x1_999x333.png'
+              '../../images/txex/9x4_999x444.png'
+        img_modifiers:
+          1:
+            pl
   2:
     layout_section_modifiers:
       1:
         vertical
       2:
-        background-color-1
+        background-color-4
     layout_section_layout_extra:
       1:
-        4q
+        horizontal
       2:
-        text-33
+        feature-33
     layout_section_items:
       # Title
       2:
         title:
-          "You Belong Here."
+          "The Card Title."
         level:
-          1
+          '1'
         modifiers:
           1:
-            title
       # Subtitle
       3:
         subtitle:
-          "Reconnect with the place you once called home."
+          "The subtitle of the card is here."
         level:
-          2
+          '2'
         modifiers:
           1:
-            subtitle
       # Link
       4:
         link_attributes:
           href:
             "http://www.google.com"
         link:
-          "Become a member"
+          "Here is the link"

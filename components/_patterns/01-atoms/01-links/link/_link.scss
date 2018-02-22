@@ -6,6 +6,8 @@
   color: $color;
   cursor: pointer;
   font-family: $font-link;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 
   &:hover {
     color: $color--hover;
@@ -27,11 +29,12 @@
   text-decoration: none;
 }
 
-.absolute__link {
+.absolute__link,
+.flexbox__link {
   @extend .link;
 
-  font-size: 15px;
-  line-height: 21px;
+  font-size: 1em; //15px
+  line-height: 1.315em; //21px
 
   text-decoration: none;
 
@@ -41,10 +44,4 @@
     font-size: .5em;
     vertical-align: middle;
   }
-}
-
-.flexbox__link {
-  @extend .link;
-
-  text-decoration: none;
 }

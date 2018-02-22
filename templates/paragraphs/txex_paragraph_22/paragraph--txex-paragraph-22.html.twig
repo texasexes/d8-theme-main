@@ -19,10 +19,10 @@
   {% for key, child in tempArray4 %}
     {% set tempArray5 = tempArray5|merge({(key) : (child['#markup']),}) %}
   {% endfor %}
-  {% set tempArray5 = tempArray5|default({1 : 'horizontal', 2 : 'feature-100' }) %}
 
-
-{% set tempArray5 = tempArray5|merge({'paragraph-wrapper' : 'paragraph-wrapper',}) %}
+  {% set layout_level = layout_level + 1 |default(1) %}
+  {% set tempArray5 = tempArray5|merge({'layout_level' : ('layout-level-'~layout_level),}) %}
+  {% set tempArray5 = tempArray5|merge({'paragraph-wrapper' : 'paragraph-wrapper',}) %}
 {# "flexbox_modifiers_additional": {1 : 'horizontal', 2 : 'feature-100', 3 : 'ADDITIONAL-2'} #}
   {% include "@base/layouts/layout/00-layout.twig" with {
     "layout_attributes": attributes.addClass(classes),

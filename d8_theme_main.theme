@@ -135,3 +135,18 @@ function d8_theme_main_preprocess_breadcrumb(&$variables) {
     }
   }
 }
+
+function d8_theme_main_preprocess_field(&$variables) {
+  $field_name = $variables['element']['#field_name'];
+  if (($field_name == 'field_title_01') OR ($field_name == 'field_subtitle_01') OR ($field_name == 'field_slug_01')) {
+    //get the value of the field
+    $field_values = $variables['element']['#object']->field_variant_03->getValue();
+
+    if (!empty($field_values) ) {
+      foreach( $field_values as $key => $value ) {
+        $new_field_array[$value['value']] = $value['value'];
+      }
+      $variables['heading_modifiers'] = $new_field_array;
+    }
+  }
+}

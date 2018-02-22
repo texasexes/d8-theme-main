@@ -1,9 +1,11 @@
 {% set layout_base_class = layout_base_class|default('layout') %}
-{#% set layout_blockname = layout_blockname|default('flexbox') %#}
+{% set layout_modifiers = layout_modifiers|default([]) %}
+
+{% set layout_level = layout_level + 1 |default(1) %}
+{% set layout_modifiers = layout_modifiers|merge({'layout_level' : ('layout-level-'~layout_level),}) %}
 
 {% set layout_base_class_additional = layout_base_class_additional|default(layout_base_class) %}
 {% set layout_blockname_additional = layout_blockname_additional|default('item') %}
-
 
 {% if layout_modifiers_additional %}
   {% set layout_extra = bem2(layout_blockname_additional, (layout_modifiers_additional), layout_base_class_additional) %}
@@ -27,6 +29,7 @@
       {% set layout_item %}
         {%- include "@atoms/04-images/00-image/00-image.twig" with {
           "img_attributes": layout_item.img_attributes,
+          "img_modifiers": layout_item.img_modifiers,
           "img_blockname": card_base_class,
         } -%}
       {% endset %}
@@ -125,6 +128,18 @@
       {% endset %}
     {%- endif -%}
     {# End Link #}
+    {# Placeholder #}
+    {%- if layout_item.placeholder -%}
+      {% set layout_item %}
+        {%- include "@base/layouts/layout/_placeholder.twig" with {
+          "placeholder_content": layout_item.placeholder,
+          "placeholder_attributes": layout_item.placeholder_attributes,
+          "placeholder_modifiers": layout_item.placeholder_modifiers,
+          "placeholder_blockname": card_base_class,
+        } -%}
+      {% endset %}
+    {%- endif -%}
+    {# End Placeholder #}
     {# ***** End Patternlab Section 1 ***** #}
 
     {# ***** Start Patternlab Section 2 ***** #}
@@ -146,7 +161,6 @@
         "item_blockname": layout_blockname|default(layout_base_class),
         "item_modifiers": layout_modifiers,
         "item_content": layout_item,
-        "item_modifiers_additional": layout_section_modifiers,
       } %}
 
     {% endblock layout_block %}

@@ -15,7 +15,7 @@ $color-button--text: $light-mushroom;
 $color-button--text--hover: $light-mushroom;
 $color-button--text--visited: $grey-4;
 
-$color-button--alt-1--bg: $dark-purple;
+$color-button--alt-1--bg: $purple-1;
 
 $color-button--alt-2--bg: $grey-a;
 $color-button--alt-2--bg--hover: $grey-4;
@@ -27,9 +27,9 @@ $color-button--alt-2--text--hover: $grey-4;
 $color-blockquote--border: $grey-a;
 
 // menus
-$main-menu-highlight: $dark-purple;
-$main-menu-sub-highlight: $medium-purple;
-$main-menu-vertical-border: $light-purple;
+$main-menu-highlight: $purple-1;
+$main-menu-sub-highlight: $purple-2;
+$main-menu-vertical-border: $purple-3;
 
 $menu-text-color-1: $grey-2;
 $menu-text-color-4: $grey-4;
@@ -51,4 +51,13 @@ $icon-color: $grey-a;
 
 
 // layout
-$absolute-background-color-1: $dark-purple;
+$absolute-background-color-1: $light-mushroom;
+$flexbox-background-color-1: $light-mushroom;
+$absolute-background-color-2: $purple-1;
+$flexbox-background-color-2: $purple-1;
+$absolute-background-color-4: $white;
+$flexbox-background-color-4: $white;
+$absolute-background-color-5: $trans-white;
+$flexbox-background-color-5: $trans-white;
+$absolute-border-color-1: $light-mushroom;
+$flexbox-border-color-1: $light-mushroom;

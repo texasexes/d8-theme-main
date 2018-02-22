@@ -1,7 +1,17 @@
 // Pattern Lab Specific
 .img.img {
   &--pl {
+    background-color: $image-background-color;
+  }
+
+  &--pl-2 {
     width: 25%;
+  }
+}
+
+.flexbox__img,
+.absolute__img {
+  &--pl {
     background-color: $image-background-color;
   }
 }
