@@ -1,0 +1,65 @@
+card_base_class:
+  flexbox
+card_modifiers:
+  1:
+    horizontal
+  2:
+    feature-50
+  3:
+    pl-half-width
+card_sections:
+  1:
+    layout_section_modifiers:
+      1:
+        vertical
+      2:
+        background-color-1
+    layout_section_layout_extra:
+      1:
+        horizontal
+      2:
+        feature-50
+    layout_section_items:
+      # Image
+      1:
+        img_attributes:
+          src:
+              '../../images/txex/1x1_1000x1000.png'
+        img_modifiers:
+          1:
+            pl
+  2:
+    layout_section_modifiers:
+      1:
+        vertical
+      2:
+        background-color-1
+    layout_section_layout_extra:
+      1:
+        horizontal
+      2:
+        feature-50
+    layout_section_items:
+      # Title
+      2:
+        title:
+          "The Card Title."
+        level:
+          '1'
+        modifiers:
+          1:
+      # Subtitle
+      3:
+        subtitle:
+          "The subtitle of the card is here."
+        level:
+          '2'
+        modifiers:
+          1:
+      # Link
+      4:
+        link_attributes:
+          href:
+            "http://www.google.com"
+        link:
+          "Here is the link"
