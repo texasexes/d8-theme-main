@@ -7,6 +7,8 @@ card_modifiers:
     feature-33
 card_sections:
   1:
+    layout_section_base_class:
+      flexbox
     layout_section_modifiers:
       1:
         vertical
@@ -27,6 +29,8 @@ card_sections:
           1:
             pl
   2:
+    layout_section_base_class:
+      flexbox
     layout_section_modifiers:
       1:
         vertical

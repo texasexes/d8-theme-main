@@ -1,0 +1,28 @@
+{#
+/**
+ * @file
+ * Theme override to display a formatted responsive image field.
+ *
+ * Available variables:
+ * - responsive_image: A collection of responsive image data.
+ * - url: An optional URL the image can be linked to.
+ *
+ * @see template_preprocess_responsive_image_formatter()
+ */
+#}
+
+{% if url %}
+  {% embed "@atoms/01-links/link/link.twig" with {
+    "link_attributes": {'href': url|render,},
+    "link_base_class": responsive_image_formatter_link_base_class,
+    "link_modifiers": responsive_image_formatter_link_modifiers,
+    "link_blockname": responsive_image_formatter_link_blockname,
+  } %}
+    {% block link_content %}
+      {{ responsive_image }}
+    {% endblock %}
+  {% endembed %}
+{% else %}
+{{ kint(responsive_image) }}
+  {{ responsive_image }}
+{% endif %}

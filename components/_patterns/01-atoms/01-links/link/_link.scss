@@ -30,7 +30,8 @@
 }
 
 .absolute__link,
-.flexbox__link {
+.flexbox__link,
+.block__link {
   @extend .link;
 
   font-size: 1em; //15px
@@ -44,4 +45,17 @@
     font-size: .5em;
     vertical-align: middle;
   }
+
+  // &--alt-5 {
+  //   float: left;
+  //   font-family: $font-heading-test;
+  //   font-weight: 400;
+  //   font-size: 1.25em;
+  //   &:after {
+  //     content:",\a0";
+  //     padding: 0;
+  //     font-size: 1em;
+  //     vertical-align: inherit;
+  //   }
+  // }
 }

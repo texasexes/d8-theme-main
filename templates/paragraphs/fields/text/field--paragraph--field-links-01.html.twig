@@ -1,0 +1,20 @@
+{% extends "field.html.twig" %}
+
+{% set link_modifiers = link_modifiers|default([]) %}
+{% set link_modifiers = link_modifiers|merge({'card-link' : 'card-link',}) %}
+{% if field_modifiers %}
+  {% set link_modifiers = link_modifiers|merge(field_modifiers) %}
+{% endif %}
+
+{% block item_block %}
+  {% set link_attributes = item.attributes %}
+  {% set link_attributes = link_attributes|merge({"href" : (item.content['#url']|render)}) %}
+
+  {% include "@atoms/01-links/link/link.twig" with {
+    "link_attributes": linkAttributes,
+    "link_blockname": field_blockname,
+    "link_attributes": link_attributes,
+    "link_modifiers": link_modifiers,
+    "link_content": item.content['#title'],
+  } %}
+{% endblock item_block%}

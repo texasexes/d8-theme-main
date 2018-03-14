@@ -10,8 +10,8 @@
   $font-size: 3.82em,
   $font-style: normal,
   $font-weight: 400,
-  $letter-spacing: -.005em,
-  $line-height: .835em,
+  $letter-spacing: -0.005em,
+  $line-height: 0.835em,
   $text-transform: none) {
   color: #{$color};
   font-family: #{$font-family};
@@ -74,7 +74,8 @@
 }
 
 .absolute,
-.flexbox {
+.flexbox,
+.block {
   &__h1{
     @extend .h1;
 
@@ -103,7 +104,14 @@
       font-weight: 800;
       font-size: 0.91em;
       line-height: 1.17;
-      margin: 1em 0 .25em;
+      margin: 1em 0 0.25em;
+      text-transform: none;
+    }
+
+    &--alt-5 {
+      font-family: $font-heading-test;
+      font-weight: 800;
+      font-size: 1.25em;
       text-transform: none;
     }
   }
@@ -123,6 +131,10 @@
 
     &--alt-2 {
       color: $white;
+    }
+
+    &--alt-5 {
+      font-size: 1.25em;
     }
 
   }

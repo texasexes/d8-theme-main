@@ -145,6 +145,7 @@
     {# ***** Start Patternlab Section 2 ***** #}
     {# using card.twig for now #}
     {%- if layout_item.layout_section_items -%}
+      {% set layout_section_base_class =  layout_item.layout_section_base_class %}
       {% set layout_section_modifiers =  layout_item.layout_section_modifiers %}
       {% set layout_section_items =  layout_item.layout_section_items %}
       {% set layout_section_layout_extra =  layout_item.layout_section_layout_extra %}
