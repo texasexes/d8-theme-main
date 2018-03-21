@@ -36,16 +36,14 @@
 
 .h1 {
   @include heading($text-transform: uppercase);
-  margin: 0 0 10px;
 }
 
 .h2 {
   @include heading($font-size: 1.31em, $line-height: 1.29, $font-family: $font-heading-2 );
-  margin: 0 0 10px;
 }
 
 .h3 {
-  @include heading($font-size: 1.4em, $line-height: 1.6);
+  @include heading($font-size: 0.938em, $line-height: 1.6, $font-family: $font-heading-3 , $text-transform: uppercase );
 }
 
 .h4 {
@@ -78,6 +76,7 @@
 .block {
   &__h1{
     @extend .h1;
+    margin: 0 0 10px;
 
     &--title {
     }
@@ -88,19 +87,20 @@
 
     &--alt-2 {
       color: $white;
-      font-family: $font-heading-test;
+      font-family: $font-heading-alt-2;
       font-weight: 800;
       font-size: 4.25em;
       text-transform: none;
     }
 
     &--alt-3 {
+      color: $heading-color-h1-alt-3;
       font-size: 2.25em;
     }
 
     &--alt-4 {
       color: $white;
-      font-family: $font-heading-alt-4;
+      font-family: $font-heading-h1-alt-4;
       font-weight: 800;
       font-size: 0.91em;
       line-height: 1.17;
@@ -109,15 +109,40 @@
     }
 
     &--alt-5 {
-      font-family: $font-heading-test;
+      color: $heading-color-h1-alt-5;
+      font-family: $font-heading-h1-alt-5;
       font-weight: 800;
-      font-size: 1.25em;
+      font-size: 1.06em;
+      line-height: 1.25;
+      margin: 0 0 3px;
+      text-transform: none;
+    }
+
+    &--alt-6 {
+      color: $white;
+      font-family: $font-heading-h1-alt-5;
+      font-weight: 800;
+      font-size: 1.5em;
+      line-height: 1.25;
+
+      font-style: italic;
+      text-transform: none;
+    }
+
+    &--alt-7 {
+      color: $heading-color-h1-alt-5;
+      font-family: $font-heading-h1-alt-5;
+      font-weight: 800;
+      font-size: 1.5em;
+      line-height: 1.25;
+
       text-transform: none;
     }
   }
 
   &__h2{
     @extend .h2;
+    margin: 0 0 10px;
 
     &--title {
     }
@@ -133,18 +158,77 @@
       color: $white;
     }
 
+    &--list-group-ref {
+      display: inline-block;
+      margin: 0;
+      &::after {
+        content: ", \a0";
+        display: inline-block;
+      }
+    }
+
+    &--alt-3 {
+      color: $heading-color-h2-alt-3;
+      font-family: $font-heading-alt-3;
+      font-size: 1em;
+    }
+
     &--alt-5 {
-      font-size: 1.25em;
+      color: $heading-color-h2-alt-5;
+      font-family: $font-heading-h2-alt-5;
+      font-size: 0.91em;
+      margin: 0;
+    }
+
+    &--alt-6 {
+      color: $white;
+      font-family: $font-heading-alt-3;
+      font-size: 1em;
+    }
+
+    &--alt-7 {
+      color: $heading-color-h2-alt-5;
+      font-family: $font-tertiary;
+      font-size: 1em;
     }
 
   }
 
   &__h3{
     @extend .h3;
+    position: absolute;
+    top: -1.6em;
+    padding: 0 0.35em;
+    background-color: $burnt-orange;
+    color: $heading-color-h3-alt-5;
+    margin: 0;
+
     &--title {
     }
 
     &--subtitle {
+    }
+
+    &--alt-1 {
+      position: relative;
+      display: inline-block;
+    }
+
+    &--alt-5 {
+      // font-family: $font-heading-h2-alt-5;
+      font-size: 0.91em;
+      margin: 0;
+    }
+
+    &--alt-7 {
+      // font-family: $font-heading-h2-alt-5;
+      color: $heading-color-h2-alt-5;
+      background-color: transparent;
+      font-size: 0.91em;
+      margin: 0 0 10px;
+      padding: 0;
+      position: relative;
+      top: 0;
     }
   }
 

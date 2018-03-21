@@ -187,6 +187,9 @@ function d8_theme_main_preprocess_field(&$variables) {
     $reference_field = $paragraph->get('field_node_ref_02')->first();
 
     if ($reference_field) {
+      $paragraph_layout_type_value = "";
+      $paragraph_modifiers = [];
+
       $referenced_entity = $reference_field->getValue();
       $loaded_entity = \Drupal\node\Entity\Node::load($referenced_entity['target_id']);
 
@@ -194,8 +197,6 @@ function d8_theme_main_preprocess_field(&$variables) {
         $paragraph_layout_type = $loaded_entity->get('field_txex_list_text_02')->first()->getValue();
         $paragraph_layout_type_value = $paragraph_layout_type['value'];
       }
-
-      $paragraph_modifiers = [];
 
       if ($loaded_entity->get('field_txex_list_text_03')->getValue()) {
         $paragraph_row_layout = $loaded_entity->get('field_txex_list_text_03')->first()->getValue();
@@ -255,10 +256,12 @@ function d8_theme_main_preprocess_paragraph__txex_paragraph_22(&$variables) {
           $loaded_entity = \Drupal\node\Entity\Node::load($referenced_entity['target_id']);
 
           if ($loaded_entity->hasField('field_txex_ref_para_view_mode')) {
-            $paragraph_view_mode = $loaded_entity->get('field_txex_ref_para_view_mode')->first()->getValue();
-            $paragraph_view_mode_value = $paragraph_view_mode['target_id'];
-            $paragraph_view_mode_value = explode('.', $paragraph_view_mode_value, 2)[1];
-            $variables['content']['field_para_ref_02'][$key]['#view_mode'] = $paragraph_view_mode_value;
+            if (!empty($loaded_entity->get('field_txex_ref_para_view_mode')->first())) {
+              $paragraph_view_mode = $loaded_entity->get('field_txex_ref_para_view_mode')->first()->getValue();
+              $paragraph_view_mode_value = $paragraph_view_mode['target_id'];
+              $paragraph_view_mode_value = explode('.', $paragraph_view_mode_value, 2)[1];
+              $variables['content']['field_para_ref_02'][$key]['#view_mode'] = $paragraph_view_mode_value;
+            }
           }
         }
       }
@@ -284,14 +287,14 @@ function d8_theme_main_preprocess_paragraph__txex_paragraph_22(&$variables) {
 //   }
 // }
 
-// function d8_theme_main_theme_suggestions_views_view_alter(array &$suggestions, array $variables) {
-//     // If you want you can add a template suggestion for all views
-//     // based on their ID:
-//     // $suggestions[] = sprintf('views_view__%s', $variables['view']->id());
-//
-//     // Or you can check the ID, add suggestions, do whatever you want
-//     // ...
-// }
+function d8_theme_main_theme_suggestions_views_view_alter(array &$suggestions, array $variables) {
+    // If you want you can add a template suggestion for all views
+    // based on their ID:
+    $suggestions[] = sprintf('views_view__%s', $variables['view']->id());
+
+    // Or you can check the ID, add suggestions, do whatever you want
+    // ...
+}
 
 // function d8_theme_main_views_pre_render(Drupal\views\ViewExecutable $view) {
 //   if ($view->id() == "txex_events" && $view->current_display == 'block_1') {

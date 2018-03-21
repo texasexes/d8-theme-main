@@ -34,8 +34,8 @@
 .block__link {
   @extend .link;
 
-  font-size: 1em; //15px
-  line-height: 1.315em; //21px
+  font-size: .94em; //15px
+  line-height: 1.4; //21px
 
   text-decoration: none;
 
@@ -58,4 +58,17 @@
   //     vertical-align: inherit;
   //   }
   // }
+
+  &--alt-6 {
+    color: $tangerine;
+    display: block;
+  }
+}
+
+.event-list-item-link {
+  display: block;
+  text-decoration: none;
+   &:hover {
+    background-color: rgba(0, 0, 0, 0.03);
+   }
 }

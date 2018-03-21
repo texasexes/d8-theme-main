@@ -1,0 +1,20 @@
+{% extends "field.html.twig" %}
+
+{% set attributes = attributes.addClass('clearfix', 'text-formatted') %}
+
+{% set paragraph_modifiers = paragraph_modifiers|default([]) %}
+{% set paragraph_modifiers = paragraph_modifiers|merge({'paragraph' : 'paragraph',}) %}
+{% if field_modifiers %}
+  {% set paragraph_modifiers = paragraph_modifiers|merge(field_modifiers) %}
+{% endif %}
+
+{% block item_block %}
+  {% if item.content %}
+    {% include "@atoms/03-text/02-paragraph/paragraph.twig" with {
+      "paragraph_blockname": field_blockname,
+      "paragraph_attributes": item.attributes,
+      "paragraph_modifiers": paragraph_modifiers,
+      "paragraph_content": item.content|render|striptags,
+    } %}
+  {% endif %}
+{% endblock %}

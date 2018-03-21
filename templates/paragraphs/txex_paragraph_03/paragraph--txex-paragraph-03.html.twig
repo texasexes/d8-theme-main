@@ -8,17 +8,6 @@
 {% set tempArray4 = [] %}
 {% set tempArray5 = [] %}
 
-{#{ kint(content.field_txex_taxo_ref_for_display) }#}
-{#{ kint(content.field_txex_taxo_ref_for_display[0]['#taxonomy_term']) }#}
-{#{ kint(content.field_txex_taxo_ref_for_display[0]['#taxonomy_term'].field_txex_ref_media_01) }#}
-
-{#{ kint(content.field_txex_taxo_ref_for_display.entity) }#}
-{#{ kint(content.field_txex_taxo_ref_for_display.0.entity) }#}
-{#{ kint(content.field_txex_taxo_ref_for_display[0]['#taxonomy_term'].entity) }#}
-{#{ kint(content.field_txex_taxo_ref_for_display[0]['#taxonomy_term'].field_txex_ref_media_01.entity) }#}
-{#{ kint(content.field_txex_taxo_ref_for_display[0]['#taxonomy_term'].field_txex_ref_media_01.entity.getValue()) }#}
-{#{ kint(content.field_txex_taxo_ref_for_display[0]['#taxonomy_term'].field_txex_ref_media_01[0]) }#}
-
 {% for key, child in content.field_txex_taxo_ref_for_display if key|first != '#' %}
   {% if {(key) : (child),}|render is not empty %}
     {% set tempArray1 = tempArray1|merge({(key) : (child),}) %}
@@ -44,7 +33,7 @@
     "card_modifiers": tempArray5,
     "card_sections": tempArray3,
     "layout_section_base_class": 'block',
-    "layout_section_modifiers": {1 : 'event-list'},
+    "layout_section_modifiers": {0 : 'vertical', 1 : 'event-list'},
     "layout_section_layout_extra": tempArray5,
   }%}
 

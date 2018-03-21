@@ -52,6 +52,7 @@ card_sections:
           '1'
         modifiers:
           1:
+            alt-3
       # Subtitle
       3:
         subtitle:
@@ -60,6 +61,7 @@ card_sections:
           '2'
         modifiers:
           1:
+            alt-3
       # Link
       4:
         link_attributes:
@@ -67,3 +69,6 @@ card_sections:
             "http://www.google.com"
         link:
           "Here is the link"
+        modifiers:
+          1:
+            alt-3

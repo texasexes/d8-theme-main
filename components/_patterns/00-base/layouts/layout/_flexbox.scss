@@ -21,6 +21,13 @@
     padding: 0;
   }
 
+  &--layout-row-4 {
+    padding: 10px 0;
+    border-top-style: solid;
+    border-width: 1px;
+    border-color: $light-mushroom;
+  }
+
   &--background-color-1 {
     background-color: $flexbox-background-color-1;
   }
@@ -43,6 +50,13 @@
     background-color: $flexbox-background-color-5;
   }
 
+  &--background-color-6 {
+    border-style: solid;
+    border-width: 8px;
+    border-color: $flexbox-border-color-1;
+    padding: 30px;
+  }
+
   &--layout-level-1 {
     // margin-bottom: 90px;
   }
@@ -60,9 +74,14 @@
 .flexbox--vertical {
   flex-direction: column;
   justify-content: center;
+
+  &:first-of-type {
+    justify-content: flex-start;
+  }
 }
 
-.flexbox--feature-100 {
+.flexbox--feature-100,
+.flexbox--feature-100-flush {
   flex-wrap: wrap;
 }
 

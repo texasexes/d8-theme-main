@@ -44,6 +44,14 @@ card_sections:
       2:
         feature-100
     layout_section_items:
+      # Slug
+      1:
+        slug:
+          "The Card Slug."
+        level:
+          '3'
+        modifiers:
+          1:
       # Title
       2:
         title:

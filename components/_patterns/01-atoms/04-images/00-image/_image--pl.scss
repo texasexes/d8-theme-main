@@ -10,7 +10,8 @@
 }
 
 .flexbox__img,
-.absolute__img {
+.absolute__img,
+.block__img {
   &--pl {
     background-color: $image-background-color;
   }

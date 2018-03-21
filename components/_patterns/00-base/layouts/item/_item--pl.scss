@@ -1,7 +1,8 @@
 // Pattern Lab Specific
 .layout__item,
 .flexbox__item,
-.absolute__item {
+.absolute__item,
+.block__item {
   &--pl {
     &:nth-of-type(odd) {
       background-color: rgba(225, 225, 0, 0.5);

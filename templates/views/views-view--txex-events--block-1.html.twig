@@ -46,10 +46,46 @@
     </header>
   {% endif %}
 
-  {{ exposed }}
-  {{ attachment_before }}
+{% set views_view_items = [] %}
 
-  {{ rows }}
+  {#{ exposed }#}
+  {#{ kint (attachment_before) }#}
+  {#{ attachment_before }#}
+  {#{ kint(rows) }#}
+  {#{ rows }#}
+
+
+
+
+  {% set tempArray1 = [] %}
+  {% for key, child in rows %}
+    {% set tempArray1 = tempArray1|merge({(key+1) : (child),}) %}
+  {% endfor %}
+
+  {% set tempArray1 = {0 : exposed}|merge(tempArray1) %}
+
+  {% set views_view_items = views_view_items|merge({0 : (attachment_before), 1 : (tempArray1),}) %}
+  {% set paragraph_base_class = 'flexbox' %}
+  {% set tempArray5 = [] %}
+
+  {% set layout_level = layout_level + 1 |default(1) %}
+  {% set tempArray5 = tempArray5|merge({'layout_level' : ('layout-level-'~layout_level),}) %}
+  {% set tempArray5 = tempArray5|merge({'paragraph-wrapper' : 'paragraph-wrapper', 'horizontal' : 'horizontal', 'reverse-order' : 'reverse-order', 'feature-50-flush' : 'feature-50-flush', 'background-color-6' : 'background-color-6'}) %}
+
+  {% if paragraph_modifiers %}
+    {% set tempArray5 = tempArray5|merge(paragraph_modifiers) %}
+  {% endif %}
+
+  {% include "@base/layouts/layout/00-layout.twig" with {
+    "layout_attributes": attributes.addClass(classes),
+    "layout_base_class": paragraph_base_class,
+    "layout_modifiers": tempArray5,
+    "layout_items": views_view_items,
+    "layout_modifiers_additional": {1 : 'vertical'}
+  }%}
+
+
+
   {{ empty }}
   {{ pager }}
 

@@ -4,9 +4,9 @@ card_modifiers:
   1:
     horizontal
   2:
-    feature-66
+    feature-10
   3:
-    pl-half-width
+    pl-2-column
 card_sections:
   1:
     layout_section_base_class:
@@ -20,7 +20,7 @@ card_sections:
       1:
         horizontal
       2:
-        feature-66
+        feature-10
     layout_section_items:
       # Image
       1:
@@ -42,7 +42,7 @@ card_sections:
       1:
         horizontal
       2:
-        feature-66
+        feature-10
     layout_section_items:
       # Title
       2:
@@ -52,7 +52,7 @@ card_sections:
           '1'
         modifiers:
           1:
-            alt-3
+            alt-5
       # Subtitle
       3:
         subtitle:
@@ -61,14 +61,5 @@ card_sections:
           '2'
         modifiers:
           1:
-            alt-3
-      # Link
-      4:
-        link_attributes:
-          href:
-            "http://www.google.com"
-        link:
-          "Here is the link"
-        modifiers:
-          1:
-            alt-3
+            alt-5
+      # Group tk
