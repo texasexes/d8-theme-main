@@ -1,0 +1,41 @@
+{% extends "paragraph.html.twig" %}
+
+{% block paragraph %}
+
+{% set tempArray1 = [] %}
+{% set tempArray2 = [] %}
+{% set tempArray3 = [] %}
+{% set tempArray4 = [] %}
+{% set tempArray5 = [] %}
+
+{% for key, child in content.field_media_image_01 if key|first != '#' %}
+  {% if {(key) : (child),}|render is not empty %}
+    {% set tempArray1 = tempArray1|merge({(key) : (child),}) %}
+  {% endif %}
+{% endfor %}
+
+{% for key, child in content|without('field_node_ref_02','field_media_image_01') if key|first != '#' %}
+  {% if {(key) : (child),}|render is not empty %}
+    {% set tempArray2 = tempArray2|merge({(key) : (child),}) %}
+  {% endif %}
+{% endfor %}
+
+{% set tempArray3 = tempArray3|merge({0 : (tempArray1), 1 : (tempArray2),}) %}
+
+{% set tempArray5 = tempArray5|merge({'paragraph-wrapper' : 'paragraph-wrapper',}) %}
+
+{% if paragraph_modifiers %}
+  {% set tempArray5 = tempArray5|merge(paragraph_modifiers) %}
+{% endif %}
+
+  {% include "@molecules/01-card/00-card.twig" with {
+    "card_base_class": paragraph_base_class,
+    "card_modifiers": tempArray5,
+    "card_sections": tempArray3,
+    "layout_section_base_class": 'block',
+    "layout_section_modifiers": {0 : 'vertical', 1 : 'event-list'},
+    "layout_section_layout_extra": tempArray5,
+  }%}
+
+
+{% endblock paragraph %}

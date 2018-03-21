@@ -5,7 +5,9 @@
   $font-family: $font-link) {
   color: $color;
   cursor: pointer;
-  font-family: $font-family;
+  font-family: $font-link;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 
   &:hover {
     color: $color--hover;
@@ -27,14 +29,46 @@
   text-decoration: none;
 }
 
-.absolute__link {
+.absolute__link,
+.flexbox__link,
+.block__link {
   @extend .link;
 
+  font-size: .94em; //15px
+  line-height: 1.4; //21px
+
   text-decoration: none;
+
+  &:after {
+    content: "\25b6";
+    padding-left: 1em;
+    font-size: .5em;
+    vertical-align: middle;
+  }
+
+  // &--alt-5 {
+  //   float: left;
+  //   font-family: $font-heading-test;
+  //   font-weight: 400;
+  //   font-size: 1.25em;
+  //   &:after {
+  //     content:",\a0";
+  //     padding: 0;
+  //     font-size: 1em;
+  //     vertical-align: inherit;
+  //   }
+  // }
+
+  &--alt-6 {
+    color: $tangerine;
+    display: block;
+  }
 }
 
-.flexbox__link {
-  @extend .link;
-
+.event-list-item-link {
+  display: block;
   text-decoration: none;
+   &:hover {
+    background-color: rgba(0, 0, 0, 0.03);
+   }
 }

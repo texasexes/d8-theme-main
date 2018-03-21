@@ -1,0 +1,13 @@
+{% extends  "node.html.twig" %}
+  {% set attributes = attributes.addClass('event-list') %}
+  {% block title %}{% endblock title %}
+
+  {% block submitted %}{% endblock submitted %}
+
+  {% block content %}
+  <a class="event-list-item-link" href="{{ url }}">
+    <div{{ content_attributes }}>
+      {{ content }}
+    </div>
+  </a>
+  {% endblock content %}

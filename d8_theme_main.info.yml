@@ -67,3 +67,9 @@ component-libraries:
   paragraph-templates:
     paths:
       - templates/paragraphs
+  views-templates:
+    paths:
+      - templates/views
+  d8-theme-main:
+    paths:
+      - templates

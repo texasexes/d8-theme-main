@@ -1,0 +1,19 @@
+{#
+/**
+ * @file
+ * Theme override of an image.
+ *
+ * Available variables:
+ * - attributes: HTML attributes for the img tag.
+ * - style_name: (optional) The name of the image style applied.
+ *
+ * @see template_preprocess_image()
+ */
+#}
+
+{# ["img_attributes": attributes] is not needed because the attributes array is already set by Drupal and modified in template_preprocess_image() #}
+{% include "@atoms/04-images/00-image/00-image.twig" with {
+  "img_base_class": img_base_class,
+  "img_modifiers": {1 : style_name },
+  "img_blockname": img_blockname,
+} %}

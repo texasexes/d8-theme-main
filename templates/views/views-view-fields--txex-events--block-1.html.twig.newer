@@ -1,0 +1,68 @@
+{#
+/**
+ * @file
+ * Theme override to display all the fields in a row.
+ *
+ * Available variables:
+ * - view: The view in use.
+ * - fields: A list of fields, each one contains:
+ *   - content: The output of the field.
+ *   - raw: The raw data for the field, if it exists. This is NOT output safe.
+ *   - class: The safe class ID to use.
+ *   - handler: The Views field handler controlling this field.
+ *   - inline: Whether or not the field should be inline.
+ *   - wrapper_element: An HTML element for a wrapper.
+ *   - wrapper_attributes: List of attributes for wrapper element.
+ *   - separator: An optional separator that may appear before a field.
+ *   - label: The field's label text.
+ *   - label_element: An HTML element for a label wrapper.
+ *   - label_attributes: List of attributes for label wrapper.
+ *   - label_suffix: Colon after the label.
+ *   - element_type: An HTML element for the field content.
+ *   - element_attributes: List of attributes for HTML element for field content.
+ *   - has_label_colon: A boolean indicating whether to display a colon after
+ *     the label.
+ *   - element_type: An HTML element for the field content.
+ *   - element_attributes: List of attributes for HTML element for field content.
+ * - row: The raw result from the query, with all data it fetched.
+ *
+ * @see template_preprocess_views_view_fields()
+ */
+#}
+
+{% set tempArray1 = [] %}
+{% set tempArray2 = [] %}
+{% set tempArray3 = [] %}
+{% set tempArray4 = [] %}
+{% set tempArray5 = [] %}
+
+{{ kint(fields.title) }}
+{% for key, child in fields.title %}
+  {% if {(key) : (child),}|render is not empty %}
+    {% set tempArray1 = tempArray1|merge({(key) : (child),}) %}
+  {% endif %}
+{% endfor %}
+
+{{ kint(fields|without('title')) }}
+{% for key, child in fields|without('title') %}
+  {% if {(key) : (child),}|render is not empty %}
+    {% set tempArray2 = tempArray2|merge({(key) : (child),}) %}
+  {% endif %}
+{% endfor %}
+
+{% set tempArray3 = tempArray3|merge({0 : (tempArray1),}) %}
+{% set tempArray3 = tempArray3|merge({1 : (tempArray2),}) %}
+
+{{ kint(tempArray3) }}
+
+{% set tempArray5 = tempArray5|default({1 : 'horizontal', 2 : 'feature-100' }) %}
+
+{% set tempArray5 = tempArray5|merge({'paragraph-wrapper' : 'paragraph-wrapper',}) %}
+
+  {% include "@molecules/01-card/00-card.twig" with {
+    "card_base_class": 'flexbox',
+    "card_modifiers": tempArray5,
+    "card_sections": tempArray3,
+    "layout_section_modifiers": {1 : 'vertical'},
+    "layout_section_layout_extra": tempArray5,
+  }%}

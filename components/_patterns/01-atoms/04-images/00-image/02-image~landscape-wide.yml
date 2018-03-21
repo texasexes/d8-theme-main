@@ -1,0 +1,10 @@
+img_attributes:
+  src:
+    '../../images/txex/9x4_999x444.png'
+  alt:
+    "Image - Landscape Wide"
+img_modifiers:
+  1:
+    pl
+  2:
+    pl-2

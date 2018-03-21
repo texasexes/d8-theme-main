@@ -1,44 +1,48 @@
 items:
+  - name: $purple-1
+    value: '#34364d'
+  - name: $purple-2
+    value: '#393d57'
+  - name: $purple-3
+    value: '#4c486a'
+  - name: $purple-4
+    value: '#a3a1b5'
+  - name: $grey-2
+    value: '#222'
+  - name: $grey-4
+    value: '#444'
+  - name: $grey-5
+    value: '#555'
+  - name: $temp4
+    value: '#565656'
+  - name: $grey-7
+    value: '#777'
+  - name: $temp1
+    value: '#9b9b9b'
+  - name: $grey-8
+    value: '#888'
+  - name: $grey-a
+    value: '#aaa'
+  - name: $temp2
+    value: '#c1c1c1'
+  - name: $temp3
+    value: '#e6e6e6'
   - name: $white
-    value: white
-  - name: $near-white
-    value: '#f2f2f2'
-  - name: $gray-lightest
-    value: '#e5e5e5'
-  - name: $gray-lighter
-    value: '#ccc'
-  - name: $gray-light
-    value: '#999'
-  - name: $gray
-    value: '#666'
-  - name: $gray-dark
-    value: '#4c4c4c'
-  - name: $gray-darker
-    value: '#333'
-  - name: $black
-    value: black
-  - name: $orange-lt3
-    value: '#f0d3c0'
-  - name: $orange-lt2
-    value: '#ff9c57'
-  - name: $orange-lt
-    value: '#e47126'
-  - name: $orange
-    value: '#cc652b'
-  - name: $orange-dk
-    value: '#b25412'
-  - name: $blue-lt
-    value: '#008fcc'
+    value: '#fff'
+  - name: $trans-white
+    value: 'rgba(255, 255, 255, 0.8)'
+  - name: $dark-mushroom
+    value: '#96967f'
+  - name: $light-mushroom
+    value: '#f6f6f2'
+  - name: $temp6
+    value: '#f6f7f3'
+  - name: $burnt-orange
+    value: '#cb6015'
+  - name: $tangerine
+    value: '#fab54f'
   - name: $blue
-    value: '#005f87'
-  - name: $blue-dk
-    value: '#002b3d'
-  - name: $gray-lt5
-    value: '#e7e7e7'
-  - name: $gray-lt3
-    value: '#c8c8c8'
-  - name: $gray-lt
-    value: '#464646'
+    value: '#1383b8'
 meta:
   description: >-
     To add to these items, use Sass variables that start with <code>$</code> in

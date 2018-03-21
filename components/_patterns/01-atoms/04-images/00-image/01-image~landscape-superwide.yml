@@ -1,0 +1,10 @@
+img_attributes:
+  src:
+    '../../images/txex/3x1_999x333.png'
+  alt:
+    "Image - Landscape Superwide"
+img_modifiers:
+  1:
+    pl
+  2:
+    pl-2

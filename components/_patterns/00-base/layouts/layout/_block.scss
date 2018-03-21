@@ -1,0 +1,26 @@
+.block {
+  position: relative;
+
+  &--background-color-1 {
+    background-color: $absolute-background-color-1;
+  }
+
+  &--background-color-2 {
+    background-color: $absolute-background-color-2;
+  }
+
+  &--background-color-3 {
+    border-style: solid;
+    border-width: 8px;
+    border-color: $flexbox-border-color-1;
+  }
+
+  &--background-color-4 {
+    background-color: $flexbox-background-color-4;
+  }
+
+  &--background-color-5 {
+    background-color: $absolute-background-color-5;
+  }
+  
+}

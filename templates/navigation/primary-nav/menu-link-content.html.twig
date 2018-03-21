@@ -30,7 +30,7 @@
 ]
 %}
 
-{% if content.field_mie_para_ref.0 %}
+{% if content.field_mie_para_ref.0|render|striptags|trim %}
   <div class="flexbox flexbox--horizontal">
     <div {{ create_attribute().addClass(layout_item_classes) }}>
       {{ content.field_mie_para_ref }}

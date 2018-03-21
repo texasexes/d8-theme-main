@@ -1,9 +1,11 @@
 {% set layout_base_class = layout_base_class|default('layout') %}
-{#% set layout_blockname = layout_blockname|default('flexbox') %#}
+{% set layout_modifiers = layout_modifiers|default([]) %}
+
+{% set layout_level = layout_level + 1 |default(1) %}
+{% set layout_modifiers = layout_modifiers|merge({'layout_level' : ('layout-level-'~layout_level),}) %}
 
 {% set layout_base_class_additional = layout_base_class_additional|default(layout_base_class) %}
 {% set layout_blockname_additional = layout_blockname_additional|default('item') %}
-
 
 {% if layout_modifiers_additional %}
   {% set layout_extra = bem2(layout_blockname_additional, (layout_modifiers_additional), layout_base_class_additional) %}
@@ -27,7 +29,8 @@
       {% set layout_item %}
         {%- include "@atoms/04-images/00-image/00-image.twig" with {
           "img_attributes": layout_item.img_attributes,
-          "img_blockname": card_base_class,
+          "img_modifiers": layout_item.img_modifiers,
+          "img_blockname": layout_section_base_class,
         } -%}
       {% endset %}
     {%- endif -%}
@@ -38,24 +41,24 @@
         {%- if layout_item.link_attributes -%}
           {%- embed "@atoms/01-links/link/link.twig" with {
             "link_attributes": layout_item.link_attributes,
-            "link_modifiers": layout_item.link_modifiers,
-            "link_blockname": card_base_class,
+            "link_modifiers": layout_item.modifiers,
+            "link_blockname": layout_section_base_class,
           } -%}
             {%- block link_content -%}
               {%- include "@atoms/03-text/01-heading/_heading.twig" with {
-                "heading_level": 2,
+                "heading_level": layout_item.level,
                 "heading_content": layout_item.title,
                 "heading_modifiers": layout_item.modifiers,
-                "heading_blockname": card_base_class,
+                "heading_blockname": layout_section_base_class,
               } -%}
             {%- endblock -%}
           {%- endembed -%}
         {%- else -%}
           {%- include "@atoms/03-text/01-heading/_heading.twig" with {
-            "heading_level": 2,
+            "heading_level": layout_item.level,
             "heading_content": layout_item.title,
             "heading_modifiers": layout_item.modifiers,
-            "heading_blockname": card_base_class,
+            "heading_blockname": layout_section_base_class,
           } -%}
         {%- endif -%}
       {% endset %}
@@ -67,40 +70,69 @@
         {%- if layout_item.link_attributes -%}
           {%- embed "@atoms/01-links/link/link.twig" with {
             "link_attributes": layout_item.link_attributes,
-            "link_modifiers": layout_item.link_modifiers,
-            "link_blockname": card_base_class,
+            "link_modifiers": layout_item.modifiers,
+            "link_blockname": layout_section_base_class,
           } -%}
             {%- block link_content -%}
               {%- include "@atoms/03-text/01-heading/_heading.twig" with {
-                "heading_level": 3,
+                "heading_level": layout_item.level,
                 "heading_content": layout_item.subtitle,
                 "heading_modifiers": layout_item.modifiers,
-                "heading_blockname": card_base_class,
+                "heading_blockname": layout_section_base_class,
               } -%}
             {%- endblock -%}
           {%- endembed -%}
         {%- else -%}
           {%- include "@atoms/03-text/01-heading/_heading.twig" with {
-            "heading_level": 3,
+            "heading_level": layout_item.level,
             "heading_content": layout_item.subtitle,
             "heading_modifiers": layout_item.modifiers,
-            "heading_blockname": card_base_class,
+            "heading_blockname": layout_section_base_class,
           } -%}
         {%- endif -%}
       {% endset %}
     {%- endif -%}
-    {# End Title #}
-    {# Body #}
-    {%- if layout_item.body -%}
+    {# End subtitle #}
+    {# Slug #}
+    {%- if layout_item.slug -%}
+      {% set layout_item %}
+        {%- if layout_item.link_attributes -%}
+          {%- embed "@atoms/01-links/link/link.twig" with {
+            "link_attributes": layout_item.link_attributes,
+            "link_modifiers": layout_item.modifiers,
+            "link_blockname": layout_section_base_class,
+          } -%}
+            {%- block link_content -%}
+              {%- include "@atoms/03-text/01-heading/_heading.twig" with {
+                "heading_level": layout_item.level,
+                "heading_content": layout_item.slug,
+                "heading_modifiers": layout_item.modifiers,
+                "heading_blockname": layout_section_base_class,
+              } -%}
+            {%- endblock -%}
+          {%- endembed -%}
+        {%- else -%}
+          {%- include "@atoms/03-text/01-heading/_heading.twig" with {
+            "heading_level": layout_item.level,
+            "heading_content": layout_item.slug,
+            "heading_modifiers": layout_item.modifiers,
+            "heading_blockname": layout_section_base_class,
+          } -%}
+        {%- endif -%}
+      {% endset %}
+    {%- endif -%}
+    {# End Slug #}
+    {# Paragraph #}
+    {%- if layout_item.paragraph -%}
       {% set layout_item %}
         {%- include "@atoms/03-text/02-paragraph/paragraph.twig" with {
-          "paragraph_content": layout_item.body,
+          "paragraph_content": layout_item.paragraph,
           "paragraph_modifiers": layout_item.modifiers,
-          "paragraph_blockname": card_base_class,
+          "paragraph_blockname": layout_section_base_class,
         } -%}
       {% endset %}
     {%- endif -%}
-    {# End Body #}
+    {# End Paragraph #}
     {# Button #}
     {%- if layout_item.button_attributes -%}
       {% set layout_item %}
@@ -108,7 +140,7 @@
           "button_content": layout_item.button,
           "button_attributes": layout_item.button_attributes,
           "button_modifiers": layout_item.modifiers,
-          "button_blockname": card_base_class,
+          "button_blockname": layout_section_base_class,
         } -%}
       {% endset %}
     {%- endif -%}
@@ -119,17 +151,30 @@
         {%- include "@atoms/01-links/link/link.twig" with {
           "link_content": layout_item.link,
           "link_attributes": layout_item.link_attributes,
-          "link_modifiers": layout_item.link_modifiers,
-          "link_blockname": card_base_class,
+          "link_modifiers": layout_item.modifiers,
+          "link_blockname": layout_section_base_class,
         } -%}
       {% endset %}
     {%- endif -%}
     {# End Link #}
+    {# Placeholder #}
+    {%- if layout_item.placeholder -%}
+      {% set layout_item %}
+        {%- include "@base/layouts/layout/_placeholder.twig" with {
+          "placeholder_content": layout_item.placeholder,
+          "placeholder_attributes": layout_item.placeholder_attributes,
+          "placeholder_modifiers": layout_item.placeholder_modifiers,
+          "placeholder_blockname": layout_section_base_class,
+        } -%}
+      {% endset %}
+    {%- endif -%}
+    {# End Placeholder #}
     {# ***** End Patternlab Section 1 ***** #}
 
     {# ***** Start Patternlab Section 2 ***** #}
     {# using card.twig for now #}
     {%- if layout_item.layout_section_items -%}
+      {% set layout_section_base_class =  layout_item.layout_section_base_class %}
       {% set layout_section_modifiers =  layout_item.layout_section_modifiers %}
       {% set layout_section_items =  layout_item.layout_section_items %}
       {% set layout_section_layout_extra =  layout_item.layout_section_layout_extra %}
@@ -146,7 +191,6 @@
         "item_blockname": layout_blockname|default(layout_base_class),
         "item_modifiers": layout_modifiers,
         "item_content": layout_item,
-        "item_modifiers_additional": layout_section_modifiers,
       } %}
 
     {% endblock layout_block %}

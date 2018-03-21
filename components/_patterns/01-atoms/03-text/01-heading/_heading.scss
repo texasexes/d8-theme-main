@@ -4,21 +4,26 @@
 //
 @mixin heading(
   $color: inherit,
-  $color-link: inherit,
-  $color-link-hover: inherit,
-  $font-family: $font-heading,
-  $font-size: 2em,
-  $font-weight: 700,
-  $line-height: 1.4,
-  $margin: 0 0 0.5em) {
+  // $color-link: inherit,
+  // $color-link-hover: inherit,
+  $font-family: $font-heading-1,
+  $font-size: 3.82em,
+  $font-style: normal,
+  $font-weight: 400,
+  $letter-spacing: -0.005em,
+  $line-height: 0.835em,
+  $text-transform: none) {
   color: #{$color};
   font-family: #{$font-family};
   font-size: #{$font-size};
-  font-style: normal;
+  font-style: #{$font-style};
   font-weight: #{$font-weight};
+  letter-spacing: #{$letter-spacing};
   line-height: #{$line-height};
-  margin: #{$margin};
+  text-transform: #{$text-transform};
   width: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 
   // &__link {
   //   color: $color-link;
@@ -30,15 +35,15 @@
 }
 
 .h1 {
-  @include heading;
+  @include heading($text-transform: uppercase);
 }
 
 .h2 {
-  @include heading($font-size: 1.8em);
+  @include heading($font-size: 1.31em, $line-height: 1.29, $font-family: $font-heading-2 );
 }
 
 .h3 {
-  @include heading($font-size: 1.4em, $line-height: 1.6);
+  @include heading($font-size: 0.938em, $line-height: 1.6, $font-family: $font-heading-3 , $text-transform: uppercase );
 }
 
 .h4 {
@@ -58,44 +63,196 @@
 .h6,
 .hero__title {
   &--alt-1 {
-    border-style: solid;
-    border-width: 2px;
-    border-color: black;
-    box-shadow: 5px 5px 3px #2d2d2d;
-    padding: 0 0.5em;
+    // border-style: solid;
+    // border-width: 2px;
+    // border-color: black;
+    // box-shadow: 5px 5px 3px #2d2d2d;
+    // padding: 0 0.5em;
   }
 }
 
-.simple__h2 {
-  @extend .h2;
+.absolute,
+.flexbox,
+.block {
+  &__h1{
+    @extend .h1;
+    margin: 0 0 10px;
 
-  color: white;
+    &--title {
+    }
+
+    &--alt-1 {
+      color: $white;
+    }
+
+    &--alt-2 {
+      color: $white;
+      font-family: $font-heading-alt-2;
+      font-weight: 800;
+      font-size: 4.25em;
+      text-transform: none;
+    }
+
+    &--alt-3 {
+      color: $heading-color-h1-alt-3;
+      font-size: 2.25em;
+    }
+
+    &--alt-4 {
+      color: $white;
+      font-family: $font-heading-h1-alt-4;
+      font-weight: 800;
+      font-size: 0.91em;
+      line-height: 1.17;
+      margin: 1em 0 0.25em;
+      text-transform: none;
+    }
+
+    &--alt-5 {
+      color: $heading-color-h1-alt-5;
+      font-family: $font-heading-h1-alt-5;
+      font-weight: 800;
+      font-size: 1.06em;
+      line-height: 1.25;
+      margin: 0 0 3px;
+      text-transform: none;
+    }
+
+    &--alt-6 {
+      color: $white;
+      font-family: $font-heading-h1-alt-5;
+      font-weight: 800;
+      font-size: 1.5em;
+      line-height: 1.25;
+
+      font-style: italic;
+      text-transform: none;
+    }
+
+    &--alt-7 {
+      color: $heading-color-h1-alt-5;
+      font-family: $font-heading-h1-alt-5;
+      font-weight: 800;
+      font-size: 1.5em;
+      line-height: 1.25;
+
+      text-transform: none;
+    }
+  }
+
+  &__h2{
+    @extend .h2;
+    margin: 0 0 10px;
+
+    &--title {
+    }
+
+    &--subtitle {
+    }
+
+    &--alt-1 {
+      color: $white;
+    }
+
+    &--alt-2 {
+      color: $white;
+    }
+
+    &--list-group-ref {
+      display: inline-block;
+      margin: 0;
+      &::after {
+        content: ", \a0";
+        display: inline-block;
+      }
+    }
+
+    &--alt-3 {
+      color: $heading-color-h2-alt-3;
+      font-family: $font-heading-alt-3;
+      font-size: 1em;
+    }
+
+    &--alt-5 {
+      color: $heading-color-h2-alt-5;
+      font-family: $font-heading-h2-alt-5;
+      font-size: 0.91em;
+      margin: 0;
+    }
+
+    &--alt-6 {
+      color: $white;
+      font-family: $font-heading-alt-3;
+      font-size: 1em;
+    }
+
+    &--alt-7 {
+      color: $heading-color-h2-alt-5;
+      font-family: $font-tertiary;
+      font-size: 1em;
+    }
+
+  }
+
+  &__h3{
+    @extend .h3;
+    position: absolute;
+    top: -1.6em;
+    padding: 0 0.35em;
+    background-color: $burnt-orange;
+    color: $heading-color-h3-alt-5;
+    margin: 0;
+
+    &--title {
+    }
+
+    &--subtitle {
+    }
+
+    &--alt-1 {
+      position: relative;
+      display: inline-block;
+    }
+
+    &--alt-5 {
+      // font-family: $font-heading-h2-alt-5;
+      font-size: 0.91em;
+      margin: 0;
+    }
+
+    &--alt-7 {
+      // font-family: $font-heading-h2-alt-5;
+      color: $heading-color-h2-alt-5;
+      background-color: transparent;
+      font-size: 0.91em;
+      margin: 0 0 10px;
+      padding: 0;
+      position: relative;
+      top: 0;
+    }
+  }
+
+  &__h4{
+    &--slug {
+      @extend .h4;
+
+      display: inline-block;
+      padding: 0.25em 0.75em;
+      background-color: $heading-background;
+      color: $heading-color;
+    }
+  }
+
 }
 
-.simple__h3 {
-  @extend .h3;
-
-  color: white;
-}
-
-.absolute__h2--title,
-.flexbox__h2--title {
-  @extend .h2;
-}
-
-.absolute__h3--subtitle,
-.flexbox__h3--subtitle {
-  @extend .h3;
-}
-
-.absolute__h4--slug,
-.flexbox__h4--slug {
-  @extend .h4;
-
-  display: inline-block;
-  padding: 0.25em 0.75em;
-  background-color: $orange-dk;
-  color: $near-white;
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  &--level-1 {
+  }
 }
 
 // TODO: BEM selectors should be applied to wysiwyg-created content

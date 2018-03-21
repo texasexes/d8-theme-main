@@ -1,0 +1,28 @@
+{#
+/**
+ * Available variables:
+ * - placeholder_base_class - the base classname
+ * - placeholder_modifiers - array of modifiers to add to the base classname
+ * - placeholder_blockname - blockname prepended to the base classname
+ * - placeholder_attributes - array of attribute,value pairs
+ * - placeholder_content - the content of the placeholder (typically text)
+ *
+ * Available blocks:
+ * - placeholder_content - used to replace the content of the placeholder with something other than plain text
+ *   for example: A formatted text field in Drupal
+ */
+#}
+
+{# Base class when standalone, combined w/ blockname whenever it is an element (BEM)#}
+{% set placeholder_base_class = placeholder_base_class|default('placeholder') %}
+{# This var is set to prevent add_attributes griping about an empty var #}
+{% set placeholder_attributes = placeholder_attributes|default([]) %}
+
+<div
+  {{ bem(placeholder_base_class, (placeholder_modifiers), placeholder_blockname) }}
+  {{ add_attributes(placeholder_attributes) }}
+>
+  {%- block placeholder_content -%}
+    {{- placeholder_content -}}
+  {%- endblock -%}
+</div>

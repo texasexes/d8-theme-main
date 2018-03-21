@@ -1,10 +1,14 @@
 // Create a mixin for paragraph styles that can be implemented
 // in components with other classnames.
 @mixin paragraph(
-  $margin: 0 0 1em,
-  $font-family: $font-paragraph) {
+  $margin: '0 0 10px',
+  $font-family: $font-paragraph,
+  $color: $paragraph-text-color-1,
+  $line-height: 1.7em) {
   font-family: #{$font-family};
   margin: #{$margin};
+  color: #{$color};
+  line-height: $line-height;
 }
 
 // When a paragraph is a block, this is it's class (BEM)
@@ -15,4 +19,16 @@
 // An paragraph that is an element of a paragraph-01 block
 .p-01__paragraph {
   @extend .p;
+}
+
+.flexbox {
+  &__p{
+    @extend .p;
+
+    &--alt-5 {
+      font-family: $font-heading-h2-alt-5;
+      font-size: 0.91em;
+      margin: 10px 0;
+    }
+  }
 }

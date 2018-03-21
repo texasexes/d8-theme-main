@@ -2,36 +2,40 @@
 
 {% block paragraph %}
 
-  {% set paragraph_02_items = [] %}
-  {% set tempArray4 = [] %}
-  {% set tempArray5 = [] %}
+{% set tempArray1 = [] %}
+{% set tempArray2 = [] %}
+{% set tempArray3 = [] %}
+{% set tempArray4 = [] %}
+{% set tempArray5 = [] %}
 
+{% for key, child in content.field_txex_taxo_ref_for_display if key|first != '#' %}
+  {% if {(key) : (child),}|render is not empty %}
+    {% set tempArray1 = tempArray1|merge({(key) : (child),}) %}
+  {% endif %}
+{% endfor %}
 
-  {% for key, child in content['field_para_in_para'] if key|first != '#' %}
-    {% set paragraph_02_items = paragraph_02_items|merge({ (key) : (child)}) %}
-  {% endfor %}
+{% for key, child in content|without('field_txex_taxo_ref_for_display','field_node_ref_02') if key|first != '#' %}
+  {% if {(key) : (child),}|render is not empty %}
+    {% set tempArray2 = tempArray2|merge({(key) : (child),}) %}
+  {% endif %}
+{% endfor %}
 
-
-  {% for key, child in content.field_variant if key|first != '#' %}
-    {% set tempArray4 = tempArray4|merge({(key) : (child),}) %}
-  {% endfor %}
-
-  {% for key, child in tempArray4 %}
-    {% set tempArray5 = tempArray5|merge({(key) : (child['#markup']),}) %}
-  {% endfor %}
-  {% set tempArray5 = tempArray5|default({1 : 'horizontal', 2 : 'feature-100' }) %}
-
+{% set tempArray3 = tempArray3|merge({0 : (tempArray1), 1 : (tempArray2),}) %}
 
 {% set tempArray5 = tempArray5|merge({'paragraph-wrapper' : 'paragraph-wrapper',}) %}
-{# "flexbox_modifiers_additional": {1 : 'horizontal', 2 : 'feature-100', 3 : 'ADDITIONAL-2'} #}
-  {% include "@base/layouts/flexbox/00-flexbox.twig" with {
-    "flexbox_modifiers": tempArray5,
-    "flexbox_items": paragraph_02_items,
-    "flexbox_modifiers_additional": {1 : 'vertical'}
+
+{% if paragraph_modifiers %}
+  {% set tempArray5 = tempArray5|merge(paragraph_modifiers) %}
+{% endif %}
+
+  {% include "@molecules/01-card/00-card.twig" with {
+    "card_base_class": paragraph_base_class,
+    "card_modifiers": tempArray5,
+    "card_sections": tempArray3,
+    "layout_section_base_class": 'block',
+    "layout_section_modifiers": {0 : 'vertical', 1 : 'event-list'},
+    "layout_section_layout_extra": tempArray5,
   }%}
 
-{% endblock paragraph %}
 
-{# https://drupal.stackexchange.com/questions/208723/iterate-through-multiple-value-content-field-in-twig-template
-https://drupal.stackexchange.com/questions/174742/loop-through-child-elements-in-twig-like-elementchildren
-#}
+{% endblock paragraph %}

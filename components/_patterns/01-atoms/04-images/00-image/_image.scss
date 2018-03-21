@@ -33,3 +33,8 @@
 .flexbox__img {
   @extend .img;
 }
+
+// An img that is an element of a block block
+.block__img {
+  @extend .img;
+}

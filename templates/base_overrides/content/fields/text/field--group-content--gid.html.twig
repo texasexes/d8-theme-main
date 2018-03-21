@@ -1,0 +1,40 @@
+{#
+/**
+ * @file
+ * Theme override for the node title field.
+ *
+ * This is an override of field.html.twig for the node title field. See that
+ * template for documentation about its details and overrides.
+ *
+ * Available variables:
+ * - attributes: HTML attributes for the containing span element.
+ * - items: List of all the field items. Each item contains:
+ *   - attributes: List of HTML attributes for each item.
+ *   - content: The field item content.
+ * - entity_type: The entity type to which the field belongs.
+ * - field_name: The name of the field.
+ * - field_type: The type of the field.
+ * - label_display: The display settings for the label.
+ *
+ * @see field.html.twig
+ */
+#}
+
+{% extends "field.html.twig" %}
+{% set label_hidden = TRUE %}
+
+{% set attributes = attributes.addClass('clearfix', 'text-formatted') %}
+
+{% set heading_modifiers = heading_modifiers|default([]) %}
+{% set heading_modifiers = heading_modifiers|merge({'subtitle' : 'subtitle',}) %}
+
+{% block item_block %}
+  {% if item.content %}
+    {% include "@atoms/03-text/01-heading/_heading.twig" with {
+      "heading_attributes": item.attributes,
+      "heading_modifiers": heading_modifiers,
+      "heading_content": item.content,
+      "heading_level": 2,
+    } %}
+  {% endif %}
+{% endblock %}

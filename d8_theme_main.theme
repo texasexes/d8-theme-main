@@ -135,3 +135,188 @@ function d8_theme_main_preprocess_breadcrumb(&$variables) {
     }
   }
 }
+
+function d8_theme_main_preprocess_field(&$variables) {
+  //get the value of the field
+
+  $parent_entity = $variables['element']['#object'];
+
+  if ($parent_entity->hasField('field_node_ref_02')) {
+    if (!$parent_entity->get('field_node_ref_02')->isEmpty()) {
+
+      $reference_field = $parent_entity->get('field_node_ref_02')->first();
+      $referenced_entity = $reference_field->getValue();
+      $loaded_entity = \Drupal\node\Entity\Node::load($referenced_entity['target_id']);
+
+      if ($loaded_entity->hasField('field_txex_list_text_08')) {
+        if (!$loaded_entity->get('field_txex_list_text_08')->isEmpty()){
+          $field_layout_type = $loaded_entity->get('field_txex_list_text_08')->first()->getValue();
+          $field_layout_type_value = $field_layout_type['value'];
+        }
+      }
+
+      $field_modifiers = [];
+
+      if ($loaded_entity->hasField('field_txex_list_text_07')) {
+        if (!$loaded_entity->get('field_txex_list_text_07')->isEmpty()) {
+          $field_text_type = $loaded_entity->get('field_txex_list_text_07')->first()->getValue();
+          $field_text_type_value = $field_text_type['value'];
+          $field_modifiers = $field_modifiers + array($field_text_type_value => $field_text_type_value);
+        }
+      }
+
+      $variables['field_blockname'] = $field_layout_type_value;
+      $variables['field_modifiers'] = $field_modifiers;
+    }
+  }
+}
+
+// function d8_theme_main_preprocess_paragraph__txex_paragraph_02(&$variables) {
+  function d8_theme_main_preprocess_paragraph(&$variables) {
+    // kint($variables);
+    // $variables['view_mode'] = 'para_view_mode_01';
+    // kint($variables['view_mode']);
+    // kint($variables['content']);
+    // $view_mode = 'para_view_mode_03';
+    // $variables['content']['field_para_ref_02']['0']['#view_mode'] = $view_mode;
+
+
+  $paragraph = $variables['elements']['#paragraph'];
+
+  if ($variables['elements']['field_node_ref_02']) {
+    $reference_field = $paragraph->get('field_node_ref_02')->first();
+
+    if ($reference_field) {
+      $paragraph_layout_type_value = "";
+      $paragraph_modifiers = [];
+
+      $referenced_entity = $reference_field->getValue();
+      $loaded_entity = \Drupal\node\Entity\Node::load($referenced_entity['target_id']);
+
+      if ($loaded_entity->get('field_txex_list_text_02')->getValue()) {
+        $paragraph_layout_type = $loaded_entity->get('field_txex_list_text_02')->first()->getValue();
+        $paragraph_layout_type_value = $paragraph_layout_type['value'];
+      }
+
+      if ($loaded_entity->get('field_txex_list_text_03')->getValue()) {
+        $paragraph_row_layout = $loaded_entity->get('field_txex_list_text_03')->first()->getValue();
+        $paragraph_row_layout_value = $paragraph_row_layout['value'];
+        $paragraph_modifiers = $paragraph_modifiers + array($paragraph_row_layout_value => $paragraph_row_layout_value);
+      }
+
+      if ($loaded_entity->get('field_txex_list_text_04')->getValue()) {
+        $paragraph_background = $loaded_entity->get('field_txex_list_text_04')->first()->getValue();
+        $paragraph_background_value = $paragraph_background['value'];
+        $paragraph_modifiers = $paragraph_modifiers + array($paragraph_background_value => $paragraph_background_value);
+      }
+
+      if ($loaded_entity->get('field_txex_list_text_05')->getValue()) {
+        $paragraph_layout_orientation = $loaded_entity->get('field_txex_list_text_05')->first()->getValue();
+        $paragraph_layout_orientation_value = $paragraph_layout_orientation['value'];
+        $paragraph_modifiers = $paragraph_modifiers + array($paragraph_layout_orientation_value => $paragraph_layout_orientation_value);
+      }
+
+      if ($loaded_entity->get('field_txex_list_text_06')->getValue()) {
+        $paragraph_layout_width = $loaded_entity->get('field_txex_list_text_06')->first()->getValue();
+        $paragraph_layout_width_value = $paragraph_layout_width['value'];
+        $paragraph_modifiers = $paragraph_modifiers + array($paragraph_layout_width_value => $paragraph_layout_width_value);
+      }
+
+      if ($loaded_entity->get('field_txex_boolean_01')->getValue()) {
+        $paragraph_reverse_order = $loaded_entity->get('field_txex_boolean_01')->first()->getValue();
+        // kint($paragraph_reverse_order['value']);
+        if ($paragraph_reverse_order['value']) {
+          $paragraph_modifiers = $paragraph_modifiers + array('reverse-order' => 'reverse-order');
+        }
+      }
+
+      $variables['paragraph_base_class'] = $paragraph_layout_type_value;
+      $variables['paragraph_modifiers'] = $paragraph_modifiers;
+    }
+
+
+  }
+}
+
+function d8_theme_main_preprocess_paragraph__txex_paragraph_22(&$variables) {
+  $current_paragraph = $variables['elements']['#paragraph'];
+
+  // if ($variables['elements']['field_para_ref_02']) {
+  if ($current_paragraph->hasField('field_para_ref_02')) {
+    $referenced_paragraphs = $current_paragraph->get('field_para_ref_02')->getValue();
+
+    foreach ( $referenced_paragraphs as $key => $element ) {
+      $loaded_child_paragraph = \Drupal\paragraphs\Entity\Paragraph::load( $element['target_id'] );
+
+      if ($loaded_child_paragraph->hasField('field_node_ref_02')) {
+          $node_reference_field = $loaded_child_paragraph->get('field_node_ref_02')->first();
+
+        if ($node_reference_field) {
+          $referenced_entity = $node_reference_field->getValue();
+          $loaded_entity = \Drupal\node\Entity\Node::load($referenced_entity['target_id']);
+
+          if ($loaded_entity->hasField('field_txex_ref_para_view_mode')) {
+            if (!empty($loaded_entity->get('field_txex_ref_para_view_mode')->first())) {
+              $paragraph_view_mode = $loaded_entity->get('field_txex_ref_para_view_mode')->first()->getValue();
+              $paragraph_view_mode_value = $paragraph_view_mode['target_id'];
+              $paragraph_view_mode_value = explode('.', $paragraph_view_mode_value, 2)[1];
+              $variables['content']['field_para_ref_02'][$key]['#view_mode'] = $paragraph_view_mode_value;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// function d8_theme_main_entity_view_mode_alter(&$view_mode, Drupal\Core\Entity\EntityInterface $entity, $context) {
+//   kint($entity);
+// kint($entity->getEntityTypeId());
+// kint($entity->bundle());
+//   // if ($entity->getEntityTypeId() == 'txex_paragraph_02' && $entity->bundle() == 'paragraph') {
+//   //   $view_mode = 'para_view_mode_01';
+//   // }
+// }
+
+// function d8_theme_main_entity_view_mode_alter(&$view_mode, Drupal\Core\Entity\EntityInterface $entity, $context) {
+//
+//   // For nodes, change the view mode when it is teaser.
+//   if ($entity
+//     ->getEntityTypeId() == 'node' && $view_mode == 'teaser') {
+//     $view_mode = 'my_custom_view_mode';
+//   }
+// }
+
+function d8_theme_main_theme_suggestions_views_view_alter(array &$suggestions, array $variables) {
+    // If you want you can add a template suggestion for all views
+    // based on their ID:
+    $suggestions[] = sprintf('views_view__%s', $variables['view']->id());
+
+    // Or you can check the ID, add suggestions, do whatever you want
+    // ...
+}
+
+// function d8_theme_main_views_pre_render(Drupal\views\ViewExecutable $view) {
+//   if ($view->id() == "txex_events" && $view->current_display == 'block_1') {
+//     // kint($view);
+//     // kint($view->args[0]);
+//     // kint($view->field['rendered_entity']->options['view_mode']);
+//     // $view->field['rendered_entity']->options['view_mode'] = 'node_view_mode_01';
+//     foreach ($view->result as &$row) {
+//       // kint($row);
+//       $gid = $row->groups_field_data_group_content_field_data_id;
+//       $entity = $row->_entity;
+//       // kint($entity);
+//       // kint($entity);
+//       // kint($entity->get('field_para_ref_02'));
+//
+//       // $field = 'field_txex_group_ref_for_display';
+//       // $entity->set($field, $gid);
+//     }
+//   }
+// }
+
+// function d8_theme_main_node_create(\Drupal\Core\Entity\EntityInterface $entity) {
+//
+//   kint($entity);
+// }

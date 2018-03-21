@@ -60,9 +60,7 @@ $menu-text-color-3: #817f96;
 
   .menu-dropdown-0 {
     .h2--title {
-      color: $menu-text-color-2;
-      font-size: 0.85em;
-      margin: 1em 0 .25em;
+      // color: $menu-text-color-2;
     }
   }
 
@@ -142,17 +140,17 @@ $menu-text-color-3: #817f96;
   }
 
   .menu-dropdown-0 > .flexbox > .flexbox__item {
-    padding: 2em 0;
+    // padding: 40px 0;
   }
 
   .menu-dropdown-0 > .flexbox > .flexbox__item > :first-child {
-    padding: 0 2em;
+    // padding: 0 40px;
   }
 
   .flexbox__item--feature-40 {
     .paragraph--type--txex-paragraph-22 >
       .flexbox__item:first-child {
-        padding-right: 2em;
+        // padding-right: 40px;
       }
   }
 
@@ -163,7 +161,7 @@ $menu-text-color-3: #817f96;
   .flexbox__item--feature-40 {
     .paragraph--type--txex-paragraph-22 >
       .flexbox__item:last-child {
-        padding-left: 2em;
+        // padding-left: 2em;
       }
   }
 
@@ -176,7 +174,7 @@ $menu-text-color-3: #817f96;
 
   .menu-level-0 {
     background-color: $menu-background-color-2;
-    padding: 0 1.5em;
+    padding: 0 30px;
     // clear: both;
 
     & > .menu-item > a {
@@ -184,10 +182,11 @@ $menu-text-color-3: #817f96;
     }
 
     .menu-item {
-      padding: 0.75em 1em;
+      padding: 15px 20px;
 
       .menu-dropdown-0 {
         position: absolute;
+        padding: 40px;
         top: -9999px;
         left: 0;
         width: 100%;
@@ -252,7 +251,7 @@ $menu-text-color-3: #817f96;
         color: $menu-text-color-3;
       }
 
-      padding: 0 2em 1em 0;
+      padding: 0 40px 20px 0;
 
       flex: none;
       // padding: 0;
@@ -262,11 +261,11 @@ $menu-text-color-3: #817f96;
   }
 
   .menu-level-2 {
-    padding: 0.9em 0 0;
+    padding: 20px 0 0;
 
     .menu-item {
 
-      padding: 0 0 0.2em;
+      padding: 0 0 5px;
 
       &:last-child {
         padding: 0;
@@ -283,10 +282,10 @@ $menu-text-color-3: #817f96;
   }
 
   .menu-level-3 {
-    padding: 0.25em 0 0 1.25em;
+    padding: 5px 0 0 25px;
 
     .menu-item {
-      padding: 0 0 0.5em;
+      padding: 0 0 10px;
     }
   }
 }
@@ -294,7 +293,7 @@ $menu-text-color-3: #817f96;
 .content-region {
 
   .menu {
-    padding: 0 0 0 16px;
+    padding: 0 0 0 20px;
     margin: 0;
 
     & .flexbox {
@@ -302,7 +301,7 @@ $menu-text-color-3: #817f96;
     }
 
     &.menu-level-0 {
-      padding: 0 0 0 37px;
+      padding: 0 0 0 40px;
     }
 
     &.menu-level-1 {

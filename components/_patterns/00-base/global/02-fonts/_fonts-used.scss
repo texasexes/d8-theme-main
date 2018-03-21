@@ -1,16 +1,30 @@
 // Fonts
 
 // Heading
-$font-heading: $font-primary;
+$font-heading-1: $font-secondary-68;
+$font-heading-2: $font-primary;
+$font-heading-3: $font-secondary-30;
+
+$font-heading-alt-2: $font-primary-2;
+
+$font-heading-alt-3: $font-tertiary;
+
+$font-heading-h1-alt-4: $font-primary-2;
+
+$font-heading-h1-alt-5: $font-primary-2;
+$font-heading-h2-alt-5: $font-tertiary;
+
+$font-heading-h1-alt-6: $font-primary-2;
+$font-heading-h2-alt-6: $font-tertiary;
 
 // Paragraph
-$font-blockquote: $font-primary;
+$font-blockquote: $font-secondary-30;
 
 // Paragraph
-$font-paragraph: $font-secondary;
+$font-paragraph: $font-tertiary;
 
 // Link
-$font-link: $font-secondary;
+$font-link: $font-tertiary;
 
 // Label
-$font-label: $font-secondary;
+$font-label: $font-primary;

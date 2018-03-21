@@ -88,13 +88,13 @@
 
 .footer-region {
   padding: 45px 45px 55px 45px;
-  background-color: #292935;
+  background-color: #282a32;
 
   font-size: 15px;
   font-family: "Rubik";
   line-height: 23px;
   text-align: left;
-  color: #808087;
+  color: $footer-color;
 
   &__wrapper {
     display: flex;
