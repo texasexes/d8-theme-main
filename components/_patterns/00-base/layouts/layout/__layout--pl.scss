@@ -3,7 +3,6 @@
 .flexbox,
 .absolute,
 .block {
-
   &--pl {
     margin: 0;
     background-color: rgba(200, 200, 0, 1);
@@ -49,14 +48,15 @@
   &--pl-background-image {
     position: relative;
     overflow: hidden;
-    height: 500px;
+    height: 30vw;
     background-color: $white;
-    &:before {
+
+    &::before {
       content: "";
       position: absolute;
       width: 200%;
-      height: 200%;
-      top: -50%;
+      height: 300%;
+      top: -100%;
       left: -50%;
       // z-index: -1;
       background: url(/pattern-lab/public/images/txex/logo.svg) 0 0 repeat;
@@ -64,8 +64,6 @@
       -webkit-transform: rotate(-30deg);
       transform: rotate(-30deg);
       // width: 1000px;
-
     }
-
   }
 }

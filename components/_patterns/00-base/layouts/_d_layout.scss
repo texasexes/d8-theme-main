@@ -74,7 +74,7 @@
     padding-bottom: 1.5em;
   }
 
-  &:last-of-type{
+  &:last-of-type {
     img {
       padding-bottom: 0;
     }
@@ -85,11 +85,9 @@
   padding: 1em 2em 0;
 }
 
-
 .footer-region {
-  padding: 45px 45px 55px 45px;
+  padding: 45px 45px 55px;
   background-color: #282a32;
-
   font-size: 15px;
   font-family: "Rubik";
   line-height: 23px;
@@ -118,6 +116,7 @@
   & address {
     padding-top: 0.5em;
     font-style: normal;
+
     & a {
       color: #808087;
       text-decoration: none;

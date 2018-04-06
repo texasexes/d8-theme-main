@@ -70,7 +70,7 @@
 
   {% set layout_level = layout_level + 1 |default(1) %}
   {% set tempArray5 = tempArray5|merge({'layout_level' : ('layout-level-'~layout_level),}) %}
-  {% set tempArray5 = tempArray5|merge({'paragraph-wrapper' : 'paragraph-wrapper', 'horizontal' : 'horizontal', 'reverse-order' : 'reverse-order', 'feature-50-flush' : 'feature-50-flush', 'background-color-6' : 'background-color-6'}) %}
+  {% set tempArray5 = tempArray5|merge({'paragraph-wrapper' : 'paragraph-wrapper', 'horizontal' : 'horizontal', 'reverse-order' : 'reverse-order', 'feature-50-flush' : 'feature-50-flush', 'background-color-3' : 'background-color-3', 'layout-box-4' : 'layout-box-4'}) %}
 
   {% if paragraph_modifiers %}
     {% set tempArray5 = tempArray5|merge(paragraph_modifiers) %}

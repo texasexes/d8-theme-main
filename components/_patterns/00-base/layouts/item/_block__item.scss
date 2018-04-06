@@ -1,27 +1,5 @@
 .block__item {
-
-  &--background-color-1 {
-    background-color: $flexbox-background-color-1;
-  }
-
-  &--background-color-2 {
-    background-color: $flexbox-background-color-2;
-  }
-
-  &--background-color-3 {
-    background-color: $white;
-  }
-
-  &--background-color-6 {
-    background-color: $white;
-  }
-
-  &--text-alt-1 {
-    color: $white;
-  }
-
   &--event-list {
-
     &:nth-of-type(3) {
       float: left;
 

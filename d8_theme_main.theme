@@ -172,19 +172,12 @@ function d8_theme_main_preprocess_field(&$variables) {
 }
 
 // function d8_theme_main_preprocess_paragraph__txex_paragraph_02(&$variables) {
-  function d8_theme_main_preprocess_paragraph(&$variables) {
-    // kint($variables);
-    // $variables['view_mode'] = 'para_view_mode_01';
-    // kint($variables['view_mode']);
-    // kint($variables['content']);
-    // $view_mode = 'para_view_mode_03';
-    // $variables['content']['field_para_ref_02']['0']['#view_mode'] = $view_mode;
+function d8_theme_main_preprocess_paragraph(&$variables) {
 
-
-  $paragraph = $variables['elements']['#paragraph'];
+  $current_paragraph = $variables['elements']['#paragraph'];
 
   if ($variables['elements']['field_node_ref_02']) {
-    $reference_field = $paragraph->get('field_node_ref_02')->first();
+    $reference_field = $current_paragraph->get('field_node_ref_02')->first();
 
     if ($reference_field) {
       $paragraph_layout_type_value = "";
@@ -233,41 +226,46 @@ function d8_theme_main_preprocess_field(&$variables) {
       $variables['paragraph_base_class'] = $paragraph_layout_type_value;
       $variables['paragraph_modifiers'] = $paragraph_modifiers;
     }
-
-
   }
 }
 
-function d8_theme_main_preprocess_paragraph__txex_paragraph_22(&$variables) {
-  $current_paragraph = $variables['elements']['#paragraph'];
+// function d8_theme_main_preprocess_paragraph__txex_paragraph_21(&$variables) {
+//   $current_paragraph = $variables['elements']['#paragraph'];
+//
+//   // if ($variables['elements']['field_para_ref_02']) {
+//   if ($current_paragraph->hasField('field_para_ref_02')) {
+//     $referenced_paragraphs = $current_paragraph->get('field_para_ref_02')->getValue();
+//
+//     foreach ( $referenced_paragraphs as $key => $element ) {
+//       $loaded_child_paragraph = \Drupal\paragraphs\Entity\Paragraph::load( $element['target_id'] );
+//
+//       if ($loaded_child_paragraph->hasField('field_node_ref_02')) {
+//           $node_reference_field = $loaded_child_paragraph->get('field_node_ref_02')->first();
+//
+//         if ($node_reference_field) {
+//           $referenced_entity = $node_reference_field->getValue();
+//           $loaded_entity = \Drupal\node\Entity\Node::load($referenced_entity['target_id']);
+//
+//           if ($loaded_entity->hasField('field_txex_ref_para_view_mode')) {
+//             if (!empty($loaded_entity->get('field_txex_ref_para_view_mode')->first())) {
+//               $paragraph_view_mode = $loaded_entity->get('field_txex_ref_para_view_mode')->first()->getValue();
+//               $paragraph_view_mode_value = $paragraph_view_mode['target_id'];
+//               $paragraph_view_mode_value = explode('.', $paragraph_view_mode_value, 2)[1];
+//               $variables['content']['field_para_ref_02'][$key]['#view_mode'] = $paragraph_view_mode_value;
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
 
-  // if ($variables['elements']['field_para_ref_02']) {
-  if ($current_paragraph->hasField('field_para_ref_02')) {
-    $referenced_paragraphs = $current_paragraph->get('field_para_ref_02')->getValue();
-
-    foreach ( $referenced_paragraphs as $key => $element ) {
-      $loaded_child_paragraph = \Drupal\paragraphs\Entity\Paragraph::load( $element['target_id'] );
-
-      if ($loaded_child_paragraph->hasField('field_node_ref_02')) {
-          $node_reference_field = $loaded_child_paragraph->get('field_node_ref_02')->first();
-
-        if ($node_reference_field) {
-          $referenced_entity = $node_reference_field->getValue();
-          $loaded_entity = \Drupal\node\Entity\Node::load($referenced_entity['target_id']);
-
-          if ($loaded_entity->hasField('field_txex_ref_para_view_mode')) {
-            if (!empty($loaded_entity->get('field_txex_ref_para_view_mode')->first())) {
-              $paragraph_view_mode = $loaded_entity->get('field_txex_ref_para_view_mode')->first()->getValue();
-              $paragraph_view_mode_value = $paragraph_view_mode['target_id'];
-              $paragraph_view_mode_value = explode('.', $paragraph_view_mode_value, 2)[1];
-              $variables['content']['field_para_ref_02'][$key]['#view_mode'] = $paragraph_view_mode_value;
-            }
-          }
-        }
-      }
-    }
-  }
-}
+// function d8_theme_main_preprocess_paragraph__txex_paragraph_22(&$variables) {
+//   $current_paragraph = $variables['elements']['#paragraph'];
+//
+//   // if ($variables['elements']['field_para_ref_02']) {
+//
+// }
 
 // function d8_theme_main_entity_view_mode_alter(&$view_mode, Drupal\Core\Entity\EntityInterface $entity, $context) {
 //   kint($entity);

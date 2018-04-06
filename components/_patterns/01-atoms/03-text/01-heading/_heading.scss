@@ -74,12 +74,10 @@
 .absolute,
 .flexbox,
 .block {
-  &__h1{
+  &__h1 {
     @extend .h1;
-    margin: 0 0 10px;
 
-    &--title {
-    }
+    margin: 0 0 10px;
 
     &--alt-1 {
       color: $white;
@@ -124,7 +122,6 @@
       font-weight: 800;
       font-size: 1.5em;
       line-height: 1.25;
-
       font-style: italic;
       text-transform: none;
     }
@@ -135,20 +132,25 @@
       font-weight: 800;
       font-size: 1.5em;
       line-height: 1.25;
-
       text-transform: none;
+    }
+
+    &--alt-8 {
+      color: $heading-color-h1-alt-5;
+      font-family: $font-heading-h1-alt-5;
+      font-weight: 800;
+      font-size: 1.06em;
+      line-height: 1.25;
+      margin: 0 0 3px;
+      text-transform: none;
+      text-align: center;
     }
   }
 
-  &__h2{
+  &__h2 {
     @extend .h2;
+
     margin: 0 0 10px;
-
-    &--title {
-    }
-
-    &--subtitle {
-    }
 
     &--alt-1 {
       color: $white;
@@ -161,6 +163,7 @@
     &--list-group-ref {
       display: inline-block;
       margin: 0;
+
       &::after {
         content: ", \a0";
         display: inline-block;
@@ -192,10 +195,18 @@
       font-size: 1em;
     }
 
+    &--alt-8 {
+      color: $heading-color-h2-alt-5;
+      font-family: $font-heading-h2-alt-5;
+      font-size: 0.91em;
+      margin: 0;
+      text-align: center;
+    }
   }
 
-  &__h3{
+  &__h3 {
     @extend .h3;
+
     position: absolute;
     top: -1.6em;
     padding: 0 0.35em;
@@ -203,19 +214,21 @@
     color: $heading-color-h3-alt-5;
     margin: 0;
 
-    &--title {
-    }
-
-    &--subtitle {
-    }
-
     &--alt-1 {
-      position: relative;
       display: inline-block;
+      position: relative;
+      top: 0;
+      margin: 0 0 20px;
+    }
+
+    &--alt-2 {
+      display: inline-block;
+      position: relative;
+      top: 0;
+      margin: 0 0 20px;
     }
 
     &--alt-5 {
-      // font-family: $font-heading-h2-alt-5;
       font-size: 0.91em;
       margin: 0;
     }
@@ -230,9 +243,15 @@
       position: relative;
       top: 0;
     }
+
+    &--alt-8 {
+      font-size: 0.91em;
+      margin: 0;
+      text-align: center;
+    }
   }
 
-  &__h4{
+  &__h4 {
     &--slug {
       @extend .h4;
 
@@ -241,17 +260,6 @@
       background-color: $heading-background;
       color: $heading-color;
     }
-  }
-
-}
-
-.h1,
-.h2,
-.h3,
-.h4,
-.h5,
-.h6 {
-  &--level-1 {
   }
 }
 

@@ -56,23 +56,38 @@ $icon-color: $grey-a;
 
 // cards
 
-
 // layout
-$absolute-background-color-1: $light-mushroom;
-$flexbox-background-color-1: $light-mushroom;
+// layout - background colors
+$layout-background-color-1: $light-mushroom;
+$item-background-color-1: $light-mushroom;
 
-$absolute-background-color-2: $purple-1;
-$flexbox-background-color-2: $purple-1;
+$layout-background-color-2: $purple-1;
+$item-background-color-2: $purple-1;
 
-$absolute-background-color-4: $white;
-$flexbox-background-color-4: $white;
+$item-background-color-3: $white;
 
-$absolute-background-color-5: $trans-white;
-$flexbox-background-color-5: $trans-white;
+$layout-background-color-4: $white;
+$item-background-color-4: $white;
 
-$absolute-border-color-1: $light-mushroom;
-$flexbox-border-color-1: $light-mushroom;
+$layout-background-color-5: $trans-tangerine;
+$item-background-color-5: $trans-tangerine;
 
+$layout-background-color-6: none;
+$item-background-color-6: none;
+
+$layout-background-color-7: $tangerine;
+$item-background-color-7: $tangerine;
+
+$layout-background-color-8: $blue;
+$item-background-color-8: $blue;
+
+//layout - border colors
+$layout-border-color-1: $light-mushroom;
+$item-border-color-1: $light-mushroom;
+
+$layout-border-color-6: $light-mushroom;
+
+//layout - footer colors
 $footer-color: $grey-8;
 
 // paragraph
