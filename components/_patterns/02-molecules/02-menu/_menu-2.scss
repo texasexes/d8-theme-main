@@ -3,9 +3,9 @@ $main-menu-sub-highlight: #3c3b56;
 $main-menu-vertical-border: #4c486a;
 
 $menu-text-color-1: #383737; //dark grey
-$menu-text-color-2: #F6F6F4; //light grey
-$menu-text-color-3: #96967F; //light purple
-$menu-text-color-4: #444444; //dark grey
+$menu-text-color-2: #f6f6f4; //light grey
+$menu-text-color-3: #96967f; //light purple
+$menu-text-color-4: #444; //dark grey
 $menu-text-color-5: #cb6015; //dark orange
 $menu-text-color-6: #aaa; //light grey
 
@@ -24,6 +24,7 @@ $menu-text-color-6: #aaa; //light grey
 
   &:hover {
     background-color: $main-menu-highlight;
+
     & svg {
       fill: $menu-text-color-2;
     }
@@ -36,6 +37,7 @@ $menu-text-color-6: #aaa; //light grey
   &:hover ul ul {
     background-color: $main-menu-sub-highlight;
     top: 100%;
+
     & a {
       color: $menu-text-color-2;
 
@@ -43,6 +45,7 @@ $menu-text-color-6: #aaa; //light grey
         // color: $menu-text-color-3;
       }
     }
+
     & li:hover {
       background-color: $main-menu-highlight;
     }
@@ -67,12 +70,11 @@ $menu-text-color-6: #aaa; //light grey
   display: inline-block;
   // vertical-align: middle;
   height: 100%;
-
   font-family: 'Rubik', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   // font-size: 14px;
-  font-size: .95em;
+  font-size: 0.95em;
   // color: #a3a1b5;
   line-height: 21px;
 
@@ -81,7 +83,7 @@ $menu-text-color-6: #aaa; //light grey
     top: -9999px;
     right: 0;
     width: 200%;
-    padding: .5em 0;
+    padding: 0.5em 0;
     z-index: 10;
 
     li {
@@ -89,8 +91,6 @@ $menu-text-color-6: #aaa; //light grey
       text-align: left;
     }
   }
-
-
 
   & a {
     margin: 0 1em;
@@ -105,18 +105,13 @@ $menu-text-color-6: #aaa; //light grey
   float: right;
 }
 
-.secondary-nav__menu {
-
-}
-
 .secondary-nav__menu--item {
   display: inline-block;
-
   font-family: 'Rubik', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   // font-size: 14px;
-  font-size: .95em;
+  font-size: 0.95em;
   // color: #a3a1b5;
   line-height: 21px;
 
@@ -129,7 +124,6 @@ $menu-text-color-6: #aaa; //light grey
 }
 
 .secondary-nav__menu--item:last-child {
-
   & a {
     color: white;
     background-color: #cb6015;
@@ -147,22 +141,20 @@ $menu-text-color-6: #aaa; //light grey
 
 .footer-nav {
   display: inline-block;
-
-
 }
 
 .footer-nav__menu {
   padding: 0;
-  margin: 2em 0 0 0;
+  margin: 2em 0 0;
 }
 
 .footer-nav__menu--item {
   display: inline-block;
+
   & a {
     color: $menu-text-color-5;
     text-decoration: none;
     padding-right: 1em;
-
     font-size: 15px;
     font-family: "Rubik";
     line-height: 23px;
@@ -176,15 +168,13 @@ $menu-text-color-6: #aaa; //light grey
     text-decoration: none;
     // padding-right: 0.5em;
     padding: 0.5em;
-
-    font-size: .8em;
+    font-size: 0.8em;
     font-family: "Rubik";
 
     &:hover {
       background-color: $main-menu-highlight;
       color: $menu-text-color-2;
     }
-
   }
 
   & svg {
@@ -192,7 +182,7 @@ $menu-text-color-6: #aaa; //light grey
     // height: 16px;
     vertical-align: middle;
     fill: $menu-text-color-5;
-    fill:#E6E6E6;
+    fill: #e6e6e6;
     // margin-right: 0.25em;
   }
 
@@ -215,10 +205,8 @@ $menu-text-color-6: #aaa; //light grey
     // color: $blue;
     text-decoration: none;
     padding-right: 1em;
-
-    font-size: .8em;
+    font-size: 0.8em;
     font-family: "Rubik";
-
   }
 
   ul {

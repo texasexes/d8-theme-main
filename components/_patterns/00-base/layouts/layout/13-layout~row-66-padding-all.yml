@@ -6,7 +6,9 @@ layout_modifiers:
   2:
     horizontal
   3:
-    layout-row-1
+    feature-66
+  4:
+    layout-box-3
 layout_items:
   1:
     placeholder:

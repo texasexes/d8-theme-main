@@ -1,0 +1,57 @@
+$row-border-width: 15px;
+$row-padding: 50px;
+$row-margin: 90px;
+
+$component-border-width: 8px;
+$component-padding: 30px;
+$component-margin: 30px;
+
+$list-item-border-width: 1px;
+$list-item-padding: 10px;
+// $list-item-margin: 90px;
+
+.absolute__item,
+.flexbox__item,
+.block__item {
+  &--layout-box-7 {
+    margin-bottom: $component-margin;
+    border-width: $component-border-width;
+  }
+
+  // &--layout-box-8 {
+  //   margin-bottom: $component-margin;
+  //   border-width: $component-border-width;
+  // }
+
+  &--background-color-1 {
+    background-color: $item-background-color-1;
+  }
+
+  &--background-color-2 {
+    background-color: $item-background-color-2;
+  }
+
+  &--background-color-3 {
+    background-color: $item-background-color-3;
+  }
+
+  &--background-color-4 {
+    background-color: $item-background-color-4;
+  }
+
+  &--background-color-5 {
+    background-color: $item-background-color-5;
+  }
+
+  &--background-color-6 {
+    background-color: $item-background-color-6;
+  }
+
+  &--background-color-7 {
+    background-color: $item-background-color-7;
+  }
+
+  &--background-color-8 {
+    background-color: $item-background-color-8;
+  }
+}

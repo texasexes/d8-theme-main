@@ -27,6 +27,9 @@
 
 {% set heading_modifiers = heading_modifiers|default([]) %}
 {% set heading_modifiers = heading_modifiers|merge({'title' : 'title',}) %}
+{% if field_modifiers %}
+  {% set heading_modifiers = heading_modifiers|merge(field_modifiers) %}
+{% endif %}
 
 {% block item_block %}
   {% if item.content %}

@@ -11,7 +11,6 @@ $menu-text-color-2: #f6f6f3;
 $menu-text-color-3: #817f96;
 
 .main-navigation-region {
-
   .menu-level-0 {
     font-family: "Knockout 30 A", "Knockout 30 B";
     font-style: normal;
@@ -21,7 +20,7 @@ $menu-text-color-3: #817f96;
     // font-size: 20px;
     font-size: 1.3em;
     line-height: 23px;
-    color: #222222;
+    color: #222;
     background: #f3f3ed;
   }
 
@@ -30,7 +29,7 @@ $menu-text-color-3: #817f96;
     font-style: normal;
     font-weight: 800;
     // font-size: 16px;
-    font-size: .8em;
+    font-size: 0.8em;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     color: white;
@@ -43,7 +42,7 @@ $menu-text-color-3: #817f96;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     // font-size: 14px;
-    font-size: .85em;
+    font-size: 0.85em;
     color: #a3a1b5;
     line-height: 25px;
   }
@@ -53,8 +52,7 @@ $menu-text-color-3: #817f96;
       font-family: 'Rubik', sans-serif;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
-
-      font-size: .75em;
+      font-size: 0.75em;
     }
   }
 
@@ -134,35 +132,8 @@ $menu-text-color-3: #817f96;
     }
   }
 
-
   .menu-dropdown-0 > .flexbox {
     height: 100%;
-  }
-
-  .menu-dropdown-0 > .flexbox > .flexbox__item {
-    // padding: 40px 0;
-  }
-
-  .menu-dropdown-0 > .flexbox > .flexbox__item > :first-child {
-    // padding: 0 40px;
-  }
-
-  .flexbox__item--feature-40 {
-    .paragraph--type--txex-paragraph-22 >
-      .flexbox__item:first-child {
-        // padding-right: 40px;
-      }
-  }
-
-  .flexbox__item--feature-40:last-child {
-    // flex:none;
-  }
-
-  .flexbox__item--feature-40 {
-    .paragraph--type--txex-paragraph-22 >
-      .flexbox__item:last-child {
-        // padding-left: 2em;
-      }
   }
 
   .menu-dropdown-0 > .flexbox > .flexbox__item:last-child > :first-child {
@@ -197,7 +168,6 @@ $menu-text-color-3: #817f96;
   }
 
   .menu-level-0 {
-
     & > .menu-item--active-trail {
       background-color: $main-menu-highlight;
 
@@ -238,9 +208,9 @@ $menu-text-color-3: #817f96;
 
   /* **** */
 
-
   .menu-level-1 {
     align-content: flex-start;
+
     .menu-item {
       // font-size: .75em;
       & a {
@@ -252,11 +222,8 @@ $menu-text-color-3: #817f96;
       }
 
       padding: 0 40px 20px 0;
-
       flex: none;
       // padding: 0;
-
-
     }
   }
 
@@ -264,7 +231,6 @@ $menu-text-color-3: #817f96;
     padding: 20px 0 0;
 
     .menu-item {
-
       padding: 0 0 5px;
 
       &:last-child {
@@ -291,7 +257,6 @@ $menu-text-color-3: #817f96;
 }
 
 .content-region {
-
   .menu {
     padding: 0 0 0 20px;
     margin: 0;
@@ -325,7 +290,6 @@ $menu-text-color-3: #817f96;
       color: #565656;
       line-height: 1.5em;
 
-
       &:hover,
       &.is-active {
         /* highlight color: */
@@ -341,6 +305,4 @@ $menu-text-color-3: #817f96;
   .menu-item {
     list-style: none;
   }
-
-
 }

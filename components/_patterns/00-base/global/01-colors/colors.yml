@@ -29,8 +29,6 @@ items:
     value: '#e6e6e6'
   - name: $white
     value: '#fff'
-  - name: $trans-white
-    value: 'rgba(255, 255, 255, 0.8)'
   - name: $dark-mushroom
     value: '#96967f'
   - name: $light-mushroom
@@ -41,6 +39,8 @@ items:
     value: '#cb6015'
   - name: $tangerine
     value: '#fab54f'
+  - name: $trans-tangerine
+    value: 'rgba(250, 181, 79, 0.9)'
   - name: $blue
     value: '#1383b8'
 meta:

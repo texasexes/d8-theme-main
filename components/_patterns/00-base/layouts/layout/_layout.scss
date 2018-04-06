@@ -1,0 +1,142 @@
+$row-border-width: 15px;
+$row-padding: 50px;
+$row-margin: 90px;
+
+$component-border-width: 8px;
+$component-padding: 30px;
+$component-margin: 30px;
+
+$list-item-border-width: 1px;
+$list-item-padding: 10px;
+// $list-item-margin: 90px;
+
+.absolute,
+.flexbox,
+.block {
+  &--paragraph-wrapper {
+    height: 100%;
+    width: 100%;
+  }
+
+  &--layout-box-1 {
+    padding: 0;
+    margin-bottom: $row-margin;
+    border-width: $row-border-width;
+  }
+
+  &--layout-box-2 {
+    padding: 0 $row-padding;
+    margin-bottom: $row-margin;
+    border-width: $row-border-width;
+  }
+
+  &--layout-box-3 {
+    padding: $row-padding;
+    margin-bottom: $row-margin;
+    border-width: $row-border-width;
+  }
+
+  &--layout-box-4 {
+    padding: $component-padding;
+    border-width: $component-border-width;
+  }
+
+  &--layout-box-5 {
+    padding: $list-item-padding 0;
+    border-width: $list-item-border-width;
+  }
+
+  &--layout-box-6 {
+    padding: 0;
+    border-width: $component-border-width;
+  }
+
+  &--layout-box-7 {
+    margin-bottom: $component-margin;
+    border-width: $component-border-width;
+    
+    &:only-of-type {
+      margin-bottom: 0;
+    }
+  }
+
+  // &--layout-box-8 {
+  //   margin-bottom: $component-margin;
+  //   border-width: $component-border-width;
+  // }
+
+  &--background-color-1 {
+    background-color: $layout-background-color-1;
+  }
+
+  &--background-color-2 {
+    background-color: $layout-background-color-2;
+  }
+
+  &--background-color-3 {
+    border-style: solid;
+    border-color: $layout-border-color-1;
+  }
+
+  &--background-color-4 {
+    background-color: $layout-background-color-4;
+  }
+
+  &--background-color-5 {
+    background-color: $layout-background-color-5;
+  }
+
+  &--background-color-6 {
+    background-color: $layout-background-color-6;
+    border-top-style: solid;
+    border-color: $layout-border-color-6;
+  }
+
+  &--background-color-7 {
+    background-color: $layout-background-color-7;
+  }
+
+  &--background-color-8 {
+    background-color: $layout-background-color-8;
+  }
+
+  // &--background-color-9 {
+  //   border-top-style: solid;
+  //   border-color: $layout-border-color-1;
+  // }
+}
+
+.absolute {
+  position: relative;
+  overflow: auto;
+}
+
+.flexbox {
+  display: flex;
+  justify-content: center;
+
+  &--horizontal {
+    flex-direction: row;
+    justify-content: stretch;
+    align-items: stretch;
+  }
+
+  &--vertical {
+    flex-direction: column;
+    justify-content: center;
+
+    &:first-of-type {
+      justify-content: flex-start;
+    }
+  }
+
+  &--feature-100,
+  &--feature-100-flush,
+  &--feature-100-flush-small {
+    flex-wrap: wrap;
+  }
+}
+
+.block {
+  position: relative;
+}
