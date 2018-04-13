@@ -175,13 +175,13 @@ function d8_theme_main_preprocess_field(&$variables) {
 function d8_theme_main_preprocess_paragraph(&$variables) {
 
   $current_paragraph = $variables['elements']['#paragraph'];
+  $paragraph_modifiers = [];
 
   if ($variables['elements']['field_node_ref_02']) {
     $reference_field = $current_paragraph->get('field_node_ref_02')->first();
 
     if ($reference_field) {
       $paragraph_layout_type_value = "";
-      $paragraph_modifiers = [];
 
       $referenced_entity = $reference_field->getValue();
       $loaded_entity = \Drupal\node\Entity\Node::load($referenced_entity['target_id']);
@@ -192,9 +192,9 @@ function d8_theme_main_preprocess_paragraph(&$variables) {
       }
 
       if ($loaded_entity->get('field_txex_list_text_03')->getValue()) {
-        $paragraph_row_layout = $loaded_entity->get('field_txex_list_text_03')->first()->getValue();
-        $paragraph_row_layout_value = $paragraph_row_layout['value'];
-        $paragraph_modifiers = $paragraph_modifiers + array($paragraph_row_layout_value => $paragraph_row_layout_value);
+        $paragraph_box_layout = $loaded_entity->get('field_txex_list_text_03')->first()->getValue();
+        $paragraph_box_layout_value = $paragraph_box_layout['value'];
+        $paragraph_modifiers = $paragraph_modifiers + array($paragraph_box_layout_value => $paragraph_box_layout_value);
       }
 
       if ($loaded_entity->get('field_txex_list_text_04')->getValue()) {
@@ -215,18 +215,27 @@ function d8_theme_main_preprocess_paragraph(&$variables) {
         $paragraph_modifiers = $paragraph_modifiers + array($paragraph_layout_width_value => $paragraph_layout_width_value);
       }
 
-      if ($loaded_entity->get('field_txex_boolean_01')->getValue()) {
-        $paragraph_reverse_order = $loaded_entity->get('field_txex_boolean_01')->first()->getValue();
-        // kint($paragraph_reverse_order['value']);
-        if ($paragraph_reverse_order['value']) {
-          $paragraph_modifiers = $paragraph_modifiers + array('reverse-order' => 'reverse-order');
-        }
+      if ($loaded_entity->get('field_txex_list_text_09')->getValue()) {
+        $paragraph_item_box_layout = $loaded_entity->get('field_txex_list_text_09')->first()->getValue();
+        $paragraph_item_box_layout_value = $paragraph_item_box_layout['value'];
+        $paragraph_modifiers = $paragraph_modifiers + array($paragraph_item_box_layout_value => $paragraph_item_box_layout_value);
       }
 
       $variables['paragraph_base_class'] = $paragraph_layout_type_value;
-      $variables['paragraph_modifiers'] = $paragraph_modifiers;
     }
   }
+
+  if ($variables['elements']['field_txex_boolean_01']) {
+    if ($current_paragraph->get('field_txex_boolean_01')->getValue()) {
+      $paragraph_reverse_order = $current_paragraph->get('field_txex_boolean_01')->first()->getValue();
+      if ($paragraph_reverse_order['value']) {
+        $paragraph_modifiers = $paragraph_modifiers + array('reverse-order' => 'reverse-order');
+      }
+    }
+  }
+
+  $variables['paragraph_modifiers'] = $paragraph_modifiers;
+
 }
 
 // function d8_theme_main_preprocess_paragraph__txex_paragraph_21(&$variables) {

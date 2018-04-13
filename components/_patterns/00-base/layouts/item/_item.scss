@@ -1,15 +1,3 @@
-$row-border-width: 15px;
-$row-padding: 50px;
-$row-margin: 90px;
-
-$component-border-width: 8px;
-$component-padding: 30px;
-$component-margin: 30px;
-
-$list-item-border-width: 1px;
-$list-item-padding: 10px;
-// $list-item-margin: 90px;
-
 .absolute__item,
 .flexbox__item,
 .block__item {
@@ -53,5 +41,77 @@ $list-item-padding: 10px;
 
   &--background-color-8 {
     background-color: $item-background-color-8;
+  }
+
+  &--item-box-1,
+  &--item-box-2,
+  &--item-box-3,
+  &--item-box-4,
+  &--item-box-5,
+  &--item-box-6,
+  &--item-box-7 {
+    &:first-of-type {
+      padding: 0;
+    }
+  }
+
+  &--item-box-1 {
+    &,
+    &:only-of-type {
+      padding: 0 $row-padding;
+    }
+  }
+
+  &--item-box-2 {
+    &,
+    &:only-of-type {
+      padding-left: $row-padding;
+    }
+  }
+
+  &--item-box-3 {
+    &,
+    &:only-of-type {
+      padding: $row-padding;
+    }
+  }
+
+  &--item-box-4 {
+    &,
+    &:only-of-type {
+      padding: 0 $component-padding;
+    }
+  }
+
+  &--item-box-5 {
+    &,
+    &:only-of-type {
+      padding-left: $component-padding;
+    }
+  }
+
+  &--item-box-6 {
+    &,
+    &:only-of-type {
+      padding: $component-padding;
+    }
+  }
+
+  &--item-box-7 {
+    &,
+    &:only-of-type {
+      padding: $component-padding $component-padding $component-padding $row-padding;
+    }
+  }
+
+  &--item-box-8 {
+    &,
+    &:only-of-type {
+      padding: $list-item-padding 0;
+    }
+
+    &:first-of-type {
+      padding: 0 $component-padding;
+    }
   }
 }
