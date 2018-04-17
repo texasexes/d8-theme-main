@@ -131,3 +131,63 @@
   //   content: "\1F996";
   // }
 }
+
+.my-details-YO {
+  position: relative;
+
+  details {
+    position: absolute;
+    top: -2em;
+    margin: 0;
+    z-index: 10;
+    background-color: white;
+    max-width: 300px; // hack to get transition to work
+
+    summary {
+      padding: 0.2em 0.5em;
+    }
+
+    & .details-wrapper {
+      opacity: 0;
+    }
+
+    &[open] {
+      z-index: 20;
+      width: 75%;
+      max-width: 900px; // hack to get transition to work
+
+      & .details-wrapper {
+        opacity: 1;
+      }
+      // -webkit-transition-property: width opacity;
+      // -webkit-transition-duration: .5s, 1.5s;
+      // // -webkit-transition-timing-function: ease;
+      // transition-property: width opacity;
+      // transition-duration: .5s, 1.5s;
+      // // transition-timing-function: ease;
+
+
+      -webkit-transition: max-width .5s, opacity 1.5s;
+      transition: max-width .5s, opacity 1.5s;
+      // transition-timing-function: ease;
+    }
+
+    &.paragraph-style-needed {
+      background-color: rgb(224, 194, 203);
+    }
+  }
+
+
+}
+
+
+
+// .paragraph-style-selected {
+//   details {
+//     background-color: rgb(197, 224, 194);
+//   }
+// }
+
+// .my-paragraph-title-YO {
+//   padding-left: 8em;
+// }
