@@ -238,6 +238,8 @@ function d8_theme_main_preprocess_paragraph(&$variables) {
 
 }
 
+
+
 // function d8_theme_main_preprocess_paragraph__txex_paragraph_21(&$variables) {
 //   $current_paragraph = $variables['elements']['#paragraph'];
 //
