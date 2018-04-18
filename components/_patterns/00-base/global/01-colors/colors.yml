@@ -43,6 +43,8 @@ items:
     value: 'rgba(250, 181, 79, 0.9)'
   - name: $blue
     value: '#1383b8'
+  - name: $trans-blue
+    value: 'rgba(19, 131, 184, 0.9)'
 meta:
   description: >-
     To add to these items, use Sass variables that start with <code>$</code> in
