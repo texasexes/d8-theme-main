@@ -132,13 +132,14 @@
   // }
 }
 
-.my-details-YO {
+.paragraph-details-YO,
+.form-details-YO {
   position: relative;
 
   details {
-    position: absolute;
-    top: -2em;
-    margin: 0;
+    // position: absolute;
+    // top: -2em;
+    // margin: 0;
     z-index: 10;
     background-color: white;
     max-width: 300px; // hack to get transition to work
@@ -156,28 +157,27 @@
       width: 75%;
       max-width: 900px; // hack to get transition to work
 
-      & .details-wrapper {
-        opacity: 1;
-      }
-      // -webkit-transition-property: width opacity;
-      // -webkit-transition-duration: .5s, 1.5s;
-      // // -webkit-transition-timing-function: ease;
-      // transition-property: width opacity;
-      // transition-duration: .5s, 1.5s;
-      // // transition-timing-function: ease;
-
-
       -webkit-transition: max-width .5s, opacity 1.5s;
       transition: max-width .5s, opacity 1.5s;
       // transition-timing-function: ease;
+
+      & .details-wrapper {
+        opacity: 1;
+      }
     }
 
     &.paragraph-style-needed {
       background-color: rgb(224, 194, 203);
     }
   }
+}
 
-
+.paragraph-details-YO {
+  details {
+    position: absolute;
+    top: -2em;
+    margin: 0;
+  }
 }
 
 
