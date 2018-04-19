@@ -1,6 +1,6 @@
 items:
   - name: $purple-1
-    value: '#34364d'
+    value: '#4D3434'
   - name: $purple-2
     value: '#393d57'
   - name: $purple-3
@@ -43,8 +43,8 @@ items:
     value: 'rgba(250, 181, 79, 0.9)'
   - name: $blue
     value: '#1383b8'
-  - name: $trans-blue
-    value: 'rgba(19, 131, 184, 0.9)'
+  - name: $trans-purple-1
+    value: 'rgba(52, 54, 77, 0.9)'
 meta:
   description: >-
     To add to these items, use Sass variables that start with <code>$</code> in
