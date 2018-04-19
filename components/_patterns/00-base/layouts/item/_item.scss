@@ -118,4 +118,11 @@
       padding: 0 $component-padding;
     }
   }
+
+  &--item-box-9 {
+    &,
+    &:only-of-type {
+      padding-right: $component-padding;
+    }
+  }
 }
