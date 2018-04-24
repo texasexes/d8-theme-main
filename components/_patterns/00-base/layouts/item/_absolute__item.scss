@@ -1,16 +1,15 @@
 .absolute__item {
   position: absolute;
 
-  &--full-image:nth-of-type(2) {
-    top: 0;
-    right: 0;
-    height: 100%;
-    margin: 0;
-    margin-right: auto;
-    // background-color: rgba(64, 64, 64, 0.7);
-    z-index: 20;
-    overflow: scroll;
-  }
+  // &--full-image:nth-of-type(2) {
+  //   top: 0;
+  //   right: 0;
+  //   height: 100%;
+  //   margin: 0;
+  //   margin-right: auto;
+  //   z-index: 20;
+  //   overflow: scroll;
+  // }
 
   &--feature-10 {
     width: 10%;
@@ -79,14 +78,14 @@
     margin-left: 50px;
   }
 
-  // Bottom Left Quadrant
+  // Left Side Alignment
   &--overlay-left:nth-of-type(2) {
     top: 0;
     bottom: 0;
     left: 0;
   }
 
-  // Bottom Left Quadrant
+  // Right Side Alignment
   &--overlay-right:nth-of-type(2) {
     top: 0;
     bottom: 0;

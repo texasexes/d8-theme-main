@@ -6,7 +6,9 @@ items:
   - name: $purple-3
     value: '#4c486a'
   - name: $purple-4
-    value: '#a3a1b5'
+    value: '#a1a2b5'
+  - name: $purple-5
+    value: '#282a32'
   - name: $grey-2
     value: '#222'
   - name: $grey-4
@@ -17,10 +19,10 @@ items:
     value: '#565656'
   - name: $grey-7
     value: '#777'
-  - name: $temp1
-    value: '#9b9b9b'
   - name: $grey-8
     value: '#888'
+  - name: $temp1
+    value: '#9b9b9b'
   - name: $grey-a
     value: '#aaa'
   - name: $temp2
@@ -39,10 +41,10 @@ items:
     value: '#cb6015'
   - name: $tangerine
     value: '#fab54f'
-  - name: $trans-tangerine
-    value: 'rgba(250, 181, 79, 0.9)'
   - name: $blue
     value: '#1383b8'
+  - name: $trans-tangerine
+    value: 'rgba(250, 181, 79, 0.9)'
   - name: $trans-purple-1
     value: 'rgba(52, 54, 77, 0.9)'
 meta:
