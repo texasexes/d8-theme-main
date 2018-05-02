@@ -1,0 +1,23 @@
+{#
+/**
+ * @file
+ * Theme override for a date field.
+ *
+ * Combines separate (why?) start and end date fields into one display.
+ */
+#}
+
+{% extends "field.html.twig" %}
+
+{% set start = element['#object'].get('field_txex_timestamp_01').getString() %}
+{% set end = element['#object'].get('field_txex_timestamp_02').getString() %}
+
+{% if start|date('Y m d') != end|date('Y m d') %}
+  {% set date = start|date('F j, Y, g:i A') ~ ' - ' ~ end|date('F j, Y, g:i A') %}
+{% else %}
+  {% set date = start|date('F j, Y, g:i A') ~ '-' ~  end|date('g:i A') %}
+{% endif %}
+
+{% block item_block %}
+  <div{{ item.attributes }}>{{ date }}</div>
+{% endblock %}

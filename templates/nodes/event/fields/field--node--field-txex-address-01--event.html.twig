@@ -1,0 +1,32 @@
+{#
+/**
+ * @file
+ * Theme override for an address field.
+ *
+ * Wraps address in google maps link.
+ */
+#}
+
+{% extends "field.html.twig" %}
+
+{% set fields = [
+  'address_line1',
+  'locality',
+  'administrative_area',
+  'postal_code',
+  'country_code'
+]
+%}
+
+{% set address_values = element['#items'].getValue() %}
+{% set address_query = [] %}
+{% for i in fields %}
+  {% set address_query = address_query|merge([address_values.0[i]]) %}
+{% endfor %}
+
+{% set url = 'https://www.google.com/maps/place/' ~ address_query|safe_join(' ')|url_encode %}
+{% set address = (element|render)|striptags('<span>') %}
+
+{% block item_block %}
+  <div{{ item.attributes }}><a class="address" href="{{ url }}" target="_blank">{{ address|convert_encoding('UTF-8', 'HTML-ENTITIES') | raw }}</a></div>
+{% endblock %}
