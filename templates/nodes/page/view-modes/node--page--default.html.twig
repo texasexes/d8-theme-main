@@ -1,0 +1,17 @@
+{% extends  "node.html.twig" %}
+{% set attributes = attributes.addClass('page') %}
+  {% block title %}
+    {{ title_prefix }}
+    {% if not page %}
+      <h2{{ title_attributes }}>
+        <a href="{{ url }}" rel="bookmark">{{ label }}</a>
+      </h2>
+    {% endif %}
+    {{ title_suffix }}
+  {% endblock title %}
+
+  {% block content %}
+    <div{{ content_attributes }}>
+      {{ content }}
+    </div>
+  {% endblock content %}
