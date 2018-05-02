@@ -9,7 +9,7 @@
 #}
 
 {% set image %}
-  {{ content.field_chapter_featured_image }}
+  {{ content.field_txex_media_image_01 }}
 {% endset %}
 {% set css = 'background-image:url(' ~ (image|striptags) ~ ');' %}
 {% set attributes = attributes.setAttribute('style', css) %}
