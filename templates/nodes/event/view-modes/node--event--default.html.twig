@@ -1,0 +1,28 @@
+{% extends  "node.html.twig" %}
+{% set attributes = attributes.addClass('event') %}
+
+  {% block content %}
+    <div{{ content_attributes }}>
+
+      {{ content.field_txex_ref_media_01 }}
+
+      <h2{{ title_attributes }}>
+        <a href="{{ url }}" rel="bookmark">{{ label }}</a>
+      </h2>
+
+      {{ content.field_txex_timestamp_01 }}
+
+      {{ content.field_txex_address_01 }}
+
+      {{ content.field_txex_text_long_summary_01 }}
+
+      {{ content.field_txex_link_02 }}
+
+      {% set url = url('<current>')['#markup']|url_encode %}
+      <a href="https://www.facebook.com/sharer/sharer.php?u={{ url }}&t={{ node.getTitle() }}"
+         onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
+         target="_blank" title="Share on Facebook" class="facebook-share">FACEBOOK SHARE LINK
+      </a>
+
+    </div>
+  {% endblock content %}
