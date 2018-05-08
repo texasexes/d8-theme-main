@@ -9,7 +9,7 @@
 #}
 
 {% set image %}
-  {{ content.field_txex_media_image_01 }}
+  {{ content.field_txex_media_ref_01 }}
 {% endset %}
 {% set css = 'background-image:url(' ~ (image|striptags) ~ ');' %}
 {% set attributes = attributes.setAttribute('style', css) %}
@@ -25,10 +25,10 @@
     not have to be hardcoded here this way.
   #}
   <div class="group-header-links">
-    {{ content.field_chapter_facebook_page }}
-    {{ content.field_chapter_twitter }}
-    {{ content.field_chapter_instagram }}
-    {{ content.field_chapter_linkedin_page }}
+    {{ content.field_txex_link_02 }}
+    {{ content.field_txex_link_05 }}
+    {{ content.field_txex_link_03 }}
+    {{ content.field_txex_link_04 }}
   </div>
 
 </div>
