@@ -1,0 +1,75 @@
+.group-header {
+  color: #fff;
+  background-color: #294151;
+  min-height: 433px;
+  position: relative;
+  text-align: center;
+
+  a:link,
+  a:visited,
+  a:hover,
+  a:focus {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .group-header-background {
+    opacity: 0.25;
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-position: center;
+    background-repeat: none;
+  }
+
+  .group-header-title {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 120px;
+    width: 290px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .group-header-links {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 275px;
+    margin-left: auto;
+    margin-right: auto;
+
+    a {
+      width: 32px;
+      height: 32px;
+      display: inline-block;
+      margin: 20px 8px;
+      text-indent: -1000px;
+      overflow: hidden;
+      background-repeat: none;
+    }
+
+    span.field_txex_link_02 a {
+      background-image: url(../images/social-icon-white/facebook.svg);
+    }
+
+    span.field_txex_link_03 a {
+      background-image: url(../images/social-icon-white/instagram.svg);
+    }
+
+    span.field_txex_link_04 a {
+      background-image: url(../images/social-icon-white/linkedin.svg);
+    }
+
+    span.field_txex_link_05 a {
+      background-image: url(../images/social-icon-white/twitter.svg);
+    }
+  }
+}

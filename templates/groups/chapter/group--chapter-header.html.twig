@@ -7,17 +7,18 @@
  * does not define any blocks!
  */
 #}
-
 {% set image %}
   {{ content.field_txex_media_ref_01 }}
 {% endset %}
-{% set css = 'background-image:url(' ~ (image|striptags) ~ ');' %}
-{% set attributes = attributes.setAttribute('style', css) %}
+{% set image_css = 'background-image:url(' ~ (image|striptags) ~ ');' %}
+{% set attributes = attributes.addClass('group-header') %}
 
 <div{{ attributes }}>
 
+  <div class="group-header-background" style="{{ image_css }}"></div>
+
   <div class="group-header-title">
-    {{ content.label }}
+    {{ content.field_txex_media_ref_02 }}
   </div>
 
   {#
@@ -25,10 +26,20 @@
     not have to be hardcoded here this way.
   #}
   <div class="group-header-links">
-    {{ content.field_txex_link_02 }}
-    {{ content.field_txex_link_05 }}
-    {{ content.field_txex_link_03 }}
-    {{ content.field_txex_link_04 }}
+    {% if (content.field_txex_link_02 is not empty) or (content.field_txex_link_03 is not empty) or (content.field_txex_link_04 is not empty) or (content.field_txex_link_05 is not empty)%}
+      <div>Keep in touch:</div>
+      {% if (content.field_txex_link_02 is not empty) %}
+        <span class="field_txex_link_02">{{ content.field_txex_link_02 }}</span>
+      {% endif %}
+      {% if (content.field_txex_link_05 is not empty) %}
+          <span class="field_txex_link_05">{{ content.field_txex_link_05 }}</span>
+      {% endif %}
+      {% if (content.field_txex_link_03 is not empty) %}
+          <span class="field_txex_link_03">{{ content.field_txex_link_03 }}</span>
+      {% endif %}
+      {% if (content.field_txex_link_04 is not empty) %}
+          <span class="field_txex_link_04">{{ content.field_txex_link_04 }}</span>
+      {% endif %}
+    {% endif %}
   </div>
-
 </div>
