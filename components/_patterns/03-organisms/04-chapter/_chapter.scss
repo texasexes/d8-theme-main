@@ -1,0 +1,74 @@
+.chapter-next-event {
+  border: 8px solid #f6f7f2;
+
+  header {
+    h2 {
+      height: 30px;
+      margin: 25px 0 0 30px;
+      line-height: 1;
+      font-size: 0.8em;
+      font-family: $font-tertiary;
+      text-transform: uppercase;
+      overflow: hidden;
+    }
+  }
+
+  > .views-row {
+    background-image: url(../images/icon-brain.jpg);
+    background-repeat: no-repeat;
+    background-position: top left;
+    background-size: 47px;
+    padding-left: 80px;
+    margin-left: 30px;
+  }
+
+  .chapter-next-event-title {
+    text-transform: uppercase;
+    font-size: 0.8em;
+    font-family: $font-tertiary;
+    font-weight: 400;
+    margin: 0;
+    width: 50%;
+    background: pink;
+    line-height: 1em;
+  }
+
+  .views-field-title {
+    h2 {
+      margin: 0;
+    }
+
+  }
+
+  .views-field-field-txex-ref-media-01 {
+    float: right;
+    width: 33.3%;
+    height: auto;
+    margin-left: 25px;
+    top: -55px;
+    position: relative;
+
+    .image-caption,
+    .image-credit {
+      display: none;
+    }
+  }
+
+  .upcoming-nearby {
+    margin-left: 30px;
+
+    header {
+      h2 {
+        margin-left: 0;
+      }
+    }
+
+    .views-field-title {
+      margin-right: 0.5em;
+    }
+
+    .views-field {
+      display: inline-block;
+    }
+  }
+}

@@ -34,3 +34,12 @@
     background-color: rgba(200, 200, 0, 1);
   }
 }
+
+/* Global rules */
+/* Not sure where these kinds of rules belong, so here they are. */
+
+body {
+  background: $white;
+  font: 100%/1.5 $font-primary;
+	color: $grey-5;
+}
