@@ -8,7 +8,7 @@
  */
 #}
 {% set image %}
-  {{ content.field_txex_media_ref_01 }}
+  {{ content.field_txex_ref_media_01 }}
 {% endset %}
 {% set image_css = 'background-image:url(' ~ (image|striptags) ~ ');' %}
 {% set attributes = attributes.addClass('group-header') %}
@@ -18,7 +18,7 @@
   <div class="group-header-background" style="{{ image_css }}"></div>
 
   <div class="group-header-title">
-    {{ content.field_txex_media_ref_02 }}
+    {{ content.field_txex_ref_media_02 }}
   </div>
 
   {#
