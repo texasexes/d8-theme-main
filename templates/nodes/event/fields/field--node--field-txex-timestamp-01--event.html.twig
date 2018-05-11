@@ -13,8 +13,8 @@
 
 {% set start = element['#object'].get('field_txex_date_01').getString() %}
 {% set end = element['#object'].get('field_txex_date_02').getString() %}
-{% set starttime = element['#object'].get('field_txex_text_plain_04').getString() %}
-{% set endtime = element['#object'].get('field_txex_text_plain_05').getString() %}
+{% set starttime = element['#object'].get('field_txex_text_plain_01').getString() %}
+{% set endtime = element['#object'].get('field_txex_text_plain_02').getString() %}
 
 
 {% if start|date('Y m d') != end|date('Y m d') %}
