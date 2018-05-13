@@ -28,5 +28,5 @@
 {% set address = (element|render)|striptags('<span>') %}
 
 {% block item_block %}
-  <div{{ item.attributes }}><a class="address" href="{{ url }}" target="_blank">{{ address|convert_encoding('UTF-8', 'HTML-ENTITIES') | raw }}</a></div>
+  <div{{ item.attributes.addClass('event-meta-item event-address') }}><a class="address" href="{{ url }}" target="_blank">{{ address|convert_encoding('UTF-8', 'HTML-ENTITIES') | raw }}</a></div>
 {% endblock %}
