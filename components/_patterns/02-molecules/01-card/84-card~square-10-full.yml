@@ -5,6 +5,8 @@ card_modifiers:
     horizontal
   2:
     feature-10
+  3:
+    item-box-1
 card_sections:
   1:
     layout_section_base_class:
@@ -19,6 +21,8 @@ card_sections:
         horizontal
       2:
         feature-10
+      3:
+        item-box-1
     layout_section_items:
       # Image
       1:
@@ -41,7 +45,18 @@ card_sections:
         horizontal
       2:
         feature-10
+      3:
+        item-box-1
     layout_section_items:
+      # Slug
+      1:
+        title:
+          "The Card Slug."
+        level:
+          '3'
+        modifiers:
+          1:
+            alt-5
       # Title
       2:
         title:
@@ -57,6 +72,16 @@ card_sections:
           "The subtitle of the card is here."
         level:
           '2'
+        modifiers:
+          1:
+            alt-5
+      # Link
+      4:
+        link_attributes:
+          href:
+            "http://www.google.com"
+        link:
+          "Here is the link"
         modifiers:
           1:
             alt-5
