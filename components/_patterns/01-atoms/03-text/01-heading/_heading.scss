@@ -7,7 +7,7 @@
   // $color-link: inherit,
   // $color-link-hover: inherit,
   $font-family: $font-heading-1,
-  $font-size: 1em,
+  $font-size: 3.82em,
   $font-style: normal,
   $font-weight: 400,
   $letter-spacing: -0.005em,
@@ -35,7 +35,7 @@
 }
 
 .h1 {
-  @include heading($font-size: 2.688em, $color: $grey-5, $font-weight: 700, $letter-spacing: 0.028em);
+  @include heading($text-transform: uppercase);
 }
 
 .h2 {
@@ -267,19 +267,19 @@
 
 .text-long {
   h1 {
-    @extend .h1;
+    @include heading($font-size: 2.688em, $color: $grey-5, $font-weight: 700, $letter-spacing: -0.028em);
   }
 
   h2 {
-    @extend .h2;
+    @include heading($font-size: 1.875em, $color: $grey-5, $font-weight: 700, $line-height: 2.25em, $letter-spacing: -0.037em, $font-family: $font-heading-2);
   }
 
   h3 {
-    @extend .h3;
+    @include heading($font-size: 1.125em, $line-height: 2, $letter-spacing: 0.043em, $font-family: $font-heading-3, $text-transform: uppercase);
   }
 
   h4 {
-    @extend .h4;
+    @include heading($font-family: $font-tertiary, $font-size: 1.063em, $line-height: 1.875em, $font-weight: 500);
   }
 
   h5 {

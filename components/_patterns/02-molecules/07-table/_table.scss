@@ -1,0 +1,22 @@
+.text-long {
+  table {
+    font-family: $font-tertiary;
+    line-height: 1.875em;
+
+    thead {
+      font-size: 1.063em;
+      text-align: left;
+      background: #F1F1F1;
+      padding: 20px 15px;
+    }
+
+    tbody {
+      border-bottom: 1px solid #E6E6E6;
+      padding: 20px 0;
+
+      td {
+        color: $grey-7;
+      }
+    }
+  }
+}
