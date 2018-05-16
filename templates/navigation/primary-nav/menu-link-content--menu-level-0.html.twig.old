@@ -14,7 +14,7 @@
 
 {% set entityObject = elements['#menu_link_content'] %}
 {% set content_for_render = content|without('field_mie_para_ref','field_mie_dropdown_height') %}
-{% set para_count = content.field_mie_para_ref.0['#paragraph'].fields.field_para_ref_02.getvalue|length %}
+{% set para_count = content.field_mie_para_ref.0['#paragraph'].fields.field_txex_ref_rev_para_01.getvalue|length %}
 {% if para_count == 1 %}
   {% set layout_feature_class = 'flexbox__item--feature-20' %}
 {% elseif para_count == 2 %}
