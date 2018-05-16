@@ -225,7 +225,7 @@ function d8_theme_main_preprocess_paragraph(&$variables) {
     }
   }
 
-  if ($variables['elements']['field_txex_boolean_01']) {
+  if ($current_paragraph->hasField('field_txex_boolean_01')) {
     if ($current_paragraph->get('field_txex_boolean_01')->getValue()) {
       $paragraph_reverse_order = $current_paragraph->get('field_txex_boolean_01')->first()->getValue();
       if ($paragraph_reverse_order['value']) {
