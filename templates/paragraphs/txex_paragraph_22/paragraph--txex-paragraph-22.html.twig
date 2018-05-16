@@ -5,7 +5,7 @@
   {% set paragraph_22_items = [] %}
   {% set tempArray5 = [] %}
 
-  {% for key, child in content['field_para_ref_02'] if key|first != '#' %}
+  {% for key, child in content['field_txex_ref_rev_para_01'] if key|first != '#' %}
     {% set paragraph_22_items = paragraph_22_items|merge({ (key) : (child)}) %}
   {% endfor %}
 

@@ -31,6 +31,8 @@
 
 .sg-pattern {
   section {
-    background-color: rgba(200, 200, 0, 1);
+    background: url(/pattern-lab/public/images/txex/grid-light.svg) 0 0 repeat;
+    background-size: 7em;
+    z-index: -10;
   }
 }

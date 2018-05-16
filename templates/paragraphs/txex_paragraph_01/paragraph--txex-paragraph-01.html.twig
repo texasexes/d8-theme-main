@@ -8,13 +8,13 @@
 {% set tempArray4 = [] %}
 {% set tempArray5 = [] %}
 
-{% for key, child in content.field_media_image_01 if key|first != '#' %}
+{% for key, child in content.field_txex_ref_media_01 if key|first != '#' %}
   {% if {(key) : (child),}|render is not empty %}
     {% set tempArray1 = tempArray1|merge({(key) : (child),}) %}
   {% endif %}
 {% endfor %}
 
-{% for key, child in content|without('field_media_image_01','field_variant_02') if key|first != '#' %}
+{% for key, child in content|without('field_txex_ref_media_01','field_variant_02') if key|first != '#' %}
   {% if {(key) : (child),}|render is not empty %}
     {% set tempArray2 = tempArray2|merge({(key) : (child),}) %}
   {% endif %}

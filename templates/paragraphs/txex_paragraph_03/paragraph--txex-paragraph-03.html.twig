@@ -8,13 +8,13 @@
 {% set tempArray4 = [] %}
 {% set tempArray5 = [] %}
 
-{% for key, child in content.field_txex_taxo_ref_for_display if key|first != '#' %}
+{% for key, child in content.field_txex_ref_tax_term_01 if key|first != '#' %}
   {% if {(key) : (child),}|render is not empty %}
     {% set tempArray1 = tempArray1|merge({(key) : (child),}) %}
   {% endif %}
 {% endfor %}
 
-{% for key, child in content|without('field_txex_taxo_ref_for_display','field_node_ref_02') if key|first != '#' %}
+{% for key, child in content|without('field_txex_ref_tax_term_01','field_txex_ref_content_01') if key|first != '#' %}
   {% if {(key) : (child),}|render is not empty %}
     {% set tempArray2 = tempArray2|merge({(key) : (child),}) %}
   {% endif %}

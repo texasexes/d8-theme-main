@@ -26,6 +26,15 @@ card_sections:
       3:
         item-box-6
     layout_section_items:
+      # Slug
+      1:
+        title:
+          "The Card Slug."
+        level:
+          '3'
+        modifiers:
+          1:
+            alt-6
       # Title
       2:
         title:

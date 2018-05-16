@@ -5,7 +5,8 @@
 .block {
   &--pl {
     margin: 0;
-    background-color: rgba(200, 200, 0, 1);
+    background: url(/pattern-lab/public/images/txex/grid-light.svg) 0 0 repeat;
+    background-size: 7em;
   }
 
   &--pl-1-column {
@@ -59,10 +60,10 @@
       top: -100%;
       left: -50%;
       // z-index: -1;
-      background: url(/pattern-lab/public/images/txex/logo.svg) 0 0 repeat;
-      background-size: 13em;
-      -webkit-transform: rotate(-30deg);
-      transform: rotate(-30deg);
+      background: url(/pattern-lab/public/images/txex/grid-dark.svg) 0 0 repeat;
+      background-size: 7em;
+      // -webkit-transform: rotate(-30deg);
+      // transform: rotate(-30deg);
       // width: 1000px;
     }
   }
