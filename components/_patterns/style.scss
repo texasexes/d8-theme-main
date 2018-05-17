@@ -39,9 +39,10 @@
 
 /* Not sure where these kinds of rules belong, so here they are. */
 
-body {
-  background: $white;
-}
+// Removal of non-namespaced rule
+// body {
+//   background: $white;
+// }
 
 // This non-namespaced rule messes up lots of things, including admin styles
 // main {
