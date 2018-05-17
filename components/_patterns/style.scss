@@ -43,14 +43,15 @@ body {
   background: $white;
 }
 
-main {
-  font: 100%/1.5 $font-primary;
-	color: $grey-5;
-  margin-bottom: 5em;
-  font-weight: 300;
-  line-height: 1.875em;
-  letter-spacing: -0.2px;
-}
+// This non-namespaced rule messes up lots of things, including admin styles
+// main {
+//   font: 100%/1.5 $font-primary;
+// 	color: $grey-5;
+//   margin-bottom: 5em;
+//   font-weight: 300;
+//   line-height: 1.875em;
+//   letter-spacing: -0.2px;
+// }
 
 .image-caption,
 .image-credit {
