@@ -1,0 +1,71 @@
+.block-region-sidebar {
+  .menu-item {
+    list-style: none;
+  }
+
+  .menu-level-0 {
+    font: 100%/1.5 $font-tertiary;
+
+    a {
+      display: block;
+      color: $grey-5;
+      text-decoration: none;
+      padding: 10px 11px;
+    }
+
+    a:hover,
+    a.is-active {
+      background: $light-mushroom;
+      color: $burnt-orange;
+    }
+
+    > .menu-item--expanded {
+      > a::after {
+        content: "\203a";
+        padding-right: 10px;
+        font-size: 1.2em;
+        vertical-align: middle;
+        color: $light-mushroom;
+        font-weight: bold;
+        right: 0;
+        position: absolute;
+      }
+
+      &.menu-item--active-trail {
+        > a::after {
+          transform: rotate(90deg);
+          padding-right: 0;
+          right: 10px;
+        }
+      }
+
+      a:hover::after {
+        color: $burnt-orange;
+      }
+    }
+
+    .menu-item--expanded {
+      .menu-dropdown {
+        display: none;
+      }
+
+      &.menu-item--active-trail {
+        .menu-dropdown {
+          display: block;
+        }
+      }
+    }
+  }
+
+  .menu-level-1 {
+    > .menu-item--active-trail {
+      > a {
+        color: $grey-8;
+      }
+
+      > a:hover {
+        color: $burnt-orange;
+      }
+    }
+  }
+}

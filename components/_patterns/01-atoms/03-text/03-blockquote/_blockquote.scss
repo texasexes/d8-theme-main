@@ -15,3 +15,26 @@
 .blockquote {
   @include blockquote;
 }
+
+.text-long {
+  blockquote {
+    float: right;
+    display: inline-block;
+    font-weight: 900;
+    color: #8e8aa1;
+    width: 30%;
+    margin: 0 0 0 2em;
+    font-size: 1em;
+    line-height: 1.2em;
+
+    p {
+      font-family: inherit !important;
+      font-size: inherit !important;
+      font-weight: inherit !important;
+      color: inherit !important;
+      line-height: inherit !important;
+      letter-spacing: inherit !important;
+      margin: 0;
+    }
+  }
+}

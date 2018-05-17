@@ -1,0 +1,4 @@
+{% extends  "field.html.twig" %}
+{% block item_block %}
+  <div{{ item.attributes.addClass('image-caption') }}>{{ item.content }}</div>
+{% endblock %}

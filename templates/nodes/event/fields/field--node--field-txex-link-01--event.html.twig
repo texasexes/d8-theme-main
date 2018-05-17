@@ -1,0 +1,11 @@
+{#
+/**
+ * @file
+ * Theme override for an address field.
+ *
+ * Wraps address in google maps link.
+ */
+#}
+
+{% extends "field--link.html.twig" %}
+{% set attributes = attributes.addClass('txex-button register-link') %}

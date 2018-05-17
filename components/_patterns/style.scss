@@ -36,3 +36,43 @@
     z-index: -10;
   }
 }
+
+/* Not sure where these kinds of rules belong, so here they are. */
+
+body {
+  background: $white;
+}
+
+main {
+  font: 100%/1.5 $font-primary;
+	color: $grey-5;
+  margin-bottom: 5em;
+  font-weight: 300;
+  line-height: 1.875em;
+  letter-spacing: -0.2px;
+}
+
+.image-caption,
+.image-credit {
+  font-family: $font-tertiary;
+  display: inline-block;
+  font-weight: 400;
+  color: #999;
+  line-height: 19px;
+  margin-top: 1em;
+}
+
+.image-credit {
+  font-size: 12px;
+  color: #ccc;
+  text-transform: uppercase;
+  margin-left: 0.5em;
+}
+
+.event,
+.generic-page {
+  a {
+    text-decoration: none;
+    color: $burnt-orange;
+  }
+}
