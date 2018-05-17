@@ -121,8 +121,9 @@
   // }
 }
 
-.paragraph-details-YO,
-.form-details-YO {
+
+// .form-details-YO,
+.paragraph-details-form-wrapper {
   position: relative;
 
   details {
@@ -161,22 +162,10 @@
   }
 }
 
-.paragraph-details-YO {
+.paragraph-details-form-wrapper {
   details {
     position: absolute;
     top: -2em;
     margin: 0;
   }
 }
-
-
-
-// .paragraph-style-selected {
-//   details {
-//     background-color: rgb(197, 224, 194);
-//   }
-// }
-
-// .my-paragraph-title-YO {
-//   padding-left: 8em;
-// }
