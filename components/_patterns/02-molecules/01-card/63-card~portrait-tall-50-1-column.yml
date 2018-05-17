@@ -6,6 +6,8 @@ card_modifiers:
   2:
     feature-50
   3:
+    item-box-4
+  4:
     pl-1-column
 card_sections:
   1:
@@ -21,6 +23,8 @@ card_sections:
         horizontal
       2:
         feature-50
+      3:
+        item-box-4
     layout_section_items:
       # Image
       1:
@@ -43,7 +47,18 @@ card_sections:
         horizontal
       2:
         feature-50
+      3:
+        item-box-4
     layout_section_items:
+      # Slug
+      1:
+        title:
+          "The Card Slug."
+        level:
+          '3'
+        modifiers:
+          1:
+            alt-3
       # Title
       2:
         title:

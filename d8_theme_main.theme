@@ -141,10 +141,10 @@ function d8_theme_main_preprocess_field(&$variables) {
 
   $parent_entity = $variables['element']['#object'];
 
-  if ($parent_entity->hasField('field_node_ref_02')) {
-    if (!$parent_entity->get('field_node_ref_02')->isEmpty()) {
+  if ($parent_entity->hasField('field_txex_ref_content_01')) {
+    if (!$parent_entity->get('field_txex_ref_content_01')->isEmpty()) {
 
-      $reference_field = $parent_entity->get('field_node_ref_02')->first();
+      $reference_field = $parent_entity->get('field_txex_ref_content_01')->first();
       $referenced_entity = $reference_field->getValue();
       $loaded_entity = \Drupal\node\Entity\Node::load($referenced_entity['target_id']);
 
@@ -177,8 +177,8 @@ function d8_theme_main_preprocess_paragraph(&$variables) {
   $current_paragraph = $variables['elements']['#paragraph'];
   $paragraph_modifiers = [];
 
-  if ($variables['elements']['field_node_ref_02']) {
-    $reference_field = $current_paragraph->get('field_node_ref_02')->first();
+  if ($variables['elements']['field_txex_ref_content_01']) {
+    $reference_field = $current_paragraph->get('field_txex_ref_content_01')->first();
 
     if ($reference_field) {
       $paragraph_layout_type_value = "";
@@ -225,7 +225,7 @@ function d8_theme_main_preprocess_paragraph(&$variables) {
     }
   }
 
-  if ($variables['elements']['field_txex_boolean_01']) {
+  if ($current_paragraph->hasField('field_txex_boolean_01')) {
     if ($current_paragraph->get('field_txex_boolean_01')->getValue()) {
       $paragraph_reverse_order = $current_paragraph->get('field_txex_boolean_01')->first()->getValue();
       if ($paragraph_reverse_order['value']) {
@@ -243,26 +243,26 @@ function d8_theme_main_preprocess_paragraph(&$variables) {
 // function d8_theme_main_preprocess_paragraph__txex_paragraph_21(&$variables) {
 //   $current_paragraph = $variables['elements']['#paragraph'];
 //
-//   // if ($variables['elements']['field_para_ref_02']) {
-//   if ($current_paragraph->hasField('field_para_ref_02')) {
-//     $referenced_paragraphs = $current_paragraph->get('field_para_ref_02')->getValue();
+//   // if ($variables['elements']['field_txex_ref_rev_para_01']) {
+//   if ($current_paragraph->hasField('field_txex_ref_rev_para_01')) {
+//     $referenced_paragraphs = $current_paragraph->get('field_txex_ref_rev_para_01')->getValue();
 //
 //     foreach ( $referenced_paragraphs as $key => $element ) {
 //       $loaded_child_paragraph = \Drupal\paragraphs\Entity\Paragraph::load( $element['target_id'] );
 //
-//       if ($loaded_child_paragraph->hasField('field_node_ref_02')) {
-//           $node_reference_field = $loaded_child_paragraph->get('field_node_ref_02')->first();
+//       if ($loaded_child_paragraph->hasField('field_txex_ref_content_01')) {
+//           $node_reference_field = $loaded_child_paragraph->get('field_txex_ref_content_01')->first();
 //
 //         if ($node_reference_field) {
 //           $referenced_entity = $node_reference_field->getValue();
 //           $loaded_entity = \Drupal\node\Entity\Node::load($referenced_entity['target_id']);
 //
-//           if ($loaded_entity->hasField('field_txex_ref_para_view_mode')) {
-//             if (!empty($loaded_entity->get('field_txex_ref_para_view_mode')->first())) {
-//               $paragraph_view_mode = $loaded_entity->get('field_txex_ref_para_view_mode')->first()->getValue();
+//           if ($loaded_entity->hasField('field_txex_ref_view_mode')) {
+//             if (!empty($loaded_entity->get('field_txex_ref_view_mode')->first())) {
+//               $paragraph_view_mode = $loaded_entity->get('field_txex_ref_view_mode')->first()->getValue();
 //               $paragraph_view_mode_value = $paragraph_view_mode['target_id'];
 //               $paragraph_view_mode_value = explode('.', $paragraph_view_mode_value, 2)[1];
-//               $variables['content']['field_para_ref_02'][$key]['#view_mode'] = $paragraph_view_mode_value;
+//               $variables['content']['field_txex_ref_rev_para_01'][$key]['#view_mode'] = $paragraph_view_mode_value;
 //             }
 //           }
 //         }
@@ -274,7 +274,7 @@ function d8_theme_main_preprocess_paragraph(&$variables) {
 // function d8_theme_main_preprocess_paragraph__txex_paragraph_22(&$variables) {
 //   $current_paragraph = $variables['elements']['#paragraph'];
 //
-//   // if ($variables['elements']['field_para_ref_02']) {
+//   // if ($variables['elements']['field_txex_ref_rev_para_01']) {
 //
 // }
 
@@ -317,9 +317,9 @@ function d8_theme_main_theme_suggestions_views_view_alter(array &$suggestions, a
 //       $entity = $row->_entity;
 //       // kint($entity);
 //       // kint($entity);
-//       // kint($entity->get('field_para_ref_02'));
+//       // kint($entity->get('field_txex_ref_rev_para_01'));
 //
-//       // $field = 'field_txex_group_ref_for_display';
+//       // $field = 'field_txex_ref_group_01';
 //       // $entity->set($field, $gid);
 //     }
 //   }

@@ -160,16 +160,6 @@
       color: $white;
     }
 
-    &--list-group-ref {
-      display: inline-block;
-      margin: 0;
-
-      &::after {
-        content: ", \a0";
-        display: inline-block;
-      }
-    }
-
     &--alt-3 {
       color: $heading-color-h2-alt-3;
       font-family: $font-heading-alt-3;
@@ -202,33 +192,51 @@
       margin: 0;
       text-align: center;
     }
+
+    &--list-group-ref {
+      display: inline-block;
+      margin: 0;
+
+      &::after {
+        content: ", \a0";
+        display: inline-block;
+      }
+    }
   }
 
   &__h3 {
     @extend .h3;
 
-    position: absolute;
-    top: -1.6em;
+    display: inline-block;
+    position: relative;
     padding: 0 0.35em;
     background-color: $burnt-orange;
     color: $heading-color-h3-alt-5;
-    margin: 0;
+    margin: 0 0 20px;
 
     &--alt-1 {
-      display: inline-block;
-      position: relative;
-      top: 0;
-      margin: 0 0 20px;
+      // display: inline-block;
+      // position: relative;
+      // top: 0;
+      // margin: 0 0 20px;
     }
 
     &--alt-2 {
-      display: inline-block;
-      position: relative;
-      top: 0;
-      margin: 0 0 20px;
+      // display: inline-block;
+      // position: relative;
+      // top: 0;
+      // margin: 0 0 20px;
+    }
+
+    &--alt-3 {
+      // position: absolute;
+      // top: -1.6em;
+      // margin: 0;
     }
 
     &--alt-5 {
+      position: absolute;
+      top: -1.6em;
       font-size: 0.91em;
       margin: 0;
     }
@@ -240,11 +248,13 @@
       font-size: 0.91em;
       margin: 0 0 10px;
       padding: 0;
-      position: relative;
-      top: 0;
+      // position: relative;
+      // top: 0;
     }
 
     &--alt-8 {
+      position: absolute;
+      top: -1.6em;
       font-size: 0.91em;
       margin: 0;
       text-align: center;
