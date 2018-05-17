@@ -1,0 +1,7 @@
+{% extends "field.html.twig" %}
+{% set attributes = attributes.addClass('text-long') %}
+{% for item in items %}
+{% block item_block %}
+  <div{{ attributes }}>{{ item.content }}</div>
+{% endblock %}
+{% endfor %}

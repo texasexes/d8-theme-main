@@ -7,17 +7,21 @@
  */
 #}
 
+
+
 {% extends "field.html.twig" %}
 
-{% set start = element['#object'].get('field_txex_timestamp_01').getString() %}
-{% set end = element['#object'].get('field_txex_timestamp_02').getString() %}
+{% set start = element['#object'].get('field_txex_date_01').getString() %}
+{% set end = element['#object'].get('field_txex_date_02').getString() %}
+{% set starttime = element['#object'].get('field_txex_text_plain_01').getString() %}
+{% set endtime = element['#object'].get('field_txex_text_plain_02').getString() %}
 
 {% if start|date('Y m d') != end|date('Y m d') %}
-  {% set date = start|date('F j, Y, g:i A') ~ ' - ' ~ end|date('F j, Y, g:i A') %}
+  {% set date = start|date('F j, Y, ') ~ starttime ~' - ' ~ end|date('F j, Y, ') ~ endtime %}
 {% else %}
-  {% set date = start|date('F j, Y, g:i A') ~ '-' ~  end|date('g:i A') %}
+  {% set date = start|date('F j, Y, ') ~ starttime ~ '-' ~ endtime %}
 {% endif %}
 
 {% block item_block %}
-  <div{{ item.attributes }}>{{ date }}</div>
+  <div{{ item.attributes.addClass('event-date event-meta-item') }}>{{ date }}</div>
 {% endblock %}
