@@ -67,6 +67,19 @@
     color: $tangerine;
     display: block;
   }
+
+
+}
+
+.wysiwyg__link {
+  // font-size: 0.94em; //15px
+  // line-height: 1.4; //21px
+  text-decoration: none;
+
+  &--alt-dw {
+    text-decoration: none;
+    color: $burnt-orange;
+  }
 }
 
 .event-list-item-link {

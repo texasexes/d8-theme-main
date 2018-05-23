@@ -1,0 +1,27 @@
+{#
+/**
+ * Available variables:
+ * - ordered_list_content - the content of the ordered_list (typically text)
+ *
+ * - ordered_list_attributes - array of attribute,value pairs
+ *
+ * - ordered_list_base_class - the base class name
+ * - ordered_list_modifiers - array of modifiers to add to the base classname
+ * - ordered_list_blockname - blockname prepended to the base classname
+ *
+ * Available blocks:
+ * - ordered_list_content - used to replace the content of the ordered_list
+ *     Example: to insert the image component
+ */
+#}
+{# A ordered_list uses this class along with the blockname whenever it is an element (BEM)#}
+{% set ordered_list_base_class = ordered_list_base_class|default('ordered_list') %}
+
+<ul
+  {{ bem(ordered_list_base_class, (ordered_list_modifiers), ordered_list_blockname) }}
+  {{ add_attributes(ordered_list_attributes) }}
+>
+  {%- block ordered_list_content -%}
+    {{- ordered_list_content -}}
+  {%- endblock -%}
+</ul>

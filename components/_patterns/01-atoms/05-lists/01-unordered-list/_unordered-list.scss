@@ -1,0 +1,27 @@
+// Create a mixin for unordered list styles that can be implemented
+// in components with other classnames.
+@mixin unordered-list(
+  $margin: '0 0 10px',
+  $font-family: $font-paragraph,
+  $color: $paragraph-text-color-1,
+  $line-height: 1.7em) {
+  font-family: #{$font-family};
+  margin: #{$margin};
+  color: #{$color};
+  line-height: $line-height;
+}
+
+// When a unordered list is a block, this is it's class (BEM)
+.ul {
+  @include unordered-list;
+}
+
+.wysiwyg {
+  &__ul {
+    @extend .ul;
+    //@Todo break out into 0000-list-item
+    li {
+      margin-bottom: 5px;
+    }
+  }
+}

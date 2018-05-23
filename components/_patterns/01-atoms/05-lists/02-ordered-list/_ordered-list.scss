@@ -1,0 +1,27 @@
+// Create a mixin for ordered list styles that can be implemented
+// in components with other classnames.
+@mixin ordered-list(
+  $margin: '0 0 10px',
+  $font-family: $font-paragraph,
+  $color: $paragraph-text-color-1,
+  $line-height: 1.7em) {
+  font-family: #{$font-family};
+  margin: #{$margin};
+  color: #{$color};
+  line-height: $line-height;
+}
+
+// When a ordered list is a block, this is it's class (BEM)
+.ol {
+  @include ordered-list;
+}
+
+.wysiwyg {
+  &__ol {
+    @extend .ol;
+    //@Todo break out into 0000-list-item
+    li {
+      margin-bottom: 5px;
+    }
+  }
+}
