@@ -21,7 +21,8 @@
   @extend .p;
 }
 
-.flexbox {
+.flexbox,
+.wysiwyg {
   &__p {
     @extend .p;
 

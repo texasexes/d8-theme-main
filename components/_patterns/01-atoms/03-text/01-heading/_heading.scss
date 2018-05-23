@@ -73,7 +73,8 @@
 
 .absolute,
 .flexbox,
-.block {
+.block,
+.wysiwyg {
   &__h1 {
     @extend .h1;
 
@@ -145,6 +146,13 @@
       text-transform: none;
       text-align: center;
     }
+
+    &--alt-dw {
+      font-size: 2.688em;
+      color: $grey-5;
+      font-weight: 700;
+      letter-spacing: -0.028em;
+    }
   }
 
   &__h2 {
@@ -201,6 +209,15 @@
         content: ", \a0";
         display: inline-block;
       }
+    }
+
+    &--alt-dw {
+      font-size: 1.875em;
+      color: $grey-5;
+      font-weight: 700;
+      line-height: 2.25em;
+      letter-spacing: -0.037em;
+      font-family: $font-heading-2;
     }
   }
 
@@ -259,6 +276,14 @@
       margin: 0;
       text-align: center;
     }
+
+    &--alt-dw {
+      font-size: 1.125em;
+      line-height: 2;
+      letter-spacing: 0.043em;
+      font-family: $font-heading-3;
+      text-transform: uppercase;
+    }
   }
 
   &__h4 {
@@ -270,33 +295,39 @@
       background-color: $heading-background;
       color: $heading-color;
     }
+
+    &--alt-dw {
+      font-family: $font-tertiary;
+      font-size: 1.063em;
+      line-height: 1.875em;
+      font-weight: 500;
+    }
   }
 }
 
 // TODO: BEM selectors should be applied to wysiwyg-created content
 
-.text-long {
-  h1 {
-    @include heading($font-size: 2.688em, $color: $grey-5, $font-weight: 700, $letter-spacing: -0.028em);
-  }
-
-  h2 {
-    @include heading($font-size: 1.875em, $color: $grey-5, $font-weight: 700, $line-height: 2.25em, $letter-spacing: -0.037em, $font-family: $font-heading-2);
-  }
-
-  h3 {
-    @include heading($font-size: 1.125em, $line-height: 2, $letter-spacing: 0.043em, $font-family: $font-heading-3, $text-transform: uppercase);
-  }
-
-  h4 {
-    @include heading($font-family: $font-tertiary, $font-size: 1.063em, $line-height: 1.875em, $font-weight: 500);
-  }
-
-  h5 {
-    @extend .h5;
-  }
-
-  h6 {
-    @extend .h6;
-  }
-}
+// .text-long {
+//   h1 {
+//     @extend .h1;
+//   }
+//
+//   h2 {
+//     @extend .h2;
+//
+//   h3 {
+//     @extend .h3;
+//   }
+//
+//   h4 {
+//     @extend .h4;
+//   }
+//
+//   h5 {
+//     @extend .h5;
+//   }
+//
+//   h6 {
+//     @extend .h6;
+//   }
+// }
