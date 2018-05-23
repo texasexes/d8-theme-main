@@ -21,7 +21,10 @@ libraries:
 
 # CKEditor stylesheet loads in wysiwyg to give content editors a better experience
 ckeditor_stylesheets:
-  - dist/style.css
+  - 'https://cloud.typography.com/737040/6549592/css/fonts.css'
+  - 'https://fonts.googleapis.com/css?family=Rubik'
+  - 'dist/style.css'
+
 
 regions:
   header: Header
