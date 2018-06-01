@@ -148,18 +148,18 @@ function d8_theme_main_preprocess_field(&$variables) {
       $referenced_entity = $reference_field->getValue();
       $loaded_entity = \Drupal\node\Entity\Node::load($referenced_entity['target_id']);
 
-      if ($loaded_entity->hasField('field_txex_list_text_08')) {
-        if (!$loaded_entity->get('field_txex_list_text_08')->isEmpty()){
-          $field_layout_type = $loaded_entity->get('field_txex_list_text_08')->first()->getValue();
+      if ($loaded_entity->hasField('field_txex_text_list_08')) {
+        if (!$loaded_entity->get('field_txex_text_list_08')->isEmpty()){
+          $field_layout_type = $loaded_entity->get('field_txex_text_list_08')->first()->getValue();
           $field_layout_type_value = $field_layout_type['value'];
         }
       }
 
       $field_modifiers = [];
 
-      if ($loaded_entity->hasField('field_txex_list_text_07')) {
-        if (!$loaded_entity->get('field_txex_list_text_07')->isEmpty()) {
-          $field_text_type = $loaded_entity->get('field_txex_list_text_07')->first()->getValue();
+      if ($loaded_entity->hasField('field_txex_text_list_07')) {
+        if (!$loaded_entity->get('field_txex_text_list_07')->isEmpty()) {
+          $field_text_type = $loaded_entity->get('field_txex_text_list_07')->first()->getValue();
           $field_text_type_value = $field_text_type['value'];
           $field_modifiers = $field_modifiers + array($field_text_type_value => $field_text_type_value);
         }
@@ -186,37 +186,43 @@ function d8_theme_main_preprocess_paragraph(&$variables) {
       $referenced_entity = $reference_field->getValue();
       $loaded_entity = \Drupal\node\Entity\Node::load($referenced_entity['target_id']);
 
-      if ($loaded_entity->get('field_txex_list_text_02')->getValue()) {
-        $paragraph_layout_type = $loaded_entity->get('field_txex_list_text_02')->first()->getValue();
+      if ($loaded_entity->get('field_txex_text_list_02')->getValue()) {
+        $paragraph_layout_type = $loaded_entity->get('field_txex_text_list_02')->first()->getValue();
         $paragraph_layout_type_value = $paragraph_layout_type['value'];
       }
 
-      if ($loaded_entity->get('field_txex_list_text_03')->getValue()) {
-        $paragraph_box_layout = $loaded_entity->get('field_txex_list_text_03')->first()->getValue();
+      if ($loaded_entity->get('field_txex_text_list_03')->getValue()) {
+        $paragraph_box_layout = $loaded_entity->get('field_txex_text_list_03')->first()->getValue();
         $paragraph_box_layout_value = $paragraph_box_layout['value'];
         $paragraph_modifiers = $paragraph_modifiers + array($paragraph_box_layout_value => $paragraph_box_layout_value);
       }
 
-      if ($loaded_entity->get('field_txex_list_text_04')->getValue()) {
-        $paragraph_background = $loaded_entity->get('field_txex_list_text_04')->first()->getValue();
+      if ($loaded_entity->get('field_txex_text_list_04')->getValue()) {
+        $paragraph_background = $loaded_entity->get('field_txex_text_list_04')->first()->getValue();
         $paragraph_background_value = $paragraph_background['value'];
         $paragraph_modifiers = $paragraph_modifiers + array($paragraph_background_value => $paragraph_background_value);
       }
 
-      if ($loaded_entity->get('field_txex_list_text_05')->getValue()) {
-        $paragraph_layout_orientation = $loaded_entity->get('field_txex_list_text_05')->first()->getValue();
+      if ($loaded_entity->get('field_txex_text_list_05')->getValue()) {
+        $paragraph_layout_orientation = $loaded_entity->get('field_txex_text_list_05')->first()->getValue();
         $paragraph_layout_orientation_value = $paragraph_layout_orientation['value'];
         $paragraph_modifiers = $paragraph_modifiers + array($paragraph_layout_orientation_value => $paragraph_layout_orientation_value);
       }
 
-      if ($loaded_entity->get('field_txex_list_text_06')->getValue()) {
-        $paragraph_layout_width = $loaded_entity->get('field_txex_list_text_06')->first()->getValue();
+      if ($loaded_entity->get('field_txex_text_list_06')->getValue()) {
+        $paragraph_layout_width = $loaded_entity->get('field_txex_text_list_06')->first()->getValue();
         $paragraph_layout_width_value = $paragraph_layout_width['value'];
         $paragraph_modifiers = $paragraph_modifiers + array($paragraph_layout_width_value => $paragraph_layout_width_value);
       }
 
-      if ($loaded_entity->get('field_txex_list_text_09')->getValue()) {
-        $paragraph_item_box_layout = $loaded_entity->get('field_txex_list_text_09')->first()->getValue();
+      if ($loaded_entity->get('field_txex_text_list_09')->getValue()) {
+        $paragraph_item_box_layout = $loaded_entity->get('field_txex_text_list_09')->first()->getValue();
+        $paragraph_item_box_layout_value = $paragraph_item_box_layout['value'];
+        $paragraph_modifiers = $paragraph_modifiers + array($paragraph_item_box_layout_value => $paragraph_item_box_layout_value);
+      }
+
+      if ($loaded_entity->get('field_txex_text_list_10')->getValue()) {
+        $paragraph_item_box_layout = $loaded_entity->get('field_txex_text_list_10')->first()->getValue();
         $paragraph_item_box_layout_value = $paragraph_item_box_layout['value'];
         $paragraph_modifiers = $paragraph_modifiers + array($paragraph_item_box_layout_value => $paragraph_item_box_layout_value);
       }

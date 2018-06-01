@@ -4,9 +4,11 @@ card_modifiers:
   1:
     horizontal
   2:
-    overlay-left
+    overlay-right
   3:
     item-box-1
+  4:
+    feature-33
 card_sections:
   1:
     layout_section_base_class:
@@ -20,9 +22,11 @@ card_sections:
       1:
         horizontal
       2:
-        overlay-left
+        overlay-right
       3:
         item-box-1
+      4:
+        feature-33
     layout_section_items:
       # Image
       1:
@@ -44,9 +48,11 @@ card_sections:
       1:
         horizontal
       2:
-        overlay-left
+        overlay-right
       3:
         item-box-1
+      4:
+        feature-33
     layout_section_items:
       # Slug
       1:
@@ -56,6 +62,7 @@ card_sections:
           '3'
         modifiers:
           1:
+            alt-1
       # Title
       2:
         title:
@@ -64,6 +71,7 @@ card_sections:
           '1'
         modifiers:
           1:
+            alt-1
       # Subtitle
       3:
         subtitle:
@@ -72,10 +80,21 @@ card_sections:
           '2'
         modifiers:
           1:
-      # Link
+            alt-1
+      # Body
       4:
+        paragraph:
+          "The body text of the card would go here. There is more text in the body than the other fields. It may not all fit."
+        modifiers:
+          1:
+            alt-1
+      # Link
+      5:
         link_attributes:
           href:
             "http://www.google.com"
         link:
           "Here is the link"
+        modifiers:
+          1:
+            alt-1
