@@ -4,7 +4,7 @@ card_modifiers:
   1:
     horizontal
   2:
-    feature-25-flush
+    feature-15
   3:
     item-box-5
   4:
@@ -22,7 +22,7 @@ card_sections:
       1:
         horizontal
       2:
-        feature-25-flush
+        feature-15
       3:
         item-box-5
     layout_section_items:
@@ -46,7 +46,7 @@ card_sections:
       1:
         horizontal
       2:
-        feature-25-flush
+        feature-15
       3:
         item-box-5
     layout_section_items:
