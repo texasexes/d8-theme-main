@@ -6,7 +6,7 @@ layout_modifiers:
   2:
     layout-box-3
   3:
-    background-color-1
+    layout-background-1
 layout_items:
   1:
     placeholder:

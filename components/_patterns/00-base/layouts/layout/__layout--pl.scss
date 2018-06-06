@@ -5,52 +5,66 @@
 .block {
   &--pl {
     margin: 0;
-    background: url(/pattern-lab/public/images/txex/grid-light.svg) 0 0 repeat;
+    background: url('../pattern-lab/public/images/txex/grid-light.svg') 0 0 repeat;
     background-size: 7em;
+  }
+
+  &--pl-full {
+    width: 100%;
   }
 
   &--pl-1-column {
     width: 33%;
-    // padding-right: 33%;
   }
 
   &--pl-2-column {
     width: 66%;
-    // padding-right: 33%;
   }
 
   &--pl-half-width {
     width: 50%;
-    // padding-right: 50%;
   }
 
-  &--pl-1 {
-    &:nth-of-type(odd) {
-      background-color: rgba(0, 0, 0, 0.2);
-    }
-
-    &:nth-of-type(even) {
-      background-color: rgba(0, 0, 0, 0.4);
-    }
+  &--pl-background-transparent {
+    background: url('../pattern-lab/public/images/txex/grid-dark.svg') 0 0 repeat;
+    background-size: 7em;
   }
-
-  &--pl-2 {
-    &:nth-of-type(odd) {
-      background-color: orange;
-    }
-
-    &:nth-of-type(even) {
-      background-color: purple;
-    }
-  }
+  //
+  // &--pl-1 {
+  //   &:nth-of-type(odd) {
+  //     background-color: rgba(0, 0, 0, 0.2);
+  //   }
+  //
+  //   &:nth-of-type(even) {
+  //     background-color: rgba(0, 0, 0, 0.4);
+  //   }
+  // }
+  //
+  // &--pl-2 {
+  //   &:nth-of-type(odd) {
+  //     background-color: orange;
+  //   }
+  //
+  //   &:nth-of-type(even) {
+  //     background-color: purple;
+  //   }
+  // }
 }
 
 .placeholder {
+  &--pl-void {
+    height: 100%;
+    width: 100%;
+    border-width: 2px;
+    border-style: dashed;
+  }
   &--pl-background-image {
     position: relative;
     overflow: hidden;
     height: 30vw;
     background-color: $white;
+    // border-width: 2px;
+    // border-style: dashed;
 
     &::before {
       content: "";
@@ -59,12 +73,8 @@
       height: 300%;
       top: -100%;
       left: -50%;
-      // z-index: -1;
-      background: url(/pattern-lab/public/images/txex/grid-dark.svg) 0 0 repeat;
+      background: url('../pattern-lab/public/images/txex/grid-dark.svg') 0 0 repeat;
       background-size: 7em;
-      // -webkit-transform: rotate(-30deg);
-      // transform: rotate(-30deg);
-      // width: 1000px;
     }
   }
 }

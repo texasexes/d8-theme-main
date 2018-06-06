@@ -18,3 +18,11 @@ layout_items:
         pl
       2:
         pl-background-image
+  2:
+    placeholder:
+      " "
+    placeholder_modifiers:
+      1:
+        pl
+      2:
+        pl-void

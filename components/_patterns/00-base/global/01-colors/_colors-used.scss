@@ -41,15 +41,19 @@ $menu-text-color-7: $purple-5;
 $menu-text-color-8: $purple-4;
 
 // heading
+$heading-color-h1-default: $grey-5;
+$heading-color-h2-default: $grey-7;
+$heading-color-h3-default: $white;
+$heading-color-h4-default: $grey-7;
+
 $heading-background: $burnt-orange;
 $heading-color: $light-mushroom;
 
-$heading-color-h1-alt-3: $grey-5;
-$heading-color-h2-alt-3: $grey-7;
-
-$heading-color-h1-alt-5: $grey-5;
-$heading-color-h2-alt-5: $grey-7;
-$heading-color-h3-alt-5: $white;
+// $heading-color-h1-alt-3: $grey-5;
+// $heading-color-h2-alt-3: $grey-7;
+//
+// $heading-color-h1-alt-5: $grey-5;
+// $heading-color-h2-alt-5: $grey-7;
 
 // search block
 $input-border-color: $grey-a;
@@ -97,4 +101,6 @@ $layout-border-color-6: $light-mushroom;
 $footer-color: $grey-8;
 
 // paragraph
-$paragraph-text-color-1: $grey-7;
+$paragraph-color-default: $grey-7;
+$paragraph-color-1: $white;
+$paragraph-color-2: $white;

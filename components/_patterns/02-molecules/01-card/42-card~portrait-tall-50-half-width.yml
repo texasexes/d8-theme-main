@@ -1,0 +1,81 @@
+card_base_class:
+  flexbox
+card_modifiers:
+  1:
+    horizontal
+  2:
+    feature-50
+  3:
+    item-box-4
+  5:
+    pl-half-width
+  6:
+    pl-background-transparent
+card_sections:
+  1:
+    layout_section_base_class:
+      flexbox
+    layout_section_modifiers:
+      1:
+        vertical
+    layout_section_layout_extra:
+      1:
+        horizontal
+      2:
+        feature-50
+      3:
+        item-box-4
+    layout_section_items:
+      # Image
+      1:
+        img_attributes:
+          src:
+              '../../images/txex/2x3_666x999.png'
+        img_modifiers:
+          1:
+            pl
+  2:
+    layout_section_base_class:
+      flexbox
+    layout_section_modifiers:
+      1:
+        vertical
+    layout_section_layout_extra:
+      1:
+        horizontal
+      2:
+        feature-50
+      3:
+        item-box-4
+    layout_section_items:
+      # Slug
+      1:
+        title:
+          "The Card Slug."
+        level:
+          '3'
+        modifiers:
+          1:
+      # Title
+      2:
+        title:
+          "The Card Title."
+        level:
+          '1'
+        modifiers:
+          1:
+      # Subtitle
+      3:
+        subtitle:
+          "The subtitle of the card is here."
+        level:
+          '2'
+        modifiers:
+          1:
+      # Link
+      4:
+        link_attributes:
+          href:
+            "http://www.google.com"
+        link:
+          "Here is the link"

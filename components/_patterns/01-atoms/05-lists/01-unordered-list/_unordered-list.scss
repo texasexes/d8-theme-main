@@ -3,7 +3,7 @@
 @mixin unordered-list(
   $margin: '0 0 10px',
   $font-family: $font-paragraph,
-  $color: $paragraph-text-color-1,
+  $color: inherit,
   $line-height: 1.7em) {
   font-family: #{$font-family};
   margin: #{$margin};
