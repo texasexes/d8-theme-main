@@ -35,19 +35,19 @@
 }
 
 .h1 {
-  @include heading($text-transform: uppercase);
+  @include heading($color: $heading-color-h1-default, $text-transform: uppercase);
 }
 
 .h2 {
-  @include heading($font-size: 1.31em, $line-height: 1.29, $font-family: $font-heading-2 );
+  @include heading($color: $heading-color-h2-default, $font-size: 1.31em, $line-height: 1.29, $font-family: $font-heading-2 );
 }
 
 .h3 {
-  @include heading($font-size: 0.938em, $line-height: 1.6, $font-family: $font-heading-3 , $text-transform: uppercase );
+  @include heading($color: $heading-color-h3-default, $font-size: 0.938em, $line-height: 1.6, $font-family: $font-heading-3 , $text-transform: uppercase );
 }
 
 .h4 {
-  @include heading($font-size: 1.2em, $line-height: 1.6, $font-weight: 600);
+  @include heading($color: $heading-color-h4-default, $font-size: 1.2em, $line-height: 1.6, $font-weight: 600);
 }
 
 .h5,
@@ -93,7 +93,7 @@
     }
 
     &--alt-3 {
-      color: $heading-color-h1-alt-3;
+      // color: $heading-color-h1-alt-3;
       font-size: 2.25em;
     }
 
@@ -108,7 +108,7 @@
     }
 
     &--alt-5 {
-      color: $heading-color-h1-alt-5;
+      // color: $heading-color-h1-alt-5;
       font-family: $font-heading-h1-alt-5;
       font-weight: 800;
       font-size: 1.06em;
@@ -128,7 +128,7 @@
     }
 
     &--alt-7 {
-      color: $heading-color-h1-alt-5;
+      // color: $heading-color-h1-alt-5;
       font-family: $font-heading-h1-alt-5;
       font-weight: 800;
       font-size: 1.5em;
@@ -137,7 +137,7 @@
     }
 
     &--alt-8 {
-      color: $heading-color-h1-alt-5;
+      // color: $heading-color-h1-alt-5;
       font-family: $font-heading-h1-alt-5;
       font-weight: 800;
       font-size: 1.06em;
@@ -169,13 +169,13 @@
     }
 
     &--alt-3 {
-      color: $heading-color-h2-alt-3;
+      // color: $heading-color-h2-alt-3;
       font-family: $font-heading-alt-3;
       font-size: 1em;
     }
 
     &--alt-5 {
-      color: $heading-color-h2-alt-5;
+      // color: $heading-color-h2-alt-5;
       font-family: $font-heading-h2-alt-5;
       font-size: 0.91em;
       margin: 0;
@@ -188,13 +188,13 @@
     }
 
     &--alt-7 {
-      color: $heading-color-h2-alt-5;
+      // color: $heading-color-h2-alt-5;
       font-family: $font-tertiary;
       font-size: 1em;
     }
 
     &--alt-8 {
-      color: $heading-color-h2-alt-5;
+      // color: $heading-color-h2-alt-5;
       font-family: $font-heading-h2-alt-5;
       font-size: 0.91em;
       margin: 0;
@@ -228,7 +228,8 @@
     position: relative;
     padding: 0 0.35em;
     background-color: $burnt-orange;
-    color: $heading-color-h3-alt-5;
+    // color: $heading-color-h3-alt-5;
+    color: $heading-color-h3-default;
     margin: 0 0 20px;
 
     &--alt-1 {
@@ -260,7 +261,7 @@
 
     &--alt-7 {
       // font-family: $font-heading-h2-alt-5;
-      color: $heading-color-h2-alt-5;
+      // color: $heading-color-h2-alt-5;
       background-color: transparent;
       font-size: 0.91em;
       margin: 0 0 10px;

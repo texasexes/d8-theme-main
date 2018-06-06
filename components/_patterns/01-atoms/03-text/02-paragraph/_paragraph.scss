@@ -3,7 +3,7 @@
 @mixin paragraph(
   $margin: '0 0 10px',
   $font-family: $font-paragraph,
-  $color: $paragraph-text-color-1,
+  $color: $paragraph-color-default,
   $line-height: 1.7em) {
   font-family: #{$font-family};
   margin: #{$margin};
@@ -25,6 +25,14 @@
 .wysiwyg {
   &__p {
     @extend .p;
+
+    &--alt-1 {
+      color: $paragraph-color-1;
+    }
+
+    &--alt-2 {
+      color: $paragraph-color-2;
+    }
 
     &--alt-5 {
       font-family: $font-heading-h2-alt-5;
