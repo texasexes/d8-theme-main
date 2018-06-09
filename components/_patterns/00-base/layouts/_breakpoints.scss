@@ -7,9 +7,9 @@
 /////////
 // Singularity variables
 //
-@include breakpoint-set('to ems', true);
-@include add-grid(12);
-@include add-gutter(1/4);
+// @include breakpoint-set('to ems', true);
+// @include add-grid(12);
+// @include add-gutter(1/4);
 
 // Breakpoints variables
 $xs: 25em;
