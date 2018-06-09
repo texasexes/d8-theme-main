@@ -2,6 +2,7 @@
   // width: 97%;
   max-width: 1300px;
   margin: 0 auto;
+
   .adminimal & {
     width: 97%;
   }
@@ -10,13 +11,13 @@
 // Drupal hack because icon positioning is based on ems and something weird
 // happens when additional styles are added to the entity edit screen
 // .field-multiple-drag {
-  a.tabledrag-handle .handle {
-    padding: 0;
-    margin: auto;
-    height: 1.5em;
-    width: 1.5em;
-    background-position: 0 0;
-  }
+a.tabledrag-handle .handle {
+  padding: 0;
+  margin: auto;
+  height: 1.5em;
+  width: 1.5em;
+  background-position: 0 0;
+}
 // }
 
 .paragraph--view-mode--preview {
@@ -121,7 +122,6 @@
   // }
 }
 
-
 // .form-details-YO,
 .paragraph-details-form-wrapper {
   position: relative;
@@ -146,9 +146,8 @@
       z-index: 20;
       width: 75%;
       max-width: 900px; // hack to get transition to work
-
-      -webkit-transition: max-width .5s, opacity 1.5s;
-      transition: max-width .5s, opacity 1.5s;
+      -webkit-transition: max-width 0.5s, opacity 1.5s;
+      transition: max-width 0.5s, opacity 1.5s;
       // transition-timing-function: ease;
 
       & .details-wrapper {

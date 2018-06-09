@@ -3,12 +3,16 @@
   "rules": {
     "at-rule-no-unknown": [ true, {
       "ignoreAtRules": [
+        "at-root",
+        "content",
+        "each",
+        "else",
+        "extend",
+        "function",
+        "if",
         "include",
         "mixin",
-        "extend",
-        "if",
-        "each",
-        "content"
+        "return",
       ]
     }]
   }

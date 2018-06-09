@@ -26,17 +26,25 @@ $custom:(
   @if type-of($value) == 'number' {
     @if (unitless($value)) {
       $value: $value * 1px;
-    } @else if unit($value) == 'em' {
+    }
+
+    @else if unit($value) == 'em' {
       $value: ($value / 1em * 16px);
-    } @else if unit($value) == 'pts' {
+    }
+
+    @else if unit($value) == 'pts' {
       $value: $value * 1.3333 * 1px;
-    } @else if unit($value) == '%' {
+    }
+
+    @else if unit($value) == '%' {
       $value: $value * 16 / 100% * 1px;
     }
     $value: round($value);
+
     @if ($value % 2 != 0) {
       $value: $value + 1;
     }
+
     @return $value;
   }
 }
@@ -131,7 +139,6 @@ $custom:(
     &::placeholder {
       color: $placeholder-color;
     }
-
   }
 
   &__submit,
@@ -142,7 +149,9 @@ $custom:(
     @if $icon-position == 'right' {
       right: 0;
       left: inherit;
-    } @else {
+    }
+
+    @else {
       right: inherit;
       left: 0;
     }
