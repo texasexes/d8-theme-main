@@ -1,0 +1,13 @@
+/////////////////////
+// Global Breakpoints
+
+// Avoid using in favor of atomic, content-specific, breakpoints.
+// These should be used for generic code, like layouts and typography, only.
+$xs: 25em;
+$small: 26em;
+$medium: 41em;
+$large: 48em;
+$xl: 75em;
+// The max-width breakpoint is used when the design should be applied at whatever the
+// largest breakpoint is regardless of actual pixel value. e.g. removing outer margin on body wrapper
+$max-width: $xl;

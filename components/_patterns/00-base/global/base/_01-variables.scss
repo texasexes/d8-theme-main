@@ -1,0 +1,37 @@
+//////////////////////////
+// General Variables
+// Note: colors should go into
+// components/_patterns/00-base/global/01-colors/_color-vars.scss
+// and breakpoint related vars into
+// components/_patterns/00-base/_breakpoints.scss
+
+$space: 30px;
+
+// times
+// $space-double: $space * 2;
+$space-triple: $space * 3;
+// $space-quadruple: $space * 4;
+// $space-quintuple: $space * 5;
+// $space-sextuple: $space * 6;
+// $space-septuple: $space * 7;
+
+// divided
+$space-one-half: $space / 2;
+$space-one-third: $space / 3;
+// $space-one-fourth: $space / 4;
+// $space-one-fifth: $space / 5;
+// $space-one-sixth: $space / 6;
+// $space-one-seventh: $space / 7;
+// $space-one-eighth: $space / 8;
+
+$row-border-width: $space-one-half; // 1.2vw 15px
+$row-padding: 50px; // 4vw 50px
+$row-margin: $space-triple; // 7vw 90px
+
+$component-border-width: 8px;
+$component-padding: $space; // 2.5vw 30px
+$component-margin: $space; // 2.5vw 30px
+
+$list-item-border-width: 1px;
+$list-item-padding: $space-one-third; // .8vw 10px
+$list-item-margin: $space-one-third; // .8vw 10px
