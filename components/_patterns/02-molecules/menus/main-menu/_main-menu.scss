@@ -1,0 +1,20 @@
+.main-menu-wrapper {
+  background-color: $mushroom-light;
+}
+
+.main-menu {
+  display: flex;
+  flex-flow: column nowrap;
+  margin: 0;
+  padding: 0;
+
+  &--level-1 {
+    background-color: $purple-2;
+  }
+
+  &__item {
+    &:hover {
+      background-color: $purple-1;
+    }
+  }
+}

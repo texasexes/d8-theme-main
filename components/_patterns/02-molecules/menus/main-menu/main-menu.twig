@@ -1,11 +1,13 @@
-<a href="#" id="toggle-expand" class="toggle-expand">
-  <span class="toggle-expand__main-menu">
-    <span class="toggle-expand__text">Main Menu</span>
-  </span>
-</a>
-<nav id="main-menu" class="main-menu">
-  {% include "@molecules/menus/_menu.twig" with {
-    menu_class: "main-menu",
-    items: menu_items,
-  } %}
-</nav>
+<div class="main-menu-wrapper">
+  <a href="#" id="toggle-expand" class="toggle-expand">
+    <span class="toggle-expand__main-menu">
+      <span class="toggle-expand__text">Main Menu</span>
+    </span>
+  </a>
+  <nav id="main-menu" class="main-menu">
+    {% include "@molecules/menus/_menu.twig" with {
+      menu_class: "main-menu",
+      items: menu_items,
+    } %}
+  </nav>
+</div>

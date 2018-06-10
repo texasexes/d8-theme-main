@@ -4,9 +4,7 @@
 {% if item.in_active_trail == TRUE %}
   {% set item_modifiers = item_modifiers|merge(['active']) %}
 {% endif %}
-{% if menu_level > 0 %}
-  {% set item_modifiers = item_modifiers|merge(['sub', 'sub-' ~ menu_level]) %}
-{% endif %}
+{% set item_modifiers = item_modifiers|merge(['sub', 'level-' ~ menu_level]) %}
 {% if item.below %}
   {% set item_modifiers = item_modifiers|merge(['with-sub']) %}
 {% endif %}
