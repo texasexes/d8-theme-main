@@ -1,13 +1,13 @@
-$menu-selected-item-color: #38354c;
+$menu-selected-item-color: $purple-1-1;
 
 // $main-menu-highlight: #37354c;
 // $main-menu-sub-highlight: #3c3b56;
-$main-menu-vertical-border: #4c486a;
+$main-menu-vertical-border: $purple-3;
 
-$menu-background-color-1: #3d3b55;
-$menu-background-color-2: #f2f3ed;
-$menu-text-color-2: #f6f6f3;
-$menu-text-color-3: #a1a2b5;  //new
+$menu-background-color-1: $purple-1-2;
+$menu-background-color-2: $mushroom-light;
+$menu-text-color-2: $mushroom-lighter;
+$menu-text-color-3: $purple-4;  //new
 
 .main-navigation-region {
   .menu-level-0 {
