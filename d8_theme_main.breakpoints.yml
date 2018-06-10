@@ -1,16 +1,16 @@
 # Breakpoints - change based on site need
-d8_theme_main.large:
-  label: large
-  mediaQuery: 'all and (min-width: 61.25em)'
-d8_theme_main.medium:
-  label: medium
-  mediaQuery: 'all and (min-width: 48em)'
-d8_theme_main.small-large:
-  label: small-large
-  mediaQuery: 'all and (min-width: 41em)'
-d8_theme_main.small-med:
-  label: small-med
-  mediaQuery: 'all and (min-width: 26em)'
 d8_theme_main.small:
   label: small
   mediaQuery: 'all and (min-width: 25em)'
+d8_theme_main.small-med:
+  label: small-med
+  mediaQuery: 'all and (min-width: 26em)'
+d8_theme_main.small-large:
+  label: small-large
+  mediaQuery: 'all and (min-width: 41em)'
+d8_theme_main.medium:
+  label: medium
+  mediaQuery: 'all and (min-width: 48em)'
+d8_theme_main.large:
+  label: large
+  mediaQuery: 'all and (min-width: 75em)'
