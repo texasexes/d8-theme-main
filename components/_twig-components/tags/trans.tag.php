@@ -1,19 +1,19 @@
 <?php
 /**
  * @file
- * Add "Project_trans_Node" class.
+ * Add "Project_pl_trans_Node" class.
  *
  * Code based on `Drupal\Core\Template\TwigNodeTrans` and
  * `Drupal\Core\Template\TwigTransTokenParser` from Drupal 8 core.
  */
 
 // These files are loaded three times and we can't re-set a class.
-if (!class_exists("Project_trans_Node")) {
+if (!class_exists("Project_pl_trans_Node")) {
 
   /**
-   * Class Project_trans_Node.
+   * Class Project_pl_trans_Node.
    */
-  class Project_trans_Node extends \Twig_Node {
+  class Project_pl_trans_Node extends \Twig_Node {
 
     /**
      * {@inheritdoc}
@@ -148,12 +148,12 @@ if (!class_exists("Project_trans_Node")) {
 }
 
 // These files are loaded three times and we can't re-set a class.
-if (!class_exists("Project_trans_TokenParser")) {
+if (!class_exists("Project_pl_trans_TokenParser")) {
 
   /**
-   * Class Project_trans_TokenParser.
+   * Class Project_pl_trans_TokenParser.
    */
-  class Project_trans_TokenParser extends \Twig_TokenParser {
+  class Project_pl_trans_TokenParser extends \Twig_TokenParser {
 
     /**
      * {@inheritdoc}
@@ -187,7 +187,7 @@ if (!class_exists("Project_trans_TokenParser")) {
 
       $this->checkTransString($body, $lineno);
 
-      $node = new Project_trans_Node($body, $plural, $count, $options, $lineno, $this->getTag());
+      $node = new Project_pl_trans_Node($body, $plural, $count, $options, $lineno, $this->getTag());
 
       return $node;
     }
