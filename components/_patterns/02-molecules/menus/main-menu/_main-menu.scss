@@ -18,6 +18,22 @@ $color-menu-text-light: $mushroom-lighter;
   }
 }
 
+.main-menu-toggle {
+  display: flex;
+  flex-flow: row nowrap;
+  padding: $space-one-half $space;
+  color: $purple-5;
+  text-decoration: none;
+
+  &__icon {
+    display: block;
+    content: '';
+    width: $space;
+    height: 2px;
+    background-color: $purple-5;
+  }
+}
+
 .main-menu {
   display: flex;
   flex-flow: column nowrap;
@@ -38,7 +54,31 @@ $color-menu-text-light: $mushroom-lighter;
 
   // li
   &__item {
+    border-top: 1px solid $color-menu-text-dark;
+
+    // Items with children
+    &--with-sub {
+      display: flex;
+      flex-flow: row wrap;
+    }
+
     &--level-0 {
+      &:last-child {
+        border-bottom: 1px solid $color-menu-text-dark;
+      }
+    }
+  }
+
+  // a
+  &__link {
+    display: block;
+    flex: 1 0 auto;
+    padding: $space-one-half $space;
+    text-decoration: none;
+
+    &--level-0 {
+      color: $purple-5;
+
       &:hover {
         background-color: $color-menu-bg-dark-hover;
         color: $color-menu-text-light;
@@ -54,27 +94,12 @@ $color-menu-text-light: $mushroom-lighter;
     }
 
     &--level-2 {
+      padding: $space-one-half $space-time-and-half;
       color: $color-menu-text-dark;
 
       &:hover {
         color: $color-menu-text-light;
       }
-    }
-
-    // Items with children
-    &--with-sub {
-      display: flex;
-      flex-flow: row wrap;
-    }
-  }
-
-  // a
-  &__link {
-    display: block;
-    padding: $space-one-half $space;
-
-    &--level-0 {
-      //
     }
   }
 
@@ -84,9 +109,9 @@ $color-menu-text-light: $mushroom-lighter;
     cursor: pointer;
     display: block;
     flex: 0 0 $space-double;
-    margin-left: auto;
+    // margin-left: auto;
     position: relative;
-    border: 1px solid $color-menu-text-dark;
+    border-left: 1px solid $color-menu-text-dark;
 
     &::after {
       border: $space-one-half solid;

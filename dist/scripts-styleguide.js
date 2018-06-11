@@ -1,7 +1,7 @@
 'use strict';
 
 (function ($, Drupal) {
-  Drupal.behaviors.navTop = {
+  Drupal.behaviors.mainMenu = {
     attach: function attach(context, settings) {
       var mainMenuToggle = '.main-menu-toggle';
       var mainMenu = '.main-nav';
