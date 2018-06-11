@@ -36,7 +36,7 @@
       {% set menu_modifiers = [] %}
     {% endif %}
     {% if menu_level > 0 %}
-      {% set menu_modifiers = menu_modifiers|merge(['sub', 'sub-' ~ menu_level]) %}
+      {% set menu_modifiers = menu_modifiers|merge(['sub', 'level-' ~ menu_level]) %}
     {% endif %}
 
     {# List #}

@@ -1,20 +1,59 @@
+// Backgrounds
+$color-menu-bg-dark: $purple-2;
+$color-menu-bg-dark-hover: $purple-1;
+$color-menu-bg-light: $mushroom-light;
+// Text
+$color-menu-text-dark: $purple-4;
+$color-menu-text-light: $mushroom-lighter;
+
 .main-menu-wrapper {
-  background-color: $mushroom-light;
+  background-color: $color-menu-bg-light;
 }
 
 .main-menu {
   display: flex;
   flex-flow: column nowrap;
+  list-style: none;
   margin: 0;
   padding: 0;
 
+  // ul
   &--level-1 {
-    background-color: $purple-2;
+    background-color: $color-menu-bg-dark;
   }
 
+  // li
   &__item {
-    &:hover {
-      background-color: $purple-1;
+    &--level-0 {
+      &:hover {
+        background-color: $color-menu-bg-dark-hover;
+        color: $color-menu-text-light;
+      }
+    }
+
+    &--level-1 {
+      color: $color-menu-text-light;
+
+      &:hover {
+        color: $color-menu-text-dark;
+      }
+    }
+
+    &--level-2 {
+      color: $color-menu-text-dark;
+
+      &:hover {
+        color: $color-menu-text-light;
+      }
+    }
+  }
+
+  // a
+  &__link {
+    display: block;
+    padding: $space-one-half $space;
+
+    &--level-0 {
     }
   }
 }
