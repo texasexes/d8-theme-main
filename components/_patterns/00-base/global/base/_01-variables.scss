@@ -8,7 +8,7 @@
 $space: 30px;
 
 // times
-$space-time-and-half: $space * 1.5;
+$space-and-half: $space * 1.5;
 $space-double: $space * 2;
 $space-triple: $space * 3;
 // $space-quadruple: $space * 4;
@@ -19,6 +19,7 @@ $space-triple: $space * 3;
 // divided
 $space-one-half: $space / 2;
 $space-one-third: $space / 3;
+$space-two-thirds: $space-one-third * 2;
 // $space-one-fourth: $space / 4;
 // $space-one-fifth: $space / 5;
 // $space-one-sixth: $space / 6;

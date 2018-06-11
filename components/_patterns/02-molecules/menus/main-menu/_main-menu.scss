@@ -19,6 +19,7 @@ $color-menu-text-light: $mushroom-lighter;
 }
 
 .main-menu-toggle {
+  position: relative;
   display: flex;
   flex-flow: row nowrap;
   padding: $space-one-half $space;
@@ -26,11 +27,54 @@ $color-menu-text-light: $mushroom-lighter;
   text-decoration: none;
 
   &__icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
     display: block;
     content: '';
     width: $space;
     height: 2px;
     background-color: $purple-5;
+
+    &::before,
+    &::after {
+      position: relative;
+      display: block;
+      content: '';
+      width: $space;
+      height: 2px;
+      background-color: $purple-5;
+    }
+
+    &::before {
+      top: -6px;
+    }
+
+    &::after {
+      bottom: -4px;
+    }
+
+    &.js-active {
+      background-color: transparent;
+
+      &::before {
+        transform: rotate(45deg);
+        top: 0;
+        left: 5px;
+        width: $space-two-thirds;
+      }
+
+      &::after {
+        transform: rotate(-45deg);
+        bottom: 2px;
+        left: 5px;
+        width: $space-two-thirds;
+      }
+    }
+  }
+
+  &__text {
+    margin-left: $space-and-half;
   }
 }
 
@@ -94,7 +138,7 @@ $color-menu-text-light: $mushroom-lighter;
     }
 
     &--level-2 {
-      padding: $space-one-half $space-time-and-half;
+      padding: $space-one-half $space-and-half;
       color: $color-menu-text-dark;
 
       &:hover {

@@ -1,16 +1,23 @@
 (function ($, Drupal) {
   Drupal.behaviors.mainMenu = {
     attach(context, settings) {
+      // Element selectors
       const mainMenuToggle = '.main-menu-toggle';
+      const mainMenuToggleIcon = '.main-menu-toggle__icon';
       const mainMenu = '.main-nav';
       const mainMenuSub = '.main-menu__expand-sub';
+      // Classes
       const mainMenuSubOpen = 'main-menu__expand-sub--open';
       const mainMenuVisible = 'js-visible';
+      const mainMenuActive = 'js-active';
 
-      // Display Main Nav
+      // Main Menu
       $(mainMenuToggle).click(function (e) {
         e.preventDefault();
+        // Display Main Nav
         $(mainMenu).toggleClass(mainMenuVisible);
+        // Animate menu bars
+        $(mainMenuToggleIcon).toggleClass(mainMenuActive);
       })
 
       // Display Sub-nav
