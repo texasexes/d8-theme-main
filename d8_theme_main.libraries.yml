@@ -13,7 +13,7 @@ global:
 
 main_menu:
   js:
-    components/_patterns/02-molecules/menus/main-menu/main-menu.js: {}
+    dist/02-molecules/menus/main-menu/main-menu.js: {}
   dependencies:
     - core/drupal
 

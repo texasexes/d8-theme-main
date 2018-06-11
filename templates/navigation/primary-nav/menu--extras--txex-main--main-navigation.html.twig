@@ -1,2 +1,5 @@
+{{ attach_library('d8_theme_main/main_menu') }}
 
-{% extends "menu-levels--level-0.html.twig" %}
+{% include "@molecules/menus/main-menu/main-menu.twig" with {
+  menu_items: items,
+} %}

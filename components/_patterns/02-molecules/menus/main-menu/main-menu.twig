@@ -1,10 +1,10 @@
 <div class="main-menu-wrapper">
-  <a href="#" id="toggle-expand" class="toggle-expand">
-    <span class="toggle-expand__main-menu">
-      <span class="toggle-expand__text">Main Menu</span>
+  <a href="#" id="main-menu-toggle" class="main-menu-toggle">
+    <span class="main-menu-toggle__icon">
+      <span class="main-menu-toggle__text">Main Menu</span>
     </span>
   </a>
-  <nav id="main-menu" class="main-menu">
+  <nav id="main-nav" class="main-nav">
     {% include "@molecules/menus/_menu.twig" with {
       menu_class: "main-menu",
       items: menu_items,

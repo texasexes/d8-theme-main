@@ -10,6 +10,14 @@ $color-menu-text-light: $mushroom-lighter;
   background-color: $color-menu-bg-light;
 }
 
+.main-nav {
+  display: none;
+
+  &.js-visible {
+    display: block;
+  }
+}
+
 .main-menu {
   display: flex;
   flex-flow: column nowrap;
@@ -19,7 +27,13 @@ $color-menu-text-light: $mushroom-lighter;
 
   // ul
   &--level-1 {
-    background-color: $color-menu-bg-dark;
+    display: none;
+
+    &.js-visible {
+      background-color: $color-menu-bg-dark;
+      display: flex;
+      flex-basis: 100%;
+    }
   }
 
   // li
@@ -46,6 +60,12 @@ $color-menu-text-light: $mushroom-lighter;
         color: $color-menu-text-light;
       }
     }
+
+    // Items with children
+    &--with-sub {
+      display: flex;
+      flex-flow: row wrap;
+    }
   }
 
   // a
@@ -54,6 +74,43 @@ $color-menu-text-light: $mushroom-lighter;
     padding: $space-one-half $space;
 
     &--level-0 {
+      //
+    }
+  }
+
+  &__expand-sub {
+    background-color: $color-menu-bg-light;
+    color: $color-menu-text-dark;
+    cursor: pointer;
+    display: block;
+    flex: 0 0 $space-double;
+    margin-left: auto;
+    position: relative;
+    border: 1px solid $color-menu-text-dark;
+
+    &::after {
+      border: $space-one-half solid;
+      border-bottom-color: transparent;
+      border-left: 12px solid transparent;
+      border-right: 12px solid transparent;
+      content: '';
+      display: block;
+      margin-right: -12px;
+      margin-top: -6px;
+      position: absolute;
+      right: 50%;
+      top: 50%;
+      width: 0;
+    }
+
+    &--open {
+      color: $color-menu-bg-dark;
+
+      &::after {
+        border-bottom: $space-one-half solid;
+        border-top-color: transparent;
+        top: 10%;
+      }
     }
   }
 }

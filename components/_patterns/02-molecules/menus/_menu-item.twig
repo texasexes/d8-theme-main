@@ -29,7 +29,7 @@
       "link_modifiers": item_modifiers,
     } %}
     {% if item.below %}
-      <span class="expand-sub"></span>
+      <span class="{{menu_class}}__expand-sub"></span>
       {{ menus.menu_links(item.below, attributes, menu_level + 1, menu_class, menu_modifiers, menu_blockname, item_base_class, original_item_modifiers, item_blockname) }}
     {% endif %}
   {% endblock %}
