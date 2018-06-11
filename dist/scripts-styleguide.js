@@ -3,6 +3,7 @@
 (function ($, Drupal) {
   // Element selectors
   var mainMenuToggle = '.main-menu-toggle';
+  var mainMenuToggleOpen = '.main-menu-toggle--open';
   var mainMenuToggleIcon = '.main-menu-toggle__icon';
   var mainMenu = '.main-nav';
   var mainMenuSub = '.main-menu__expand-sub';
@@ -10,15 +11,25 @@
   var mainMenuSubOpen = 'main-menu__expand-sub--open';
   var mainMenuVisible = 'js-visible';
   var mainMenuActive = 'js-menu-active';
+  // New elements
+  var mainMenuBg = '';
+
+  function mainMenuBgToggle() {
+    if (mainMenuBg.length) {
+      $(mainMenuBg).remove();
+      mainMenuBg = '';
+    } else {
+      mainMenuBg = $('<span class="js-main-menu-close" />');
+      $(mainMenuToggleOpen).append(mainMenuBg);
+    }
+  };
 
   // Main Menu
   $(mainMenuToggle).click(function (e) {
     e.preventDefault();
-    console.log('evan is a genius');
     // Display Main Nav
     $(mainMenu).toggleClass(mainMenuVisible);
-    // Animate menu bars
-    // $(mainMenuToggleIcon).toggleClass(mainMenuActive);
+    mainMenuBgToggle();
   });
 
   // Display Sub-nav
