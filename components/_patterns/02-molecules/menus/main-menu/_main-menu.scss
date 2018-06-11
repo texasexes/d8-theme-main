@@ -4,17 +4,22 @@ $color-menu-bg-dark-hover: $purple-1;
 $color-menu-bg-light: $mushroom-light;
 // Text
 $color-menu-text-dark: $purple-4;
-$color-menu-text-light: $mushroom-lighter;
+$color-menu-text-light: $white;
 
 .main-menu-wrapper {
   background-color: $color-menu-bg-light;
 }
 
 .main-nav {
-  display: none;
+  position: absolute;
+  width: 90vw;
+  left: -100vw;
+  top: 0;
+  transition: all 0.5s ease;
+  background-color: $purple-2;
 
   &.js-visible {
-    display: block;
+    left: 0;
   }
 }
 
@@ -26,10 +31,12 @@ $color-menu-text-light: $mushroom-lighter;
   color: $purple-5;
   text-decoration: none;
 
+  &--close {
+    background-color: $purple-1;
+    padding: $space-one-half;
+  }
+
   &__icon {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
     display: block;
     content: '';
     width: $space;
@@ -54,14 +61,16 @@ $color-menu-text-light: $mushroom-lighter;
       bottom: -4px;
     }
 
-    &.js-active {
+    &.js-menu-active {
       background-color: transparent;
+      margin-left: auto;
 
       &::before {
         transform: rotate(45deg);
         top: 0;
         left: 5px;
         width: $space-two-thirds;
+        background-color: $color-menu-text-dark;
       }
 
       &::after {
@@ -69,12 +78,9 @@ $color-menu-text-light: $mushroom-lighter;
         bottom: 2px;
         left: 5px;
         width: $space-two-thirds;
+        background-color: $color-menu-text-dark;
       }
     }
-  }
-
-  &__text {
-    margin-left: $space-and-half;
   }
 }
 
@@ -98,8 +104,6 @@ $color-menu-text-light: $mushroom-lighter;
 
   // li
   &__item {
-    border-top: 1px solid $color-menu-text-dark;
-
     // Items with children
     &--with-sub {
       display: flex;
@@ -107,6 +111,8 @@ $color-menu-text-light: $mushroom-lighter;
     }
 
     &--level-0 {
+      border-top: 1px solid $color-menu-text-dark;
+
       &:last-child {
         border-bottom: 1px solid $color-menu-text-dark;
       }
@@ -120,65 +126,59 @@ $color-menu-text-light: $mushroom-lighter;
     padding: $space-one-half $space;
     text-decoration: none;
 
+    &:hover {
+      color: $burnt-orange;
+    }
+
     &--level-0 {
-      color: $purple-5;
+      color: $color-menu-text-light;
+      font-size: 1rem;
 
       &:hover {
         background-color: $color-menu-bg-dark-hover;
-        color: $color-menu-text-light;
       }
     }
 
     &--level-1 {
+      padding-left: $space-and-half;
       color: $color-menu-text-light;
-
-      &:hover {
-        color: $color-menu-text-dark;
-      }
     }
 
     &--level-2 {
-      padding: $space-one-half $space-and-half;
+      padding-left: $space-double;
       color: $color-menu-text-dark;
-
-      &:hover {
-        color: $color-menu-text-light;
-      }
     }
   }
 
   &__expand-sub {
-    background-color: $color-menu-bg-light;
     color: $color-menu-text-dark;
     cursor: pointer;
     display: block;
     flex: 0 0 $space-double;
-    // margin-left: auto;
     position: relative;
-    border-left: 1px solid $color-menu-text-dark;
+    // border-left: 1px solid $color-menu-text-dark;
 
     &::after {
       border: $space-one-half solid;
+      border-right-color: transparent;
+      border-top-color: transparent;
       border-bottom-color: transparent;
-      border-left: 12px solid transparent;
-      border-right: 12px solid transparent;
       content: '';
       display: block;
       margin-right: -12px;
       margin-top: -6px;
       position: absolute;
-      right: 50%;
-      top: 50%;
+      left: 42%;
+      top: 32%;
       width: 0;
     }
 
     &--open {
-      color: $color-menu-bg-dark;
-
       &::after {
-        border-bottom: $space-one-half solid;
-        border-top-color: transparent;
-        top: 10%;
+        border-top: $space-one-half solid;
+        border-left-color: transparent;
+        left: 25%;
+        top: 50%;
       }
     }
   }

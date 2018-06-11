@@ -9,7 +9,7 @@
       // Classes
       const mainMenuSubOpen = 'main-menu__expand-sub--open';
       const mainMenuVisible = 'js-visible';
-      const mainMenuActive = 'js-active';
+      const mainMenuActive = 'js-menu-active';
 
       // Main Menu
       $(mainMenuToggle).click(function (e) {
@@ -17,7 +17,7 @@
         // Display Main Nav
         $(mainMenu).toggleClass(mainMenuVisible);
         // Animate menu bars
-        $(mainMenuToggleIcon).toggleClass(mainMenuActive);
+        // $(mainMenuToggleIcon).toggleClass(mainMenuActive);
       })
 
       // Display Sub-nav
