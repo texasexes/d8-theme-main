@@ -13,10 +13,12 @@ $color-menu-text-light: $white;
 .main-nav {
   position: absolute;
   width: 90vw;
+  max-width: 768px;
   left: -100vw;
   top: 0;
   transition: all 0.5s ease;
   background-color: $purple-2;
+  z-index: 1;
 
   &.js-visible {
     left: 0;
