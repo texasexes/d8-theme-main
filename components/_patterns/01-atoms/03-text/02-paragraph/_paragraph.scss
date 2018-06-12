@@ -2,9 +2,11 @@
 // in components with other classnames.
 @mixin paragraph(
   $margin: '0 0 10px',
+  $font-size: 1.6rem,
   $font-family: $font-paragraph,
   $color: $paragraph-color-default,
-  $line-height: 1.7em) {
+  $line-height: 1.7) {
+  font-size: #{$font-size};
   font-family: #{$font-family};
   margin: #{$margin};
   color: #{$color};

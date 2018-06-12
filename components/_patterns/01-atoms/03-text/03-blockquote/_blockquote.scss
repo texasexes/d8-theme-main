@@ -3,9 +3,11 @@
 @mixin blockquote(
   $margin: 0 0 0 1em,
   $padding: 0 0 0 1em,
+  $font-size: 1.6rem,
   $font-family: $font-blockquote,
   $border-color: $color-blockquote--border) {
   border-left: solid 5px #{$border-color};
+  font-size: #{$font-size};
   font-family: #{$font-family};
   font-style: italic;
   margin: #{$margin};
