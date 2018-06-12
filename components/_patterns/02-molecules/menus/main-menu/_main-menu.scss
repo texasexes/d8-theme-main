@@ -1,9 +1,13 @@
+// Breakpoints
+$break-nav-max: max-width 767px;
+$break-nav: 768px;
 // Backgrounds
 $color-menu-bg-dark: $purple-2;
 $color-menu-bg-dark-hover: $purple-1;
 $color-menu-bg-light: $mushroom-light;
 // Text
-$color-menu-text-dark: $purple-4;
+$color-menu-text-dark: $purple-5;
+$color-menu-text-medium: $purple-4;
 $color-menu-text-light: $white;
 
 .main-menu-wrapper {
@@ -11,19 +15,21 @@ $color-menu-text-light: $white;
 }
 
 .main-nav {
-  position: fixed;
-  width: 90vw;
-  max-width: 768px;
-  max-height: 100vh;
-  overflow: scroll;
-  left: -100vw;
-  top: 0;
-  transition: all 0.5s ease;
-  background-color: $purple-2;
-  z-index: 1;
+  @include breakpoint($break-nav-max) {
+    position: fixed;
+    width: 90vw;
+    max-width: 768px;
+    max-height: 100vh;
+    overflow: scroll;
+    left: -100vw;
+    top: 0;
+    transition: all 0.5s ease;
+    background-color: $purple-2;
+    z-index: 1;
 
-  &.js-visible {
-    left: 0;
+    &.js-visible {
+      left: 0;
+    }
   }
 }
 
@@ -34,6 +40,10 @@ $color-menu-text-light: $white;
   padding: $space-one-half $space;
   color: $purple-5;
   text-decoration: none;
+
+  @include breakpoint($break-nav) {
+    display: none;
+  }
 
   &--close {
     background-color: $purple-1;
@@ -74,7 +84,7 @@ $color-menu-text-light: $white;
         top: 0;
         left: 5px;
         width: $space-two-thirds;
-        background-color: $color-menu-text-dark;
+        background-color: $color-menu-text-medium;
       }
 
       &::after {
@@ -82,7 +92,7 @@ $color-menu-text-light: $white;
         bottom: 2px;
         left: 5px;
         width: $space-two-thirds;
-        background-color: $color-menu-text-dark;
+        background-color: $color-menu-text-medium;
       }
     }
   }
@@ -96,6 +106,10 @@ $color-menu-text-light: $white;
   padding: 0;
 
   // ul
+  &--level-0 {
+    flex-flow: row nowrap;
+  }
+
   &--level-1 {
     display: none;
 
@@ -115,7 +129,9 @@ $color-menu-text-light: $white;
     }
 
     &--level-0 {
-      border-top: 1px solid $color-menu-text-dark;
+      @include breakpoint($break-nav-max) {
+        border-top: 1px solid $color-menu-text-medium;
+      }
     }
   }
 
@@ -133,6 +149,10 @@ $color-menu-text-light: $white;
     &--level-0 {
       color: $color-menu-text-light;
       font-size: 1rem;
+
+      @include breakpoint($break-nav) {
+        color: $color-menu-text-dark;
+      }
     }
 
     &--level-1 {
@@ -142,17 +162,16 @@ $color-menu-text-light: $white;
 
     &--level-2 {
       padding-left: $space-double;
-      color: $color-menu-text-dark;
+      color: $color-menu-text-medium;
     }
   }
 
   &__expand-sub {
-    color: $color-menu-text-dark;
+    color: $color-menu-text-medium;
     cursor: pointer;
     display: block;
     flex: 0 0 $space-double;
     position: relative;
-    // border-left: 1px solid $color-menu-text-dark;
 
     &::after {
       border: $space-one-half solid;

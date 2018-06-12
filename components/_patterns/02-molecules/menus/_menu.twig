@@ -35,9 +35,7 @@
     {% if not menu_modifiers %}
       {% set menu_modifiers = [] %}
     {% endif %}
-    {% if menu_level > 0 %}
-      {% set menu_modifiers = menu_modifiers|merge(['sub', 'level-' ~ menu_level]) %}
-    {% endif %}
+    {% set menu_modifiers = menu_modifiers|merge(['sub', 'level-' ~ menu_level]) %}
 
     {# List #}
     {% embed "@atoms/05-lists/01-unordered-list/unordered-list.twig" with {
