@@ -8,6 +8,7 @@
   var mainMenuSub = $('.main-menu__expand-sub');
   var toolbar = $('#toolbar-administration');
   var body = $('body');
+  var win = $(window);
 
   // Classes
   var mainMenuSubOpen = 'main-menu__expand-sub--open';
@@ -18,45 +19,45 @@
   // New elements
   var mainMenuBg = '';
 
-  // Determine how far down we're scrolled
-  var scrolled = '0';
-  console.log(scrolled);
-  var adjust = '10';
-
   // Account for admin menu
+  var winH = win.height();
   var toolbarHeight = '0';
 
   if (toolbar.length) {
     toolbarHeight = toolbar.outerHeight();
-    mainMenu.css({ top: toolbarHeight });
   }
+
+  var heightAdjust = winH - toolbarHeight;
+
+  $(document).ready(function () {
+    mainMenu.css({ 'top': toolbarHeight, 'max-height': heightAdjust });
+  });
 
   // Show/Hide overlay
   function mainMenuBgToggle() {
+    // Prevent the background from scrolling
+    body.toggleClass(noscroll);
+
+    // Display Main Nav
+    mainMenu.toggleClass(mainMenuVisible);
+
+    // Remove the overlay if it exists
     if (mainMenuBg.length) {
       mainMenuBg.remove();
       mainMenuBg = '';
-      scrolled = $(document).scrollTop();
-      adjust = scrolled * -1;
-      body.css({ top: adjust });
-    } else {
-      mainMenuBg = $('<span class="js-main-menu-close" />');
-      mainMenuBg.css({ top: toolbarHeight });
-      mainMenuToggleOpen.append(mainMenuBg);
     }
+
+    // Add overlay
+    else {
+        mainMenuBg = $('<span class="js-main-menu-close" />');
+        mainMenuBg.css({ top: toolbarHeight });
+        mainMenuToggleOpen.append(mainMenuBg);
+      }
   };
 
   // Main Menu
   mainMenuToggle.click(function (e) {
     e.preventDefault();
-    scrolled = $(document).scrollTop();
-    adjust = scrolled * -1;
-    console.log(scrolled);
-    body.css({ top: adjust });
-    body.toggleClass(noscroll);
-    // Display Main Nav
-    mainMenu.toggleClass(mainMenuVisible);
-    // Toggle Overlay
     mainMenuBgToggle();
   });
 
