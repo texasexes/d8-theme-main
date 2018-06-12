@@ -11,7 +11,7 @@ $color-menu-text-light: $white;
 }
 
 .main-nav {
-  position: absolute;
+  position: fixed;
   width: 90vw;
   max-width: 768px;
   left: -100vw;
@@ -114,10 +114,6 @@ $color-menu-text-light: $white;
 
     &--level-0 {
       border-top: 1px solid $color-menu-text-dark;
-
-      &:last-child {
-        border-bottom: 1px solid $color-menu-text-dark;
-      }
     }
   }
 
@@ -135,10 +131,6 @@ $color-menu-text-light: $white;
     &--level-0 {
       color: $color-menu-text-light;
       font-size: 1rem;
-
-      &:hover {
-        background-color: $color-menu-bg-dark-hover;
-      }
     }
 
     &--level-1 {
@@ -188,7 +180,7 @@ $color-menu-text-light: $white;
 
 // Overlay on page
 .js-main-menu-close {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 1;
@@ -197,4 +189,14 @@ $color-menu-text-light: $white;
   height: 100vh;
   width: 100vw;
   background-color: $black-trans;
+}
+
+body {
+  position: relative;
+}
+
+.noscroll {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
 }

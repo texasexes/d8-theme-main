@@ -14,6 +14,9 @@ global:
 main_menu:
   js:
     dist/02-molecules/menus/main-menu/main-menu.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
 
 global-css:
   css:
