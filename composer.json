@@ -9,6 +9,11 @@
             "email": "jeff.cardwell@texasexes.org"
         }
     ],
+    "require": {
+        "drupal-pattern-lab/add-attributes-twig-extension": "^1.0",
+        "drupal-pattern-lab/bem-twig-extension": "^1.0",
+        "drupal-pattern-lab/unified-twig-extensions": "^0.1"
+    },
     "minimum-stability": "dev",
-    "require": {}
+    "prefer-stable": true
 }

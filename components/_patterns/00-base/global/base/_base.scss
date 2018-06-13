@@ -1,0 +1,9 @@
+* {
+  box-sizing: border-box;
+}
+
+.main {
+  @include wrapper;
+
+  display: block; // Fix for IE weirdness
+}

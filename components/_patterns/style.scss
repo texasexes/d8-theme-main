@@ -2,7 +2,7 @@
 // Better style reset
 @import "normalize";
 // Grid system, https://github.com/at-import/Singularity
-@import "singularitygs/stylesheets/singularitygs";
+// @import "singularitygs/stylesheets/singularitygs";
 // A cleaner way to do breakpoints/media queries, http://breakpoint-sass.com/
 @import "breakpoint-sass/stylesheets/breakpoint";
 // End libs
@@ -10,7 +10,7 @@
 @import "01-atoms/**/*.scss";
 @import "02-molecules/**/*.scss";
 @import "03-organisms/**/*.scss";
-@import "04-templates/**/*.scss";
+// @import "04-templates/**/*.scss";
 @import "05-pages/**/*.scss";
 
 .sg-pattern-example {
@@ -20,7 +20,6 @@
   // makes the background image extend into the bottom margin of the child element
   border-style: dotted;
   border-width: 1px;
-
   background: url(../pattern-lab/public/images/txex/grid-light.svg) 0 0 repeat;
   background-size: 7em;
   z-index: -10;
@@ -35,7 +34,6 @@
 .sg-colors {
   // background-color: white;
 }
-
 
 /* Not sure where these kinds of rules belong, so here they are. */
 
