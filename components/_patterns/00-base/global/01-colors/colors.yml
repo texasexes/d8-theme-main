@@ -36,7 +36,7 @@ items:
   - name: $white
     value: '#fff'
   - name: $black-trans
-    value: 'rgba(0, 0, 0, 0.7)'
+    value: 'rgba(0, 0, 0, 0.6)'
   - name: $burnt-orange
     value: '#cb6015'
   - name: $tangerine

@@ -107,16 +107,20 @@ $color-menu-text-light: $white;
 
   // ul
   &--level-0 {
-    flex-flow: row nowrap;
+    @include breakpoint($break-nav) {
+      flex-flow: row nowrap;
+    }
   }
 
   &--level-1 {
     display: none;
+    background-color: $color-menu-bg-dark;
 
     &.js-visible {
-      background-color: $color-menu-bg-dark;
-      display: flex;
-      flex-basis: 100%;
+      @include breakpoint($break-nav-max) {
+        display: flex;
+        flex-basis: 100%;
+      }
     }
   }
 
@@ -126,6 +130,23 @@ $color-menu-text-light: $white;
     &--with-sub {
       display: flex;
       flex-flow: row wrap;
+
+      @include breakpoint($break-nav) {
+        flex-flow: column nowrap;
+
+        &.main-menu__item--level-0 {
+          &:hover {
+            > .main-menu--sub {
+              position: absolute;
+              top: 50px; // Temporary number. Will need to be finalized later.
+            }
+
+            .main-menu--sub {
+              display: block;
+            }
+          }
+        }
+      }
     }
 
     &--level-0 {
@@ -139,7 +160,7 @@ $color-menu-text-light: $white;
   &__link {
     display: block;
     flex: 1 0 auto;
-    padding: $space-one-half $space;
+    padding: $space;
     text-decoration: none;
 
     &:hover {
@@ -148,7 +169,9 @@ $color-menu-text-light: $white;
 
     &--level-0 {
       color: $color-menu-text-light;
-      font-size: 1rem;
+      font-size: 2.2rem;
+      font-family: $font-secondary-30;
+      line-height: 1.14;
 
       @include breakpoint($break-nav) {
         color: $color-menu-text-dark;
@@ -156,8 +179,11 @@ $color-menu-text-light: $white;
     }
 
     &--level-1 {
-      padding-left: $space-and-half;
+      padding: $space-two-thirds $space-and-half;
       color: $color-menu-text-light;
+      font-size: 1.8rem;
+      line-height: 1.11;
+      font-family: $font-tertiary;
     }
 
     &--level-2 {
@@ -195,6 +221,10 @@ $color-menu-text-light: $white;
         left: 25%;
         top: 50%;
       }
+    }
+
+    @include breakpoint($break-nav) {
+      display: none;
     }
   }
 }
