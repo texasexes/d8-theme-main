@@ -1,11 +1,24 @@
+// Heading
+$font-heading-1: $font-secondary-68;
+$font-heading-2: $font-primary;
+$font-heading-3: $font-secondary-30;
+
+$font-heading-alt-2: $font-primary;
+$font-heading-alt-3: $font-tertiary;
+
+$font-heading-h1-alt-4: $font-primary;
+$font-heading-h1-alt-5: $font-primary;
+$font-heading-h1-alt-6: $font-primary;
+
+$font-heading-h2-alt-5: $font-tertiary;
+$font-heading-h2-alt-6: $font-tertiary;
+
 //
 // Generic header styles:
 // All arguments are optional. If not defined, the defaults below will be used
 //
 @mixin heading(
   $color: inherit,
-  // $color-link: inherit,
-  // $color-link-hover: inherit,
   $font-family: $font-heading-1,
   $font-size: 6.112rem,
   $font-style: normal,
