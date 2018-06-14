@@ -17,7 +17,15 @@ $font-heading-h2-alt-6: $font-tertiary;
 // Generic header styles:
 // All arguments are optional. If not defined, the defaults below will be used
 //
-@mixin heading($color: inherit, $font-family: $font-secondary-68, $font-size: 6.112rem, $font-style: normal, $font-weight: 400, $letter-spacing: -0.005em, $line-height: 0.835, $text-transform: none) {
+@mixin heading(
+  $color: inherit,
+  $font-family: $font-heading-1,
+  $font-size: 6.112rem,
+  $font-style: normal,
+  $font-weight: 400,
+  $letter-spacing: -0.005em,
+  $line-height: 0.835,
+  $text-transform: none) {
   color: #{$color};
   font-family: #{$font-family};
   font-size: #{$font-size};
