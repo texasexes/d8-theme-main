@@ -1,3 +1,6 @@
+// Link
+$font-link: $font-tertiary;
+
 /// Link
 @mixin link(
   $color: $color-link,
@@ -5,7 +8,7 @@
   $font-family: $font-link) {
   color: $color;
   cursor: pointer;
-  font-family: $font-link;
+  font-family: $font-family;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 

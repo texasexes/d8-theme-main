@@ -1,17 +1,22 @@
+$font-blockquote: $font-secondary-30;
+
 // Create a mixin for blockquote styles that can be implemented
 // in components with other classnames.
 @mixin blockquote(
   $margin: 0 0 0 1em,
   $padding: 0 0 0 1em,
+  $font-size: 1.6rem,
   $font-family: $font-blockquote,
   $border-color: $color-blockquote--border) {
   border-left: solid 5px #{$border-color};
-  font-family: #{$font-family};
+  font-size: #{$font-size};
+  font-family: $font-family;
   font-style: italic;
   margin: #{$margin};
   padding: #{$padding};
 }
 
+blockquote,
 .blockquote {
   @include blockquote;
 }
