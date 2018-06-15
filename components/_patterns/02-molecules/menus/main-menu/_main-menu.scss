@@ -138,11 +138,12 @@ $color-menu-text-light: $white;
           &:hover {
             > .main-menu--sub {
               position: absolute;
-              top: 50px; // Temporary number. Will need to be finalized later.
+              top: 85px;
             }
 
             .main-menu--sub {
               display: block;
+              z-index: 1;
             }
           }
         }
@@ -187,8 +188,11 @@ $color-menu-text-light: $white;
     }
 
     &--level-2 {
-      padding-left: $space-double;
+      padding: $space-two-thirds $space-and-half $space-two-thirds $space-double;
       color: $color-menu-text-medium;
+      font-size: 1.6rem;
+      line-height: 1.3125;
+      font-family: $font-tertiary;
     }
   }
 
