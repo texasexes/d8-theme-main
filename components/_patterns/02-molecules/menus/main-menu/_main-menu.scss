@@ -9,6 +9,8 @@ $color-menu-bg-light: $mushroom-light;
 $color-menu-text-dark: $purple-5;
 $color-menu-text-medium: $purple-4;
 $color-menu-text-light: $white;
+// Submenu toggles
+$main-menu-dropdown-toggle-width: $space-double;
 
 .main-menu-wrapper {
   background-color: $color-menu-bg-light;
@@ -22,7 +24,7 @@ $color-menu-text-light: $white;
     overflow: scroll;
     left: -100vw;
     top: 0;
-    transition: all 0.5s ease;
+    transition: left 0.5s ease;
     background-color: $purple-2;
     z-index: 1;
 
@@ -168,10 +170,6 @@ $color-menu-text-light: $white;
       color: $burnt-orange;
     }
 
-    &--with-sub {
-      max-width: calc(90vw - #{$space-double});
-    }
-
     &--level-0 {
       color: $color-menu-text-light;
       font-size: 2.2rem;
@@ -198,13 +196,21 @@ $color-menu-text-light: $white;
       line-height: 1.3125;
       font-family: $font-tertiary;
     }
+
+    @include breakpoint($break-nav-max) {
+      &--level-1,
+      &--level-2 {
+        padding-right: $space-one-third;
+        max-width: calc(90vw - #{$main-menu-dropdown-toggle-width});
+      }
+    }
   }
 
   &__expand-sub {
     color: $color-menu-text-medium;
     cursor: pointer;
     display: block;
-    flex: 0 0 $space-double;
+    flex: 0 0 $main-menu-dropdown-toggle-width;
     position: relative;
 
     &::after {
