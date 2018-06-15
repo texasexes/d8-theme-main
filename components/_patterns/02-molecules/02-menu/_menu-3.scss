@@ -4,7 +4,8 @@
   }
 
   .menu-level-0 {
-    font: 100%/1.5 $font-tertiary;
+    font-family: $font-tertiary;
+    line-height: 1.5;
 
     a {
       display: block;
