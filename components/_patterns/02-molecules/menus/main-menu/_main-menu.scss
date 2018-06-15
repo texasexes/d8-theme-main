@@ -133,6 +133,7 @@ $color-menu-text-light: $white;
 
       @include breakpoint($break-nav) {
         flex-flow: column nowrap;
+        position: relative;
 
         &.main-menu__item--level-0 {
           &:hover {
@@ -165,6 +166,10 @@ $color-menu-text-light: $white;
 
     &:hover {
       color: $burnt-orange;
+    }
+
+    &--with-sub {
+      max-width: calc(90vw - #{$space-double});
     }
 
     &--level-0 {
