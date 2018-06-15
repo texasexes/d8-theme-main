@@ -113,6 +113,7 @@ $color-menu-text-light: $white;
 
   &--level-1 {
     display: none;
+    min-width: 300px;
     background-color: $color-menu-bg-dark;
 
     &.js-visible {
@@ -137,7 +138,6 @@ $color-menu-text-light: $white;
           &:hover {
             > .main-menu--sub {
               position: absolute;
-              top: 85px;
             }
 
             .main-menu--sub {

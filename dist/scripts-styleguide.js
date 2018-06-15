@@ -89,6 +89,15 @@
   function subNavPosition() {
     mainMenuHeight = mainMenu.outerHeight();
     mainMenuSub.css({ 'top': mainMenuHeight });
+    // Ensure dropdown nav is always inside the viewport (prevents horizontal scrolling)
+    mainMenuSub.each(function () {
+      var subnavRightPosition = $(this).parent().offset().left + $(this).outerWidth();
+      // If the right edge of the subnav is outside the viewport
+      if (subnavRightPosition > winW) {
+        // Set element right position = 0
+        $(this).css({ 'right': "0" });
+      }
+    });
   };
 
   subNavPosition();
