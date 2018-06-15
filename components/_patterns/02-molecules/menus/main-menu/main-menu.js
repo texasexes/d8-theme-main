@@ -87,7 +87,6 @@
   function subNavPosition() {
     mainMenuHeight = mainMenu.outerHeight();
     mainMenuSub.css({'top': mainMenuHeight})
-    console.log(mainMenuHeight);
   };
 
   subNavPosition();
