@@ -25,15 +25,19 @@
   })();
 
   // Element selectors
+  const dom = $(document);
+  const win = $(window);
+  const body = $('body');
   const mainMenuToggle = $('.main-menu-toggle');
   const mainMenuToggleOpen = $('.main-menu-toggle--open');
   const mainMenu = $('.main-nav');
   const mainMenuSub = $('.main-menu__expand-sub');
   const toolbar = $('.toolbar-bar');
-  const toolbarTray = $('.toolbar-tray.is-active');
-  const body = $('body');
-  const win = $(window);
-  const dom = $(document);
+
+  // Calculated values
+  let winH = win.height();
+  let bodyPaddingTop = '0';
+  let maxHeight = '100vh';
 
   // Classes
   const mainMenuSubOpen = 'main-menu__expand-sub--open';
@@ -61,7 +65,7 @@
     // Add overlay
     else {
       mainMenuBg = $('<span class="js-main-menu-close" />');
-      mainMenuBg.css({top: toolbarHeight});
+      mainMenuBg.css({top: bodyPaddingTop});
       mainMenuToggleOpen.append(mainMenuBg);
     }
   };
@@ -79,26 +83,29 @@
     $(this).next('ul').toggleClass(mainMenuVisible);
   });
 
+  // Calculate body padding top (to accommodate the admin menu)
+  function calculateBodyPaddingTop() {
+      bodyPaddingTop = parseInt(body.css('padding-top'));
+  };
+
+  function calculateMenuHeights() {
+    dom.ready(function() {
+      winH = win.height();
+      console.log(winH);
+      calculateBodyPaddingTop();
+      console.log(bodyPaddingTop);
+      maxHeight = winH - bodyPaddingTop;
+      console.log(maxHeight);
+      mainMenu.css({'top': bodyPaddingTop, 'max-height': maxHeight});
+    });
+  };
+
+  calculateMenuHeights();
+
   win.resize(function () {
-      waitForFinalEvent(function(){
-        // Account for admin menu
-        let winH = win.height();
-        console.log("winH = " + winH);
-        let toolbarHeight = '0';
-
-        if (toolbar.length) {
-          toolbarHeight = toolbar.outerHeight();
-          console.log("toolbarHeight = " + toolbarHeight);
-        }
-
-        let heightAdjust = winH - toolbarHeight;
-        console.log("heightAdjust = " + heightAdjust);
-
-        dom.ready(function() {
-          mainMenu.css({'top': toolbarHeight, 'max-height': heightAdjust});
-        })
-
-      }, 500, "Main menu - window resize");
+    waitForFinalEvent(function(){
+      calculateMenuHeights();
+    }, 500, "Main menu - window resize");
   });
 
 
