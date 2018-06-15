@@ -1,10 +1,13 @@
+// Label
+$font-label: $font-primary;
+
 // Create a mixin for blockquote styles that can be implemented
 // in components with other classnames.
 @mixin label(
   $margin: 0 0 0 1em,
   $padding: 0 0 0 1em,
   $font-family: $font-label) {
-  font-family: #{$font-family};
+  font-family: $font-family;
   margin: #{$margin};
   padding: #{$padding};
 }

@@ -1,4 +1,3 @@
-// Heading
 $font-heading-1: $font-secondary-68;
 $font-heading-2: $font-primary;
 $font-heading-3: $font-secondary-30;
@@ -27,7 +26,7 @@ $font-heading-h2-alt-6: $font-tertiary;
   $line-height: 0.835,
   $text-transform: none) {
   color: #{$color};
-  font-family: #{$font-family};
+  font-family: $font-family;
   font-size: #{$font-size};
   font-style: #{$font-style};
   font-weight: #{$font-weight};
@@ -47,22 +46,28 @@ $font-heading-h2-alt-6: $font-tertiary;
   // }
 }
 
+h1,
 .h1 {
   @include heading($color: $heading-color-h1-default, $text-transform: uppercase);
 }
 
+h2,
 .h2 {
   @include heading($color: $heading-color-h2-default, $font-size: 2.096rem, $line-height: 1.29, $font-family: $font-heading-2 );
 }
 
+h3,
 .h3 {
   @include heading($color: $heading-color-h3-default, $font-size: 1.5rem, $line-height: 1.6, $font-family: $font-heading-3 , $text-transform: uppercase );
 }
 
+h4,
 .h4 {
   @include heading($color: $heading-color-h4-default, $font-size: 1.92rem, $line-height: 1.6, $font-weight: 600);
 }
 
+h5,
+h6,
 .h5,
 .h6 {
   @include heading($font-size: 1.76rem, $line-height: 2, $font-weight: 600);
@@ -318,30 +323,3 @@ $font-heading-h2-alt-6: $font-tertiary;
     }
   }
 }
-
-// TODO: BEM selectors should be applied to wysiwyg-created content
-
-// .text-long {
-//   h1 {
-//     @extend .h1;
-//   }
-//
-//   h2 {
-//     @extend .h2;
-//
-//   h3 {
-//     @extend .h3;
-//   }
-//
-//   h4 {
-//     @extend .h4;
-//   }
-//
-//   h5 {
-//     @extend .h5;
-//   }
-//
-//   h6 {
-//     @extend .h6;
-//   }
-// }
