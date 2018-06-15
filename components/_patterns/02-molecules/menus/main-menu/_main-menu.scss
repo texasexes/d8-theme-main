@@ -135,7 +135,6 @@ $main-menu-dropdown-toggle-width: $space-double;
 
       @include breakpoint($break-nav) {
         flex-flow: column nowrap;
-        position: relative;
 
         &.main-menu__item--level-0 {
           &:hover {
@@ -254,14 +253,4 @@ $main-menu-dropdown-toggle-width: $space-double;
   height: 100vh;
   width: 100vw;
   background-color: $black-trans;
-}
-
-body {
-  position: relative;
-}
-
-.noscroll {
-  overflow: hidden;
-  position: fixed;
-  width: 100%;
 }
