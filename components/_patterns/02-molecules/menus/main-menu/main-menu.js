@@ -31,13 +31,15 @@
   const mainMenuToggle = $('.main-menu-toggle');
   const mainMenuToggleOpen = $('.main-menu-toggle--open');
   const mainMenu = $('.main-nav');
-  const mainMenuSub = $('.main-menu__expand-sub');
+  const mainMenuSub = $('.main-menu--level-1');
+  const mainMenuExpandSub = $('.main-menu__expand-sub');
   const toolbar = $('.toolbar-bar');
 
   // Calculated values
   let winH = win.height();
   let bodyPaddingTop = '0';
   let maxHeight = '100vh';
+  let mainMenuHeight = mainMenu.outerHeight();
 
   // Classes
   const mainMenuSubOpen = 'main-menu__expand-sub--open';
@@ -50,7 +52,7 @@
 
   // Show/Hide overlay
   function mainMenuBgToggle() {
-    // Prevent the background from scrolling
+    // Prevent the background from scrolling when the mobile menu is active
     body.toggleClass(noscroll);
 
     // Display Main Nav
@@ -76,8 +78,16 @@
     mainMenuBgToggle();
   });
 
+  function subNavPosition() {
+    mainMenuHeight = mainMenu.outerHeight();
+    mainMenuSub.css({'top': mainMenuHeight})
+    console.log(mainMenuHeight);
+  };
+
+  subNavPosition();
+
   // Display Sub-nav
-  mainMenuSub.click(function (e) {
+  mainMenuExpandSub.click(function (e) {
     e.preventDefault();
     $(this).toggleClass(mainMenuSubOpen);
     $(this).next('ul').toggleClass(mainMenuVisible);
@@ -91,11 +101,8 @@
   function calculateMenuHeights() {
     dom.ready(function() {
       winH = win.height();
-      console.log(winH);
       calculateBodyPaddingTop();
-      console.log(bodyPaddingTop);
       maxHeight = winH - bodyPaddingTop;
-      console.log(maxHeight);
       mainMenu.css({'top': bodyPaddingTop, 'max-height': maxHeight});
     });
   };
@@ -105,7 +112,8 @@
   win.resize(function () {
     waitForFinalEvent(function(){
       calculateMenuHeights();
-    }, 500, "Main menu - window resize");
+      subNavPosition();
+    }, 100, "Main menu - window resize");
   });
 
 

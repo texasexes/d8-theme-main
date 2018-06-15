@@ -33,13 +33,15 @@
   var mainMenuToggle = $('.main-menu-toggle');
   var mainMenuToggleOpen = $('.main-menu-toggle--open');
   var mainMenu = $('.main-nav');
-  var mainMenuSub = $('.main-menu__expand-sub');
+  var mainMenuSub = $('.main-menu--level-1');
+  var mainMenuExpandSub = $('.main-menu__expand-sub');
   var toolbar = $('.toolbar-bar');
 
   // Calculated values
   var winH = win.height();
   var bodyPaddingTop = '0';
   var maxHeight = '100vh';
+  var mainMenuHeight = mainMenu.outerHeight();
 
   // Classes
   var mainMenuSubOpen = 'main-menu__expand-sub--open';
@@ -52,7 +54,7 @@
 
   // Show/Hide overlay
   function mainMenuBgToggle() {
-    // Prevent the background from scrolling
+    // Prevent the background from scrolling when the mobile menu is active
     body.toggleClass(noscroll);
 
     // Display Main Nav
@@ -78,8 +80,16 @@
     mainMenuBgToggle();
   });
 
+  function subNavPosition() {
+    mainMenuHeight = mainMenu.outerHeight();
+    mainMenuSub.css({ 'top': mainMenuHeight });
+    console.log(mainMenuHeight);
+  };
+
+  subNavPosition();
+
   // Display Sub-nav
-  mainMenuSub.click(function (e) {
+  mainMenuExpandSub.click(function (e) {
     e.preventDefault();
     $(this).toggleClass(mainMenuSubOpen);
     $(this).next('ul').toggleClass(mainMenuVisible);
@@ -93,11 +103,8 @@
   function calculateMenuHeights() {
     dom.ready(function () {
       winH = win.height();
-      console.log(winH);
       calculateBodyPaddingTop();
-      console.log(bodyPaddingTop);
       maxHeight = winH - bodyPaddingTop;
-      console.log(maxHeight);
       mainMenu.css({ 'top': bodyPaddingTop, 'max-height': maxHeight });
     });
   };
@@ -107,7 +114,8 @@
   win.resize(function () {
     waitForFinalEvent(function () {
       calculateMenuHeights();
-    }, 500, "Main menu - window resize");
+      subNavPosition();
+    }, 100, "Main menu - window resize");
   });
 })(jQuery, Drupal);
 //# sourceMappingURL=scripts-styleguide.js.map
