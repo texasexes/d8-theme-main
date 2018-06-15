@@ -1,3 +1,5 @@
+$font-paragraph: $font-tertiary;
+
 // Create a mixin for paragraph styles that can be implemented
 // in components with other classnames.
 @mixin paragraph(
@@ -7,13 +9,14 @@
   $color: $paragraph-color-default,
   $line-height: 1.7) {
   font-size: #{$font-size};
-  font-family: #{$font-family};
+  font-family: $font-family;
   margin: #{$margin};
   color: #{$color};
   line-height: $line-height;
 }
 
 // When a paragraph is a block, this is it's class (BEM)
+p,
 .p {
   @include paragraph;
 }
