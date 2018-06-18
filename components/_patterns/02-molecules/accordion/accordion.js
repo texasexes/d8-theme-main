@@ -56,5 +56,3 @@
 // // UNCOMMENT IF DRUPAL
 // //   }
 // // };
-"use strict";
-//# sourceMappingURL=scripts-styleguide.js.map
