@@ -8,14 +8,14 @@
     padding: $space-one-half 0;
 
     &::before {
+      content: '+';
       flex: 0 0 $space;
       text-align: center;
-      content: "+";
     }
 
     &.js-active {
       &::before {
-        content: "-";
+        content: '-';
       }
     }
   }
