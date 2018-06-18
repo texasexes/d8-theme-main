@@ -8,17 +8,14 @@
  * - listItems - TBD
  */
 #}
-{% set dl_base_class = dl_base_class|default('dl') %}
+{% set dl_base_class = dl_base_class|default('definition-list') %}
 
 <dl {{ bem(dl_base_class, (dl_modifiers), dl_blockname) }}>
   {% for dl_item in dl_items %}
     {% include "@atoms/05-lists/03-definition-list/_list-item-definition.twig" with {
-      dl_term_base_class: dl_item.dl_term_base_class,
-      dl_def_base_class: dl_item.dl_def_base_class,
-      dl_term_modifiers: dl_item.dl_term_modifiers,
-      dl_def_modifiers: dl_item.dl_def_modifiers,
-      dl_term_blockname: dl_item.dl_term_blockname,
-      dl_def_blockname: dl_item.dl_def_blockname,
+      dl_blockname: dl_base_class,
+      heading: dl_item.heading,
+      content: dl_item.content,
     } %}
   {% endfor %}
 </dl>
