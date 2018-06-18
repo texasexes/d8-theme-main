@@ -1,45 +1,31 @@
-// .accordion-term {
-//   border-top: 1px solid $gray-lightest;
-//   color: $gray-dark;
-//   cursor: pointer;
-//   display: block;
-//   font-size: 1rem;
-//   font-weight: 600;
-//   padding: 1em 0;
+.accordion {
+  margin: 0;
 
-//   &::before {
-//     content: "+";
-//     padding: 0.8em;
-//     top: 0.35em;
-//   }
+  &__heading {
+    border-top: 1px solid $grey-5;
+    cursor: pointer;
+    display: flex;
+    padding: $space-one-half 0;
 
-//   &:hover {
-//     color: $gray;
-//   }
+    &::before {
+      flex: 0 0 $space;
+      text-align: center;
+      content: "+";
+    }
 
-//   &.is-active {
-//     color: $gray;
+    &.js-active {
+      &::before {
+        content: "-";
+      }
+    }
+  }
 
-//     &::before {
-//       content: "-";
-//       top: 0.45em;
-//     }
+  &__content {
+    margin: 0 $space $space-one-half;
 
-//     & + dd {
-//       height: auto;
-//       margin: 0 2em;
-//       overflow: visible;
-//       padding-bottom: 1em;
-//     }
-//   }
-// }
-
-// .accordion-def {
-//   margin: 0 2em;
-
-//   &.active {
-//     height: 0;
-//     margin: 0 2em;
-//     overflow: hidden;
-//   }
-// }
+    &.js-hidden {
+      height: 0;
+      overflow: hidden;
+    }
+  }
+}
