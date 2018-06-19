@@ -1,0 +1,31 @@
+.accordion {
+  margin: 0;
+
+  &__heading {
+    border-top: 1px solid $grey-5;
+    cursor: pointer;
+    display: flex;
+    padding: $space-one-half 0;
+
+    &::before {
+      content: '+';
+      flex: 0 0 $space;
+      text-align: center;
+    }
+
+    &.js-active {
+      &::before {
+        content: '-';
+      }
+    }
+  }
+
+  &__content {
+    margin: 0 $space $space-one-half;
+
+    &.js-hidden {
+      height: 0;
+      overflow: hidden;
+    }
+  }
+}
