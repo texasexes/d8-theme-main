@@ -1,0 +1,21 @@
+{#
+/**
+ * Available variables:
+ * - dl_base_class - the base classname
+ * - dl_modifiers - array of modifiers to add to the base classname
+ * - dl_blockname - blockname prepended to the base classname
+ *
+ * - listItems - TBD
+ */
+#}
+{% set dl_base_class = dl_base_class|default('definition-list') %}
+
+<dl {{ bem(dl_base_class, (dl_modifiers), dl_blockname) }}>
+  {% for dl_item in dl_items %}
+    {% include "@atoms/05-lists/03-definition-list/_list-item-definition.twig" with {
+      dl_blockname: dl_base_class,
+      heading: dl_item.heading,
+      content: dl_item.content,
+    } %}
+  {% endfor %}
+</dl>
