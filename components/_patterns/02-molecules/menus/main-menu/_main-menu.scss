@@ -1,6 +1,3 @@
-// Breakpoints
-$break-nav-max: max-width 767px;
-$break-nav: 768px;
 // Backgrounds
 $color-menu-bg-dark: $purple-2;
 $color-menu-bg-dark-hover: $purple-1;
@@ -13,7 +10,9 @@ $color-menu-text-light: $white;
 $main-menu-dropdown-toggle-width: $space-double;
 
 .main-menu-wrapper {
-  background-color: $color-menu-bg-light;
+  @include breakpoint($break-nav) {
+    background-color: $color-menu-bg-light;
+  }
 }
 
 .main-nav {
@@ -38,7 +37,7 @@ $main-menu-dropdown-toggle-width: $space-double;
   position: relative;
   display: flex;
   flex-flow: row nowrap;
-  padding: $space-one-half $space;
+  padding: $space-one-half $space $space-one-half 0;
   color: $purple-5;
   text-decoration: none;
 
@@ -51,29 +50,25 @@ $main-menu-dropdown-toggle-width: $space-double;
     padding: $space-one-half;
   }
 
-  &__icon {
+  &__icon,
+  &__icon::before,
+  &__icon::after {
+    position: relative;
     display: block;
     content: '';
     width: $space;
-    height: 2px;
-    background-color: $purple-5;
+    height: 3px;
+    background-color: $color-menu-text-medium;
+    border-radius: 1em;
+  }
 
-    &::before,
-    &::after {
-      position: relative;
-      display: block;
-      content: '';
-      width: $space;
-      height: 2px;
-      background-color: $purple-5;
-    }
-
+  &__icon {
     &::before {
       top: -6px;
     }
 
     &::after {
-      bottom: -4px;
+      bottom: -3px;
     }
 
     &.js-menu-active {
@@ -83,17 +78,15 @@ $main-menu-dropdown-toggle-width: $space-double;
       &::before {
         transform: rotate(45deg);
         top: 0;
-        left: 5px;
+        left: 6px;
         width: $space-two-thirds;
-        background-color: $color-menu-text-medium;
       }
 
       &::after {
         transform: rotate(-45deg);
-        bottom: 2px;
-        left: 5px;
+        bottom: 3px;
+        left: 6px;
         width: $space-two-thirds;
-        background-color: $color-menu-text-medium;
       }
     }
   }
@@ -167,7 +160,6 @@ $main-menu-dropdown-toggle-width: $space-double;
   &__link {
     display: block;
     flex: 1 0 auto;
-    width: 100%;
     padding: $space;
     text-decoration: none;
 
@@ -208,6 +200,10 @@ $main-menu-dropdown-toggle-width: $space-double;
         padding-right: $space-one-third;
         max-width: calc(90vw - #{$main-menu-dropdown-toggle-width});
       }
+    }
+
+    @include breakpoint($break-nav) {
+      width: 100%;
     }
   }
 

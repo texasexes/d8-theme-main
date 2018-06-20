@@ -255,5 +255,9 @@ $custom:(
 }
 
 .searchbox {
-  float: right;
+  // float: right;
+
+  @include breakpoint($break-nav-max) {
+    display: none;
+  }
 }

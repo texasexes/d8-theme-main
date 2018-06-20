@@ -1,7 +1,6 @@
 .account-nav {
-  // float: right;
-  height: 2em; //to allow child to vertical align text
   line-height: 2em; //to allow child to vertical align text
+  flex: 0 0 75px;
 
   & svg {
     width: 1.2em;
@@ -9,6 +8,10 @@
     vertical-align: middle;
     fill: $menu-text-color-5;
     margin-left: 1em;
+
+    @include breakpoint($break-nav-max) {
+      display: none;
+    }
   }
 
   &:hover {

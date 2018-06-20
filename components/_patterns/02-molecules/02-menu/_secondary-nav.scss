@@ -1,6 +1,7 @@
 .secondary-nav {
-  // clear: right;
-  // float: right;
+  @include breakpoint($break-nav-max) {
+    display: none;
+  }
 
   &__menu--item {
     display: inline-block;

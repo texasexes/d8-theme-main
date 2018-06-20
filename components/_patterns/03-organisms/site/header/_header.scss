@@ -1,0 +1,12 @@
+.header {
+  display: flex;
+}
+
+.header-region {
+  @include wrapper;
+
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
