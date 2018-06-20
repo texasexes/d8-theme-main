@@ -200,9 +200,8 @@ example_items:
                   subtitle
               # Link
               5:
-                link_attributes:
-                  href:
-                    "http://www.google.com"
+                link_url:
+                  "#"
                 link:
                   "Google"
     # Item 3

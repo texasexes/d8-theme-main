@@ -38,9 +38,9 @@
     {# Title #}
     {%- if layout_item.title -%}
       {% set layout_item %}
-        {%- if layout_item.link_attributes -%}
+        {%- if layout_item.link_url -%}
           {%- embed "@atoms/01-links/link/link.twig" with {
-            "link_attributes": layout_item.link_attributes,
+            "link_url": layout_item.link_url,
             "link_modifiers": layout_item.modifiers,
             "link_blockname": layout_section_base_class,
           } -%}
@@ -67,9 +67,9 @@
     {# Subtitle #}
     {%- if layout_item.subtitle -%}
       {% set layout_item %}
-        {%- if layout_item.link_attributes -%}
+        {%- if layout_item.link_url -%}
           {%- embed "@atoms/01-links/link/link.twig" with {
-            "link_attributes": layout_item.link_attributes,
+            "link_url": layout_item.link_url,
             "link_modifiers": layout_item.modifiers,
             "link_blockname": layout_section_base_class,
           } -%}
@@ -96,9 +96,9 @@
     {# Slug #}
     {%- if layout_item.slug -%}
       {% set layout_item %}
-        {%- if layout_item.link_attributes -%}
+        {%- if layout_item.link_url -%}
           {%- embed "@atoms/01-links/link/link.twig" with {
-            "link_attributes": layout_item.link_attributes,
+            "link_url": layout_item.link_url,
             "link_modifiers": layout_item.modifiers,
             "link_blockname": layout_section_base_class,
           } -%}
@@ -146,11 +146,11 @@
     {%- endif -%}
     {# End Button #}
     {# Link #}
-    {%- if layout_item.link_attributes -%}
+    {%- if layout_item.link_url -%}
       {% set layout_item %}
         {%- include "@atoms/01-links/link/link.twig" with {
           "link_content": layout_item.link,
-          "link_attributes": layout_item.link_attributes,
+          "link_url": layout_item.link_url,
           "link_modifiers": layout_item.modifiers,
           "link_blockname": layout_section_base_class,
         } -%}

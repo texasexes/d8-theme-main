@@ -64,8 +64,7 @@ card_sections:
             alt-2
       # Link
       4:
-        link_attributes:
-          href:
-            "http://www.google.com"
+        link_url:
+          "#"
         link:
           "Here is the link"

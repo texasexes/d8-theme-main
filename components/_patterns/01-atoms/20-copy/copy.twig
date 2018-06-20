@@ -33,7 +33,6 @@
  * - copy_link_url - the url the link should link to
  * - copy_link_base_class - base classname of the link component. Defaults to "link"
  * - copy_link_blockname - override link blockname. Defaults to copy_base_class
- * - copy_link_attributes - array of attribute,value pairs for the link attribute
  * - copy_link_modifiers - array of modifiers to add to the base classname of the link
  *
  * - copy_button_content - the content of the button component
@@ -50,9 +49,9 @@
     {%- for copy_item in copy_items -%}
         {# Title #}
         {%- if copy_item.title -%}
-          {%- if copy_item.link_attributes -%}
+          {%- if copy_item.link_url -%}
             {%- embed "@atoms/01-links/link/link.twig" with {
-              "link_attributes": copy_item.link_attributes,
+              "link_url": copy_item.link_url,
               "link_base_class": copy_item.link_base_class,
               "link_modifiers": copy_item.link_modifiers,
               "link_blockname": copy_base_class,
@@ -81,9 +80,9 @@
 
         {# Subtitle #}
         {%- if copy_item.subtitle -%}
-          {%- if copy_item.link_attributes -%}
+          {%- if copy_item.link_url -%}
             {%- embed "@atoms/01-links/link/link.twig" with {
-              "link_attributes": copy_item.link_attributes,
+              "link_url": copy_item.link_url,
               "link_base_class": copy_item.link_base_class,
               "link_modifiers": copy_item.link_modifiers,
               "link_blockname": copy_base_class,
@@ -112,9 +111,9 @@
 
         {# Body #}
         {%- if copy_item.body -%}
-          {%- if copy_item.link_attributes -%}
+          {%- if copy_item.link_url -%}
             {%- embed "@atoms/01-links/link/link.twig" with {
-              "link_attributes": copy_item.link_attributes,
+              "link_url": copy_item.link_url,
               "link_base_class": copy_item.link_base_class,
               "link_modifiers": copy_item.link_modifiers,
               "link_blockname": copy_base_class,
@@ -152,10 +151,10 @@
         {# End Button #}
 
         {# Link #}
-        {%- if copy_item.link_attributes -%}
+        {%- if copy_item.link_url -%}
           {%- include "@atoms/01-links/link/link.twig" with {
             "link_content": copy_item.link,
-            "link_attributes": copy_item.link_attributes,
+            "link_url": copy_item.link_url,
             "link_base_class": copy_item.link_base_class,
             "link_modifiers": copy_item.link_modifiers,
             "link_blockname": copy_base_class,

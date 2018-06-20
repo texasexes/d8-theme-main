@@ -45,9 +45,8 @@ card_sections:
       2:
         title:
           "Card Title"
-        link_attributes:
-          href:
-            "http://www.google.com"
+        link_url:
+          "#"
         modifiers:
           1:
             title
@@ -60,8 +59,7 @@ card_sections:
             subtitle
       # Link
       4:
-        link_attributes:
-          href:
-            "http://www.google.com"
+        link_url:
+          "#"
         link:
           "Base Card Link"
