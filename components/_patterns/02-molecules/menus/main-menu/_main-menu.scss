@@ -142,6 +142,7 @@ $main-menu-dropdown-toggle-width: $space-double;
           &:hover {
             > .main-menu--sub {
               position: absolute;
+              left: 0;
             }
 
             .main-menu--sub {
@@ -154,6 +155,8 @@ $main-menu-dropdown-toggle-width: $space-double;
     }
 
     &--level-0 {
+      position: relative;
+
       @include breakpoint($break-nav-max) {
         border-top: 1px solid $color-menu-text-medium;
       }
@@ -164,6 +167,7 @@ $main-menu-dropdown-toggle-width: $space-double;
   &__link {
     display: block;
     flex: 1 0 auto;
+    width: 100%;
     padding: $space;
     text-decoration: none;
 

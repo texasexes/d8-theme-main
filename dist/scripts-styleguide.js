@@ -112,7 +112,7 @@
       // If the right edge of the subnav is outside the viewport
       if (subnavRightPosition > winW) {
         // Set element right position = 0
-        $(this).css({ 'right': "0" });
+        $(this).css({ 'right': "0", "left": "auto" });
       }
     });
   };
