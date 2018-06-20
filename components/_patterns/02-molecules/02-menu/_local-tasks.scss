@@ -1,0 +1,18 @@
+.local-tasks-nav {
+  & a {
+    // color: $blue;
+    text-decoration: none;
+    padding-right: 1em;
+    font-size: 0.8em;
+    font-family: "Rubik";
+  }
+
+  ul {
+    list-style: none;
+    padding-left: 52px;
+  }
+
+  li {
+    display: inline-block;
+  }
+}
