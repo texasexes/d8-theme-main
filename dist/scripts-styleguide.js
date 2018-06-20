@@ -2,6 +2,23 @@
 
 (function ($, Drupal) {
 
+  var accordionHeading = $('.accordion__heading');
+  var accordionContent = $('.accordion__content');
+  var activeClass = 'js-active';
+  var hiddenClass = 'js-hidden';
+
+  accordionContent.addClass(hiddenClass);
+
+  accordionHeading.click(function (e) {
+    e.preventDefault();
+    $(this).toggleClass(activeClass);
+    $(this).next(accordionContent).toggleClass(hiddenClass);
+  });
+})(jQuery, Drupal);
+'use strict';
+
+(function ($, Drupal) {
+
   // WaitForFinalEvent Function
   // This function allow us to only perform re-calculations AFTER an event has copmleted.
   // Below, we'll use it to recalculate values only after the window has been resized, instead of recalculating every pixel change.

@@ -128,6 +128,8 @@ $main-menu-dropdown-toggle-width: $space-double;
 
   // li
   &__item {
+    align-items: center;
+
     // Items with children
     &--with-sub {
       display: flex;
@@ -206,34 +208,13 @@ $main-menu-dropdown-toggle-width: $space-double;
   }
 
   &__expand-sub {
-    color: $color-menu-text-medium;
+    fill: $color-menu-text-medium;
     cursor: pointer;
-    display: block;
     flex: 0 0 $main-menu-dropdown-toggle-width;
-    position: relative;
-
-    &::after {
-      border: $space-one-half solid;
-      border-right-color: transparent;
-      border-top-color: transparent;
-      border-bottom-color: transparent;
-      content: '';
-      display: block;
-      margin-right: -12px;
-      margin-top: -6px;
-      position: absolute;
-      left: 42%;
-      top: 32%;
-      width: 0;
-    }
+    height: 2.2rem;
 
     &--open {
-      &::after {
-        border-top: $space-one-half solid;
-        border-left-color: transparent;
-        left: 25%;
-        top: 50%;
-      }
+      transform: rotate(90deg);
     }
 
     @include breakpoint($break-nav) {
