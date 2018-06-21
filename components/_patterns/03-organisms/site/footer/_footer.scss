@@ -1,3 +1,5 @@
+$break-footer: 980px;
+
 .footer-region {
   padding: 45px 45px 55px;
   background-color: #282a32;
@@ -11,6 +13,10 @@
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-between;
+
+    @include breakpoint($break-footer) {
+      flex-flow: row wrap;
+    }
   }
 
   &__item {
