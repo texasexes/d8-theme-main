@@ -2,6 +2,11 @@
   line-height: 2em; //to allow child to vertical align text
   flex: 0 0 75px;
 
+  @include breakpoint($break-nav) {
+    flex-basis: auto;
+    padding-bottom: 1em;
+  }
+
   & svg {
     width: 1.2em;
     // height: 16px;
@@ -44,10 +49,10 @@
   }
 
   &__menu {
+    display: inline-block;
     margin: 0;
     padding: 0;
     height: 100%;
-    // float: right;
     position: relative;
 
     & > .account-nav__menu--item {

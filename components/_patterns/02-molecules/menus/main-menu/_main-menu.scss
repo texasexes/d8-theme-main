@@ -10,7 +10,7 @@ $color-menu-text-light: $white;
 $main-menu-dropdown-toggle-width: $space-double;
 
 .primary-nav {
-  flex: 1 1 auto;
+  flex: 1 1 25%;
 
   @include breakpoint($break-nav) {
     @include breakout;
@@ -23,6 +23,7 @@ $main-menu-dropdown-toggle-width: $space-double;
   .search-block-form {
     flex: 1 1 auto;
     background-color: $color-menu-bg-darker;
+    padding: $space-one-half;
 
     @include breakpoint($break-nav) {
       display: none;
@@ -70,6 +71,7 @@ $main-menu-dropdown-toggle-width: $space-double;
 
   &--close {
     flex: 1 1 auto;
+    align-items: center;
     background-color: $color-menu-bg-darker;
     padding: $space-one-half;
   }

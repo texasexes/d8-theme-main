@@ -1,6 +1,12 @@
 .secondary-nav {
+  flex-basis: 100%;
+
   @include breakpoint($break-nav-max) {
     display: none;
+  }
+
+  &__menu {
+    @include list-reset;
   }
 
   &__menu--item {
