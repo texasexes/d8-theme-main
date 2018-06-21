@@ -185,6 +185,15 @@ $main-menu-dropdown-toggle-width: $space-double;
       @include breakpoint($break-nav-max) {
         border-top: 1px solid $color-menu-text-medium;
       }
+
+      @include breakpoint($break-nav) {
+        &:hover {
+          > a {
+            color: $color-menu-text-light;
+            background-color: $color-menu-bg-darker;
+          }
+        }
+      }
     }
   }
 
@@ -207,11 +216,6 @@ $main-menu-dropdown-toggle-width: $space-double;
 
       @include breakpoint($break-nav) {
         color: $color-menu-text-dark;
-
-        &:hover {
-          color: $color-menu-text-light;
-          background-color: $color-menu-bg-darker;
-        }
       }
     }
 
