@@ -113,6 +113,8 @@
       if (subnavRightPosition > winW) {
         // Set element right position = 0
         $(this).css({ 'right': "0", "left": "auto" });
+      } else {
+        $(this).css({ 'right': "auto", "left": "0" });
       }
     });
   };

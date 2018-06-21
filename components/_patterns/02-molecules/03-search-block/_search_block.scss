@@ -254,10 +254,10 @@ $custom:(
   @include searchbox($custom...);
 }
 
-.searchbox {
-  // float: right;
-
-  @include breakpoint($break-nav-max) {
-    display: none;
+.header__secondary {
+  .searchbox {
+    @include breakpoint($break-nav-max) {
+      display: none;
+    }
   }
 }

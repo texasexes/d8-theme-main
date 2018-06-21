@@ -1,6 +1,6 @@
 // Backgrounds
+$color-menu-bg-darker: $purple-1;
 $color-menu-bg-dark: $purple-2;
-$color-menu-bg-dark-hover: $purple-1;
 $color-menu-bg-light: $mushroom-light;
 // Text
 $color-menu-text-dark: $purple-5;
@@ -9,9 +9,30 @@ $color-menu-text-light: $white;
 // Submenu toggles
 $main-menu-dropdown-toggle-width: $space-double;
 
+.primary-nav {
+  flex: 1 1 auto;
+
+  @include breakpoint($break-nav) {
+    @include breakout;
+
+    order: 1;
+    flex-basis: 100%;
+    background-color: $color-menu-bg-light;
+  }
+
+  .search-block-form {
+    flex: 1 1 auto;
+    background-color: $color-menu-bg-darker;
+
+    @include breakpoint($break-nav) {
+      display: none;
+    }
+  }
+}
+
 .main-menu-wrapper {
   @include breakpoint($break-nav) {
-    background-color: $color-menu-bg-light;
+    @include wrapper;
   }
 }
 
@@ -26,6 +47,8 @@ $main-menu-dropdown-toggle-width: $space-double;
     transition: left 0.5s ease;
     background-color: $purple-2;
     z-index: 1;
+    display: flex;
+    flex-flow: row wrap;
 
     &.js-visible {
       left: 0;
@@ -46,7 +69,8 @@ $main-menu-dropdown-toggle-width: $space-double;
   }
 
   &--close {
-    background-color: $purple-1;
+    flex: 1 1 auto;
+    background-color: $color-menu-bg-darker;
     padding: $space-one-half;
   }
 
@@ -98,6 +122,7 @@ $main-menu-dropdown-toggle-width: $space-double;
   list-style: none;
   margin: 0;
   padding: 0;
+  flex-basis: 100%;
 
   // ul
   &--level-0 {
@@ -175,6 +200,11 @@ $main-menu-dropdown-toggle-width: $space-double;
 
       @include breakpoint($break-nav) {
         color: $color-menu-text-dark;
+
+        &:hover {
+          color: $color-menu-text-light;
+          background-color: $color-menu-bg-darker;
+        }
       }
     }
 

@@ -9,4 +9,16 @@
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
+
+  @include breakpoint($break-nav) {
+    flex-wrap: wrap;
+  }
+}
+
+.header__top {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1 1 auto;
 }
