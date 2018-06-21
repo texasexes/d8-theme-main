@@ -125,6 +125,7 @@ $main-menu-dropdown-toggle-width: $space-double;
   margin: 0;
   padding: 0;
   flex-basis: 100%;
+  max-width: 100%;
 
   // ul
   &--level-0 {
@@ -154,6 +155,7 @@ $main-menu-dropdown-toggle-width: $space-double;
     &--with-sub {
       display: flex;
       flex-flow: row wrap;
+      overflow: hidden;
 
       @include breakpoint($break-nav) {
         flex-flow: column nowrap;
@@ -187,7 +189,7 @@ $main-menu-dropdown-toggle-width: $space-double;
   &__link {
     display: block;
     flex: 1 0 auto;
-    padding: $space;
+    padding: $space-one-half;
     text-decoration: none;
 
     &:hover {
@@ -213,7 +215,7 @@ $main-menu-dropdown-toggle-width: $space-double;
     &--level-1 {
       padding: $space-two-thirds $space-and-half;
       color: $color-menu-text-light;
-      font-size: 1.8rem;
+      font-size: 1.6rem;
       line-height: 1.11;
       font-family: $font-tertiary;
     }
@@ -222,7 +224,7 @@ $main-menu-dropdown-toggle-width: $space-double;
       padding: $space-two-thirds $space-and-half $space-two-thirds $space-double;
       color: $color-menu-text-medium;
       font-size: 1.6rem;
-      line-height: 1.3125;
+      line-height: 1.31;
       font-family: $font-tertiary;
     }
 
