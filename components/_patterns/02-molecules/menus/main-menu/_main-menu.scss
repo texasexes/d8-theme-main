@@ -252,7 +252,7 @@ $main-menu-dropdown-toggle-width: $space-double;
     fill: $color-menu-text-medium;
     cursor: pointer;
     flex: 0 0 $main-menu-dropdown-toggle-width;
-    height: 2.2rem;
+    height: 1rem;
 
     &--open {
       transform: rotate(90deg);
