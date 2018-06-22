@@ -1,0 +1,50 @@
+{#
+/**
+ * @file
+ * Default theme implementation to present a menu link entity entity.
+ *
+ * Available variables:
+ * - menu_link_content: Menu link entity.
+ *
+ * @see template_preprocess_menu_link_content()
+ *
+ * @ingroup themeable
+ */
+#}
+
+{% set entityObject = elements['#menu_link_content'] %}
+{% set content_for_render = content|without('field_mie_para_ref','field_mie_dropdown_height') %}
+{% set para_count = content.field_mie_para_ref.0['#paragraph'].fields.field_txex_ref_rev_para_01.getvalue|length %}
+{% if para_count == 1 %}
+  {% set layout_feature_class = 'flexbox__item--feature-20' %}
+{% elseif para_count == 2 %}
+  {% set layout_feature_class = 'flexbox__item--feature-40' %}
+{% elseif para_count == 3 %}
+  {% set layout_feature_class = 'flexbox__item--feature-60' %}
+{% elseif para_count == 4 %}
+  {% set layout_feature_class = 'flexbox__item--feature-80' %}
+{% endif %}
+{% set layout_item_classes = [
+  'flexbox__item',
+  layout_feature_class,
+]
+%}
+
+{% if content.field_mie_para_ref.0 %}
+  <div class="flexbox flexbox--horizontal">
+    <div {{ create_attribute().addClass(layout_item_classes) }}>
+      {{ content.field_mie_para_ref }}
+    </div>
+    <div {{ create_attribute().addClass(layout_item_classes) }}>
+      {% if content_for_render %}
+        {{ content_for_render }}
+      {% endif %}
+    </div>
+  </div>
+{% else %}
+  <div>
+    {% if content_for_render %}
+      {{ content_for_render }}
+    {% endif %}
+  </div>
+{% endif %}

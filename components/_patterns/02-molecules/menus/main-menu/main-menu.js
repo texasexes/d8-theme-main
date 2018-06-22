@@ -30,7 +30,7 @@
   const mainMenuToggle = $('.main-menu-toggle');
   const mainMenuToggleOpen = $('.main-menu-toggle--open');
   const mainMenu = $('.main-nav');
-  const mainMenuSub = $('.main-menu--level-1');
+  // const mainMenuSub = $('.main-menu--level-1');
   const mainMenuExpandSub = $('.main-menu__expand-sub');
   const toolbar = $('.toolbar-bar');
 
@@ -83,24 +83,24 @@
     mainMenuBgToggle();
   });
 
-  // Calculate the subnav position for the desktop view
-  function subNavPosition() {
-    mainMenuHeight = mainMenu.outerHeight();
-    mainMenuSub.css({'top': mainMenuHeight})
-    // Ensure dropdown nav is always inside the viewport (prevents horizontal scrolling)
-    mainMenuSub.each(function() {
-      const subnavRightPosition = $(this).parent().offset().left + $(this).outerWidth();
-      // If the right edge of the subnav is outside the viewport
-      if (subnavRightPosition > winW) {
-        // Set element right position = 0
-        $(this).css({'right': "0", "left": "auto"});
-      } else {
-        $(this).css({'right': "auto", "left": "0"});
-      }
-    });
-  };
+  // // Calculate the subnav position for the desktop view
+  // function subNavPosition() {
+  //   mainMenuHeight = mainMenu.outerHeight();
+  //   mainMenuSub.css({'top': mainMenuHeight})
+  //   // Ensure dropdown nav is always inside the viewport (prevents horizontal scrolling)
+  //   mainMenuSub.each(function() {
+  //     const subnavRightPosition = $(this).parent().offset().left + $(this).outerWidth();
+  //     // If the right edge of the subnav is outside the viewport
+  //     if (subnavRightPosition > winW) {
+  //       // Set element right position = 0
+  //       $(this).css({'right': "0", "left": "auto"});
+  //     } else {
+  //       $(this).css({'right': "auto", "left": "0"});
+  //     }
+  //   });
+  // };
 
-  subNavPosition();
+  // subNavPosition();
 
   // Display Sub-nav
   mainMenuExpandSub.click(function (e) {
@@ -143,7 +143,7 @@
       }
 
       calculateMenuHeights();
-      subNavPosition();
+      // subNavPosition();
     }, 100, "Main menu - window resize");
   });
 

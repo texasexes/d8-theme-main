@@ -154,7 +154,9 @@ $main-menu-dropdown-toggle-width: $space-double;
 
   // li
   &__item {
-    align-items: center;
+    @include breakpoint($break-nav-max) {
+      align-items: center;
+    }
 
     // Items with children
     &--with-sub {
@@ -170,14 +172,18 @@ $main-menu-dropdown-toggle-width: $space-double;
 
         &.main-menu__item--level-0 {
           &:hover {
-            > .main-menu--sub {
-              position: absolute;
-              left: 0;
-            }
-
             .main-menu--sub {
               display: block;
               z-index: 1;
+            }
+
+            > .main-menu--sub {
+              position: absolute;
+              top: 100%;
+              left: 0;
+              width: 100vw;
+              display: flex;
+              flex-flow: column wrap;
             }
           }
         }
@@ -185,7 +191,7 @@ $main-menu-dropdown-toggle-width: $space-double;
     }
 
     &--level-0 {
-      position: relative;
+      // position: relative;
 
       @include breakpoint($break-nav-max) {
         border-top: 1px solid $color-menu-text-medium;

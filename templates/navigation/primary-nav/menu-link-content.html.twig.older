@@ -1,0 +1,21 @@
+{#
+/**
+ * @file
+ * Default theme implementation to present a menu link entity entity.
+ *
+ * Available variables:
+ * - menu_link_content: Menu link entity.
+ *
+ * @see template_preprocess_menu_link_content()
+ *
+ * @ingroup themeable
+ */
+#}
+
+{% set content_for_render = content|without('field_mie_para_ref','field_mie_dropdown_height') %}
+
+<div>
+  {% if content_for_render %}
+    {{ content_for_render }}
+  {% endif %}
+</div>
