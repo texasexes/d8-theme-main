@@ -29,6 +29,11 @@ $main-menu-dropdown-toggle-width: $space-double;
       display: none;
     }
   }
+
+  .sbx-custom__input {
+    padding-top: 2.2rem;
+    padding-bottom: 2.2rem;
+  }
 }
 
 .main-menu-wrapper {
@@ -70,10 +75,10 @@ $main-menu-dropdown-toggle-width: $space-double;
   }
 
   &--close {
-    flex: 1 1 auto;
+    flex: 0 0 16px;
     align-items: center;
     background-color: $color-menu-bg-darker;
-    padding: $space-one-half;
+    padding-right: $space-one-half;
   }
 
   &__icon,
