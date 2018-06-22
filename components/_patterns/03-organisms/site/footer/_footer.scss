@@ -1,0 +1,53 @@
+$break-footer: 980px;
+
+.footer-region {
+  padding: 45px 45px 55px;
+  background-color: #282a32;
+  font-size: 15px;
+  font-family: "Rubik";
+  line-height: 23px;
+  text-align: left;
+  color: $footer-color;
+
+  &__wrapper {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+
+    @include breakpoint($break-footer) {
+      flex-flow: row wrap;
+    }
+  }
+
+  &__item {
+    flex: 1 0 auto;
+  }
+
+  & .footer-region__social-title {
+    display: inline-block;
+    margin-bottom: 1em;
+  }
+
+  & .footer-region__sponsor-title {
+    display: inline-block;
+    margin-bottom: 1em;
+  }
+
+  & address {
+    padding-top: 0.5em;
+    font-style: normal;
+
+    & a {
+      color: #808087;
+      text-decoration: none;
+    }
+  }
+
+  // & a[href^="tel:"]:before {
+  // .site-logo-2:before {
+  //   // content: "\260e";
+  //   // content: "\1F918";
+  //   font-size: 4em;
+  //   content: "\1F996";
+  // }
+}

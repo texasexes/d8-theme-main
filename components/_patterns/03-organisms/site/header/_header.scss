@@ -1,0 +1,43 @@
+.header-wrapper {
+  display: flex;
+}
+
+.header-region {
+  @include wrapper;
+
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+
+  @include breakpoint($break-nav) {
+    flex-wrap: wrap;
+  }
+}
+
+.header {
+  &__top {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1 1 75%;
+  }
+
+  &__branding {
+    flex: 1 1 50%;
+
+    img {
+      max-width: 288px;
+    }
+  }
+
+  &__secondary {
+    flex: 1 1 50%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+    text-align: right;
+    padding: 1em 0;
+  }
+}

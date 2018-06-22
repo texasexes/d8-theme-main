@@ -39,17 +39,15 @@ card_sections:
       2:
         title:
           "Card Title"
-        link_attributes:
-          href:
-            "http://www.google.com"
+        link_url:
+          "#"
       # Subtitle
       3:
         subtitle:
           "This is the base card subtitle."
       # Link
       4:
-        link_attributes:
-          href:
-            "http://www.google.com"
+        link_url:
+          "#"
         link:
           "Base Card Link"

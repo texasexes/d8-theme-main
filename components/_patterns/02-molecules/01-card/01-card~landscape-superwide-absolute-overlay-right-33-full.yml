@@ -1,95 +1,65 @@
 card_base_class:
   absolute
 card_modifiers:
-  1:
-    horizontal
-  2:
-    overlay-right
-  3:
-    item-box-1
-  4:
-    feature-33
-  5:
-    item-background-5
+  - horizontal
+  - overlay-right
+  - item-box-1
+  - feature-33
+  - item-background-5
 card_sections:
-  1:
-    layout_section_base_class:
+  - layout_section_base_class:
       flexbox
     layout_section_modifiers:
-      1:
-        vertical
+      - vertical
     layout_section_layout_extra:
-      1:
-        horizontal
-      2:
-        overlay-right
-      3:
-        item-box-1
-      4:
-        feature-33
-      5:
-        item-background-5
+      - horizontal
+      - overlay-right
+      - item-box-1
+      - feature-33
+      - item-background-5
     layout_section_items:
       # Image
-      1:
-        img_attributes:
+      - img_attributes:
           src:
               '../../images/txex/3x1_999x333.png'
         img_modifiers:
-          1:
-            pl
-  2:
-    layout_section_base_class:
+          - pl
+  - layout_section_base_class:
       flexbox
     layout_section_modifiers:
-      1:
-        vertical
+      - vertical
     layout_section_layout_extra:
-      1:
-        horizontal
-      2:
-        overlay-right
-      3:
-        item-box-1
-      4:
-        feature-33
-      5:
-        item-background-5
+      - horizontal
+      - overlay-right
+      - item-box-1
+      - feature-33
+      - item-background-5
     layout_section_items:
       # Slug
-      1:
-        title:
+      - title:
           "The Card Slug."
         level:
           '3'
         modifiers:
-          1:
-            alt-1
+          - alt-1
       # Title
-      2:
-        title:
+      - title:
           "The Card Title."
         level:
           '1'
         modifiers:
-          1:
-            alt-1
+          - alt-1
       # Subtitle
-      3:
-        subtitle:
+      - subtitle:
           "The subtitle of the card is here."
         level:
           '2'
         modifiers:
-          1:
-            alt-1
+          - alt-1
       # Link
-      5:
-        link_attributes:
-          href:
-            "http://www.google.com"
+      - link_url:
+          "#"
         link:
           "Here is the link"
         modifiers:
-          1:
-            alt-1
+          - alt-1

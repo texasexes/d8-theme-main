@@ -3,10 +3,7 @@ link_modifiers:
     alt
   2:
     more-link
-link_attributes:
-  target:
-    _blank
-  href:
-    "#"
+link_url:
+  "#"
 link_content:
   "This is my link text"

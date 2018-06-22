@@ -1,0 +1,98 @@
+.account-nav {
+  line-height: 2em; //to allow child to vertical align text
+  flex: 0 0 75px;
+
+  @include breakpoint($break-nav) {
+    flex-basis: auto;
+    padding-bottom: 1em;
+  }
+
+  & svg {
+    width: 1.2em;
+    // height: 16px;
+    vertical-align: middle;
+    fill: $menu-text-color-5;
+    margin-left: 1em;
+
+    @include breakpoint($break-nav-max) {
+      display: none;
+    }
+  }
+
+  &:hover {
+    background-color: $main-menu-highlight;
+
+    & svg {
+      fill: $menu-text-color-2;
+    }
+
+    & a {
+      color: $menu-text-color-2;
+    }
+  }
+
+  &:hover ul ul {
+    background-color: $main-menu-sub-highlight;
+    top: 100%;
+
+    & a {
+      color: $menu-text-color-2;
+
+      &:hover {
+        // color: $menu-text-color-3;
+      }
+    }
+
+    & li:hover {
+      background-color: $main-menu-highlight;
+    }
+  }
+
+  &__menu {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    position: relative;
+
+    & > .account-nav__menu--item {
+      > a {
+        padding-right: 0;
+      }
+    }
+
+    &--item {
+      display: inline-block;
+      // vertical-align: middle;
+      height: 100%;
+      font-family: 'Rubik', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      // font-size: 14px;
+      font-size: 0.95em;
+      // color: #a3a1b5;
+      line-height: 21px;
+
+      ul {
+        position: absolute;
+        top: -9999px;
+        right: 0;
+        width: 200%;
+        padding: 0.5em 0;
+        z-index: 10;
+
+        li {
+          width: 100%;
+          text-align: left;
+        }
+      }
+
+      & a {
+        margin: 0 1em;
+        display: block;
+        text-decoration: none;
+        color: $menu-text-color-5;
+      }
+    }
+  }
+}

@@ -1,2 +1,29 @@
-{% extends  "region.html.twig" %}
+{#
+/**
+ * @file
+ * Theme override to display a region.
+ *
+ * Available variables:
+ * - content: The content for this region, typically blocks.
+ * - attributes: HTML attributes for the region div.
+ * - region: The name of the region variable as defined in the theme's
+ *   .info.yml file.
+ *
+ * @see template_preprocess_region()
+ */
+#}
 {% set attributes = attributes.addClass('header-region') %}
+
+<div{{ attributes }}>
+  {{ elements.txexmainnavigation }}
+  <div class="header__top">
+    <div class="header__branding">
+      {{ elements.sitebranding }}
+    </div>
+    <div class="header__secondary">
+      {{ elements.searchform }}
+      {{ elements.txexuseraccountmenu }}
+      {{ elements.txexsecondarynavigation }}
+    </div>
+  </div>
+</div>

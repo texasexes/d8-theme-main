@@ -27,8 +27,8 @@ copy_items:
       "This is a Title Label"
     title:
       "This is a Title with a link wrapper."
-    link_attributes:
-      url: "#"
+    link_url:
+      "#"
     modifiers:
       1:
         link
@@ -46,8 +46,8 @@ copy_items:
       subtitle
     subtitle:
       "This is subtitle with a link wrapper."
-    link_attributes:
-      url: "#"
+    link_url:
+      "#"
     modifiers:
       1:
         link
@@ -63,9 +63,8 @@ copy_items:
   7:
     link:
       'This is a Link'
-    link_attributes:
-      href:
-        '#'
+    link_url:
+      '#'
 
   # Button
   8:

@@ -1,0 +1,37 @@
+.breadcrumbs-nav {
+  & a {
+    color: $menu-text-color-6;
+    text-decoration: none;
+    // padding-right: 0.5em;
+    padding: 0.5em;
+    font-size: 0.8em;
+    font-family: "Rubik";
+
+    &:hover {
+      background-color: $main-menu-highlight;
+      color: $menu-text-color-2;
+    }
+  }
+
+  & svg {
+    width: 0.25em;
+    // height: 16px;
+    vertical-align: middle;
+    fill: $menu-text-color-5;
+    fill: #e6e6e6;
+    // margin-right: 0.25em;
+  }
+
+  & svg:last-of-type {
+    display: none;
+  }
+
+  ol {
+    list-style: none;
+    padding-left: 46px;
+  }
+
+  li {
+    display: inline-block;
+  }
+}

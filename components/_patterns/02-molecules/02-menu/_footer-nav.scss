@@ -1,0 +1,22 @@
+.footer-nav {
+  display: inline-block;
+
+  &__menu {
+    padding: 0;
+    margin: 2em 0 0;
+
+    &--item {
+      display: inline-block;
+
+      & a {
+        color: $menu-text-color-5;
+        text-decoration: none;
+        padding-right: 1em;
+        font-size: 15px;
+        font-family: "Rubik";
+        line-height: 23px;
+        text-align: left;
+      }
+    }
+  }
+}

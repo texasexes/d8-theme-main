@@ -2,8 +2,8 @@ global:
   css:
     theme:
       dist/style.css: {}
-  js:
-    dist/scripts.js: {}
+  # js:
+  #   dist/scripts.js: {}
 
 # Examples of Library syntax
 # typekit:
@@ -13,9 +13,10 @@ global:
 
 main_menu:
   js:
-    components/_patterns/02-molecules/menus/main-menu/main-menu.js: {}
+    dist/02-molecules/menus/main-menu/main-menu.js: {}
   dependencies:
     - core/drupal
+    - core/jquery
 
 global-css:
   css:
@@ -27,3 +28,7 @@ fonts:
     theme:
       //cloud.typography.com/737040/6549592/css/fonts.css: { type: external, minified: true }
       //fonts.googleapis.com/css?family=Rubik: { type: external, minified: true }
+
+sprite:
+  js:
+    components/js/svgxuse.min.js: { attributes: { defer: true } }

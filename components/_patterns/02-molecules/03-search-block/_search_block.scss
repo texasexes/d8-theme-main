@@ -2,7 +2,7 @@
 
 $custom:(
   input-width: 10em,
-  input-active-width: 15em,
+  input-active-width: 13em,
   input-height: 2em,
   border-width: 2px,
   border-radius: 3px,
@@ -254,6 +254,10 @@ $custom:(
   @include searchbox($custom...);
 }
 
-.searchbox {
-  float: right;
+.header__secondary {
+  .searchbox {
+    @include breakpoint($break-nav-max) {
+      display: none;
+    }
+  }
 }

@@ -1,0 +1,16 @@
+<div class="main-menu-wrapper">
+  <a href="#" class="main-menu-toggle main-menu-toggle--open">
+    <span class="main-menu-toggle__icon"></span>
+  </a>
+  <nav id="main-nav" class="main-nav">
+    {% block search_form %}
+    {% endblock %}
+    <a href="#" class="main-menu-toggle main-menu-toggle--close">
+      <span class="main-menu-toggle__icon js-menu-active"></span>
+    </a>
+    {% include "@molecules/menus/_menu.twig" with {
+      menu_class: "main-menu",
+      items: menu_items,
+    } %}
+  </nav>
+</div>

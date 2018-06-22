@@ -5,7 +5,7 @@
 
   &--vertical {
     flex: 0 0 auto; //flex-grow flex-shrink flex-basis
-    justify-content: stretch;
+    // justify-content: stretch; // This isn't a thing...
     margin-bottom: 0;
   }
 
