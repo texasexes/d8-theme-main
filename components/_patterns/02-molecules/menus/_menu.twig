@@ -1,5 +1,3 @@
-
-
 {#
 /**
  * @file
@@ -34,9 +32,7 @@
 
     {# Set classes #}
     {% set menu_class = menu_class|default('menu') %}
-    {% if not menu_modifiers %}
-      {% set menu_modifiers = [] %}
-    {% endif %}
+    {% set menu_modifiers = [] %}
     {% set menu_modifiers = menu_modifiers|merge(['sub', 'level-' ~ menu_level]) %}
 
     {# List #}
