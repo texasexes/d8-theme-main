@@ -144,6 +144,10 @@ $main-menu-dropdown-toggle-width: $space-double;
     min-width: 300px;
     background-color: $color-menu-bg-dark;
 
+    @include breakpoint($break-nav) {
+      max-height: 30em;
+    }
+
     &.js-visible {
       @include breakpoint($break-nav-max) {
         display: flex;
