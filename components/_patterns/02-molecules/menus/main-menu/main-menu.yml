@@ -1,5 +1,5 @@
 menu_items:
-  - title: "Menu Item 1"
+  - title: "Membership"
     url: "#"
     below:
       - title: "Menu Item 1 Sub 1"
@@ -15,7 +15,7 @@ menu_items:
         url: "#"
       - title: "Menu Item 1 Sub 4"
         url: "#"
-  - title: "Menu Item 2"
+  - title: "Scholarships"
     url: "#"
     below:
       - title: "Menu Item 2 Sub 1"
@@ -29,7 +29,7 @@ menu_items:
             url: "#"
           - title: "Menu Item 2 Sub Sub 2"
             url: "#"
-  - title: "Menu Item 3"
+  - title: "Give"
     url: "#"
     below:
       - title: "Menu Item 3 Sub 1"
@@ -45,7 +45,7 @@ menu_items:
         url: "#"
       - title: "Menu Item 3 Sub 4"
         url: "#"
-  - title: "Menu Item 4"
+  - title: "Chapters & Networks"
     url: "#"
     below:
       - title: "Menu Item 4 Sub 1"
@@ -56,7 +56,7 @@ menu_items:
         url: "#"
       - title: "Menu Item 4 Sub 4"
         url: "#"
-  - title: "Menu Item 5"
+  - title: "Get Involved"
     url: "#"
     below:
       - title: "Menu Item 5 Sub 1"
@@ -67,7 +67,7 @@ menu_items:
         url: "#"
       - title: "Menu Item 5 Sub 4"
         url: "#"
-  - title: "Menu Item 6"
+  - title: "Alcalde Magazine"
     url: "#"
     below:
       - title: "Menu Item 6 Sub 1"
@@ -125,7 +125,7 @@ menu_items:
             url: "#"
       - title: "Menu Item 6 Sub 4"
         url: "#"
-  - title: "Menu Item 7"
+  - title: "About Us"
     url: "#"
     below:
       - title: "A long title to show it won't go outside the viewport"

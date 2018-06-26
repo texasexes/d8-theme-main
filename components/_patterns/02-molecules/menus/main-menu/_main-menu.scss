@@ -195,7 +195,7 @@ $main-menu-dropdown-toggle-width: $space-double;
     }
 
     &--level-0 {
-      // position: relative;
+      text-align: center;
 
       @include breakpoint($break-nav-max) {
         border-top: 1px solid $color-menu-text-medium;
@@ -209,6 +209,10 @@ $main-menu-dropdown-toggle-width: $space-double;
           }
         }
       }
+    }
+
+    &--level-1 {
+      text-align: left;
     }
   }
 
