@@ -5,7 +5,7 @@ card_modifiers:
   - overlay-left
   - item-box-1
   - feature-33
-   item-background-9
+  - item-background-9
 card_sections:
   - layout_section_base_class:
       flexbox
@@ -62,8 +62,8 @@ card_sections:
         modifiers:
           - alt-1
       # Link
-      - link_url1:
-            "#"
+      - link_url:
+          "#"
         link:
           "Here is the link"
         modifiers:
