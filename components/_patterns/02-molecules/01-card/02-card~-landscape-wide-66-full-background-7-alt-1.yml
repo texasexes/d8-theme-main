@@ -8,9 +8,9 @@ card_modifiers:
   3:
     item-box-1
   4:
-    pl-full
-  5:
     layout-background-7
+  5:
+    pl-full
 card_sections:
   1:
     layout_section_base_class:
@@ -25,6 +25,8 @@ card_sections:
         feature-66
       3:
         item-box-1
+      4:
+        layout-background-7
     layout_section_items:
       # Image
       1:
@@ -47,6 +49,8 @@ card_sections:
         feature-66
       3:
         item-box-1
+      4:
+        layout-background-7
     layout_section_items:
       # Slug
       1:

@@ -1,7 +1,6 @@
 card_base_class:
   absolute
 card_modifiers:
-  - horizontal
   - overlay-left
   - item-box-1
   - feature-33
@@ -12,7 +11,6 @@ card_sections:
     layout_section_modifiers:
       - vertical
     layout_section_layout_extra:
-      - horizontal
       - overlay-left
       - item-box-1
       - feature-33
@@ -29,7 +27,6 @@ card_sections:
     layout_section_modifiers:
       - vertical
     layout_section_layout_extra:
-      - horizontal
       - overlay-left
       - item-box-1
       - feature-33

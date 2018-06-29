@@ -84,3 +84,5 @@ card_sections:
           "#"
         link:
           "Here is the link"
+        modifiers:
+          1:
