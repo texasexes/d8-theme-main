@@ -44,5 +44,16 @@ p,
       font-size: 0.91em;
       margin: 10px 0;
     }
+
+    &--alt-9 {
+      color: $paragraph-color-2;
+      font-size: 2.096rem;
+      font-family: $font-heading-2;
+      letter-spacing: -0.005em;
+      line-height: 1.29;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      text-align: center;
+    }
   }
 }

@@ -165,6 +165,15 @@ h6,
       text-align: center;
     }
 
+    &--alt-9 {
+      color: $white;
+      font-family: $font-heading-alt-2;
+      font-weight: 800;
+      font-size: 6.8rem;
+      text-transform: none;
+      text-align: center;
+    }
+
     &--alt-dw {
       font-size: 4.3008rem;
       color: $grey-5;
@@ -216,6 +225,11 @@ h6,
       font-family: $font-heading-h2-alt-5;
       font-size: 1.456rem;
       margin: 0;
+      text-align: center;
+    }
+
+    &--alt-9 {
+      color: $white;
       text-align: center;
     }
 
@@ -293,6 +307,10 @@ h6,
       top: -1.6em;
       font-size: 1.456rem;
       margin: 0;
+      text-align: center;
+    }
+
+    &--alt-9 {
       text-align: center;
     }
 

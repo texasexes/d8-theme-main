@@ -1,0 +1,67 @@
+card_base_class:
+  absolute
+card_modifiers:
+  - overlay-full
+  - item-box-11
+  - feature-100
+  - item-background-9
+card_sections:
+  - layout_section_base_class:
+      flexbox
+    layout_section_modifiers:
+      - vertical
+    layout_section_layout_extra:
+      - overlay-full
+      - item-box-11
+      - feature-100
+      - item-background-9
+    layout_section_items:
+      # Image
+      - img_attributes:
+          src:
+              '../../images/txex/3x1_999x333.png'
+        img_modifiers:
+          - pl
+  - layout_section_base_class:
+      flexbox
+    layout_section_modifiers:
+      - vertical
+    layout_section_layout_extra:
+      - overlay-full
+      - item-box-11
+      - feature-100
+      - item-background-9
+    layout_section_items:
+      # Slug
+      - title:
+          "The Card Slug."
+        level:
+          '3'
+        modifiers:
+          - alt-9
+      # Title
+      - title:
+          "The Card Title."
+        level:
+          '1'
+        modifiers:
+          - alt-9
+      # Subtitle
+      - subtitle:
+          "The subtitle of the card is here."
+        level:
+          '2'
+        modifiers:
+          - alt-9
+      # Paragraph
+      - paragraph:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        modifiers:
+          - alt-9
+      # Link
+      - link_url:
+          "#"
+        link:
+          "Here is the link"
+        modifiers:
+          - alt-9
