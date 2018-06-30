@@ -4,11 +4,11 @@ card_modifiers:
   1:
     horizontal
   2:
-    feature-66
+    feature-50
   3:
-    item-box-4
+    item-box-1
   5:
-    pl-2-column
+    pl-full
   6:
     pl-background-transparent
 card_sections:
@@ -22,15 +22,15 @@ card_sections:
       1:
         horizontal
       2:
-        feature-66
+        feature-50
       3:
-        item-box-4
+        item-box-1
     layout_section_items:
       # Image
       1:
         img_attributes:
           src:
-              '../../images/txex/1x1_1000x1000.png'
+              '../../images/txex/9x4_999x444.png'
         img_modifiers:
           1:
             pl
@@ -44,9 +44,9 @@ card_sections:
       1:
         horizontal
       2:
-        feature-66
+        feature-50
       3:
-        item-box-4
+        item-box-1
     layout_section_items:
       # Slug
       1:
