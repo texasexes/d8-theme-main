@@ -16,8 +16,6 @@ card_sections:
     layout_section_modifiers:
       1:
         vertical
-      2:
-        event-list
     layout_section_layout_extra:
       1:
         horizontal
@@ -38,8 +36,6 @@ card_sections:
     layout_section_modifiers:
       1:
         vertical
-      2:
-        event-list
     layout_section_layout_extra:
       1:
         horizontal
