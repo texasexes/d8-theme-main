@@ -130,6 +130,17 @@
     }
   }
 
+  &--item-box-10 {
+    &,
+    &:only-of-type {
+      padding: $list-item-padding;
+    }
+
+    &:first-of-type {
+      padding: 0 $component-padding;
+    }
+  }
+
   &--item-box-11 {
     &,
     &:only-of-type {

@@ -67,8 +67,13 @@ $font-link: $font-tertiary;
   }
 
   &--alt-6 {
-    color: $tangerine;
     display: block;
+    color: $tangerine;
+  }
+
+  &--alt-8 {
+    display: block;
+    text-align: center;
   }
 }
 
