@@ -1,9 +1,0 @@
-{{ attach_library('d8_theme_main/main_menu') }}
-
-{% embed "@molecules/menus/main-menu/main-menu.twig" with {
-  menu_items: items,
-} %}
-  {% block search_form %}
-    {{ drupal_entity('block', 'searchform') }}
-  {% endblock %}
-{% endembed %}

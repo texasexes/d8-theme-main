@@ -16,7 +16,7 @@ $main-menu-dropdown-toggle-width: $space-double;
     @include breakout;
 
     order: 1;
-    flex-basis: 100%;
+    flex-basis: 100vw;
     background-color: $color-menu-bg-light;
   }
 
@@ -140,27 +140,47 @@ $main-menu-dropdown-toggle-width: $space-double;
   }
 
   &--level-1 {
-    display: none;
-    min-width: 300px;
-    background-color: $color-menu-bg-dark;
-
     @include breakpoint($break-nav) {
+      order: 2;
+      flex: 1 1 75%;
+      flex-flow: column wrap;
       max-height: 30em;
     }
+  }
 
-    &.js-visible {
-      @include breakpoint($break-nav-max) {
-        display: flex;
-        flex-basis: 100%;
+  &__dropdown {
+    &--level-0 {
+      display: none;
+      min-width: 300px;
+      background-color: $color-menu-bg-dark;
+
+      &.js-visible {
+        @include breakpoint($break-nav-max) {
+          display: flex;
+          flex-basis: 100%;
+        }
       }
+    }
+  }
+
+  a {
+    display: block;
+    flex: 1 0 auto;
+    padding: $space-one-half;
+    text-decoration: none;
+
+    &:hover {
+      color: $burnt-orange;
+    }
+
+    @include breakpoint($break-nav) {
+      width: 100%;
     }
   }
 
   // li
   &__item {
-    @include breakpoint($break-nav-max) {
-      align-items: center;
-    }
+    // align-items: center;
 
     // Items with children
     &--with-sub {
@@ -176,18 +196,14 @@ $main-menu-dropdown-toggle-width: $space-double;
 
         &.main-menu__item--level-0 {
           &:hover {
-            .main-menu--sub {
-              display: block;
+            > .main-menu__dropdown {
+              display: flex;
               z-index: 1;
-            }
-
-            > .main-menu--sub {
               position: absolute;
               top: 100%;
               left: 0;
-              width: 100vw;
-              display: flex;
-              flex-flow: column wrap;
+              width: 100%;
+              flex-flow: row nowrap;
             }
           }
         }
@@ -195,9 +211,8 @@ $main-menu-dropdown-toggle-width: $space-double;
     }
 
     &--level-0 {
-      text-align: center;
-
       @include breakpoint($break-nav-max) {
+        position: relative;
         border-top: 1px solid $color-menu-text-medium;
       }
 
@@ -209,61 +224,51 @@ $main-menu-dropdown-toggle-width: $space-double;
           }
         }
       }
-    }
 
-    &--level-1 {
-      text-align: left;
-    }
-  }
+      a {
+        color: $color-menu-text-light;
+        font-size: 2.2rem;
+        font-family: $font-secondary-30;
+        line-height: 1.14;
 
-  // a
-  &__link {
-    display: block;
-    flex: 1 0 auto;
-    padding: $space-one-half;
-    text-decoration: none;
-
-    &:hover {
-      color: $burnt-orange;
-    }
-
-    &--level-0 {
-      color: $color-menu-text-light;
-      font-size: 2.2rem;
-      font-family: $font-secondary-30;
-      line-height: 1.14;
-
-      @include breakpoint($break-nav) {
-        color: $color-menu-text-dark;
+        @include breakpoint($break-nav) {
+          color: $color-menu-text-dark;
+        }
       }
     }
 
     &--level-1 {
-      padding: $space-two-thirds $space-and-half;
-      color: $color-menu-text-light;
-      font-size: 1.6rem;
-      line-height: 1.11;
-      font-family: $font-tertiary;
+      a {
+        padding: $space-two-thirds $space-and-half;
+        color: $color-menu-text-light;
+        font-size: 1.6rem;
+        line-height: 1.11;
+        font-family: $font-tertiary;
+
+        @include breakpoint($break-nav-max) {
+          padding-right: $space-one-third;
+          max-width: calc(90vw - #{$main-menu-dropdown-toggle-width});
+        }
+      }
+
+      .main-menu__dropdown {
+        display: none;
+      }
     }
 
     &--level-2 {
-      padding: $space-two-thirds $space-and-half $space-two-thirds $space-double;
-      color: $color-menu-text-medium;
-      font-size: 1.6rem;
-      line-height: 1.31;
-      font-family: $font-tertiary;
-    }
+      a {
+        padding: $space-two-thirds $space-and-half $space-two-thirds $space-double;
+        color: $color-menu-text-medium;
+        font-size: 1.6rem;
+        line-height: 1.31;
+        font-family: $font-tertiary;
 
-    @include breakpoint($break-nav-max) {
-      &--level-1,
-      &--level-2 {
-        padding-right: $space-one-third;
-        max-width: calc(90vw - #{$main-menu-dropdown-toggle-width});
+        @include breakpoint($break-nav-max) {
+          padding-right: $space-one-third;
+          max-width: calc(90vw - #{$main-menu-dropdown-toggle-width});
+        }
       }
-    }
-
-    @include breakpoint($break-nav) {
-      width: 100%;
     }
   }
 
@@ -280,6 +285,11 @@ $main-menu-dropdown-toggle-width: $space-double;
     @include breakpoint($break-nav) {
       display: none;
     }
+  }
+
+  &__extra-content {
+    order: 1;
+    flex: 1 1 25%;
   }
 }
 

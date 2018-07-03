@@ -5,11 +5,11 @@
  */
 #}
 
-<ul class="menu menu-level-{{ items|first.menu_level }} flexbox flexbox--vertical">
+<ul class="main-menu main-menu--level-{{ items|first.menu_level }} flexbox flexbox--vertical">
 {% for key, item in items if key|first != '#' %}
-{#{ kint(item.in_active_trail) }#}
   {% set menu_item_classes = [
-    'menu-item',
+    'main-menu__item',
+    'main-menu__item--level-' ~ item.menu_level,
     'flexbox__item',
     item.is_expanded ? 'menu-item--expanded',
     item.is_collapsed ? 'menu-item--collapsed',

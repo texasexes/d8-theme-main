@@ -5,11 +5,13 @@
  */
 #}
 
-<ul class="menu menu-level-{{ items|first.menu_level }} flexbox flexbox--horizontal">
+<ul class="main-menu main-menu--level-{{ items|first.menu_level }} flexbox flexbox--horizontal">
 {% for key, item in items if key|first != '#' %}
   {% set menu_item_classes = [
-    'menu-item',
+    'main-menu__item',
+    'main-menu__item--level-' ~ item.menu_level,
     'flexbox__item',
+    item.below ? 'main-menu__item--with-sub',
     item.is_expanded ? 'menu-item--expanded',
     item.is_collapsed ? 'menu-item--collapsed',
     item.in_active_trail ? 'menu-item--active-trail'
@@ -21,8 +23,8 @@
     {% set rendered_content = item.content|without('') %}
     {% if rendered_content|render %}
       {% set menu_dropdown_classes = [
-        'menu-dropdown',
-        'menu-dropdown-' ~ item.menu_level,
+        'main-menu__dropdown',
+        'main-menu__dropdown--level-' ~ item.menu_level,
         'menu-type-' ~ item.content['#view_mode'],
       ] %}
 
