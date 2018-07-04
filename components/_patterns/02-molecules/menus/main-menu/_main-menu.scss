@@ -163,6 +163,13 @@ $main-menu-dropdown-toggle-width: $space-double;
     }
   }
 
+  &__dropdown-inner {
+    @include wrapper;
+
+    display: flex;
+    flex-flow: row nowrap;
+  }
+
   a {
     display: block;
     flex: 1 0 auto;
@@ -197,13 +204,12 @@ $main-menu-dropdown-toggle-width: $space-double;
         &.main-menu__item--level-0 {
           &:hover {
             > .main-menu__dropdown {
-              display: flex;
+              display: block;
               z-index: 1;
               position: absolute;
               top: 100%;
               left: 0;
               width: 100%;
-              flex-flow: row nowrap;
             }
           }
         }

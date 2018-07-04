@@ -1,6 +1,8 @@
-{% if content %}
-  {{ content }}
-{% endif %}
-{% if show_item_link %}
-  {{ link(menu_link_content.getTitle(), menu_link_content.getUrlObject()) }}
-{% endif %}
+<div class="main-menu__dropdown-inner">
+  {% if content %}
+    {{ content }}
+  {% endif %}
+  {% if show_item_link %}
+    {{ link(menu_link_content.getTitle(), menu_link_content.getUrlObject()) }}
+  {% endif %}
+</div>
