@@ -4,12 +4,16 @@ card_modifiers:
   1:
     horizontal
   2:
-    feature-100
+    feature-33
   3:
     item-box-6
+  4:
+    layout-background-6
   5:
-    pl-1-column
+    layout-box-5
   6:
+    pl-1-column
+  7:
     pl-background-transparent
 card_sections:
   1:
@@ -22,9 +26,13 @@ card_sections:
       1:
         horizontal
       2:
-        feature-100
+        feature-33
       3:
         item-box-6
+      4:
+        layout-background-6
+      5:
+        layout-box-5
     layout_section_items:
       # Image
       1:
@@ -44,9 +52,13 @@ card_sections:
       1:
         horizontal
       2:
-        feature-100
+        feature-33
       3:
         item-box-6
+      4:
+        layout-background-6
+      5:
+        layout-box-5
     layout_section_items:
       # Slug
       1:
@@ -56,6 +68,7 @@ card_sections:
           '3'
         modifiers:
           1:
+            alt-5
       # Title
       2:
         title:
@@ -64,6 +77,7 @@ card_sections:
           '1'
         modifiers:
           1:
+            alt-5
       # Subtitle
       3:
         subtitle:
@@ -72,6 +86,7 @@ card_sections:
           '2'
         modifiers:
           1:
+            alt-5
       # Link
       4:
         link_url:
@@ -80,3 +95,4 @@ card_sections:
           "Here is the link"
         modifiers:
           1:
+            alt-5

@@ -5,6 +5,8 @@ card_modifiers:
     horizontal
   2:
     feature-100
+  3:
+    item-box-8
   5:
     pl-1-column
   6:
@@ -21,12 +23,14 @@ card_sections:
         horizontal
       2:
         feature-100
+      3:
+        item-box-8
     layout_section_items:
       # Image
       1:
         img_attributes:
           src:
-              '../../images/txex/3x2_999x666.png'
+              '../../images/txex/1x1_1000x1000.png'
         img_modifiers:
           1:
             pl
@@ -41,6 +45,8 @@ card_sections:
         horizontal
       2:
         feature-100
+      3:
+        item-box-8
     layout_section_items:
       # Slug
       1:
@@ -50,7 +56,7 @@ card_sections:
           '3'
         modifiers:
           1:
-            alt-7
+            alt-4
       # Title
       2:
         title:
@@ -59,7 +65,7 @@ card_sections:
           '1'
         modifiers:
           1:
-            alt-7
+            alt-8
       # Subtitle
       3:
         subtitle:
@@ -68,11 +74,20 @@ card_sections:
           '2'
         modifiers:
           1:
-            alt-7
+            alt-8
       # Paragraph
       4:
         paragraph:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
         modifiers:
           1:
-            alt-7
+            alt-8
+      # Link
+      5:
+        link_url:
+          "#"
+        link:
+          "Here is the link"
+        modifiers:
+          1:
+            alt-8

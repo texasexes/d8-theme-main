@@ -16,6 +16,8 @@ card_sections:
     layout_section_modifiers:
       1:
         vertical
+      2:
+        event-list
     layout_section_layout_extra:
       1:
         horizontal
@@ -36,6 +38,8 @@ card_sections:
     layout_section_modifiers:
       1:
         vertical
+      2:
+        event-list
     layout_section_layout_extra:
       1:
         horizontal
@@ -50,7 +54,7 @@ card_sections:
           '3'
         modifiers:
           1:
-            alt-7
+            alt-10
       # Title
       2:
         title:
@@ -59,7 +63,7 @@ card_sections:
           '1'
         modifiers:
           1:
-            alt-7
+            alt-10
       # Subtitle
       3:
         subtitle:
@@ -68,11 +72,11 @@ card_sections:
           '2'
         modifiers:
           1:
-            alt-7
+            alt-10
       # Paragraph
       4:
         paragraph:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
         modifiers:
           1:
-            alt-7
+            alt-10

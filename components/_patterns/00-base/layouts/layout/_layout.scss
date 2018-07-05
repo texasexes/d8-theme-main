@@ -48,10 +48,11 @@
     }
   }
 
-  // &--layout-box-8 {
-  //   margin-bottom: $component-margin;
-  //   border-width: $component-border-width;
-  // }
+  &--layout-box-8 {
+    padding: $component-padding;
+    margin-bottom: $row-margin;
+    border-width: $row-border-width;
+  }
 
   &--layout-background-1 {
     background-color: $layout-background-color-1;

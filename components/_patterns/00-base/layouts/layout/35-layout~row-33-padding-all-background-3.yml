@@ -1,0 +1,18 @@
+layout_base_class:
+  flexbox
+layout_modifiers:
+  1:
+    horizontal
+  2:
+    layout-box-8
+  3:
+    layout-background-3
+layout_items:
+  1:
+    placeholder:
+      " "
+    placeholder_modifiers:
+      1:
+        pl
+      2:
+        pl-background-image
