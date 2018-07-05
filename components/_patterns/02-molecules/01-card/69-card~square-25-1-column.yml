@@ -4,11 +4,11 @@ card_modifiers:
   1:
     horizontal
   2:
-    feature-66
+    feature-25
   3:
-    item-box-4
+    item-box-6
   5:
-    pl-2-column
+    pl-1-column
   6:
     pl-background-transparent
 card_sections:
@@ -22,9 +22,9 @@ card_sections:
       1:
         horizontal
       2:
-        feature-66
+        feature-25
       3:
-        item-box-4
+        item-box-6
     layout_section_items:
       # Image
       1:
@@ -44,9 +44,9 @@ card_sections:
       1:
         horizontal
       2:
-        feature-66
+        feature-25
       3:
-        item-box-4
+        item-box-6
     layout_section_items:
       # Slug
       1:

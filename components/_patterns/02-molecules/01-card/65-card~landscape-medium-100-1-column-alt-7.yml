@@ -4,11 +4,9 @@ card_modifiers:
   1:
     horizontal
   2:
-    feature-66
-  3:
-    item-box-4
+    feature-100
   5:
-    pl-2-column
+    pl-1-column
   6:
     pl-background-transparent
 card_sections:
@@ -22,15 +20,13 @@ card_sections:
       1:
         horizontal
       2:
-        feature-66
-      3:
-        item-box-4
+        feature-100
     layout_section_items:
       # Image
       1:
         img_attributes:
           src:
-              '../../images/txex/1x1_1000x1000.png'
+              '../../images/txex/3x2_999x666.png'
         img_modifiers:
           1:
             pl
@@ -44,18 +40,17 @@ card_sections:
       1:
         horizontal
       2:
-        feature-66
-      3:
-        item-box-4
+        feature-100
     layout_section_items:
       # Slug
       1:
-        title:
+        slug:
           "The Card Slug."
         level:
           '3'
         modifiers:
           1:
+            alt-7
       # Title
       2:
         title:
@@ -64,6 +59,7 @@ card_sections:
           '1'
         modifiers:
           1:
+            alt-7
       # Subtitle
       3:
         subtitle:
@@ -72,11 +68,11 @@ card_sections:
           '2'
         modifiers:
           1:
-      # Link
+            alt-7
+      # Paragraph
       4:
-        link_url:
-          "#"
-        link:
-          "Here is the link"
+        paragraph:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
         modifiers:
           1:
+            alt-7

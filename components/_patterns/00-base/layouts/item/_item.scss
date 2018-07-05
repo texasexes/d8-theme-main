@@ -47,6 +47,10 @@
     background-color: $item-background-color-9;
   }
 
+  &--item-background-10 {
+    background-color: $item-background-color-10;
+  }
+
   &--item-box-1,
   &--item-box-2,
   &--item-box-3,
@@ -123,6 +127,24 @@
     &,
     &:only-of-type {
       padding-right: $component-padding;
+    }
+  }
+
+  &--item-box-10 {
+    &,
+    &:only-of-type {
+      padding: $list-item-padding;
+    }
+
+    &:first-of-type {
+      padding: 0 $component-padding;
+    }
+  }
+
+  &--item-box-11 {
+    &,
+    &:only-of-type {
+      padding: 0 10%;
     }
   }
 }

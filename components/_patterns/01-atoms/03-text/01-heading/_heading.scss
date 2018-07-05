@@ -110,6 +110,14 @@ h6,
       text-transform: none;
     }
 
+    // same as alt-2 but with default text color
+    &--alt-10 {
+      font-family: $font-heading-alt-2;
+      font-weight: 800;
+      font-size: 6.8rem;
+      text-transform: none;
+    }
+
     &--alt-3 {
       // color: $heading-color-h1-alt-3;
       font-size: 3.6rem;
@@ -165,6 +173,15 @@ h6,
       text-align: center;
     }
 
+    &--alt-9 {
+      color: $white;
+      font-family: $font-heading-alt-2;
+      font-weight: 800;
+      font-size: 6.8rem;
+      text-transform: none;
+      text-align: center;
+    }
+
     &--alt-dw {
       font-size: 4.3008rem;
       color: $grey-5;
@@ -216,6 +233,11 @@ h6,
       font-family: $font-heading-h2-alt-5;
       font-size: 1.456rem;
       margin: 0;
+      text-align: center;
+    }
+
+    &--alt-9 {
+      color: $white;
       text-align: center;
     }
 
@@ -279,7 +301,7 @@ h6,
 
     &--alt-7 {
       // font-family: $font-heading-h2-alt-5;
-      // color: $heading-color-h2-alt-5;
+      color: $heading-color-h3-alt-7;
       background-color: transparent;
       font-size: 1.456rem;
       margin: 0 0 10px;
@@ -293,6 +315,10 @@ h6,
       top: -1.6em;
       font-size: 1.456rem;
       margin: 0;
+      text-align: center;
+    }
+
+    &--alt-9 {
       text-align: center;
     }
 

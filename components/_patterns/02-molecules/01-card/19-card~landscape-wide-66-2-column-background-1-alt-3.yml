@@ -4,13 +4,13 @@ card_modifiers:
   1:
     horizontal
   2:
-    feature-100
+    feature-66
   3:
-    item-box-6
+    item-box-4
+  4:
+    layout-background-1
   5:
-    pl-1-column
-  6:
-    pl-background-transparent
+    pl-2-column
 card_sections:
   1:
     layout_section_base_class:
@@ -22,15 +22,17 @@ card_sections:
       1:
         horizontal
       2:
-        feature-100
+        feature-66
       3:
-        item-box-6
+        item-box-4
+      4:
+        layout-background-1
     layout_section_items:
       # Image
       1:
         img_attributes:
           src:
-              '../../images/txex/1x1_1000x1000.png'
+              '../../images/txex/9x4_999x444.png'
         img_modifiers:
           1:
             pl
@@ -44,9 +46,11 @@ card_sections:
       1:
         horizontal
       2:
-        feature-100
+        feature-66
       3:
-        item-box-6
+        item-box-4
+      4:
+        layout-background-1
     layout_section_items:
       # Slug
       1:
@@ -64,6 +68,7 @@ card_sections:
           '1'
         modifiers:
           1:
+            alt-3
       # Subtitle
       3:
         subtitle:
@@ -72,9 +77,13 @@ card_sections:
           '2'
         modifiers:
           1:
+            alt-3
       # Link
       4:
         link_url:
           "#"
         link:
           "Here is the link"
+        modifiers:
+          1:
+            alt-3

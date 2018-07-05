@@ -4,11 +4,11 @@ card_modifiers:
   1:
     horizontal
   2:
-    feature-66
+    feature-100
   3:
-    item-box-4
+    item-box-8
   5:
-    pl-2-column
+    pl-1-column
   6:
     pl-background-transparent
 card_sections:
@@ -22,9 +22,9 @@ card_sections:
       1:
         horizontal
       2:
-        feature-66
+        feature-100
       3:
-        item-box-4
+        item-box-8
     layout_section_items:
       # Image
       1:
@@ -44,18 +44,19 @@ card_sections:
       1:
         horizontal
       2:
-        feature-66
+        feature-100
       3:
-        item-box-4
+        item-box-8
     layout_section_items:
       # Slug
       1:
-        title:
+        slug:
           "The Card Slug."
         level:
           '3'
         modifiers:
           1:
+            alt-4
       # Title
       2:
         title:
@@ -64,6 +65,7 @@ card_sections:
           '1'
         modifiers:
           1:
+            alt-8
       # Subtitle
       3:
         subtitle:
@@ -72,11 +74,20 @@ card_sections:
           '2'
         modifiers:
           1:
-      # Link
+            alt-8
+      # Paragraph
       4:
+        paragraph:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        modifiers:
+          1:
+            alt-8
+      # Link
+      5:
         link_url:
           "#"
         link:
           "Here is the link"
         modifiers:
           1:
+            alt-8

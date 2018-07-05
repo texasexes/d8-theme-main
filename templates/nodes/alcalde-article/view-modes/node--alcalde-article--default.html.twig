@@ -37,7 +37,7 @@
   </footer>
 
   <div{{ content_attributes }}>
-    {{ content|without('field_txex_ref_media_01') }}
+    {{ content|without('field_txex_ref_media_01','field_txex_ref_content_02','field_txex_ref_content_03','field_txex_ref_content_01') }}
   </div>
 
   {% endblock content %}

@@ -2,13 +2,13 @@ layout_base_class:
   flexbox
 layout_modifiers:
   1:
-    pl
-  2:
     horizontal
+  2:
+    feature-33
   3:
-    feature-66
-  4:
     layout-box-3
+  4:
+    layout-background-1
 layout_items:
   1:
     placeholder:
@@ -18,11 +18,3 @@ layout_items:
         pl
       2:
         pl-background-image
-  2:
-    placeholder:
-      " "
-    placeholder_modifiers:
-      1:
-        pl
-      2:
-        pl-void

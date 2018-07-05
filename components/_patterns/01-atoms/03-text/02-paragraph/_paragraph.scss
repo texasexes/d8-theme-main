@@ -19,6 +19,8 @@ $font-paragraph: $font-tertiary;
 p,
 .p {
   @include paragraph;
+
+  -webkit-font-smoothing: antialiased;
 }
 
 // An paragraph that is an element of a paragraph-01 block
@@ -43,6 +45,23 @@ p,
       font-family: $font-heading-h2-alt-5;
       font-size: 0.91em;
       margin: 10px 0;
+    }
+
+    &--alt-8 {
+      // font-family: $font-heading-h2-alt-5;
+      font-size: 1.456rem;
+      text-align: center;
+      // margin: 10px 0;
+    }
+
+    &--alt-9 {
+      color: $paragraph-color-2;
+      font-size: 2.096rem;
+      font-family: $font-heading-2;
+      letter-spacing: -0.005em;
+      line-height: 1.29;
+      font-weight: 400;
+      text-align: center;
     }
   }
 }

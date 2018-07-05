@@ -1,20 +1,20 @@
 card_base_class:
   absolute
 card_modifiers:
-  - overlay-left
-  - item-box-1
-  - feature-33
-  - item-background-9
+  - overlay-full
+  - item-box-11
+  - feature-100
+  - item-background-10
 card_sections:
   - layout_section_base_class:
       flexbox
     layout_section_modifiers:
       - vertical
     layout_section_layout_extra:
-      - overlay-left
-      - item-box-1
-      - feature-33
-      - item-background-9
+      - overlay-full
+      - item-box-11
+      - feature-100
+      - item-background-10
     layout_section_items:
       # Image
       - img_attributes:
@@ -27,10 +27,10 @@ card_sections:
     layout_section_modifiers:
       - vertical
     layout_section_layout_extra:
-      - overlay-left
-      - item-box-1
-      - feature-33
-      - item-background-9
+      - overlay-full
+      - item-box-11
+      - feature-100
+      - item-background-10
     layout_section_items:
       # Title
       - title:
@@ -38,18 +38,9 @@ card_sections:
         level:
           '1'
         modifiers:
-          - alt-1
-      # Subtitle
-      - subtitle:
-          "The subtitle of the card is here."
-        level:
-          '2'
+          - alt-9
+      # Paragraph
+      - paragraph:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
         modifiers:
-          - alt-1
-      # Link
-      - link_url:
-          "#"
-        link:
-          "Here is the link"
-        modifiers:
-          - alt-1
+          - alt-9

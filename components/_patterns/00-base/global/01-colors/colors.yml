@@ -14,7 +14,7 @@ items:
   - name: $purple-5
     value: '#282a32'
   - name: $trans-purple-1
-    value: 'rgba(52, 54, 77, 0.9)'
+    value: 'rgba(52, 54, 77, 0.8)'
   - name: $grey-2
     value: '#222'
   - name: $grey-4
@@ -39,10 +39,14 @@ items:
     value: 'rgba(0, 0, 0, 0.6)'
   - name: $burnt-orange
     value: '#cb6015'
+  - name: $brown-orange
+    value: '#74513a'
+  - name: $trans-brown-orange
+    value: 'rgba(116, 81, 58, 0.8)'
   - name: $tangerine
     value: '#fab54f'
   - name: $trans-tangerine
-    value: 'rgba(250, 181, 79, 0.9)'
+    value: 'rgba(250, 181, 79, 0.8)'
   - name: $blue
     value: '#1383b8'
 meta:

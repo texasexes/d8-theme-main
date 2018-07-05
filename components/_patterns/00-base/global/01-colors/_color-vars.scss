@@ -5,7 +5,7 @@ $purple-2: #393d57;//$main-menu-sub-highlight:
 $purple-3: #4c486a;//$main-menu-vertical-border:
 $purple-4: #a1a2b5;
 $purple-5: #282a32;
-$trans-purple-1: rgba(52, 54, 77, 0.9); // Derived from $purple-1
+$trans-purple-1: rgba(52, 54, 77, 0.8); // Derived from $purple-1
 
 $grey-2: #222; //$menu-text-color-1
 $grey-4: #444; //$menu-text-color-4
@@ -22,7 +22,11 @@ $white: #fff;
 $black-trans: rgba(0, 0, 0, 0.6);
 
 $burnt-orange: #cb6015; //$menu-text-color-5
+
+$brown-orange: #74513a;
+$trans-brown-orange: rgba(116, 81, 58, 0.8);
+
 $tangerine: #fab54f;
-$trans-tangerine: rgba(250, 181, 79, 0.9); // Derived from $tangerine
+$trans-tangerine: rgba(250, 181, 79, 0.8); // Derived from $tangerine
 
 $blue: #1383b8;
