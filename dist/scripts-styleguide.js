@@ -4,15 +4,17 @@
 
   var accordionHeading = $('.accordion__heading');
   var accordionContent = $('.accordion__content');
+  var accordionIcon = $('.accordion__expand-icon');
   var activeClass = 'js-active';
   var hiddenClass = 'js-hidden';
 
+  // Hide content via js so that if js is disabled, all of the content is visible
   accordionContent.addClass(hiddenClass);
 
   accordionHeading.click(function (e) {
     e.preventDefault();
-    $(this).toggleClass(activeClass);
-    $(this).next(accordionContent).toggleClass(hiddenClass);
+    $(this).siblings(accordionIcon).toggleClass(activeClass);
+    $(this).siblings(accordionContent).toggleClass(hiddenClass);
   });
 })(jQuery, Drupal);
 'use strict';

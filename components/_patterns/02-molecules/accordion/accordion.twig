@@ -1,6 +1,23 @@
-{% include "@atoms/05-lists/03-definition-list/definition-list.twig" with {
-  dl_base_class: 'accordion',
-  dl_term_base_class: 'heading',
-  dl_def_base_class: 'content',
-  dl_items: accordion_list,
-} %}
+{#
+/**
+ * Available variables:
+ * - accordion_base_class - the base classname
+ * - accordion_modifiers - array of modifiers to add to the base classname
+ * - accordion_blockname - blockname prepended to the base classname
+ */
+#}
+{% set accordion_base_class = accordion_base_class|default('accordion') %}
+
+<div {{ bem(accordion_base_class, (accordion_modifiers), accordion_blockname) }}>
+  {% for accordion_item in accordion_items %}
+    <div {{ bem("item", accordion_item_modifiers, accordion_base_class) }}>
+      {% include "@atoms/04-images/icons/_icon.twig" with {
+        icon_base_class: 'expand-icon',
+        icon_blockname: accordion_base_class,
+        icon_name: 'chevron',
+      } %}
+      <div {{ bem('heading', accordion_term_modifiers, accordion_base_class) }}>{{ accordion_item.heading }}</div>
+      <div {{ bem('content', accordion_def_modifiers, accordion_base_class) }}>{{ accordion_item.content }}</div>
+    </div>
+  {% endfor %}
+</div>
