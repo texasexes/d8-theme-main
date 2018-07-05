@@ -127,12 +127,12 @@ $main-menu-dropdown-toggle-width: $space-double;
 
 .main-menu {
   display: flex;
+  flex-basis: 100%;
   flex-flow: column nowrap;
   list-style: none;
   margin: 0;
-  padding: 0;
-  flex-basis: 100%;
   max-width: 100%;
+  padding: 0;
 
   // ul
   &--level-0 {
@@ -143,10 +143,10 @@ $main-menu-dropdown-toggle-width: $space-double;
 
   &--level-1 {
     @include breakpoint($break-nav) {
-      order: 2;
       flex: 1 1 75%;
       flex-flow: column wrap;
       max-height: 30em;
+      order: 2;
     }
   }
 
@@ -208,11 +208,11 @@ $main-menu-dropdown-toggle-width: $space-double;
           &:hover {
             > .main-menu__dropdown {
               display: block;
-              z-index: 1;
+              left: 0;
               position: absolute;
               top: 100%;
-              left: 0;
               width: 100%;
+              z-index: 1;
             }
           }
         }
@@ -221,23 +221,23 @@ $main-menu-dropdown-toggle-width: $space-double;
 
     &--level-0 {
       @include breakpoint($break-nav-max) {
-        position: relative;
         border-top: 1px solid $color-menu-text-medium;
+        position: relative;
       }
 
       @include breakpoint($break-nav) {
         &:hover {
           > a {
-            color: $color-menu-text-light;
             background-color: $color-menu-bg-darker;
+            color: $color-menu-text-light;
           }
         }
       }
 
       a {
         color: $color-menu-text-light;
-        font-size: 2.2rem;
         font-family: $font-secondary-30;
+        font-size: 2.2rem;
         line-height: 1.14;
 
         @include breakpoint($break-nav-max) {
@@ -253,15 +253,15 @@ $main-menu-dropdown-toggle-width: $space-double;
 
     &--level-1 {
       a {
-        padding: $space-two-thirds $space-and-half;
         color: $color-menu-text-light;
+        font-family: $font-tertiary;
         font-size: 1.6rem;
         line-height: 1.11;
-        font-family: $font-tertiary;
+        padding: $space-two-thirds $space-and-half;
 
         @include breakpoint($break-nav-max) {
-          padding-right: $space-one-third;
           max-width: calc(#{$width-mobile-max} - #{$main-menu-dropdown-toggle-width});
+          padding-right: $space-one-third;
         }
       }
 
@@ -305,13 +305,13 @@ $main-menu-dropdown-toggle-width: $space-double;
 
 // Overlay on page
 .js-main-menu-close {
+  background-color: $black-trans;
+  content: '';
+  display: block;
+  height: 100vh;
+  left: 0;
   position: fixed;
   top: 0;
-  left: 0;
-  z-index: 1;
-  display: block;
-  content: '';
-  height: 100vh;
   width: 100vw;
-  background-color: $black-trans;
+  z-index: 1;
 }
