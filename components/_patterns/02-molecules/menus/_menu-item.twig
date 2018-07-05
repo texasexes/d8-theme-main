@@ -1,4 +1,4 @@
-{% set item_modifiers = [] %}
+{# {% set item_modifiers = [] %}
 {% if item.in_active_trail == TRUE %}
   {% set item_modifiers = item_modifiers|merge(['active']) %}
 {% endif %}
@@ -6,8 +6,11 @@
 {% if item.below %}
   {% set item_modifiers = item_modifiers|merge(['with-sub']) %}
 {% endif %}
+#}
+
 {# below could maybe be done without a loop? #}
-{% for modifier in item.modifiers %}
+
+{# {% for modifier in item.modifiers %}
   {% set item_modifiers = item_modifiers|merge([modifier]) %}
 {% endfor %}
 
@@ -34,3 +37,4 @@
     {% endif %}
   {% endblock %}
 {% endembed %}
+ #}
