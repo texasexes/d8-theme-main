@@ -16,8 +16,12 @@
         icon_blockname: accordion_base_class,
         icon_name: 'chevron',
       } %}
-      <div {{ bem('heading', accordion_term_modifiers, accordion_base_class) }}>{{ accordion_item.heading }}</div>
-      <div {{ bem('content', accordion_def_modifiers, accordion_base_class) }}>{{ accordion_item.content }}</div>
+      {% block accordion_heading %}
+        <div {{ bem('heading', accordion_term_modifiers, accordion_base_class) }}>{{ accordion_heading|default(accordion_item.heading) }}</div>
+      {% endblock %}
+      {% block accordion_content %}
+        <div {{ bem('content', accordion_def_modifiers, accordion_base_class) }}>{{ accordion_content|default(accordion_item.content) }}</div>
+      {% endblock %}
     </div>
   {% endfor %}
 </div>
