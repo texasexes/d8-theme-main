@@ -13,8 +13,8 @@
 
   accordionHeading.click(function (e) {
     e.preventDefault();
-    $(this).siblings(accordionIcon).toggleClass(activeClass);
-    $(this).siblings(accordionContent).toggleClass(hiddenClass);
+    $(this).siblings().toggleClass(activeClass);
+    $(this).siblings().toggleClass(hiddenClass);
   });
 })(jQuery, Drupal);
 'use strict';

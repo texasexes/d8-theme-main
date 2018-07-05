@@ -40,6 +40,10 @@
     line-height: 1.68;
     color: $grey-5;
 
+    &.js-active {
+      padding-top: $space-one-third;
+    }
+
     &.js-hidden {
       height: 0;
       overflow: hidden;
