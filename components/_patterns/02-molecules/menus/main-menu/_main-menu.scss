@@ -2,6 +2,8 @@
 $color-menu-bg-darker: $purple-1;
 $color-menu-bg-dark: $purple-2;
 $color-menu-bg-light: $mushroom-light;
+// Menu width
+$width-mobile-max: 90vw;
 // Text
 $color-menu-text-dark: $purple-5;
 $color-menu-text-medium: $purple-4;
@@ -15,14 +17,14 @@ $main-menu-dropdown-toggle-width: $space-double;
   @include breakpoint($break-nav) {
     @include breakout;
 
-    order: 1;
-    flex-basis: 100vw;
     background-color: $color-menu-bg-light;
+    flex-basis: 100vw;
+    order: 1;
   }
 
   .search-block-form {
-    flex: 1 1 auto;
     background-color: $color-menu-bg-darker;
+    flex: 1 1 auto;
     padding: $space-one-half;
 
     @include breakpoint($break-nav) {
@@ -31,8 +33,8 @@ $main-menu-dropdown-toggle-width: $space-double;
   }
 
   .sbx-custom__input {
-    padding-top: 2.2rem;
     padding-bottom: 2.2rem;
+    padding-top: 2.2rem;
   }
 }
 
@@ -44,17 +46,17 @@ $main-menu-dropdown-toggle-width: $space-double;
 
 .main-nav {
   @include breakpoint($break-nav-max) {
-    position: fixed;
-    width: 90vw;
-    max-width: 768px;
-    overflow: scroll;
-    left: -100vw;
-    top: 0;
-    transition: left 0.5s ease;
     background-color: $purple-2;
-    z-index: 1;
     display: flex;
     flex-flow: row wrap;
+    left: -100vw;
+    max-width: 768px;
+    overflow: scroll;
+    position: fixed;
+    top: 0;
+    transition: left 0.5s ease;
+    width: $width-mobile-max;
+    z-index: 501; // This is to account for the contextual links overlays which have a z-index of 500
 
     &.js-visible {
       left: 0;
@@ -164,10 +166,13 @@ $main-menu-dropdown-toggle-width: $space-double;
   }
 
   &__dropdown-inner {
-    @include wrapper;
-
     display: flex;
     flex-flow: row nowrap;
+    width: 100%;
+
+    @include breakpoint($break-nav) {
+      @include wrapper;
+    }
   }
 
   a {
@@ -187,8 +192,6 @@ $main-menu-dropdown-toggle-width: $space-double;
 
   // li
   &__item {
-    // align-items: center;
-
     // Items with children
     &--with-sub {
       display: flex;
@@ -237,6 +240,11 @@ $main-menu-dropdown-toggle-width: $space-double;
         font-family: $font-secondary-30;
         line-height: 1.14;
 
+        @include breakpoint($break-nav-max) {
+          padding-right: $space-one-third;
+          max-width: calc(#{$width-mobile-max} - #{$main-menu-dropdown-toggle-width});
+        }
+
         @include breakpoint($break-nav) {
           color: $color-menu-text-dark;
         }
@@ -253,7 +261,7 @@ $main-menu-dropdown-toggle-width: $space-double;
 
         @include breakpoint($break-nav-max) {
           padding-right: $space-one-third;
-          max-width: calc(90vw - #{$main-menu-dropdown-toggle-width});
+          max-width: calc(#{$width-mobile-max} - #{$main-menu-dropdown-toggle-width});
         }
       }
 
@@ -261,41 +269,37 @@ $main-menu-dropdown-toggle-width: $space-double;
         display: none;
       }
     }
-
-    &--level-2 {
-      a {
-        padding: $space-two-thirds $space-and-half $space-two-thirds $space-double;
-        color: $color-menu-text-medium;
-        font-size: 1.6rem;
-        line-height: 1.31;
-        font-family: $font-tertiary;
-
-        @include breakpoint($break-nav-max) {
-          padding-right: $space-one-third;
-          max-width: calc(90vw - #{$main-menu-dropdown-toggle-width});
-        }
-      }
-    }
   }
 
   &__expand-sub {
-    fill: $color-menu-text-medium;
+    align-items: center;
     cursor: pointer;
+    display: flex;
     flex: 0 0 $main-menu-dropdown-toggle-width;
-    height: 1rem;
-
-    &--open {
-      transform: rotate(90deg);
-    }
 
     @include breakpoint($break-nav) {
       display: none;
     }
   }
 
+  &__sub-icon {
+    fill: $color-menu-text-medium;
+    height: 1rem;
+    width: 100%;
+
+    &--open {
+      transform: rotate(90deg);
+    }
+  }
+
   &__extra-content {
-    order: 1;
-    flex: 1 1 25%;
+    display: none;
+
+    @include breakpoint($max-width) {
+      display: initial;
+      flex: 1 1 25%;
+      order: 1;
+    }
   }
 }
 

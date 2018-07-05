@@ -49,8 +49,9 @@
   var mainMenuToggle = $('.main-menu-toggle');
   var mainMenuToggleOpen = $('.main-menu-toggle--open');
   var mainMenu = $('.main-nav');
-  // const mainMenuSub = $('.main-menu--level-1');
+  var mainMenuSub = $('.main-menu__dropdown');
   var mainMenuExpandSub = $('.main-menu__expand-sub');
+  var mainMenuSubIcon = $('.main-menu__sub-icon');
   var toolbar = $('.toolbar-bar');
 
   // Calculated values
@@ -61,7 +62,7 @@
   var mainMenuHeight = mainMenu.outerHeight();
 
   // Classes
-  var mainMenuSubOpen = 'main-menu__expand-sub--open';
+  var mainMenuSubOpen = 'main-menu__sub-icon--open';
   var mainMenuVisible = 'js-visible';
   var mainMenuActive = 'js-menu-active';
   var noscroll = 'noscroll';
@@ -102,30 +103,11 @@
     mainMenuBgToggle();
   });
 
-  // // Calculate the subnav position for the desktop view
-  // function subNavPosition() {
-  //   mainMenuHeight = mainMenu.outerHeight();
-  //   mainMenuSub.css({'top': mainMenuHeight})
-  //   // Ensure dropdown nav is always inside the viewport (prevents horizontal scrolling)
-  //   mainMenuSub.each(function() {
-  //     const subnavRightPosition = $(this).parent().offset().left + $(this).outerWidth();
-  //     // If the right edge of the subnav is outside the viewport
-  //     if (subnavRightPosition > winW) {
-  //       // Set element right position = 0
-  //       $(this).css({'right': "0", "left": "auto"});
-  //     } else {
-  //       $(this).css({'right': "auto", "left": "0"});
-  //     }
-  //   });
-  // };
-
-  // subNavPosition();
-
   // Display Sub-nav
   mainMenuExpandSub.click(function (e) {
     e.preventDefault();
-    $(this).toggleClass(mainMenuSubOpen);
-    $(this).next('ul').toggleClass(mainMenuVisible);
+    $(this).children(mainMenuSubIcon).toggleClass(mainMenuSubOpen);
+    $(this).next(mainMenuSub).toggleClass(mainMenuVisible);
   });
 
   // Calculate body padding top (to accommodate the admin menu)
@@ -162,7 +144,6 @@
       }
 
       calculateMenuHeights();
-      // subNavPosition();
     }, 100, "Main menu - window resize");
   });
 })(jQuery, Drupal);

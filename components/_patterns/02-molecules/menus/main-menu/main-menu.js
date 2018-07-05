@@ -30,8 +30,9 @@
   const mainMenuToggle = $('.main-menu-toggle');
   const mainMenuToggleOpen = $('.main-menu-toggle--open');
   const mainMenu = $('.main-nav');
-  // const mainMenuSub = $('.main-menu--level-1');
+  const mainMenuSub = $('.main-menu__dropdown');
   const mainMenuExpandSub = $('.main-menu__expand-sub');
+  const mainMenuSubIcon = $('.main-menu__sub-icon');
   const toolbar = $('.toolbar-bar');
 
   // Calculated values
@@ -42,7 +43,7 @@
   let mainMenuHeight = mainMenu.outerHeight();
 
   // Classes
-  const mainMenuSubOpen = 'main-menu__expand-sub--open';
+  const mainMenuSubOpen = 'main-menu__sub-icon--open';
   const mainMenuVisible = 'js-visible';
   const mainMenuActive = 'js-menu-active';
   const noscroll = 'noscroll';
@@ -83,30 +84,11 @@
     mainMenuBgToggle();
   });
 
-  // // Calculate the subnav position for the desktop view
-  // function subNavPosition() {
-  //   mainMenuHeight = mainMenu.outerHeight();
-  //   mainMenuSub.css({'top': mainMenuHeight})
-  //   // Ensure dropdown nav is always inside the viewport (prevents horizontal scrolling)
-  //   mainMenuSub.each(function() {
-  //     const subnavRightPosition = $(this).parent().offset().left + $(this).outerWidth();
-  //     // If the right edge of the subnav is outside the viewport
-  //     if (subnavRightPosition > winW) {
-  //       // Set element right position = 0
-  //       $(this).css({'right': "0", "left": "auto"});
-  //     } else {
-  //       $(this).css({'right': "auto", "left": "0"});
-  //     }
-  //   });
-  // };
-
-  // subNavPosition();
-
   // Display Sub-nav
   mainMenuExpandSub.click(function (e) {
     e.preventDefault();
-    $(this).toggleClass(mainMenuSubOpen);
-    $(this).next('ul').toggleClass(mainMenuVisible);
+    $(this).children(mainMenuSubIcon).toggleClass(mainMenuSubOpen);
+    $(this).next(mainMenuSub).toggleClass(mainMenuVisible);
   });
 
   // Calculate body padding top (to accommodate the admin menu)
@@ -143,7 +125,6 @@
       }
 
       calculateMenuHeights();
-      // subNavPosition();
     }, 100, "Main menu - window resize");
   });
 
