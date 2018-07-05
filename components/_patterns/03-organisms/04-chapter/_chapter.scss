@@ -1,5 +1,7 @@
+$chapter-border: $mushroom-light;
+
 .chapter-next-event {
-  border: 8px solid $menu-background-color-2;
+  border: 8px solid $chapter-border;
   font-family: $font-tertiary;
   line-height: 1.5em;
   padding-bottom: 25px;
