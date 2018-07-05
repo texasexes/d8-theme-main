@@ -2,6 +2,8 @@
 $color-menu-bg-darker: $purple-1;
 $color-menu-bg-dark: $purple-2;
 $color-menu-bg-light: $mushroom-light;
+// Menu width
+$width-mobile-max: 90vw;
 // Text
 $color-menu-text-dark: $purple-5;
 $color-menu-text-medium: $purple-4;
@@ -15,14 +17,14 @@ $main-menu-dropdown-toggle-width: $space-double;
   @include breakpoint($break-nav) {
     @include breakout;
 
-    order: 1;
-    flex-basis: 100%;
     background-color: $color-menu-bg-light;
+    flex-basis: 100vw;
+    order: 1;
   }
 
   .search-block-form {
-    flex: 1 1 auto;
     background-color: $color-menu-bg-darker;
+    flex: 1 1 auto;
     padding: $space-one-half;
 
     @include breakpoint($break-nav) {
@@ -31,8 +33,8 @@ $main-menu-dropdown-toggle-width: $space-double;
   }
 
   .sbx-custom__input {
-    padding-top: 2.2rem;
     padding-bottom: 2.2rem;
+    padding-top: 2.2rem;
   }
 }
 
@@ -44,17 +46,17 @@ $main-menu-dropdown-toggle-width: $space-double;
 
 .main-nav {
   @include breakpoint($break-nav-max) {
-    position: fixed;
-    width: 90vw;
-    max-width: 768px;
-    overflow: scroll;
-    left: -100vw;
-    top: 0;
-    transition: left 0.5s ease;
     background-color: $purple-2;
-    z-index: 1;
     display: flex;
     flex-flow: row wrap;
+    left: -100vw;
+    max-width: 768px;
+    overflow: scroll;
+    position: fixed;
+    top: 0;
+    transition: left 0.5s ease;
+    width: $width-mobile-max;
+    z-index: 501; // This is to account for the contextual links overlays which have a z-index of 500
 
     &.js-visible {
       left: 0;
@@ -125,12 +127,12 @@ $main-menu-dropdown-toggle-width: $space-double;
 
 .main-menu {
   display: flex;
+  flex-basis: 100%;
   flex-flow: column nowrap;
   list-style: none;
   margin: 0;
-  padding: 0;
-  flex-basis: 100%;
   max-width: 100%;
+  padding: 0;
 
   // ul
   &--level-0 {
@@ -140,22 +142,56 @@ $main-menu-dropdown-toggle-width: $space-double;
   }
 
   &--level-1 {
-    display: none;
-    min-width: 300px;
-    background-color: $color-menu-bg-dark;
+    @include breakpoint($break-nav) {
+      flex: 1 1 75%;
+      flex-flow: column wrap;
+      max-height: 30em;
+      order: 2;
+    }
+  }
 
-    &.js-visible {
-      @include breakpoint($break-nav-max) {
-        display: flex;
-        flex-basis: 100%;
+  &__dropdown {
+    &--level-0 {
+      display: none;
+      min-width: 300px;
+      background-color: $color-menu-bg-dark;
+
+      &.js-visible {
+        @include breakpoint($break-nav-max) {
+          display: flex;
+          flex-basis: 100%;
+        }
       }
+    }
+  }
+
+  &__dropdown-inner {
+    display: flex;
+    flex-flow: row nowrap;
+    width: 100%;
+
+    @include breakpoint($break-nav) {
+      @include wrapper;
+    }
+  }
+
+  a {
+    display: block;
+    flex: 1 0 auto;
+    padding: $space-one-half;
+    text-decoration: none;
+
+    &:hover {
+      color: $burnt-orange;
+    }
+
+    @include breakpoint($break-nav) {
+      width: 100%;
     }
   }
 
   // li
   &__item {
-    align-items: center;
-
     // Items with children
     &--with-sub {
       display: flex;
@@ -170,13 +206,12 @@ $main-menu-dropdown-toggle-width: $space-double;
 
         &.main-menu__item--level-0 {
           &:hover {
-            > .main-menu--sub {
-              position: absolute;
-              left: 0;
-            }
-
-            .main-menu--sub {
+            > .main-menu__dropdown {
               display: block;
+              left: 0;
+              position: absolute;
+              top: 100%;
+              width: 100%;
               z-index: 1;
             }
           }
@@ -185,99 +220,98 @@ $main-menu-dropdown-toggle-width: $space-double;
     }
 
     &--level-0 {
-      position: relative;
-
       @include breakpoint($break-nav-max) {
         border-top: 1px solid $color-menu-text-medium;
+        position: relative;
       }
 
       @include breakpoint($break-nav) {
         &:hover {
           > a {
-            color: $color-menu-text-light;
             background-color: $color-menu-bg-darker;
+            color: $color-menu-text-light;
           }
         }
       }
-    }
-  }
 
-  // a
-  &__link {
-    display: block;
-    flex: 1 0 auto;
-    padding: $space-one-half;
-    text-decoration: none;
+      a {
+        color: $color-menu-text-light;
+        font-family: $font-secondary-30;
+        font-size: 2.2rem;
+        line-height: 1.14;
 
-    &:hover {
-      color: $burnt-orange;
-    }
+        @include breakpoint($break-nav-max) {
+          padding-right: $space-one-third;
+          max-width: calc(#{$width-mobile-max} - #{$main-menu-dropdown-toggle-width});
+        }
 
-    &--level-0 {
-      color: $color-menu-text-light;
-      font-size: 2.2rem;
-      font-family: $font-secondary-30;
-      line-height: 1.14;
-
-      @include breakpoint($break-nav) {
-        color: $color-menu-text-dark;
+        @include breakpoint($break-nav) {
+          color: $color-menu-text-dark;
+        }
       }
     }
 
     &--level-1 {
-      padding: $space-two-thirds $space-and-half;
-      color: $color-menu-text-light;
-      font-size: 1.6rem;
-      line-height: 1.11;
-      font-family: $font-tertiary;
-    }
+      a {
+        color: $color-menu-text-light;
+        font-family: $font-tertiary;
+        font-size: 1.6rem;
+        line-height: 1.11;
+        padding: $space-two-thirds $space-and-half;
 
-    &--level-2 {
-      padding: $space-two-thirds $space-and-half $space-two-thirds $space-double;
-      color: $color-menu-text-medium;
-      font-size: 1.6rem;
-      line-height: 1.31;
-      font-family: $font-tertiary;
-    }
-
-    @include breakpoint($break-nav-max) {
-      &--level-1,
-      &--level-2 {
-        padding-right: $space-one-third;
-        max-width: calc(90vw - #{$main-menu-dropdown-toggle-width});
+        @include breakpoint($break-nav-max) {
+          max-width: calc(#{$width-mobile-max} - #{$main-menu-dropdown-toggle-width});
+          padding-right: $space-one-third;
+        }
       }
-    }
 
-    @include breakpoint($break-nav) {
-      width: 100%;
+      .main-menu__dropdown {
+        display: none;
+      }
     }
   }
 
   &__expand-sub {
-    fill: $color-menu-text-medium;
+    align-items: center;
     cursor: pointer;
+    display: flex;
     flex: 0 0 $main-menu-dropdown-toggle-width;
+
+    @include breakpoint($break-nav) {
+      display: none;
+    }
+  }
+
+  &__sub-icon {
+    fill: $color-menu-text-medium;
     height: 1rem;
+    width: 100%;
 
     &--open {
       transform: rotate(90deg);
     }
+  }
 
-    @include breakpoint($break-nav) {
-      display: none;
+  &__extra-content {
+    display: none;
+
+    @include breakpoint($max-width) {
+      display: initial;
+      flex: 1 1 25%;
+      order: 1;
     }
   }
 }
 
 // Overlay on page
 .js-main-menu-close {
+  background-color: $black-trans;
+  content: '';
+  display: block;
+  height: 100vh;
+  left: 0;
   position: fixed;
   top: 0;
-  left: 0;
-  z-index: 1;
-  display: block;
-  content: '';
-  height: 100vh;
   width: 100vw;
-  background-color: $black-trans;
+  z-index: 1;
 }

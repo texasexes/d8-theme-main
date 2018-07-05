@@ -1,0 +1,7 @@
+<div class="main-menu__extra-content">
+  {% for item in items %}
+    {% block item_block %}
+      {{ item.content }}
+    {% endblock %}
+  {% endfor %}
+</div>

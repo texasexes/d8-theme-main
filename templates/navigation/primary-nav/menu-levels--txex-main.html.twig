@@ -1,0 +1,48 @@
+{#
+/**
+ * @file
+ * Default theme implementation to each level of menu.
+ */
+#}
+
+<ul class="main-menu main-menu--level-{{ items|first.menu_level }} flexbox flexbox--horizontal">
+{% for key, item in items if key|first != '#' %}
+  {% set menu_item_classes = [
+    'main-menu__item',
+    'main-menu__item--level-' ~ item.menu_level,
+    'flexbox__item',
+    item.below ? 'main-menu__item--with-sub',
+    item.is_expanded ? 'menu-item--expanded',
+    item.is_collapsed ? 'menu-item--collapsed',
+    item.in_active_trail ? 'menu-item--active-trail'
+  ] %}
+
+  <li{{ item.attributes.addClass(menu_item_classes) }}>
+    {{ link(item.title, item.url) }}
+    {% if (item.menu_level == 0 and item.below) %}
+      <div class="main-menu__expand-sub">
+        {% include "@atoms/04-images/icons/_icon.twig" with {
+          icon_base_class: 'sub-icon',
+          icon_blockname: "main-menu",
+          icon_name: 'chevron',
+        } %}
+      </div>
+    {% endif %}
+
+    {% set rendered_content = item.content|without('') %}
+    {% if rendered_content|render %}
+      {% set menu_dropdown_classes = [
+        'main-menu__dropdown',
+        'main-menu__dropdown--level-' ~ item.menu_level,
+        'menu-type-' ~ item.content['#view_mode'],
+      ] %}
+
+      {% set menu_inline_style = 'height:' ~ item.entity.field_mie_dropdown_height.0.value ~ 'em' %}
+      <div{{ create_attribute().addClass(menu_dropdown_classes).setAttribute('style', menu_inline_style) }}>
+        {{ rendered_content }}
+      </div>
+    {% endif %}
+
+  </li>
+{% endfor %}
+</ul>

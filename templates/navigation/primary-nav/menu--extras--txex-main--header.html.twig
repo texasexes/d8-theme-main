@@ -1,0 +1,22 @@
+{{ attach_library('d8_theme_main/main_menu') }}
+
+{# {% embed "@molecules/menus/main-menu/main-menu.twig" with {
+  menu_items: items,
+} %}
+  {% block search_form %}
+    {{ drupal_entity('block', 'searchform') }}
+  {% endblock %}
+{% endembed %}
+ #}
+<div class="main-menu-wrapper">
+  <a href="#" class="main-menu-toggle main-menu-toggle--open">
+    <span class="main-menu-toggle__icon"></span>
+  </a>
+  <nav id="main-nav" class="main-nav">
+    {{ drupal_entity('block', 'searchform') }}
+    <a href="#" class="main-menu-toggle main-menu-toggle--close">
+      <span class="main-menu-toggle__icon js-menu-active"></span>
+    </a>
+    {% include "menu-levels--txex-main.html.twig" %}
+  </nav>
+</div>

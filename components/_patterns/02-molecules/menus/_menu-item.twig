@@ -1,10 +1,4 @@
-
-
-{% if not item_modifiers %}
-  {% set item_modifiers = [] %}
-{% endif %}
-{# Pass original item modifiers down to children #}
-{% set original_item_modifiers = item_modifiers %}
+{# {% set item_modifiers = [] %}
 {% if item.in_active_trail == TRUE %}
   {% set item_modifiers = item_modifiers|merge(['active']) %}
 {% endif %}
@@ -12,8 +6,11 @@
 {% if item.below %}
   {% set item_modifiers = item_modifiers|merge(['with-sub']) %}
 {% endif %}
+#}
+
 {# below could maybe be done without a loop? #}
-{% for modifier in item.modifiers %}
+
+{# {% for modifier in item.modifiers %}
   {% set item_modifiers = item_modifiers|merge([modifier]) %}
 {% endfor %}
 
@@ -36,7 +33,8 @@
         icon_blockname: menu_class,
         icon_name: 'chevron',
       } %}
-      {{ menus.menu_links(item.below, attributes, menu_level + 1, menu_class, menu_modifiers, menu_blockname, item_base_class, original_item_modifiers, item_blockname, icon_url) }}
+      {{ menus.menu_links(item.below, attributes, menu_level + 1, menu_class, menu_modifiers, menu_blockname, item_base_class, item_modifiers, item_blockname, icon_url) }}
     {% endif %}
   {% endblock %}
 {% endembed %}
+ #}
