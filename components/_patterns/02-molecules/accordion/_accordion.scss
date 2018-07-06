@@ -1,27 +1,48 @@
 .accordion {
   margin: 0;
 
-  &__heading {
-    border-top: 1px solid $grey-5;
-    cursor: pointer;
+  &__item {
+    position: relative;
     display: flex;
-    padding: $space-one-half 0;
+    flex-flow: column nowrap;
+    border: 1px solid $grey-e;
+    border-left: 4px solid $grey-e;
+    padding: $space-one-half 0 $space-one-half $space-and-half;
+    margin-bottom: $space-one-third;
+  }
 
-    &::before {
-      content: '+';
-      flex: 0 0 $space;
-      text-align: center;
-    }
+  &__expand-icon {
+    position: absolute;
+    left: $space-one-half;
+    height: $space-one-half;
+    width: $space-one-half;
+    top: 23px;
+    fill: $grey-9;
 
     &.js-active {
-      &::before {
-        content: '-';
-      }
+      transform: rotate(90deg);
     }
   }
 
+  &__heading {
+    cursor: pointer;
+    display: flex;
+    font-family: $font-tertiary;
+    font-size: 1.7rem;
+    font-weight: 500;
+    line-height: 1.76;
+    color: $grey-5;
+  }
+
   &__content {
-    margin: 0 $space $space-one-half;
+    font-family: $font-primary;
+    font-size: 1.9rem;
+    line-height: 1.68;
+    color: $grey-5;
+
+    &.js-active {
+      padding-top: $space-one-third;
+    }
 
     &.js-hidden {
       height: 0;
