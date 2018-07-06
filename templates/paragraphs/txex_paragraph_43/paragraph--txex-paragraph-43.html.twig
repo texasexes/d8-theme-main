@@ -1,0 +1,19 @@
+{% extends "paragraph.html.twig" %}
+
+{% set accordion_base_class = accordion_base_class|default('accordion') %}
+
+{% block paragraph %}
+  <div {{ bem("item", accordion_item_modifiers, accordion_base_class) }}>
+    {% include "@atoms/04-images/icons/_icon.twig" with {
+      icon_base_class: 'expand-icon',
+      icon_blockname: accordion_base_class,
+      icon_name: 'chevron',
+    } %}
+    <div {{ bem('heading', accordion_term_modifiers, accordion_base_class) }}>
+      {{ content.field_txex_ref_rev_para_01 }}
+    </div>
+    <div {{ bem('content', accordion_def_modifiers, accordion_base_class) }}>
+      {{ content.field_txex_ref_rev_para_02 }}
+    </div>
+  </div>
+{% endblock paragraph %}
