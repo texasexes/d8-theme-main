@@ -4,8 +4,10 @@ layout_modifiers:
   1:
     horizontal
   2:
-    layout-box-8
+    feature-33
   3:
+    layout-box-8
+  4:
     layout-background-3
 layout_items:
   1:
