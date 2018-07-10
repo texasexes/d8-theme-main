@@ -12,6 +12,7 @@ $color-menu-text-light: $white;
 $main-menu-dropdown-toggle-width: $space-double;
 
 .primary-nav {
+  position: relative;
   flex: 1 1 25%;
 
   @include breakpoint($break-nav) {
