@@ -1,0 +1,101 @@
+card_base_class:
+  flexbox
+card_modifiers:
+  1:
+    horizontal
+  2:
+    feature-25
+  3:
+    item-box-12
+  4:
+    layout-background-2
+  5:
+    reverse-order
+  6:
+    layout-box-4
+  7:
+    pl-full
+
+card_sections:
+  1:
+    layout_section_base_class:
+      flexbox
+    layout_section_modifiers:
+      1:
+        vertical
+    layout_section_layout_extra:
+      1:
+        horizontal
+      2:
+        feature-25
+      3:
+        item-box-12
+      4:
+        layout-background-2
+      5:
+        reverse-order
+      6:
+        layout-box-4
+    layout_section_items:
+      # Image
+      1:
+        img_attributes:
+          src:
+              '../../images/txex/1x1_1000x1000.png'
+        img_modifiers:
+          1:
+            pl
+  2:
+    layout_section_base_class:
+      flexbox
+    layout_section_modifiers:
+      1:
+        vertical
+    layout_section_layout_extra:
+      1:
+        horizontal
+      2:
+        feature-25
+      3:
+        item-box-12
+      4:
+        layout-background-2
+      5:
+        reverse-order
+      6:
+        layout-box-4
+    layout_section_items:
+      # Slug
+      1:
+        title:
+          "My Reason For Joining"
+        level:
+          '3'
+        modifiers:
+          1:
+            alt-11
+      # Title
+      2:
+        title:
+          "Lucille Lortell"
+        level:
+          '1'
+        modifiers:
+          1:
+            alt-11
+      # Body
+      4:
+        paragraph:
+          "Sapiti ulparit doluptur. Qui quo ex es erchilicab il moluptum harum. Aximagnatatem re con re plam se solore venis necto beaqui rercius aernatus rest, tem fuga. Et di tem qui cum quis di dolla conet omnis ima dit odit perio berumque aut quam volorenis aut odit ates nullantio minci of ci comnis dolupta nis perum fugiatum sed."
+        modifiers:
+          1:
+            alt-11
+      # Link
+      5:
+        link_url:
+          "#"
+        link:
+          "Join Today"
+        modifiers:
+          1:
+            alt-11

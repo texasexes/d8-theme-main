@@ -51,22 +51,14 @@
     background-color: $item-background-color-10;
   }
 
-  &--item-box-1,
-  &--item-box-2,
-  &--item-box-3,
-  &--item-box-4,
-  &--item-box-5,
-  &--item-box-6,
-  &--item-box-7 {
-    &:first-of-type {
-      padding: 0;
-    }
-  }
-
   &--item-box-1 {
     &,
     &:only-of-type {
       padding: 0 $row-padding;
+    }
+
+    &:first-of-type {
+      padding: 0;
     }
   }
 
@@ -75,12 +67,20 @@
     &:only-of-type {
       padding-left: $row-padding;
     }
+
+    &:first-of-type {
+      padding: 0;
+    }
   }
 
   &--item-box-3 {
     &,
     &:only-of-type {
       padding: $row-padding;
+    }
+
+    &:first-of-type {
+      padding: 0;
     }
   }
 
@@ -89,12 +89,20 @@
     &:only-of-type {
       padding: 0 $component-padding;
     }
+
+    &:first-of-type {
+      padding: 0;
+    }
   }
 
   &--item-box-5 {
     &,
     &:only-of-type {
       padding-left: $component-padding;
+    }
+
+    &:first-of-type {
+      padding: 0;
     }
   }
 
@@ -103,12 +111,20 @@
     &:only-of-type {
       padding: $component-padding;
     }
+
+    &:first-of-type {
+      padding: 0;
+    }
   }
 
   &--item-box-7 {
     &,
     &:only-of-type {
       padding: $component-padding $component-padding $component-padding $row-padding;
+    }
+
+    &:first-of-type {
+      padding: 0;
     }
   }
 
@@ -128,6 +144,10 @@
     &:only-of-type {
       padding-right: $component-padding;
     }
+
+    // &:first-of-type {
+    //   padding: 0;
+    // }
   }
 
   &--item-box-10 {
@@ -145,6 +165,21 @@
     &,
     &:only-of-type {
       padding: 0 10%;
+    }
+
+    &:first-of-type {
+      padding: 0;
+    }
+  }
+
+  &--item-box-12 {
+    &,
+    &:only-of-type {
+      padding: 0 $component-padding 0 80px;
+    }
+
+    &:first-of-type {
+      padding: 0;
     }
   }
 }

@@ -12,6 +12,8 @@ $font-heading-h1-alt-6: $font-primary;
 $font-heading-h2-alt-5: $font-tertiary;
 $font-heading-h2-alt-6: $font-tertiary;
 
+$font-heading-h3-alt-11: $font-secondary-30;
+
 //
 // Generic header styles:
 // All arguments are optional. If not defined, the defaults below will be used
@@ -110,14 +112,6 @@ h6,
       text-transform: none;
     }
 
-    // same as alt-2 but with default text color
-    &--alt-10 {
-      font-family: $font-heading-alt-2;
-      font-weight: 800;
-      font-size: 6.8rem;
-      text-transform: none;
-    }
-
     &--alt-3 {
       // color: $heading-color-h1-alt-3;
       font-size: 3.6rem;
@@ -166,13 +160,14 @@ h6,
       // color: $heading-color-h1-alt-5;
       font-family: $font-heading-h1-alt-5;
       font-weight: 800;
-      font-size: 1.696em;
+      font-size: 1.9rem;
       line-height: 1.25;
       margin: 0 0 3px;
       text-transform: none;
       text-align: center;
     }
 
+    // for texty header
     &--alt-9 {
       color: $white;
       font-family: $font-heading-alt-2;
@@ -180,6 +175,24 @@ h6,
       font-size: 6.8rem;
       text-transform: none;
       text-align: center;
+    }
+
+    // similar to alt-2 but with default text color
+    // for why join
+    &--alt-10 {
+      font-family: $font-heading-alt-2;
+      font-weight: 800;
+      font-size: 5.2rem;
+      text-transform: none;
+    }
+
+    // for testimonial
+    &--alt-11 {
+      color: $white;
+      font-family: $font-heading-alt-2;
+      font-weight: 800;
+      font-size: 5.2rem;
+      text-transform: none;
     }
 
     &--alt-dw {
@@ -239,6 +252,10 @@ h6,
     &--alt-9 {
       color: $white;
       text-align: center;
+    }
+
+    &--alt-11 {
+      color: $white;
     }
 
     &--list-group-ref {
@@ -320,6 +337,12 @@ h6,
 
     &--alt-9 {
       text-align: center;
+    }
+
+    &--alt-11 {
+      background-color: transparent;
+      font-size: 1.8rem;
+      font-family: $font-heading-h3-alt-11;
     }
 
     &--alt-dw {
