@@ -52,134 +52,134 @@
   }
 
   &--item-box-1 {
+    &:first-of-type {
+      padding: 0;
+    }
+
     &,
     &:only-of-type {
       padding: 0 $row-padding;
     }
-
-    &:first-of-type {
-      padding: 0;
-    }
   }
 
   &--item-box-2 {
+    &:first-of-type {
+      padding: 0;
+    }
+
     &,
     &:only-of-type {
       padding-left: $row-padding;
     }
-
-    &:first-of-type {
-      padding: 0;
-    }
   }
 
   &--item-box-3 {
+    &:first-of-type {
+      padding: 0;
+    }
+
     &,
     &:only-of-type {
       padding: $row-padding;
     }
-
-    &:first-of-type {
-      padding: 0;
-    }
   }
 
   &--item-box-4 {
+    &:first-of-type {
+      padding: 0;
+    }
+
     &,
     &:only-of-type {
       padding: 0 $component-padding;
-    }
-
-    &:first-of-type {
-      padding: 0;
     }
   }
 
   &--item-box-5 {
+    &:first-of-type {
+      padding: 0;
+    }
+
     &,
     &:only-of-type {
       padding-left: $component-padding;
     }
-
-    &:first-of-type {
-      padding: 0;
-    }
   }
 
   &--item-box-6 {
+    &:first-of-type {
+      padding: 0;
+    }
+
     &,
     &:only-of-type {
       padding: $component-padding;
     }
-
-    &:first-of-type {
-      padding: 0;
-    }
   }
 
   &--item-box-7 {
+    &:first-of-type {
+      padding: 0;
+    }
+
     &,
     &:only-of-type {
       padding: $component-padding $component-padding $component-padding $row-padding;
     }
-
-    &:first-of-type {
-      padding: 0;
-    }
   }
 
   &--item-box-8 {
+    &:first-of-type {
+      padding: 0 $component-padding;
+    }
+
     &,
     &:only-of-type {
       padding: $list-item-padding 0;
     }
-
-    &:first-of-type {
-      padding: 0 $component-padding;
-    }
   }
 
   &--item-box-9 {
+    &:first-of-type {
+      padding: 0;
+    }
+
     &,
     &:only-of-type {
       padding-right: $component-padding;
     }
-
-    // &:first-of-type {
-    //   padding: 0;
-    // }
   }
 
   &--item-box-10 {
+    &:first-of-type {
+      padding: 0 $component-padding;
+    }
+
     &,
     &:only-of-type {
       padding: $list-item-padding;
     }
-
-    &:first-of-type {
-      padding: 0 $component-padding;
-    }
   }
 
   &--item-box-11 {
+    &:first-of-type {
+      padding: 0;
+    }
+
     &,
     &:only-of-type {
       padding: 0 10%;
     }
-
-    &:first-of-type {
-      padding: 0;
-    }
   }
 
   &--item-box-12 {
+    &:first-of-type {
+      padding: 0;
+    }
+
     &,
     &:only-of-type {
       padding: 0 $component-padding 0 80px;
-    }
-
-    &:first-of-type {
-      padding: 0;
     }
   }
 }
