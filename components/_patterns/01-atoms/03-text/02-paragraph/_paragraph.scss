@@ -63,5 +63,25 @@ p,
       font-weight: 400;
       text-align: center;
     }
+
+    &--alt-11 {
+      color: $paragraph-color-2;
+      position: relative;
+
+      &::before {
+        font-family: $font-primary;
+        content: "“";
+        font-size: 29rem;
+        margin: auto;
+        position: absolute;
+        top: 0;
+        left: -80px;
+        bottom: 0;
+        right: 0;
+        height: 3rem;
+        line-height: 11rem;
+        color: rgba(255, 255, 255, 0.12);
+      }
+    }
   }
 }

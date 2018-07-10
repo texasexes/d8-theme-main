@@ -4,11 +4,18 @@ card_modifiers:
   1:
     horizontal
   2:
-    feature-66
+    feature-25
   3:
-    item-box-1
+    item-box-12
   4:
     layout-background-2
+  5:
+    reverse-order
+  6:
+    layout-box-4
+  7:
+    pl-full
+
 card_sections:
   1:
     layout_section_base_class:
@@ -20,17 +27,21 @@ card_sections:
       1:
         horizontal
       2:
-        feature-66
+        feature-25
       3:
-        item-box-1
+        item-box-12
       4:
         layout-background-2
+      5:
+        reverse-order
+      6:
+        layout-box-4
     layout_section_items:
       # Image
       1:
         img_attributes:
           src:
-              '../../images/txex/9x4_999x444.png'
+              '../../images/txex/1x1_1000x1000.png'
         img_modifiers:
           1:
             pl
@@ -44,52 +55,47 @@ card_sections:
       1:
         horizontal
       2:
-        feature-66
+        feature-25
       3:
-        item-box-1
+        item-box-12
       4:
         layout-background-2
+      5:
+        reverse-order
+      6:
+        layout-box-4
     layout_section_items:
       # Slug
       1:
         title:
-          "The Card Slug."
+          "My Reason For Joining"
         level:
           '3'
         modifiers:
           1:
-            alt-2
+            alt-11
       # Title
       2:
         title:
-          "The Card Title."
+          "Lucille Lortell"
         level:
           '1'
         modifiers:
           1:
-            alt-2
-      # Subtitle
-      3:
-        subtitle:
-          "The subtitle of the card is here."
-        level:
-          '2'
-        modifiers:
-          1:
-            alt-2
+            alt-11
       # Body
       4:
         paragraph:
-          "The body text of the card would go here. There is more text in the body than the other fields. It may not all fit."
+          "Sapiti ulparit doluptur. Qui quo ex es erchilicab il moluptum harum. Aximagnatatem re con re plam se solore venis necto beaqui rercius aernatus rest, tem fuga. Et di tem qui cum quis di dolla conet omnis ima dit odit perio berumque aut quam volorenis aut odit ates nullantio minci of ci comnis dolupta nis perum fugiatum sed."
         modifiers:
           1:
-            alt-2
+            alt-11
       # Link
       5:
         link_url:
           "#"
         link:
-          "Here is the link"
+          "Join Today"
         modifiers:
           1:
-            alt-2
+            alt-11

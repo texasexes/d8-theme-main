@@ -5,6 +5,8 @@ card_modifiers:
     horizontal
   2:
     feature-100
+  3:
+    item-box-9
   5:
     pl-1-column
   6:
@@ -16,13 +18,13 @@ card_sections:
     layout_section_modifiers:
       1:
         vertical
-      2:
-        event-list
     layout_section_layout_extra:
       1:
         horizontal
       2:
         feature-100
+      3:
+        item-box-9
     layout_section_items:
       # Image
       1:
@@ -38,13 +40,13 @@ card_sections:
     layout_section_modifiers:
       1:
         vertical
-      2:
-        event-list
     layout_section_layout_extra:
       1:
         horizontal
       2:
         feature-100
+      3:
+        item-box-9
     layout_section_items:
       # Slug
       1:

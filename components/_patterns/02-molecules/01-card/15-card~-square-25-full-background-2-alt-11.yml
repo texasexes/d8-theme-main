@@ -4,11 +4,13 @@ card_modifiers:
   1:
     horizontal
   2:
-    feature-66
+    feature-25
   3:
-    item-box-1
+    item-box-12
   4:
     layout-background-2
+  5:
+    pl-full
 card_sections:
   1:
     layout_section_base_class:
@@ -20,9 +22,9 @@ card_sections:
       1:
         horizontal
       2:
-        feature-66
+        feature-25
       3:
-        item-box-1
+        item-box-12
       4:
         layout-background-2
     layout_section_items:
@@ -30,7 +32,7 @@ card_sections:
       1:
         img_attributes:
           src:
-              '../../images/txex/9x4_999x444.png'
+              '../../images/txex/1x1_1000x1000.png'
         img_modifiers:
           1:
             pl
@@ -44,9 +46,9 @@ card_sections:
       1:
         horizontal
       2:
-        feature-66
+        feature-25
       3:
-        item-box-1
+        item-box-12
       4:
         layout-background-2
     layout_section_items:
@@ -58,7 +60,7 @@ card_sections:
           '3'
         modifiers:
           1:
-            alt-2
+            alt-11
       # Title
       2:
         title:
@@ -67,7 +69,7 @@ card_sections:
           '1'
         modifiers:
           1:
-            alt-2
+            alt-11
       # Subtitle
       3:
         subtitle:
@@ -76,14 +78,14 @@ card_sections:
           '2'
         modifiers:
           1:
-            alt-2
+            alt-11
       # Body
       4:
         paragraph:
           "The body text of the card would go here. There is more text in the body than the other fields. It may not all fit."
         modifiers:
           1:
-            alt-2
+            alt-11
       # Link
       5:
         link_url:
@@ -92,4 +94,4 @@ card_sections:
           "Here is the link"
         modifiers:
           1:
-            alt-2
+            alt-11
