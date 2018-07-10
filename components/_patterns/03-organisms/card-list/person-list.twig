@@ -1,0 +1,9 @@
+{% embed "@organisms/card-list/_card-list" with {
+  card_list_base_class: 'person-list',
+} %}
+{% block card_list %}
+  {% for person in person_list %}
+    {% include "@molecules/person-card/person-card.twig" %}
+  {% endfor %}
+{% endblock %}
+{% endembed %}

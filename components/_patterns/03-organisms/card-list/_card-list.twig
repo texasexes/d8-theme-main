@@ -1,0 +1,9 @@
+{% set card_list_base_class = card_list_base_class|default('card-list') %}
+
+<div {{ bem(card_list_base_class, card_list_modifiers, card_list_blockname) }}>
+  {% block card_list %}
+    {% for card in card_list %}
+      {% include "@molecules/01-card/00-card.twig" %}
+    {% endfor %}
+  {% endblock %}
+</div>
