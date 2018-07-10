@@ -1,0 +1,26 @@
+{% embed "@molecules/person-card/_person-card.twig" with {
+  person_card_base_class: 'person-card--scholarship',
+} %}
+  {% block person_content %}
+    {% include "@atoms/03-text/_text.twig" with {
+      text_blockname: person_card_base_class,
+      text_base_class: 'name',
+      text_content: person_name,
+    } %}
+    {% include "@atoms/03-text/_text.twig" with {
+      text_blockname: person_card_base_class,
+      text_base_class: 'scholarship',
+      text_content: person_scholarship,
+    } %}
+    {% include "@atoms/03-text/_text.twig" with {
+      text_blockname: person_card_base_class,
+      text_heading: 'Hometown',
+      text_content: person_hometown,
+    } %}
+    {% include "@atoms/03-text/_text.twig" with {
+      text_blockname: person_card_base_class,
+      text_heading: 'High School',
+      text_content: person_highschool,
+    } %}
+  {% endblock %}
+{% endembed %}

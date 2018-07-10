@@ -15,7 +15,7 @@ $break-person-card: $large;
   color: $color;
 }
 
-.person-card {
+.person-card--advocate {
   padding-top: $space;
   margin-bottom: $space;
   border-top: 1px solid $grey-e;
@@ -57,5 +57,11 @@ $break-person-card: $large;
 
     display: block;
     line-height: 1.4;
+  }
+}
+
+.person-card--scholarship {
+  &__image-wrapper {
+    max-width: 170px;
   }
 }
