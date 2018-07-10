@@ -1,11 +1,12 @@
 {% set person_card_base_class = person_card_base_class|default('person-card') %}
+
 <div {{ bem(person_card_base_class, person_card_modifiers, person_card_blockname) }}>
   <div {{ bem('image-wrapper', person_details_modifiers, person_card_base_class) }}>
     {% block person_image %}
       {% include "@atoms/04-images/00-image/00-image.twig" with {
         image_blockname: person_card_base_class,
         image_base_class: 'image',
-        image_src: '../../images/sample/thumb-square-yosemite.jpg',
+        image_src: person_card_image,
       } %}
     {% endblock %}
   </div>
