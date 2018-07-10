@@ -58,6 +58,7 @@ card_sections:
           '3'
         modifiers:
           1:
+            alt-2
       # Title
       2:
         title:
