@@ -29,8 +29,8 @@
       {% set layout_item %}
         {%- include "@atoms/04-images/00-image/00-image.twig" with {
           "img_attributes": layout_item.img_attributes,
-          "img_modifiers": layout_item.img_modifiers,
-          "img_blockname": layout_section_base_class,
+          "image_modifiers": layout_item.image_modifiers,
+          "image_blockname": layout_section_base_class,
         } -%}
       {% endset %}
     {%- endif -%}

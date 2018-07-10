@@ -1,0 +1,4 @@
+{% set text_base_class = text_base_class|default('text') %}
+<div {{ bem(text_base_class, text_modifiers, text_blockname) }}>
+  {{ text_content }}
+</div>

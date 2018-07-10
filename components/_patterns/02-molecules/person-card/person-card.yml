@@ -1,0 +1,13 @@
+person_name: "Greg Abbott"
+person_office_party: "Governor, Republican"
+person_degree_year: "BBA Finance 1981"
+person_is_longhorn: "Life Member"
+person_links:
+  - link_url: "#"
+    person_link_content: "gov.texas.gov"
+  - link_url: "#"
+    person_link_content: "gregabbott.com"
+  - link_url: "#"
+    person_link_content: "Twitter"
+  - link_url: "#"
+    person_link_content: "Facebook"

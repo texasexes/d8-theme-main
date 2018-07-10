@@ -33,7 +33,7 @@ card_sections:
         img_attributes:
           src:
               '../../images/txex/3x2_999x666.png'
-        img_modifiers:
+        image_modifiers:
           1:
             pl
   2:

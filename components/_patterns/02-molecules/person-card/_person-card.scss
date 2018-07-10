@@ -1,0 +1,57 @@
+$break-person-card: $large;
+
+@mixin person-heading($color: inherit) {
+  font-family: $font-primary;
+  font-size: 2.3rem;
+  font-weight: bold;
+  line-height: 1.57;
+  color: $color;
+}
+
+@mixin person-text($color: $grey-7) {
+  font-family: $font-tertiary;
+  font-size: 1.5rem;
+  line-height: 1.53;
+  color: $color;
+}
+
+.person-card {
+  @include breakpoint($break-person-card) {
+    display: flex;
+    flex-flow: row nowrap;
+  }
+
+  &__image-wrapper {
+    max-width: 170px;
+
+    @include breakpoint($break-person-card) {
+      flex: 0 1 25%;
+      margin-right: $space-and-half;
+    }
+  }
+
+  &__details {
+    @include breakpoint($break-person-card) {
+      flex: 1 1 75%;
+    }
+  }
+
+  &__heading {
+    @include person-heading($color: $grey-5);
+  }
+
+  &__subheading {
+    @include alcalde-title-4;
+  }
+
+  &__text {
+    @include person-text;
+  }
+
+  &__link {
+    @include simple-link;
+
+    display: block;
+    line-height: 1.4;
+  }
+}

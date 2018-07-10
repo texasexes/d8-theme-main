@@ -1,0 +1,41 @@
+{% set person_card_base_class = person_card_base_class|default('person-card') %}
+<div {{ bem(person_card_base_class, person_card_modifiers, person_card_blockname) }}>
+  <div {{ bem('image-wrapper', person_details_modifiers, person_card_base_class) }}>
+    {% block person_image %}
+      {% include "@atoms/04-images/00-image/00-image.twig" with {
+        image_blockname: person_card_base_class,
+        image_base_class: 'image',
+        image_src: '../../images/sample/thumb-square-yosemite.jpg',
+      } %}
+    {% endblock %}
+  </div>
+  <div {{ bem('details', person_details_modifiers, person_card_base_class) }}>
+    {% block person_content %}
+      {% include "@atoms/03-text/_text.twig" with {
+        text_blockname: person_card_base_class,
+        text_base_class: 'heading',
+        text_content: person_name,
+      } %}
+      {% include "@atoms/03-text/_text.twig" with {
+        text_blockname: person_card_base_class,
+        text_base_class: 'subheading',
+        text_content: person_office_party,
+      } %}
+      {% include "@atoms/03-text/_text.twig" with {
+        text_blockname: person_card_base_class,
+        text_content: person_degree_year,
+      } %}
+      {% include "@atoms/03-text/_text.twig" with {
+        text_blockname: person_card_base_class,
+        text_content: person_is_longhorn,
+      } %}
+      {% for link in person_links %}
+        {% include "@atoms/01-links/link/link.twig" with {
+          link_blockname: person_card_base_class,
+          link_url: link.link_url,
+          link_content: link.person_link_content,
+        } %}
+      {% endfor %}
+    {% endblock %}
+  </div>
+</div>

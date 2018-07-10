@@ -25,7 +25,7 @@ card_sections:
         img_attributes:
           src:
               '../../images/txex/9x4_999x444.png'
-        img_modifiers:
+        image_modifiers:
           1:
             pl
   2:

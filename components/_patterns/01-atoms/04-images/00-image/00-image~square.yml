@@ -3,7 +3,7 @@ img_attributes:
     '../../images/txex/1x1_1000x1000.png'
   alt:
     "Image - Square"
-img_modifiers:
+image_modifiers:
   1:
     pl
   2:

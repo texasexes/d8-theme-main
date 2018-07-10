@@ -3,7 +3,7 @@ img_attributes:
     '../../images/txex/3x1_999x333.png'
   alt:
     "Image - Landscape Superwide"
-img_modifiers:
+image_modifiers:
   1:
     pl
   2:
