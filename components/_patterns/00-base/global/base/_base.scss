@@ -22,3 +22,19 @@ body {
   position: fixed;
   width: 100%;
 }
+
+.embedded-entity {
+  &.align-right {
+    clear: right;
+    margin-bottom: 3%;
+    margin-left: 3%;
+    width: 25%;
+  }
+
+  &.align-left {
+    clear: left;
+    margin-bottom: 3%;
+    margin-right: 3%;
+    width: 25%;
+  }
+}

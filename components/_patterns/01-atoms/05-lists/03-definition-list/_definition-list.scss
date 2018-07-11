@@ -1,0 +1,49 @@
+// Create a mixin for ordered list styles that can be implemented
+// in components with other classnames.
+@mixin definition-list(
+  $color: $paragraph-color-default,
+  $font-family: $font-paragraph,
+  $font-size: 1.6rem,
+  $line-height: 1.7em,
+  $margin: '0 0 10px') {
+  color: #{$color};
+  font-family: $font-family;
+  font-size: #{$font-size};
+  line-height: $line-height;
+  margin: #{$margin};
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// When a ordered list is a block, this is it's class (BEM)
+.dl {
+  @include definition-list;
+}
+
+.wysiwyg {
+  &__dl {
+    @extend .dl;
+  }
+
+  &__dt {
+    position: relative;
+    display: flex;
+    flex-flow: column nowrap;
+    border: 1px solid $grey-e;
+    border-left: 4px solid $grey-e;
+    padding: $space-one-half 0 $space-one-half $space-and-half;
+    margin-bottom: $space-one-third;
+    font-family: $font-tertiary;
+    font-size: 1.7rem;
+    font-weight: 500;
+    line-height: 1.76;
+    color: $grey-5;
+  }
+
+  &__dd {
+    font-family: $font-primary;
+    font-size: 1.9rem;
+    line-height: 1.68;
+    color: $grey-5;
+  }
+}
