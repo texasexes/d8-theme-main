@@ -1,0 +1,11 @@
+{% set full_name = content.field_txex_text_formatted_01.0['#text'] ~ ' ' ~ content.field_txex_text_formatted_06.0['#text'] %}
+
+{% include "@molecules/person-card/person-card--scholarship.twig" with {
+  person_card_image: file_url(content.field_txex_ref_media_01.0['#media'].field_media_image.entity.uri.value),
+  person_name: full_name,
+  person_scholarship: content.field_txex_text_formatted_02.0['#text'],
+  person_hometown: content.field_txex_text_formatted_03.0['#text'],
+  person_highschool: content.field_txex_text_formatted_05.0['#text'],
+} %}
+
+{{ content|without('field_txex_ref_media_01', 'field_txex_text_formatted_01', 'field_txex_text_formatted_06', 'field_txex_text_formatted_02', 'field_txex_text_formatted_03', 'field_txex_text_formatted_05') }}
