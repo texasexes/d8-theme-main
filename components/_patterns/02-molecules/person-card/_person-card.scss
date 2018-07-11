@@ -79,6 +79,10 @@ $break-person-card: $large;
   }
 
   &__details {
+    > *:last-child {
+      margin-bottom: 0;
+    }
+
     @include breakpoint($break-person-card) {
       flex: 1 1 75%;
     }
@@ -86,10 +90,14 @@ $break-person-card: $large;
 
   &__name {
     @include alcade-title-2;
+
+    margin-bottom: 0.4em;
   }
 
   &__scholarship {
     @include h5-dark;
+
+    line-height: 1.6;
   }
 
   &__text-heading {
@@ -98,6 +106,8 @@ $break-person-card: $large;
 
   &__text {
     @include person-text;
+
+    margin-bottom: 0.6em;
   }
 }
 
@@ -111,6 +121,8 @@ $break-person-card: $large;
 
   &__subheading {
     @include person-text;
+
+    margin-bottom: 0.6em;
   }
 
   &__link {
