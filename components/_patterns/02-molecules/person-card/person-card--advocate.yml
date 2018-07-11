@@ -1,4 +1,5 @@
-person_card_image: 'http://placeimg.com/169/188/people'
+img_attributes:
+  src: 'http://placeimg.com/169/188/people'
 person_name: "Greg Abbott"
 person_office_party: "Governor, Republican"
 person_degree_year: "BBA Finance 1981"

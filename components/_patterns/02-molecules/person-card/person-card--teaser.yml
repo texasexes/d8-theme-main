@@ -1,4 +1,5 @@
-person_card_image: 'http://placeimg.com/169/188/people'
+img_attributes:
+  src: 'http://placeimg.com/169/188/people'
 person_heading: Abigail Aldea
 person_subheading: Germantown, TN
 link_url: '#'
