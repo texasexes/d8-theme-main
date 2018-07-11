@@ -9,12 +9,14 @@ html {
 body {
   position: relative;
   font-size: 1.6rem;
+  background-color: $mushroom-lightest;
 }
 
 .main {
   @include wrapper;
 
   display: block; // Fix for IE weirdness
+  background-color: $white;
 }
 
 .noscroll {
