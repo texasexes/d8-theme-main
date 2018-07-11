@@ -1,3 +1,11 @@
+{% set person_advocate_image %}
+  {% block person_advocate_image %}
+    {% include "@atoms/04-images/00-image/00-image.twig" with {
+      image_src: person_card_image,
+    } %}
+  {% endblock %}
+{% endset %}
+
 {% embed "@molecules/person-card/_person-card.twig" with {
   person_card_base_class: 'person-card--advocate',
 } %}
