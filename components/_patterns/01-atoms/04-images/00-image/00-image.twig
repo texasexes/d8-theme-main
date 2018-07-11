@@ -2,24 +2,19 @@
 /**
  * Available variables:
 
- * - image_base_class - base class name
- * - image_modifiers - array of modifiers to add to the base classname
- * - image_blockname - blockname prepended to the base classname
+ * - img_base_class - base class name
+ * - img_modifiers - array of modifiers to add to the base classname
+ * - img_blockname - blockname prepended to the base classname
 
  * - img_attributes - attributes key/value pair for link attributes
  */
 #}
 {# An image uses this class along with the blockname whenever it is an element (BEM)#}
-{% set image_base_class = image_base_class|default('img') %}
+{% set img_base_class = img_base_class|default('img') %}
 {# This var is set to prevent add_attributes griping about an empty var #}
 {% set img_attributes = img_attributes|default([]) %}
 
 <img
-  {{ bem(image_base_class, image_modifiers, image_blockname) }}
-  src="{{ image_src }}"
-  {% if image_alt %}
-    alt="{{ image_alt }}"
-  {% else %}
-    aria-hidden="true"
-  {% endif %}
->
+  {{ bem(img_base_class, (img_modifiers), img_blockname) }}
+  {{ add_attributes(img_attributes) }}
+/>
