@@ -61,7 +61,42 @@ $break-person-card: $large;
 }
 
 .person-card--scholarship {
+  padding: $space;
+  border: 8px solid $mushroom-lighter;
+
+  @include breakpoint($break-person-card) {
+    display: flex;
+    flex-flow: row nowrap;
+  }
+
   &__image-wrapper {
     max-width: 170px;
+
+    @include breakpoint($break-person-card) {
+      flex: 0 1 25%;
+      margin-right: $space-and-half;
+    }
+  }
+
+  &__details {
+    @include breakpoint($break-person-card) {
+      flex: 1 1 75%;
+    }
+  }
+
+  &__name {
+    @include alcade-title-2;
+  }
+
+  &__scholarship {
+    @include h5-dark;
+  }
+
+  &__text-heading {
+    @include alcalde-title-4;
+  }
+
+  &__text {
+    @include person-text;
   }
 }

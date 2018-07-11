@@ -1,7 +1,7 @@
 {% set text_base_class = text_base_class|default('text') %}
 
 {% if text_heading %}
-  <div {{ bem('heading', text_heading_modifiers, text_blockname) }}>
+  <div {{ bem('text-heading', text_heading_modifiers, text_blockname) }}>
     {{ text_heading }}
   </div>
 {% endif %}
