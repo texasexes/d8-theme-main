@@ -5,10 +5,15 @@ $font-link: $font-tertiary;
 @mixin link(
   $color: $color-link,
   $color--hover: $color-link--hover,
-  $font-family: $font-link) {
+  $font-family: $font-link,
+  $font-size: 1.5rem,
+  $line-height: 1.4) {
   color: $color;
   cursor: pointer;
   font-family: $font-family;
+  font-size: $font-size;
+  line-height: $line-height;
+  text-decoration: none;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
@@ -22,14 +27,8 @@ $font-link: $font-tertiary;
   @include link;
 }
 
-.card__link {
+.wysiwyg__link {
   @extend .link;
-}
-
-.simple__link {
-  @extend .link;
-
-  text-decoration: none;
 }
 
 .absolute__link,
@@ -37,29 +36,12 @@ $font-link: $font-tertiary;
 .block__link {
   @extend .link;
 
-  font-size: 0.94em; //15px
-  line-height: 1.4; //21px
-  text-decoration: none;
-
   &::after {
     content: "\25b6";
     padding-left: 1em;
     font-size: 0.5em;
     vertical-align: middle;
   }
-
-  // &--alt-5 {
-  //   float: left;
-  //   font-family: $font-heading-test;
-  //   font-weight: 400;
-  //   font-size: 1.25em;
-  //   &:after {
-  //     content:",\a0";
-  //     padding: 0;
-  //     font-size: 1em;
-  //     vertical-align: inherit;
-  //   }
-  // }
 
   &--alt-5 {
     display: inline-block;
@@ -74,17 +56,6 @@ $font-link: $font-tertiary;
   &--alt-8 {
     display: block;
     text-align: center;
-  }
-}
-
-.wysiwyg__link {
-  // font-size: 0.94em; //15px
-  // line-height: 1.4; //21px
-  text-decoration: none;
-
-  &--alt-dw {
-    text-decoration: none;
-    color: $burnt-orange;
   }
 }
 

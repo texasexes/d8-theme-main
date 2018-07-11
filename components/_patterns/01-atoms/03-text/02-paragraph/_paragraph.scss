@@ -13,14 +13,14 @@ $font-paragraph: $font-tertiary;
   margin: #{$margin};
   color: #{$color};
   line-height: $line-height;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 // When a paragraph is a block, this is it's class (BEM)
 p,
 .p {
   @include paragraph;
-
-  -webkit-font-smoothing: antialiased;
 }
 
 // An paragraph that is an element of a paragraph-01 block

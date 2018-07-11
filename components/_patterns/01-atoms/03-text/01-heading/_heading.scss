@@ -21,7 +21,7 @@ $font-heading-h3-alt-11: $font-secondary-30;
 @mixin heading(
   $color: inherit,
   $font-family: $font-heading-1,
-  $font-size: 6.112rem,
+  $font-size: 6.1rem,
   $font-style: normal,
   $font-weight: 400,
   $letter-spacing: -0.005em,
@@ -48,53 +48,130 @@ $font-heading-h3-alt-11: $font-secondary-30;
   // }
 }
 
-h1,
 .h1 {
   @include heading($color: $heading-color-h1-default, $text-transform: uppercase);
 }
 
-h2,
 .h2 {
   @include heading($color: $heading-color-h2-default, $font-size: 2.096rem, $line-height: 1.29, $font-family: $font-heading-2 );
 }
 
-h3,
 .h3 {
   @include heading($color: $heading-color-h3-default, $font-size: 1.5rem, $line-height: 1.6, $font-family: $font-heading-3 , $text-transform: uppercase );
 }
 
-h4,
 .h4 {
   @include heading($color: $heading-color-h4-default, $font-size: 1.92rem, $line-height: 1.6, $font-weight: 600);
 }
 
-h5,
-h6,
 .h5,
 .h6 {
   @include heading($font-size: 1.76rem, $line-height: 2, $font-weight: 600);
 }
 
-.h1,
-.h2,
-.h3,
-.h4,
-.h5,
-.h6,
-.hero__title {
-  &--alt-1 {
-    // border-style: solid;
-    // border-width: 2px;
-    // border-color: black;
-    // box-shadow: 5px 5px 3px #2d2d2d;
-    // padding: 0 0.5em;
+h1 {
+  @extend .h1;
+
+  font-family: $font-heading-alt-2;
+  font-size: 6.8rem;
+  font-weight: 800;
+  margin: 0 0 10px;
+  text-transform: none;
+}
+
+h2 {
+  @extend .h1;
+
+  margin: 0 0 10px;
+}
+
+h3 {
+  @extend .h1;
+
+  font-family: $font-heading-h1-alt-5;
+  font-size: 2.4rem;
+  font-weight: 800;
+  line-height: 1.25;
+  margin: 0 0 10px;
+  text-transform: none;
+}
+
+h4 {
+  @extend .h2;
+
+  margin: 0 0 10px;
+}
+
+h5 {
+  @extend .h2;
+
+  font-family: $font-tertiary;
+  font-size: 1.6rem;
+  margin: 0 0 10px;
+}
+
+h6 {
+  @extend .h2;
+
+  font-family: $font-tertiary;
+  font-size: 1.5rem;
+  margin: 0 0 10px;
+}
+
+.wysiwyg {
+  &__h1 {
+    @extend .h1;
+
+    font-family: $font-heading-alt-2;
+    font-size: 6.8rem;
+    font-weight: 800;
+    margin: 0 0 10px;
+    text-transform: none;
+  }
+
+  &__h2 {
+    @extend .h1;
+
+    margin: 0 0 10px;
+  }
+
+  &__h3 {
+    @extend .h1;
+
+    font-family: $font-heading-h1-alt-5;
+    font-size: 2.4rem;
+    font-weight: 800;
+    line-height: 1.25;
+    margin: 0 0 10px;
+    text-transform: none;
+  }
+
+  &__h4 {
+    @extend .h2;
+
+    margin: 0 0 10px;
+  }
+
+  &__h5 {
+    @extend .h2;
+
+    font-family: $font-tertiary;
+    font-size: 1.6rem;
+    margin: 0 0 10px;
+  }
+
+  &__h6 {
+    @extend .h2;
+
+    font-family: $font-tertiary;
+    font-size: 1.5rem;
+    margin: 0 0 10px;
   }
 }
 
 .absolute,
 .flexbox,
-.block,
-.wysiwyg {
+.block {
   &__h1 {
     @extend .h1;
 
@@ -195,12 +272,12 @@ h6,
       text-transform: none;
     }
 
-    &--alt-dw {
-      font-size: 4.3008rem;
-      color: $grey-5;
-      font-weight: 700;
-      letter-spacing: -0.028em;
-    }
+    // &--alt-dw {
+    //   font-size: 4.3008rem;
+    //   color: $grey-5;
+    //   font-weight: 700;
+    //   letter-spacing: -0.028em;
+    // }
   }
 
   &__h2 {
@@ -219,7 +296,7 @@ h6,
     &--alt-3 {
       // color: $heading-color-h2-alt-3;
       font-family: $font-heading-alt-3;
-      font-size: 1em;
+      font-size: 1.6rem;
     }
 
     &--alt-5 {
@@ -232,13 +309,13 @@ h6,
     &--alt-6 {
       color: $white;
       font-family: $font-heading-alt-3;
-      font-size: 1em;
+      font-size: 1.6rem;
     }
 
     &--alt-7 {
       // color: $heading-color-h2-alt-5;
       font-family: $font-tertiary;
-      font-size: 1em;
+      font-size: 1.6rem;
     }
 
     &--alt-8 {
