@@ -50,8 +50,9 @@
 
   &--layout-box-8 {
     padding: $component-padding;
-    margin-bottom: $row-margin;
+    margin: 0 $row-padding $row-margin $row-padding;
     border-width: $row-border-width;
+    width: auto;
   }
 
   &--layout-background-1 {
