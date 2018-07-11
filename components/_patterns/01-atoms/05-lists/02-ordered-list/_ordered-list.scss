@@ -1,14 +1,18 @@
 // Create a mixin for ordered list styles that can be implemented
 // in components with other classnames.
 @mixin ordered-list(
-  $margin: '0 0 10px',
+  $color: $paragraph-color-default,
   $font-family: $font-paragraph,
-  $color: inherit,
-  $line-height: 1.7em) {
-  font-family: $font-family;
-  margin: #{$margin};
+  $font-size: 1.6rem,
+  $line-height: 1.7em,
+  $margin: '0 0 10px') {
   color: #{$color};
+  font-family: $font-family;
+  font-size: #{$font-size};
   line-height: $line-height;
+  margin: #{$margin};
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 // When a ordered list is a block, this is it's class (BEM)
