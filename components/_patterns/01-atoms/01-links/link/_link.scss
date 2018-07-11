@@ -1,13 +1,14 @@
-// Link
-$font-link: $font-tertiary;
+$color-link: $burnt-orange;
+$color-link--hover: $grey-a;
 
 /// Link
 @mixin link(
   $color: $color-link,
   $color--hover: $color-link--hover,
-  $font-family: $font-link,
+  $font-family: $font-tertiary,
   $font-size: 1.5rem,
-  $line-height: 1.4) {
+  $line-height: 1.4
+) {
   color: $color;
   cursor: pointer;
   font-family: $font-family;
@@ -22,19 +23,29 @@ $font-link: $font-tertiary;
   }
 }
 
+@mixin simple-link {
+  @include link;
+
+  text-decoration: none;
+}
+
 // When a link is a block, this is it's class (BEM)
 .link {
   @include link;
 }
 
+.card__link {
+  @include link;
+}
+
 .wysiwyg__link {
-  @extend .link;
+  @include link;
 }
 
 .absolute__link,
 .flexbox__link,
 .block__link {
-  @extend .link;
+  @include link;
 
   &::after {
     content: "\25b6";

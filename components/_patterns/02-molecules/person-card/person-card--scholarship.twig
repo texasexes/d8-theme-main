@@ -1,0 +1,33 @@
+{% set person_scholarship_image %}
+  {% block person_scholarship_image %}
+    {% include "@atoms/04-images/00-image/00-image.twig" %}
+  {% endblock %}
+{% endset %}
+
+{% embed "@molecules/person-card/_person-card.twig" with {
+  person_card_base_class: 'person-card--scholarship',
+  person_card_image: person_scholarship_image,
+} %}
+  {% block person_content %}
+    {% include "@atoms/03-text/_text.twig" with {
+      text_blockname: person_card_base_class,
+      text_base_class: 'name',
+      text_content: person_name,
+    } %}
+    {% include "@atoms/03-text/_text.twig" with {
+      text_blockname: person_card_base_class,
+      text_base_class: 'scholarship',
+      text_content: person_scholarship,
+    } %}
+    {% include "@atoms/03-text/_text.twig" with {
+      text_blockname: person_card_base_class,
+      text_heading: 'Hometown',
+      text_content: person_hometown,
+    } %}
+    {% include "@atoms/03-text/_text.twig" with {
+      text_blockname: person_card_base_class,
+      text_heading: 'High School',
+      text_content: person_highschool,
+    } %}
+  {% endblock %}
+{% endembed %}

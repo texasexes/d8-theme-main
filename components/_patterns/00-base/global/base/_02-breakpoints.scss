@@ -3,10 +3,10 @@
 
 // Avoid using in favor of atomic, content-specific, breakpoints.
 // These should be used for generic code, like layouts and typography, only.
-$xs: 400px;
-$small: 416px;
-$medium: 656px;
-$large: 768px;
+$xs: 320px;
+$small: 480px;
+$medium: 768px;
+$large: 900px;
 $xl: 1200px;
 // The max-width breakpoint is used when the design should be applied at whatever the
 // largest breakpoint is regardless of actual pixel value. e.g. removing outer margin on body wrapper
