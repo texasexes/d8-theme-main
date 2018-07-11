@@ -1,0 +1,21 @@
+{% embed "@molecules/person-card/_person-card.twig" with {
+  person_card_base_class: 'person-card--teaser',
+} %}
+  {% block person_content %}
+    {% include "@atoms/03-text/_text.twig" with {
+      text_blockname: person_card_base_class,
+      text_base_class: 'heading',
+      text_content: person_heading,
+    } %}
+    {% include "@atoms/03-text/_text.twig" with {
+      text_blockname: person_card_base_class,
+      text_base_class: 'subheading',
+      text_content: person_subheading,
+    } %}
+    {% include "@atoms/01-links/link/link.twig" with {
+      link_blockname: person_card_base_class,
+      link_url: link_url,
+      link_content: person_link_content|default('Read More'),
+    } %}
+  {% endblock %}
+{% endembed %}

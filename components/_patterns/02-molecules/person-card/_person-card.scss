@@ -100,3 +100,22 @@ $break-person-card: $large;
     @include person-text;
   }
 }
+
+.person-card--teaser {
+  max-width: 170px;
+  text-align: center;
+
+  &__heading {
+    @include alcalde-title-4;
+  }
+
+  &__subheading {
+    @include person-text;
+  }
+
+  &__link {
+    @include simple-link;
+
+    font-size: 1.5rem;
+  }
+}
