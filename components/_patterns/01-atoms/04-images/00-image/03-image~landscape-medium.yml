@@ -3,7 +3,7 @@ img_attributes:
     '../../images/txex/3x2_999x666.png'
   alt:
     "Image - Landscape Medium"
-image_modifiers:
+img_modifiers:
   1:
     pl
   2:

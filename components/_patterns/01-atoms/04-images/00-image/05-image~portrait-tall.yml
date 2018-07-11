@@ -3,7 +3,7 @@ img_attributes:
     '../../images/txex/2x3_666x999.png'
   alt:
     "Image - Portrait Tall"
-image_modifiers:
+img_modifiers:
   1:
     pl
   2:

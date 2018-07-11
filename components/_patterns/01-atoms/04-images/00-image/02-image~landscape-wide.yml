@@ -3,7 +3,7 @@ img_attributes:
     '../../images/txex/9x4_999x444.png'
   alt:
     "Image - Landscape Wide"
-image_modifiers:
+img_modifiers:
   1:
     pl
   2:
