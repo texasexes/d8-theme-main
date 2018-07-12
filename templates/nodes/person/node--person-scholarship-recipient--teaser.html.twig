@@ -1,0 +1,12 @@
+{% set full_name = content.field_txex_text_formatted_01.0['#text'] ~ ' ' ~ content.field_txex_text_formatted_06.0['#text'] %}
+
+{% embed "@molecules/person-card/person-card--teaser.twig" with {
+  person_card_additional_classes: ["grid__item"],
+  person_heading: full_name,
+  person_subheading: content.field_txex_text_formatted_03.0['#text'],
+  link_url: url,
+} %}
+  {% block person_teaser_image %}
+    {{ content.field_txex_ref_media_01 }}
+  {% endblock %}
+{% endembed %}
