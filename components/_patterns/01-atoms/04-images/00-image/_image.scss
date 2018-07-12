@@ -4,6 +4,11 @@
   width: 100%;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 // When an image is a block, this is it's class (BEM)
 .img {
   @include image;

@@ -1,0 +1,133 @@
+$break-person-card: $large;
+
+@mixin person-heading($color: inherit) {
+  font-family: $font-primary;
+  font-size: 2.3rem;
+  font-weight: bold;
+  line-height: 1.57;
+  color: $color;
+}
+
+@mixin person-text($color: $grey-7) {
+  font-family: $font-tertiary;
+  font-size: 1.5rem;
+  line-height: 1.53;
+  color: $color;
+}
+
+.person-card--advocate {
+  padding-top: $space;
+  margin-bottom: $space;
+  border-top: 1px solid $grey-e;
+
+  @include breakpoint($break-person-card) {
+    display: flex;
+    flex-flow: row nowrap;
+  }
+
+  &__image-wrapper {
+    max-width: 170px;
+
+    @include breakpoint($break-person-card) {
+      flex: 0 1 25%;
+      margin-right: $space-and-half;
+    }
+  }
+
+  &__details {
+    @include breakpoint($break-person-card) {
+      flex: 1 1 75%;
+    }
+  }
+
+  &__heading {
+    @include person-heading($color: $grey-5);
+  }
+
+  &__subheading {
+    @include alcalde-title-4;
+  }
+
+  &__text {
+    @include person-text;
+  }
+
+  &__link {
+    @include simple-link;
+
+    display: block;
+    line-height: 1.4;
+  }
+}
+
+.person-card--scholarship {
+  padding: $space;
+  border: 8px solid $mushroom-lighter;
+
+  @include breakpoint($break-person-card) {
+    display: flex;
+    flex-flow: row nowrap;
+  }
+
+  &__image-wrapper {
+    max-width: 170px;
+
+    @include breakpoint($break-person-card) {
+      flex: 0 1 25%;
+      margin-right: $space-and-half;
+    }
+  }
+
+  &__details {
+    > *:last-child {
+      margin-bottom: 0;
+    }
+
+    @include breakpoint($break-person-card) {
+      flex: 1 1 75%;
+    }
+  }
+
+  &__name {
+    @include alcade-title-2;
+
+    margin-bottom: 0.4em;
+  }
+
+  &__scholarship {
+    @include h5-dark;
+
+    line-height: 1.6;
+  }
+
+  &__text-heading {
+    @include alcalde-title-4;
+  }
+
+  &__text {
+    @include person-text;
+
+    margin-bottom: 0.6em;
+  }
+}
+
+.person-card--teaser {
+  max-width: 170px;
+  text-align: center;
+
+  &__heading {
+    @include alcalde-title-4;
+  }
+
+  &__subheading {
+    @include person-text;
+
+    margin-bottom: 0.6em;
+  }
+
+  &__link {
+    @include simple-link;
+
+    font-size: 1.5rem;
+  }
+}

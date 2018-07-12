@@ -1,0 +1,11 @@
+{% set text_base_class = text_base_class|default('text') %}
+
+{% if text_heading %}
+  <div {{ bem('text-heading', text_heading_modifiers, text_blockname) }}>
+    {{ text_heading }}
+  </div>
+{% endif %}
+
+<div {{ bem(text_base_class, text_modifiers, text_blockname) }}>
+  {{ text_content }}
+</div>

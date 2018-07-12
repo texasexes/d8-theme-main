@@ -1,0 +1,38 @@
+{% set person_advocate_image %}
+  {% block person_advocate_image %}
+    {% include "@atoms/04-images/00-image/00-image.twig" %}
+  {% endblock %}
+{% endset %}
+
+{% embed "@molecules/person-card/_person-card.twig" with {
+  person_card_base_class: 'person-card--advocate',
+  person_card_image: person_advocate_image,
+} %}
+  {% block person_content %}
+    {% include "@atoms/03-text/_text.twig" with {
+      text_blockname: person_card_base_class,
+      text_base_class: 'heading',
+      text_content: person_name,
+    } %}
+    {% include "@atoms/03-text/_text.twig" with {
+      text_blockname: person_card_base_class,
+      text_base_class: 'subheading',
+      text_content: person_office_party,
+    } %}
+    {% include "@atoms/03-text/_text.twig" with {
+      text_blockname: person_card_base_class,
+      text_content: person_degree_year,
+    } %}
+    {% include "@atoms/03-text/_text.twig" with {
+      text_blockname: person_card_base_class,
+      text_content: person_is_longhorn,
+    } %}
+    {% for link in person_links %}
+      {% include "@atoms/01-links/link/link.twig" with {
+        link_blockname: person_card_base_class,
+        link_url: link.link_url,
+        link_content: link.person_link_content,
+      } %}
+    {% endfor %}
+  {% endblock %}
+{% endembed %}
