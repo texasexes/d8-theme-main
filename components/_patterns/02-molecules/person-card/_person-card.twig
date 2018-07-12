@@ -1,6 +1,6 @@
 {% set person_card_base_class = person_card_base_class|default('person-card') %}
 
-<div {{ bem(person_card_base_class, person_card_modifiers, person_card_blockname) }}>
+<div {{ bem(person_card_base_class, person_card_modifiers, person_card_blockname, person_card_additional_classes) }}>
   <div {{ bem('image-wrapper', person_details_modifiers, person_card_base_class) }}>
     {{ person_card_image }}
   </div>

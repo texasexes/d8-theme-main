@@ -1,0 +1,9 @@
+{% set grid_base_class = grid_base_class|default('grid') %}
+
+<div {{ bem(grid_base_class, grid_modifiers, grid_blockname, grid_addional_classes|default(['flex-grid'])) }}>
+  {% block grid_items %}
+    {% for card in grid %}
+      {% include "@molecules/01-card/00-card.twig" %}
+    {% endfor %}
+  {% endblock %}
+</div>

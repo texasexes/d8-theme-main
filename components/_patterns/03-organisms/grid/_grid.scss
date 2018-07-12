@@ -1,0 +1,10 @@
+.flex-grid {
+  display: flex;
+  flex-flow: row wrap;
+
+  &__item {
+    flex: 1 1 auto;
+    margin-right: $space-double;
+    margin-bottom: $space-and-half;
+  }
+}
