@@ -83,6 +83,15 @@ function d8_theme_main_theme_suggestions_image_alter(array &$suggestions, array 
 
 }
 
+
+function d8_theme_main_theme_suggestions_field_alter(array &$suggestions, array $variables) {
+  $element = $variables['element'];
+  $sanitized_view_mode = strtr($element['#view_mode'], '.', '_');
+
+  array_push($suggestions, 'field__' . $element['#entity_type'] . '__' . $element['#field_name'] . '__' . $sanitized_view_mode);
+  array_push($suggestions, 'field__' . $element['#entity_type'] . '__' . $element['#field_name'] . '__' . $element['#bundle'] . '__' . $sanitized_view_mode);
+}
+
 // function d8_theme_main_preprocess_paragraph(&$variables) {
 //   // Kint::dump( $_SERVER );
 //   // Kint::dump( $variables );
