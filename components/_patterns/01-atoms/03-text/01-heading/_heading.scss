@@ -272,6 +272,17 @@ h6 {
       text-transform: none;
     }
 
+    &--alt-12 {
+      // color: $heading-color-h1-alt-5;
+      font-family: $font-heading-h1-alt-5;
+      font-weight: 800;
+      font-size: 1.9rem;
+      line-height: 1.25;
+      margin: 0 0 3px;
+      text-transform: none;
+      text-align: center;
+    }
+
     // &--alt-dw {
     //   font-size: 4.3008rem;
     //   color: $grey-5;
@@ -333,6 +344,14 @@ h6 {
 
     &--alt-11 {
       color: $white;
+    }
+
+    &--alt-12 {
+      // color: $heading-color-h2-alt-5;
+      font-family: $font-heading-h2-alt-5;
+      font-size: 1.5rem;
+      margin: 0;
+      text-align: center;
     }
 
     &--list-group-ref {
@@ -420,6 +439,12 @@ h6 {
       background-color: transparent;
       font-size: 1.8rem;
       font-family: $font-heading-h3-alt-11;
+    }
+
+    &--alt-12 {
+      font-size: 1.5rem;
+      margin: 0;
+      text-align: center;
     }
 
     &--alt-dw {
