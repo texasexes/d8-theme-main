@@ -183,3 +183,9 @@
     }
   }
 }
+
+@include breakpoint(max-width $break-layout) {
+  .flexbox__item.flexbox__item--layout-row {
+    padding: 0;
+  }
+}
