@@ -92,24 +92,30 @@ function d8_theme_main_theme_suggestions_field_alter(array &$suggestions, array 
   array_push($suggestions, 'field__' . $element['#entity_type'] . '__' . $element['#field_name'] . '__' . $element['#bundle'] . '__' . $sanitized_view_mode);
 }
 
-// function d8_theme_main_preprocess_paragraph(&$variables) {
-//   // Kint::dump( $_SERVER );
-//   // Kint::dump( $variables );
-//
-//   if ($variables['paragraph']->hasField('field_view_mode')) {
-//     $view_mode = $variables['paragraph']->field_view_mode->value;
-//     if (isset($variables['content']['field_ref_node']['0']['#view_mode'])) {
-//       $variables['content']['field_ref_node']['0']['#view_mode'] = $view_mode;
-//       unset($variables['content']['field_ref_node']['0']['#cache']['keys']);
-//     }
-//   }
-//
-// }
 
-// Adding theme suggestions to form submit items
+// **** Adding theme suggestions to forms and form submit items
 function d8_theme_main_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
   $form['actions']['submit']['#attributes']['data-twig-suggestion'] = $form['#form_id'];
   $form['keys']['#attributes']['data-twig-suggestion'] = $form['#form_id'];
+}
+
+function d8_theme_main_form_views_exposed_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  // convert the very specific #id to underscores only for use in suggestion
+  $form_id = str_replace('-', '_', $form['#id']);
+  $form['actions']['submit']['#attributes']['data-twig-suggestion'] = $form_id;
+  $form['s']['#attributes']['data-twig-suggestion'] = $form_id;
+}
+
+function d8_theme_main_theme_suggestions_form_alter(&$suggestions, array $variables) {
+  $element = $variables['element'];
+  $suggestions[] = 'form__' . $element['#form_id']; // Machine name of form.
+
+  // checks if the form_id isn't specific enough -- for example with form for a
+  // views exposed form
+  $alternate_form_id = str_replace('-', '_', $element['#id']);
+  if ($element['#form_id'] != $alternate_form_id) {
+    $suggestions[] = 'form__' . $alternate_form_id;
+  }
 }
 
 function d8_theme_main_theme_suggestions_input_alter(&$suggestions, array $variables) {
@@ -118,11 +124,7 @@ function d8_theme_main_theme_suggestions_input_alter(&$suggestions, array $varia
     $suggestions[] = 'input__' . $element['#type'] . '__' . $element['#attributes']['data-twig-suggestion'];
   }
 }
-
-function d8_theme_main_theme_suggestions_form_alter(&$suggestions, array $variables) {
-  $element = $variables['element'];
-  $suggestions[] = 'form__' . $element['#form_id']; // Machine name of form.
-}
+// ******************
 
 /**
  * Implements hook_theme_registry_alter().
