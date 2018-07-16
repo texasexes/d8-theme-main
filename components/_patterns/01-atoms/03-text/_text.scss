@@ -21,3 +21,14 @@
   line-height: 1.88;
   color: $color;
 }
+
+@mixin section-heading($color: $grey-5) {
+  font-family: $font-primary;
+  font-size: 3rem;
+  font-weight: bold;
+  line-height: 1.2;
+  text-align: center;
+  color: $color;
+  text-transform: initial;
+  margin-bottom: $space-and-half;
+}
