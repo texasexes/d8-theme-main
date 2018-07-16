@@ -117,6 +117,10 @@
 
   &--region-layout:first-of-type {
     margin-right: 60px;
+
+    @include breakpoint($break-nav-max) {
+      display: none;
+    }
   }
 }
 
