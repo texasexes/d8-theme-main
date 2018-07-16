@@ -113,7 +113,7 @@
     waitForFinalEvent(function(){
       winW = win.width();
       // If desktop width remove all mobile menu stuff
-      if (winW > 767) {
+      if (winW > 900) {
         // Remove background overlay
         if (mainMenuBg.length) {
           removeMainMenuBg();
