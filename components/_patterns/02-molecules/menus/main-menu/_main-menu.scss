@@ -262,6 +262,36 @@ $mobile-nav-item-padding: $space-and-half;
       }
     }
 
+    &--level-4 {
+      a {
+        padding-left: $mobile-nav-item-padding * 4;
+      }
+    }
+
+    &--level-5 {
+      a {
+        padding-left: $mobile-nav-item-padding * 5;
+      }
+    }
+
+    &--level-6 {
+      a {
+        padding-left: $mobile-nav-item-padding * 6;
+      }
+    }
+
+    &--level-7 {
+      a {
+        padding-left: $mobile-nav-item-padding * 7;
+      }
+    }
+
+    &--level-8 {
+      a {
+        padding-left: $mobile-nav-item-padding * 8;
+      }
+    }
+
     // Items with children
     &--with-sub {
       display: flex;
