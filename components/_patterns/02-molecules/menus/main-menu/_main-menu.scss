@@ -252,6 +252,7 @@ $mobile-nav-item-padding: $space-one-half;
 
     &--level-2 {
       a {
+        color: $color-menu-text-medium;
         padding-left: $mobile-nav-item-padding * 3;
       }
     }
