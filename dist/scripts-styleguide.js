@@ -56,7 +56,6 @@
   var mainMenuExpandSub = $('.main-menu__expand-sub');
   var mainMenuSubIcon = $('.main-menu__sub-icon');
   var toolbar = $('.toolbar-bar');
-  var activeItem = $('.is-active');
 
   // Calculated values
   var winH = win.height();
@@ -102,11 +101,8 @@
   };
 
   // Expand parent items if current page is the active menu item
-  // function expandParents() {
-  // $('.is-active').parents(mainMenuWithSub).find(mainMenuSubIcon).addClass(mainMenuSubOpen);
-  $('.menu-item--active-trail').find(mainMenuSubIcon).addClass(mainMenuSubOpen);
-  $('.menu-item--active-trail').find(mainMenuSub).addClass(mainMenuVisible);
-  // };
+  $('.menu-item--active-trail > .main-menu__expand-sub > .main-menu__sub-icon').addClass(mainMenuSubOpen);
+  $('.menu-item--active-trail > .main-menu__dropdown').addClass(mainMenuVisible);
 
   // Main Menu
   mainMenuToggle.click(function (e) {
