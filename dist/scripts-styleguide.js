@@ -52,9 +52,11 @@
   var mainMenuToggleOpen = $('.main-menu-toggle--open');
   var mainMenu = $('.main-nav');
   var mainMenuSub = $('.main-menu__dropdown');
+  var mainMenuWithSub = $('.main-menu__item--with-sub');
   var mainMenuExpandSub = $('.main-menu__expand-sub');
   var mainMenuSubIcon = $('.main-menu__sub-icon');
   var toolbar = $('.toolbar-bar');
+  var activeItem = $('.is-active');
 
   // Calculated values
   var winH = win.height();
@@ -99,10 +101,18 @@
       }
   };
 
+  // Expand parent items if current page is the active menu item
+  // function expandParents() {
+  // $('.is-active').parents(mainMenuWithSub).find(mainMenuSubIcon).addClass(mainMenuSubOpen);
+  $('.menu-item--active-trail').find(mainMenuSubIcon).addClass(mainMenuSubOpen);
+  $('.menu-item--active-trail').find(mainMenuSub).addClass(mainMenuVisible);
+  // };
+
   // Main Menu
   mainMenuToggle.click(function (e) {
     e.preventDefault();
     mainMenuBgToggle();
+    // expandParents();
   });
 
   // Display Sub-nav

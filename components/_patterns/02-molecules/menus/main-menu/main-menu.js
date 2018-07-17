@@ -31,9 +31,11 @@
   const mainMenuToggleOpen = $('.main-menu-toggle--open');
   const mainMenu = $('.main-nav');
   const mainMenuSub = $('.main-menu__dropdown');
+  const mainMenuWithSub = $('.main-menu__item--with-sub');
   const mainMenuExpandSub = $('.main-menu__expand-sub');
   const mainMenuSubIcon = $('.main-menu__sub-icon');
   const toolbar = $('.toolbar-bar');
+  const activeItem = $('.is-active');
 
   // Calculated values
   let winH = win.height();
@@ -78,10 +80,18 @@
     }
   };
 
+  // Expand parent items if current page is the active menu item
+  // function expandParents() {
+    // $('.is-active').parents(mainMenuWithSub).find(mainMenuSubIcon).addClass(mainMenuSubOpen);
+    $('.menu-item--active-trail').find(mainMenuSubIcon).addClass(mainMenuSubOpen);
+    $('.menu-item--active-trail').find(mainMenuSub).addClass(mainMenuVisible);
+  // };
+
   // Main Menu
   mainMenuToggle.click(function (e) {
     e.preventDefault();
     mainMenuBgToggle();
+    // expandParents();
   });
 
   // Display Sub-nav
@@ -127,6 +137,5 @@
       calculateMenuHeights();
     }, 100, "Main menu - window resize");
   });
-
 
 }(jQuery, Drupal));
