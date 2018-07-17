@@ -182,4 +182,15 @@
       padding: 0 $component-padding 0 80px;
     }
   }
+
+  &--item-box-13 {
+    &:first-of-type {
+      padding: 0;
+    }
+
+    &,
+    &:only-of-type {
+      padding: 0 $component-padding $component-padding $component-padding;
+    }
+  }
 }
