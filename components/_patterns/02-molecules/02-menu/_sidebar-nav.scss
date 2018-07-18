@@ -1,3 +1,5 @@
+$sidebar-nav-item-padding: $space-one-third;
+
 .block-region-sidebar {
   .menu-item {
     list-style: none;
@@ -11,7 +13,7 @@
       display: block;
       color: $grey-5;
       text-decoration: none;
-      padding: 10px 11px;
+      padding: $sidebar-nav-item-padding;
     }
 
     a:hover,
@@ -58,7 +60,13 @@
     }
   }
 
-  .menu-level-1 {
+  .main-menu--level-1 {
+    max-height: initial;
+
+    a {
+      padding-left: $sidebar-nav-item-padding * 2;
+    }
+
     > .menu-item--active-trail {
       > a {
         color: $grey-8;
