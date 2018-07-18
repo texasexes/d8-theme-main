@@ -48,6 +48,7 @@ $color-link--hover: $grey-a;
   @include link;
 
   &::after {
+    color: $color-link;
     content: "\25b6";
     padding-left: 1em;
     font-size: 0.5em;
@@ -67,6 +68,26 @@ $color-link--hover: $grey-a;
   &--alt-8 {
     display: block;
     text-align: center;
+  }
+
+  &--alt-12 {
+    color: $grey-3;
+    display: block;
+    font-family: $font-primary;
+    font-size: 2.5rem;
+    font-weight: 400;
+    line-height: 1;
+    text-align: center;
+
+    &::before {
+      content: " ";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      top: 0;
+      z-index: 10;
+    }
   }
 }
 

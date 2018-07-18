@@ -442,9 +442,11 @@ h6 {
     }
 
     &--alt-12 {
-      font-size: 1.5rem;
-      margin: 0;
+      display: table;
       text-align: center;
+      font-size: 1.5rem;
+      margin: auto;
+      margin-bottom: 30px;
     }
 
     &--alt-dw {

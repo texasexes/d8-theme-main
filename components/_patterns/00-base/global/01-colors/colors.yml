@@ -17,6 +17,8 @@ items:
     value: 'rgba(52, 54, 77, 0.8)'
   - name: $grey-2
     value: '#222'
+  - name: $grey-3
+    value: '#333'
   - name: $grey-4
     value: '#444'
   - name: $grey-5
