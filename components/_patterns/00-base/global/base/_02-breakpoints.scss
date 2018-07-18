@@ -11,3 +11,8 @@ $xl: 1200px;
 // The max-width breakpoint is used when the design should be applied at whatever the
 // largest breakpoint is regardless of actual pixel value. e.g. removing outer margin on body wrapper
 $max-width: $xl;
+
+// Nav Breakpoints
+// These have to be here (instead of with the nav css) because they're used by the _flexbox__item.scss file
+$break-nav-max: max-width 899px;
+$break-nav: 900px;
