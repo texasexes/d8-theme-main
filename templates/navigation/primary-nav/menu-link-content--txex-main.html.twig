@@ -1,6 +1,6 @@
 <div class="main-menu__dropdown-inner">
   {% if content %}
-    {{ content }}
+    {{ content|without('field_txex_number_int_01') }}
   {% endif %}
   {% if show_item_link %}
     {{ link(menu_link_content.getTitle(), menu_link_content.getUrlObject()) }}

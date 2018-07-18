@@ -14,7 +14,7 @@
 {# This var is set to prevent add_attributes griping about an empty var #}
 {% set img_attributes = img_attributes|default([]) %}
 
-  <img
-    {{ bem(img_base_class, (img_modifiers), img_blockname) }}
-    {{ add_attributes(img_attributes) }}
-  />
+<img
+  {{ bem(img_base_class, (img_modifiers), img_blockname) }}
+  {{ add_attributes(img_attributes) }}
+/>

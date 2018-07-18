@@ -1,0 +1,9 @@
+{% embed "@organisms/card-list/_card-list.twig" with {
+  card_list_base_class: 'person-list',
+} %}
+{% block card_list %}
+    {% include "@molecules/person-card/person-card--advocate.twig" %}
+    {% include "@molecules/person-card/person-card--advocate.twig" %}
+    {% include "@molecules/person-card/person-card--advocate.twig" %}
+{% endblock %}
+{% endembed %}

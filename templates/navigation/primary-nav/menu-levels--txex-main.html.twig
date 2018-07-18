@@ -19,7 +19,7 @@
 
   <li{{ item.attributes.addClass(menu_item_classes) }}>
     {{ link(item.title, item.url) }}
-    {% if (item.menu_level == 0 and item.below) %}
+    {% if (item.below) %}
       <div class="main-menu__expand-sub">
         {% include "@atoms/04-images/icons/_icon.twig" with {
           icon_base_class: 'sub-icon',

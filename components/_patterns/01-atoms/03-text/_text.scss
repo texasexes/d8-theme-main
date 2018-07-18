@@ -1,0 +1,34 @@
+@mixin h5-dark($color: $grey-5) {
+  font-family: $font-primary;
+  font-size: 1.9rem;
+  font-weight: 900;
+  line-height: 1.16;
+  color: $color;
+}
+
+@mixin alcade-title-2($color: $grey-5) {
+  font-family: $font-primary;
+  font-size: 3rem;
+  font-weight: bold;
+  line-height: 1.2;
+  color: $color;
+}
+
+@mixin alcalde-title-4($color: $grey-5) {
+  font-family: $font-tertiary;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.88;
+  color: $color;
+}
+
+@mixin section-heading($color: $grey-5) {
+  font-family: $font-primary;
+  font-size: 3rem;
+  font-weight: bold;
+  line-height: 1.2;
+  text-align: center;
+  color: $color;
+  text-transform: initial;
+  margin-bottom: $space-and-half;
+}

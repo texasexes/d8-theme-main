@@ -39,6 +39,8 @@ items:
     value: '#f2f3ed'
   - name: $mushroom-lighter
     value: '#f6f6f2'
+  - name: $mushroom-lightest
+    value: '#f8f9f7'
   - name: $white
     value: '#fff'
   - name: $black-trans

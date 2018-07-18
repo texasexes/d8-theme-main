@@ -50,8 +50,9 @@
 
   &--layout-box-8 {
     padding: $component-padding;
-    margin-bottom: $row-margin;
+    margin: 0 $row-padding $row-margin $row-padding;
     border-width: $row-border-width;
+    width: auto;
   }
 
   &--layout-background-1 {
@@ -111,20 +112,25 @@
 
 .flexbox {
   display: flex;
+  flex-flow: column nowrap;
   justify-content: center;
 
   &--horizontal {
-    flex-direction: row;
-    justify-content: stretch;
-    align-items: stretch;
+    @include breakpoint($break-layout) {
+      flex-direction: row;
+      justify-content: stretch;
+      align-items: stretch;
+    }
   }
 
   &--vertical {
-    flex-direction: column;
-    justify-content: center;
+    @include breakpoint($break-layout) {
+      flex-direction: column;
+      justify-content: center;
 
-    &:first-of-type {
-      justify-content: flex-start;
+      &:first-of-type {
+        justify-content: flex-start;
+      }
     }
   }
 

@@ -31,6 +31,7 @@
   const mainMenuToggleOpen = $('.main-menu-toggle--open');
   const mainMenu = $('.main-nav');
   const mainMenuSub = $('.main-menu__dropdown');
+  const mainMenuWithSub = $('.main-menu__item--with-sub');
   const mainMenuExpandSub = $('.main-menu__expand-sub');
   const mainMenuSubIcon = $('.main-menu__sub-icon');
   const toolbar = $('.toolbar-bar');
@@ -78,10 +79,15 @@
     }
   };
 
+  // Expand parent items if current page is the active menu item
+  $('.menu-item--active-trail > .main-menu__expand-sub > .main-menu__sub-icon').addClass(mainMenuSubOpen);
+  $('.menu-item--active-trail > .main-menu__dropdown').addClass(mainMenuVisible);
+
   // Main Menu
   mainMenuToggle.click(function (e) {
     e.preventDefault();
     mainMenuBgToggle();
+    // expandParents();
   });
 
   // Display Sub-nav
@@ -113,7 +119,7 @@
     waitForFinalEvent(function(){
       winW = win.width();
       // If desktop width remove all mobile menu stuff
-      if (winW > 767) {
+      if (winW > 900) {
         // Remove background overlay
         if (mainMenuBg.length) {
           removeMainMenuBg();
@@ -127,6 +133,5 @@
       calculateMenuHeights();
     }, 100, "Main menu - window resize");
   });
-
 
 }(jQuery, Drupal));
