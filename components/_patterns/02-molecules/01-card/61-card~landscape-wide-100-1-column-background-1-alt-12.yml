@@ -1,0 +1,48 @@
+card_base_class:
+  flexbox
+card_modifiers:
+  1:
+    horizontal
+  2:
+    feature-100
+  3:
+    item-box-13
+  4:
+    layout-background-1
+  5:
+    pl-1-column
+card_sections:
+  2:
+    layout_section_base_class:
+      flexbox
+    layout_section_modifiers:
+      1:
+        vertical
+    layout_section_layout_extra:
+      1:
+        horizontal
+      2:
+        feature-100
+      3:
+        item-box-13
+      4:
+        layout-background-1
+    layout_section_items:
+      # Slug
+      1:
+        title:
+          "The Card Slug."
+        level:
+          '3'
+        modifiers:
+          1:
+            alt-12
+      # Link
+      4:
+        link_url:
+          "#"
+        link:
+          "Here is the link"
+        modifiers:
+          1:
+            alt-12
