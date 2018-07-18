@@ -106,14 +106,18 @@ function d8_theme_main_theme_suggestions_field_alter(array &$suggestions, array 
 // **** Adding theme suggestions to forms and form submit items
 function d8_theme_main_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
   $form['actions']['submit']['#attributes']['data-twig-suggestion'] = $form['#form_id'];
-  $form['keys']['#attributes']['data-twig-suggestion'] = $form['#form_id'];
+  foreach (Drupal\Core\Render\Element::children($form) as $child) {
+    $form[$child]['#attributes']['data-twig-suggestion'] = $form['#form_id'];
+  }
 }
 
 function d8_theme_main_form_views_exposed_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
   // convert the very specific #id to underscores only for use in suggestion
   $form_id = str_replace('-', '_', $form['#id']);
   $form['actions']['submit']['#attributes']['data-twig-suggestion'] = $form_id;
-  $form['s']['#attributes']['data-twig-suggestion'] = $form_id;
+  foreach (Drupal\Core\Render\Element::children($form) as $child) {
+    $form[$child]['#attributes']['data-twig-suggestion'] = $form_id;
+  }
 }
 
 function d8_theme_main_theme_suggestions_form_alter(&$suggestions, array $variables) {
