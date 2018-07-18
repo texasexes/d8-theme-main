@@ -1,5 +1,7 @@
 .absolute__item {
-  position: absolute;
+  @include breakpoint($break-layout) {
+    position: absolute;
+  }
 
   // &--full-image:nth-of-type(2) {
   //   top: 0;
@@ -12,31 +14,45 @@
   // }
 
   &--feature-10 {
-    width: 10%;
+    @include breakpoint($break-layout) {
+      width: 10%;
+    }
   }
 
   &--feature-25 {
-    width: 25%;
+    @include breakpoint($break-layout) {
+      width: 25%;
+    }
   }
 
   &--feature-33 {
-    width: 33%;
+    @include breakpoint($break-layout) {
+      width: 33%;
+    }
   }
 
   &--feature-50 {
-    width: 50%;
+    @include breakpoint($break-layout) {
+      width: 50%;
+    }
   }
 
   &--feature-66 {
-    width: 66%;
+    @include breakpoint($break-layout) {
+      width: 66%;
+    }
   }
 
   &--feature-75 {
-    width: 75%;
+    @include breakpoint($break-layout) {
+      width: 75%;
+    }
   }
 
   &--feature-100 {
-    width: 100%;
+    @include breakpoint($break-layout) {
+      width: 100%;
+    }
   }
 
   // Top Left Quadrant

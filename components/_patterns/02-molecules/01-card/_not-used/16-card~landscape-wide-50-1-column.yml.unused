@@ -1,5 +1,4 @@
-card_base_class:
-  flexbox
+card_base_class: flexbox
 card_modifiers:
   1:
     horizontal

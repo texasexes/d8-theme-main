@@ -52,6 +52,7 @@
   var mainMenuToggleOpen = $('.main-menu-toggle--open');
   var mainMenu = $('.main-nav');
   var mainMenuSub = $('.main-menu__dropdown');
+  var mainMenuWithSub = $('.main-menu__item--with-sub');
   var mainMenuExpandSub = $('.main-menu__expand-sub');
   var mainMenuSubIcon = $('.main-menu__sub-icon');
   var toolbar = $('.toolbar-bar');
@@ -99,10 +100,15 @@
       }
   };
 
+  // Expand parent items if current page is the active menu item
+  $('.menu-item--active-trail > .main-menu__expand-sub > .main-menu__sub-icon').addClass(mainMenuSubOpen);
+  $('.menu-item--active-trail > .main-menu__dropdown').addClass(mainMenuVisible);
+
   // Main Menu
   mainMenuToggle.click(function (e) {
     e.preventDefault();
     mainMenuBgToggle();
+    // expandParents();
   });
 
   // Display Sub-nav
@@ -134,7 +140,7 @@
     waitForFinalEvent(function () {
       winW = win.width();
       // If desktop width remove all mobile menu stuff
-      if (winW > 767) {
+      if (winW > 900) {
         // Remove background overlay
         if (mainMenuBg.length) {
           removeMainMenuBg();
