@@ -79,7 +79,7 @@ $color-link--hover: $grey-a;
     line-height: 1;
     text-align: center;
 
-    &:before{
+    &::before {
       content: " ";
       position: absolute;
       bottom: 0;
