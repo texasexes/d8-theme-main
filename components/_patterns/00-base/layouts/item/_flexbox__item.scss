@@ -25,11 +25,19 @@
     &:first-of-type {
       flex: 0 1 10%;
     }
+
+    &:only-of-type {
+      flex: 1 1 auto;
+    }
   }
 
   &--feature-15 {
     &:first-of-type {
       flex: 0 1 15%;
+    }
+
+    &:only-of-type {
+      flex: 1 1 auto;
     }
   }
 
@@ -37,11 +45,19 @@
     &:first-of-type {
       flex: 0 1 20%;
     }
+
+    &:only-of-type {
+      flex: 1 1 auto;
+    }
   }
 
   &--feature-25 {
     &:first-of-type {
       flex: 0 1 25%;
+    }
+
+    &:only-of-type {
+      flex: 1 1 auto;
     }
   }
 
@@ -49,11 +65,19 @@
     &:first-of-type {
       flex: 0 0 33%;
     }
+
+    &:only-of-type {
+      flex: 1 1 auto;
+    }
   }
 
   &--feature-40 {
     &:first-of-type {
       flex: 0 1 40%;
+    }
+
+    &:only-of-type {
+      flex: 1 1 auto;
     }
   }
 
@@ -61,24 +85,19 @@
     &:first-of-type {
       flex: 0 1 50%;
     }
-  }
 
-  // #{&}--feature-50-flush#{&}--reverse-order {
-  //   &:first-of-type {
-  //     padding-left: 50px;
-  //     flex: auto;
-  //     order: 2;
-  //   }
-  //
-  //   &:last-of-type {
-  //     padding: 0;
-  //     flex: 0 0 50%;
-  //   }
-  // }
+    &:only-of-type {
+      flex: 1 1 auto;
+    }
+  }
 
   &--feature-60 {
     &:first-of-type {
       flex: 0 1 60%;
+    }
+
+    &:only-of-type {
+      flex: 1 1 auto;
     }
   }
 
@@ -86,17 +105,29 @@
     &:first-of-type {
       flex: 0 1 66%;
     }
+
+    &:only-of-type {
+      flex: 1 1 auto;
+    }
   }
 
   &--feature-75 {
     &:first-of-type {
       flex: 0 1 75%;
     }
+
+    &:only-of-type {
+      flex: 1 1 auto;
+    }
   }
 
   &--feature-80 {
     &:first-of-type {
       flex: 0 1 80%;
+    }
+
+    &:only-of-type {
+      flex: 1 1 auto;
     }
   }
 
@@ -111,15 +142,24 @@
     }
   }
 
-  &--region-layout {
+  &--region-layout:nth-of-type(2) {
     max-width: 630px;
+    padding-left: 60px;
+
+    @include breakpoint($break-nav-max) {
+      padding-left: 0;
+    }
   }
 
   &--region-layout:first-of-type {
-    margin-right: 60px;
-
     @include breakpoint($break-nav-max) {
       display: none;
+    }
+  }
+
+  &--region-layout:only-of-type {
+    @include breakpoint($break-nav-max) {
+      display: block;
     }
   }
 }
