@@ -141,6 +141,7 @@ $mobile-nav-item-padding: $space-one-half;
   &--level-0 {
     @include breakpoint($break-nav) {
       flex-flow: row nowrap;
+      padding: 0 35px;
     }
   }
 
