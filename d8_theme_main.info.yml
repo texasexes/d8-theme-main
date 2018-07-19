@@ -29,8 +29,8 @@ ckeditor_stylesheets:
 regions:
   header: Header
   content_top: Content Top
-  content: Content  # the content region is required
   sidebar_first: First Sidebar
+  content: Content  # the content region is required
   sidebar_second: Second Sidebar
   footer: Footer
 

@@ -54,21 +54,35 @@
   <main role="main" class="main">
     <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
 
-    <div class="layout-content">
-      {{ page.content }}
-    </div>{# /.layout-content #}
+    <div class="flexbox flexbox--horizontal flexbox--feature-20 flexbox--region-layout flexbox--layout-level-1">
 
-    {% if page.sidebar_first %}
-      <aside class="layout-sidebar-first" role="complementary">
-        {{ page.sidebar_first }}
-      </aside>
-    {% endif %}
+      {% if page.sidebar_first %}
+      <div class="layout layout--vertical layout--layout-level-2 flexbox__item flexbox__item--horizontal flexbox__item--feature-20 flexbox__item--region-layout">
+        <div class="layout__item layout__item--vertical layout__item--layout-level-2">
+          <aside class="layout-sidebar-first" role="complementary">
+            {{ page.sidebar_first }}
+          </aside>
+        </div>
+      </div>
+      {% endif %}
 
-    {% if page.sidebar_second %}
-      <aside class="layout-sidebar-second" role="complementary">
-        {{ page.sidebar_second }}
-      </aside>
-    {% endif %}
+      <div class="layout layout--vertical layout--layout-level-2 flexbox__item flexbox__item--horizontal flexbox__item--feature-20 flexbox__item--region-layout">
+        <div class="layout__item layout__item--vertical layout__item--layout-level-2">
+          <div class="layout-content">
+            {{ page.content }}
+          </div>{# /.layout-content #}
+        </div>
+
+        {% if page.sidebar_second %}
+        <div class="layout__item layout__item--vertical layout__item--layout-level-2">
+          <aside class="layout-sidebar-second" role="complementary">
+            {{ page.sidebar_second }}
+          </aside>
+        </div>
+        {% endif %}
+      </div>
+
+    </div>
 
   </main>
 
