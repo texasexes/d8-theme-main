@@ -7,7 +7,9 @@ $sidebar-nav-item-padding: $space-one-third;
 
   .menu-level-0 {
     font-family: $font-tertiary;
+    font-size: 1.5rem;
     line-height: 1.5;
+    margin: -10px 0 0;
 
     a {
       display: block;
