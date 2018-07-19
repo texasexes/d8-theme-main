@@ -28,7 +28,23 @@
 
   ol {
     list-style: none;
-    padding-left: 46px;
+    padding: 0;
+
+    @include breakpoint($break-nav) {
+      padding-left: 46px;
+    }
+
+    li:last-of-type {
+      a {
+        color: #888;
+        background-color: #f6f6f2;
+
+        &:hover {
+          background-color: #34364d;
+          color: #f6f6f2;
+        }
+      }
+    }
   }
 
   li {
