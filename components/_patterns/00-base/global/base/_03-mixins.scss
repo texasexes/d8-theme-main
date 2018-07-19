@@ -40,3 +40,14 @@
   padding-left: calc(#{$v-padding} + calc(-50vw + 50%));
   padding-right: calc(#{$v-padding} + calc(-50vw + 50%));
 }
+
+/// Use to hide things from the screen, but remain accessible
+/// To screen readers and such
+@mixin visually-hidden {
+  position: absolute !important;
+  clip: rect(1px, 1px, 1px, 1px);
+  overflow: hidden;
+  height: 1px;
+  width: 1px;
+  word-wrap: normal;
+}
