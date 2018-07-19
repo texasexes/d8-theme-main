@@ -31,6 +31,10 @@ items:
     value: '#9e9e9e'
   - name: $grey-a
     value: '#aaa'
+  - name: $grey-b
+    value: '#bbb'
+  - name: $grey-c
+    value: '#c7c7c7'
   - name: $grey-e
     value: '#e6e6e6'
   - name: $mushroom

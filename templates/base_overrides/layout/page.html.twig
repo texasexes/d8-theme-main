@@ -43,7 +43,7 @@
  * @see html.html.twig
  */
 #}
-<div class="layout-container">
+<div class="{{ layout_classes|default('layout-container') }}">
 
   <header role="banner" class="header-wrapper">
     {{ page.header }}
