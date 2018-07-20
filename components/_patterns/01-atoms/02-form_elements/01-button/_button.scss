@@ -3,7 +3,8 @@
   $background-color--hover: $color-button--bg--hover,
   $color: $color-button--text,
   $color--hover: $color-button--text--hover,
-  $color--visited: $color-button--text--visited) {
+  $color--visited: $color-button--text--visited
+) {
   background-color: $background-color;
   border: none;
   border-radius: 5px;
@@ -26,17 +27,43 @@
   }
 }
 
+@mixin button-small(
+  $background-color: $color-button--bg,
+  $background-color--hover: $color-button--bg--hover,
+  $color: $color-button--text,
+  $color--hover: $color-button--text--hover,
+  $color--visited: $color-button--text--visited
+) {
+  background-color: $background-color;
+  border: none;
+  border-radius: 2px;
+  color: $color;
+  min-width: 100px;
+  font-size: 1.6rem;
+  padding: 0.4em 1em;
+
+  &:visited {
+    color: $color--visited;
+  }
+
+  &:hover {
+    background-color: $background-color--hover;
+    color: $color--hover;
+  }
+}
+
 // When a button is a block, this is it's class (BEM)
 .txex-button {
   @include button;
 
+  &--small {
+    @include button-small;
+  }
+
   &--alt-1 {
-    @include button(
+    @include button-small(
       $background-color: $color-button--alt-1--bg
     );
-
-    font-size: 0.65em;
-    padding: 0.65em 1em;
   }
 
   &--alt-2 {

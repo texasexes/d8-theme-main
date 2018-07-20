@@ -109,6 +109,12 @@ function d8_theme_main_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $
   foreach (Drupal\Core\Render\Element::children($form) as $child) {
     $form[$child]['#attributes']['data-twig-suggestion'] = $form['#form_id'];
   }
+
+  if ($form_id == 'user_login_form' ) {
+    // Add placeholders.
+    $form['name']['#attributes']['placeholder'] = t('Enter username');
+    $form['pass']['#attributes']['placeholder'] = t('Enter password');
+  }
 }
 
 function d8_theme_main_form_views_exposed_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
@@ -285,6 +291,12 @@ function d8_theme_main_preprocess_paragraph(&$variables) {
 
   $variables['paragraph_modifiers'] = $paragraph_modifiers;
 
+}
+
+function d8_theme_main_preprocess_block(&$variables) {
+  if ("system_menu_block:txex-account" == $variables['plugin_id']) {
+    $variables['#cache']['contexts'][] = 'user';
+  }
 }
 
 

@@ -1,6 +1,9 @@
-.content-top-region h1 {
+.content-top-region .h1--title {
   border-bottom: 1px solid #ededed;
-  line-height: 1em;
-  letter-spacing: -0.028em;
-  padding-bottom: 0.625em;
+  line-height: 1;
+  padding-bottom: 15px;
+
+  @include breakpoint($break-nav) {
+    margin: 0 50px 60px;
+  }
 }

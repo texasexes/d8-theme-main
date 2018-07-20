@@ -1,0 +1,76 @@
+@mixin login-form-text($color: $grey-7) {
+  font-family: $font-tertiary;
+  font-size: 1.6rem;
+  color: $color;
+}
+
+.page--user {
+  .layout-content {
+    @include wrapper($container-max-width: $small);
+  }
+
+  .local-tasks-nav {
+    @include wrapper($container-max-width: $small);
+
+    border-bottom: 1px solid $grey-e;
+    margin-top: 120px;
+    margin-bottom: $space;
+
+    ul {
+      padding: 0;
+    }
+
+    a {
+      @include login-form-text($color: $burnt-orange);
+
+      &.is-active {
+        color: $grey-7;
+      }
+    }
+  }
+}
+
+.user-login-form,
+.user-register-form,
+.user-pass {
+  padding-bottom: 170px;
+
+  .form-item {
+    display: flex;
+    flex-flow: row wrap;
+    margin-bottom: $space-one-third;
+  }
+
+  label {
+    @include login-form-text;
+
+    display: flex;
+    align-items: center;
+    width: 135px;
+  }
+
+  .form-text {
+    border: 1px solid $grey-c;
+    border-radius: 2px;
+    height: 34px;
+    padding: 0 0.5em;
+
+    @include breakpoint(350px) {
+      width: 234px;
+    }
+
+    &::placeholder {
+      @include login-form-text(
+        $color: $grey-b
+      );
+    }
+  }
+
+  .description {
+    @include visually-hidden;
+  }
+
+  .form-submit {
+    @include button-small;
+  }
+}
