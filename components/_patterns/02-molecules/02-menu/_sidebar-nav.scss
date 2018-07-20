@@ -62,7 +62,8 @@ $sidebar-nav-item-padding: $space-one-third;
     }
   }
 
-  .main-menu--level-1 {
+  .main-menu--level-1,
+  .main-menu--level-2 { //only needed because of bug in menu_item_extras when caching enabled
     max-height: initial;
 
     a {
