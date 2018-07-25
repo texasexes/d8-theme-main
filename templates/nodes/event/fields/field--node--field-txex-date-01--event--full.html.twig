@@ -23,5 +23,7 @@
 {% endif %}
 
 {% block item_block %}
-  <div{{ item.attributes.addClass('event-date event-meta-item') }}>{{ date }}</div>
+  <div{{ item.attributes.addClass('event-date event-meta-item') }}>
+    {{ date }}
+  </div>
 {% endblock %}

@@ -1,6 +1,4 @@
 {% extends  "node.html.twig" %}
-{# TODO: If "full" displays were used, setting $page here would not be necessary. #}
-{% set page = TRUE %}
 {% set attributes = attributes.addClass('event') %}
 
 {% block content %}
@@ -11,7 +9,7 @@
     <div class="event-meta">
       {{ label }}
 
-      {{ content.field_txex_timestamp_01 }}
+      {{ content.field_txex_date_01 }}
 
       {{ content.field_txex_address_01 }}
     </div>
@@ -20,12 +18,12 @@
 
     {{ content.field_txex_link_01 }}
 
-    {% set url = url('<current>')['#markup']|url_encode %}
-    <p>
-      <a href="https://www.facebook.com/sharer/sharer.php?u={{ url }}&t={{ node.getTitle() }}"
+    {#% set url = url('<current>')['#markup']|url_encode %#}
+    <!-- <p>
+      <a href="https://www.facebook.com/sharer/sharer.php?u={#{ url }#}&t={#{ node.getTitle() }#}"
          onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
          target="_blank" title="Share on Facebook" class="facebook-share">Share on Facebook</a>
-    </p>
+    </p> -->
 
   </div>
 {% endblock content %}
