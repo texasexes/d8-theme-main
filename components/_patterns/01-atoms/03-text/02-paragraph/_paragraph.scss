@@ -7,7 +7,7 @@ $font-paragraph: $font-tertiary;
   $font-size: 1.6rem,
   $font-family: $font-paragraph,
   $color: $paragraph-color-default,
-  $line-height: 1.7) {
+  $line-height: 1.8) {
   font-size: #{$font-size};
   font-family: $font-family;
   margin: #{$margin};
@@ -28,8 +28,25 @@ p,
   @extend .p;
 }
 
-.flexbox,
+.wysiwyg__p.hack__p--alt-1 {
+  @extend .p;
+
+  font-family: $font-primary;
+  font-size: 2.1rem;
+  font-weight: 400;
+  line-height: 1.3;
+  margin: 0 0 20px;
+}
+
 .wysiwyg {
+  &__p {
+    @extend .p;
+
+    margin: 0 0 20px;
+  }
+}
+
+.flexbox {
   &__p {
     @extend .p;
 

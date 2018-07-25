@@ -69,54 +69,57 @@ $font-heading-h3-alt-11: $font-secondary-30;
   @include heading($font-size: 1.76rem, $line-height: 2, $font-weight: 600);
 }
 
-h1 {
-  @extend .h1;
-
-  font-family: $font-heading-alt-2;
-  font-size: 6.8rem;
-  font-weight: 800;
-  margin: 0 0 10px;
-  text-transform: none;
-}
-
-h2 {
-  @extend .h1;
-
-  margin: 0 0 10px;
-}
-
-h3 {
-  @extend .h1;
-
-  font-family: $font-heading-h1-alt-5;
-  font-size: 2.4rem;
-  font-weight: 800;
-  line-height: 1.25;
-  margin: 0 0 10px;
-  text-transform: none;
-}
-
-h4 {
-  @extend .h2;
-
-  margin: 0 0 10px;
-}
-
-h5 {
-  @extend .h2;
-
-  font-family: $font-tertiary;
-  font-size: 1.6rem;
-  margin: 0 0 10px;
-}
-
-h6 {
-  @extend .h2;
-
-  font-family: $font-tertiary;
-  font-size: 1.5rem;
-  margin: 0 0 10px;
-}
+// h1 {
+//   @extend .h1;
+//
+//   font-family: $font-heading-alt-2;
+//   font-size: 6.8rem;
+//   font-weight: 800;
+//   margin: 0 0 10px;
+//   text-transform: none;
+// }
+//
+// h2 {
+//   @extend .h2;
+//
+//   color: $heading-color-h1-default;
+//   font-weight: 800;
+//   font-size: 3rem;
+//   margin: 0 0 20px;
+// }
+//
+// h3 {
+//   @extend .h1;
+//
+//   font-family: $font-heading-h1-alt-5;
+//   font-size: 2.4rem;
+//   font-weight: 800;
+//   line-height: 1.25;
+//   margin: 0 0 10px;
+//   text-transform: none;
+// }
+//
+// h4 {
+//   @extend .h2;
+//
+//   margin: 0 0 10px;
+// }
+//
+// h5 {
+//   @extend .h2;
+//
+//   font-family: $font-tertiary;
+//   font-size: 1.6rem;
+//   margin: 0 0 10px;
+// }
+//
+// h6 {
+//   @extend .h2;
+//
+//   font-family: $font-tertiary;
+//   font-size: 1.5rem;
+//   margin: 0 0 10px;
+// }
 
 .wysiwyg {
   &__h1 {
@@ -130,26 +133,34 @@ h6 {
   }
 
   &__h2 {
-    @extend .h1;
+    @extend .h2;
 
-    margin: 0 0 10px;
+    color: $heading-color-h1-default;
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin: 0 0 20px;
   }
 
   &__h3 {
-    @extend .h1;
+    @extend .h3;
 
-    font-family: $font-heading-h1-alt-5;
-    font-size: 2.4rem;
+    color: $heading-color-h1-default;
+    line-height: 1.8;
+    font-family: $font-heading-2;
+    font-size: 1.8rem;
     font-weight: 800;
-    line-height: 1.25;
-    margin: 0 0 10px;
-    text-transform: none;
+    margin: 0 0 20px;
   }
 
   &__h4 {
-    @extend .h2;
+    @extend .h4;
 
-    margin: 0 0 10px;
+    color: $heading-color-h1-default;
+    font-family: $font-heading-alt-3;
+    font-size: 1.7rem;
+    font-weight: normal;
+    line-height: 1.8;
   }
 
   &__h5 {
