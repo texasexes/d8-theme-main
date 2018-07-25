@@ -20,3 +20,23 @@
     }
   }
 }
+
+.wysiwyg {
+  &__table {
+    font-family: $font-tertiary;
+    line-height: 1.875em;
+  }
+
+  &__tbody {
+    border-bottom: 1px solid #e6e6e6;
+    padding: 20px 0;
+  }
+
+  // &__tr {
+  //
+  // }
+
+  &__td {
+    color: $grey-7;
+  }
+}

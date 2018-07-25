@@ -11,6 +11,7 @@ $color-link--hover: $grey-a;
 ) {
   color: $color;
   cursor: pointer;
+  display: block;
   font-family: $font-family;
   font-size: $font-size;
   line-height: $line-height;
@@ -32,6 +33,8 @@ $color-link--hover: $grey-a;
 // When a link is a block, this is it's class (BEM)
 .link {
   @include link;
+
+  display: inline;
 }
 
 .card__link {
@@ -40,6 +43,32 @@ $color-link--hover: $grey-a;
 
 .wysiwyg__link {
   @include link;
+
+  display: inline;
+}
+
+.hack-p__link--alt-1.wysiwyg__p {
+  .wysiwyg__link {
+    @include link;
+
+    background-color: $burnt-orange;
+    border-radius: 5px;
+    color: $white;
+    display: table;
+    margin: auto;
+    line-height: 1.4;
+    padding: 0.5em 1em;
+    text-transform: uppercase;
+
+    // &:visited {
+    //   color: $color-button--text--visited;
+    // }
+
+    &:hover {
+      background-color: $color-button--bg--hover;
+      color: $color-button--text--hover;
+    }
+  }
 }
 
 .absolute__link,
@@ -56,23 +85,19 @@ $color-link--hover: $grey-a;
   }
 
   &--alt-5 {
-    display: inline-block;
     margin-top: 10px;
   }
 
   &--alt-6 {
-    display: block;
     color: $tangerine;
   }
 
   &--alt-8 {
-    display: block;
     text-align: center;
   }
 
   &--alt-12 {
     color: $grey-3;
-    display: block;
     font-family: $font-primary;
     font-size: 2.5rem;
     font-weight: 400;
