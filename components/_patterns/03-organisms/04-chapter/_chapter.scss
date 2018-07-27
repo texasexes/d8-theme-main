@@ -33,11 +33,11 @@ $chapter-border: $mushroom-light;
   }
 
   > .views-row {
-    background-image: url(../images/icon-brain.jpg);
-    background-repeat: no-repeat;
-    background-position: top left;
-    background-size: 47px;
-    padding-left: 80px;
+    // background-image: url(../images/icon-brain.jpg);
+    // background-repeat: no-repeat;
+    // background-position: top left;
+    // background-size: 47px;
+    // padding-left: 80px;
     margin-left: 30px;
     margin-right: 30px;
   }
@@ -90,5 +90,34 @@ $chapter-border: $mushroom-light;
     .views-field {
       display: inline-block;
     }
+  }
+}
+
+.chapter-add-content {
+  border: 8px solid $burnt-orange;
+  padding: 10px;
+  margin-left: 30px;
+  margin-bottom: 20px;
+
+  h2 {
+    color: #555;
+    line-height: 1.8;
+    font-family: "Sentinel A", "Sentinel B", serif;
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin: 0 0 20px;
+    text-transform: none;
+  }
+
+  a {
+    color: #cb6015;
+    cursor: pointer;
+    font-family: Rubik, sans-serif;
+    font-size: 1.5rem;
+    line-height: 1.4;
+    text-decoration: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display: inline;
   }
 }
