@@ -13,7 +13,7 @@
 {% block title %}
   <div{{ attributes }}>
 
-    <div class="group-header-background" style="{{ image_css }}"></div>
+    <div class="group-header-background" style="{{ image_css }}">{{ content.field_txex_ref_media_01 }}</div>
     {{ content.field_txex_ref_media_02 }}
 
   {% if (content|without('field_txex_ref_media_01','field_txex_ref_media_02','label') is not empty) %}

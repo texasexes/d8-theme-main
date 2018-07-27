@@ -9,11 +9,9 @@
     {% set linkAttributes = linkAttributes|merge(item.attributes) %}
   {% endif %}
 
-
   {% include "@atoms/01-links/link/link.twig" with {
     "link_content": item.content['#title'],
     "link_attributes": linkAttributes,
   } %}
-
 
 {% endblock item_block%}
