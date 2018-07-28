@@ -5,9 +5,8 @@
   {% block submitted %}{% endblock submitted %}
 
   {% block content %}
-  <a class="event-list-item-link" href="{{ url }}">
     <div{{ content_attributes }}>
+      <a class="no-wrap-list-item-link" href="{{ url }}"></a>
       {{ content }}
     </div>
-  </a>
   {% endblock content %}
