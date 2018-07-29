@@ -60,14 +60,28 @@ $color-link--hover: $grey-a;
     padding: 0.5em 1em;
     text-transform: uppercase;
 
-    // &:visited {
-    //   color: $color-button--text--visited;
-    // }
-
     &:hover {
       background-color: $color-button--bg--hover;
       color: $color-button--text--hover;
     }
+  }
+}
+
+.wysiwyg__link--button {
+  @include link;
+
+  background-color: $burnt-orange;
+  border-radius: 5px;
+  color: $white;
+  display: inline-block;
+  margin-right: 30px;
+  line-height: 1.4;
+  padding: 0.5em 1em;
+  text-transform: uppercase;
+
+  &:hover {
+    background-color: $color-button--bg--hover;
+    color: $color-button--text--hover;
   }
 }
 

@@ -128,7 +128,8 @@ $font-heading-h3-alt-11: $font-secondary-30;
     font-family: $font-heading-alt-2;
     font-size: 6.8rem;
     font-weight: 800;
-    margin: 0 0 10px;
+    margin: 0 0 20px;
+    letter-spacing: -0.025em;
     text-transform: none;
   }
 
@@ -137,7 +138,7 @@ $font-heading-h3-alt-11: $font-secondary-30;
 
     color: $heading-color-h1-default;
     font-size: 3rem;
-    font-weight: 800;
+    font-weight: 700;
     line-height: 1.2;
     margin: 0 0 20px;
   }
@@ -149,7 +150,7 @@ $font-heading-h3-alt-11: $font-secondary-30;
     line-height: 1.8;
     font-family: $font-heading-2;
     font-size: 1.8rem;
-    font-weight: 800;
+    font-weight: 700;
     margin: 0 0 20px;
     text-transform: none;
   }
@@ -160,8 +161,10 @@ $font-heading-h3-alt-11: $font-secondary-30;
     color: $heading-color-h1-default;
     font-family: $font-heading-alt-3;
     font-size: 1.7rem;
-    font-weight: normal;
+    font-weight: 500;
     line-height: 1.8;
+    margin: 0 0 10px;
+    padding: 0;
   }
 
   &__h5 {

@@ -1,0 +1,28 @@
+span.flexbox__h2--alt-7 {
+  &::after {
+    content: ", ";
+  }
+
+  &:only-of-type,
+  &:last-of-type,
+  &:first-of-type {
+    &::after {
+      content: "";
+    }
+  }
+}
+
+.benefit-category {
+  margin-bottom: 20px;
+}
+
+.benefit-eligibility {
+  // margin-bottom: 20px;
+}
+
+.benefit-description {
+  padding: 20px 0;
+  border-color: $grey-e;
+  border-style: solid;
+  border-width: 1px 0;
+}

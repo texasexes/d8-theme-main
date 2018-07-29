@@ -142,9 +142,12 @@
     }
   }
 
-  &--region-layout:nth-of-type(2) {
+  &--region-layout {
+    margin-right: 50px;
+  }
+
+  &--region-layout:nth-last-child(2) {
     max-width: 630px;
-    padding-left: 60px;
 
     @include breakpoint($break-nav-max) {
       padding-left: 0;
@@ -152,12 +155,16 @@
   }
 
   &--region-layout:first-of-type {
+    max-width: none;
+
     @include breakpoint($break-nav-max) {
       display: none;
     }
   }
 
   &--region-layout:only-of-type {
+    margin-right: 0;
+
     @include breakpoint($break-nav-max) {
       display: block;
     }

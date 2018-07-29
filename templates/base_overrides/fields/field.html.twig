@@ -42,9 +42,11 @@
     <div{{ attributes }}>
   {% endif %}
 
+  {% block items_list_prefix %}{% endblock %}
+
   {% for item in items %}
   {% block item_block %}
-    <div{{ item.attributes }}>{{ item.content }}</div>
+    <div{{ item.attributes }}>{{- item.content -}}</div>
   {% endblock %}
   {% endfor %}
 
@@ -66,6 +68,8 @@
     {% if multiple %}
     <div>
     {% endif %}
+
+    {{ block('items_list_prefix')}}
 
     {% for item in items %}
     {{ block('item_block')}}

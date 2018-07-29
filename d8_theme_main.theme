@@ -102,6 +102,13 @@ function d8_theme_main_theme_suggestions_field_alter(array &$suggestions, array 
   array_push($suggestions, 'field__' . $element['#entity_type'] . '__' . $element['#field_name'] . '__' . $element['#bundle'] . '__' . $sanitized_view_mode);
 }
 
+function d8_theme_main_theme_suggestions_taxonomy_term_alter(array &$suggestions, &$variables) {
+  $element = $variables['elements'];
+  $sanitized_view_mode = strtr($element['#view_mode'], '.', '_');
+
+  array_push($suggestions, $variables['theme_hook_original'] . '__' . $element['name']['#bundle'] . '__'  . $sanitized_view_mode);
+}
+
 
 // **** Adding theme suggestions to forms and form submit items
 function d8_theme_main_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
