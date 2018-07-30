@@ -148,6 +148,10 @@ $color-link--hover: $grey-a;
   }
 }
 
+.event-list {
+  position: relative; // so that link::after child doesn't break out
+}
+
 .event-list-item-link {
   display: block;
   text-decoration: none;
@@ -170,5 +174,14 @@ $color-link--hover: $grey-a;
 
   &:hover {
     background-color: rgba(0, 0, 0, 0.03);
+  }
+}
+
+.embedded-entity__file {
+  display: inline;
+  a {
+    @include link;
+
+    display: inline;
   }
 }
