@@ -1,0 +1,10 @@
+{% extends  "node.html.twig" %}
+{% set attributes = attributes.addClass('landing-page') %}
+
+  {% block title %}{% endblock %}
+
+  {% block content %}
+    <div{{ content_attributes }}>
+      {{ content }}
+    </div>
+  {% endblock content %}
