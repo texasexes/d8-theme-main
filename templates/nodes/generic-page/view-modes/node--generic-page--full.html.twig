@@ -1,7 +1,7 @@
 {% extends  "node.html.twig" %}
-{# TODO: If "full" displays were used, setting $page here would not be necessary. #}
-{#% set page = TRUE %#}
 {% set content_attributes = attributes.addClass('generic-page') %}
+
+  {% block title %}{% endblock %}
 
   {% block content %}
     <div{{ content_attributes }}>

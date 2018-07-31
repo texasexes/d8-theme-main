@@ -32,6 +32,7 @@
 
     @include breakpoint($break-nav) {
       padding-left: 46px;
+      margin-bottom: $space;
     }
 
     li:last-of-type {

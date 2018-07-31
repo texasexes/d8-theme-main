@@ -179,6 +179,7 @@ $color-link--hover: $grey-a;
 
 .embedded-entity__file {
   display: inline;
+
   a {
     @include link;
 
