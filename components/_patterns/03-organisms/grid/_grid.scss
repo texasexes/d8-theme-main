@@ -1,6 +1,7 @@
 .grid {
   display: flex;
   flex-flow: row wrap;
+  justify-content: space-around;
 
   &__heading {
     @include section-heading;
@@ -8,7 +9,7 @@
 
   &__item {
     flex: 1 1 auto;
-    margin-right: $space-double;
+    padding: 0 $space-one-third;
     margin-bottom: $space-and-half;
   }
 }
