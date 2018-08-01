@@ -37,9 +37,9 @@
   ]
 %}
 <div{{ attributes.addClass(classes) }}>
-  {{ title_prefix }}
-  {{ title }}
-  {{ title_suffix }}
+  {#{ title_prefix }#}
+  {#{ title }#}
+  {#{ title_suffix }#}
 
   {% if header %}
     <header>
@@ -50,13 +50,12 @@
   {{ exposed }}
   {{ attachment_before }}
 
-  {% embed "@organisms/grid/_grid.twig" with {
-    grid_heading: view_array['#title'],
-  } %}
+  {% embed "@organisms/grid/_grid.twig" %}
     {% block grid_items %}
       {{ rows }}
     {% endblock %}
   {% endembed %}
+  
   {{ empty }}
   {{ pager }}
 
