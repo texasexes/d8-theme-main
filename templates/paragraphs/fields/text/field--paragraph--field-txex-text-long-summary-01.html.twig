@@ -9,12 +9,17 @@
 {% endif %}
 
 {% block item_block %}
-  {% if item.content %}
-    {% include "@atoms/03-text/02-paragraph/paragraph.twig" with {
-      "paragraph_blockname": field_blockname,
-      "paragraph_attributes": item.attributes,
-      "paragraph_modifiers": paragraph_modifiers,	
-      "paragraph_content": item.content|render|striptags,
-    } %}
+
+  {% if item.content['#format'] != 'txex_ckeditor_01' %}
+    {% if item.content %}
+      {% include "@atoms/03-text/02-paragraph/paragraph.twig" with {
+        "paragraph_blockname": field_blockname,
+        "paragraph_attributes": item.attributes,
+        "paragraph_modifiers": paragraph_modifiers,
+        "paragraph_content": item.content|render|striptags,
+      } %}
+    {% endif %}
+  {% else %}
+    {{ item.content }}
   {% endif %}
 {% endblock %}
