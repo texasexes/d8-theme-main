@@ -6,6 +6,14 @@ $break-layout: $medium;
   }
 }
 
+.wysiwyg__hr {
+  clear: both;
+  height: 0;
+  width: 0;
+  margin: 0;
+  border: none;
+}
+
 // Drupal hack because icon positioning is based on ems and something weird
 // happens when additional styles are added to the entity edit screen
 // .field-multiple-drag {
