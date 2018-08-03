@@ -27,7 +27,7 @@ fonts:
   css:
     theme:
       //cloud.typography.com/737040/6549592/css/fonts.css: { type: external, minified: true }
-      //fonts.googleapis.com/css?family=Rubik: { type: external, minified: true }
+      //fonts.googleapis.com/css?family=Rubik:400,500: { type: external, minified: true }
 
 sprite:
   js:
