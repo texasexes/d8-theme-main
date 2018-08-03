@@ -3,7 +3,7 @@ $break-person-card: $large;
 @mixin person-heading($color: inherit) {
   font-family: $font-primary;
   font-size: 2.3rem;
-  font-weight: bold;
+  font-weight: normal;
   line-height: 1.57;
   color: $color;
 }
@@ -63,6 +63,7 @@ $break-person-card: $large;
 .person-card--scholarship {
   padding: $space;
   border: 8px solid $mushroom-lighter;
+  margin-bottom: $space;
 
   @include breakpoint($break-person-card) {
     display: flex;
@@ -91,7 +92,7 @@ $break-person-card: $large;
   &__name {
     @include alcade-title-2;
 
-    margin-bottom: 0.4em;
+    margin-bottom: $space-one-third;
   }
 
   &__scholarship {
@@ -107,7 +108,7 @@ $break-person-card: $large;
   &__text {
     @include person-text;
 
-    margin-bottom: 0.6em;
+    margin-bottom: $space-one-third;
   }
 }
 

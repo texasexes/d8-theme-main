@@ -1,8 +1,10 @@
 {% set full_name = content.field_txex_text_formatted_01.0['#text'] ~ ' ' ~ content.field_txex_text_formatted_06.0['#text'] %}
+{% set scholarship_class = 'Forty Acres Scholars Class of ' ~ content.field_txex_ref_tax_term_01.0['#title'] %}
 
 {% embed "@molecules/person-card/person-card--scholarship.twig" with {
   person_name: full_name,
   person_scholarship: content.field_txex_text_formatted_02.0['#text'],
+  person_year: scholarship_class,
   person_hometown: content.field_txex_text_formatted_03.0['#text'],
   person_highschool: content.field_txex_text_formatted_05.0['#text'],
 } %}
@@ -11,4 +13,4 @@
   {% endblock %}
 {% endembed %}
 
-{{ content|without('field_txex_ref_media_01', 'field_txex_text_formatted_01', 'field_txex_text_formatted_06', 'field_txex_text_formatted_02', 'field_txex_text_formatted_03', 'field_txex_text_formatted_05') }}
+{{ content|without('field_txex_ref_media_01', 'field_txex_text_formatted_01', 'field_txex_text_formatted_06', 'field_txex_text_formatted_02', 'field_txex_text_formatted_03', 'field_txex_text_formatted_05', 'field_txex_ref_tax_term_01') }}

@@ -21,6 +21,10 @@
     } %}
     {% include "@atoms/03-text/_text.twig" with {
       text_blockname: person_card_base_class,
+      text_content: person_year,
+    } %}
+    {% include "@atoms/03-text/_text.twig" with {
+      text_blockname: person_card_base_class,
       text_heading: 'Hometown',
       text_content: person_hometown,
     } %}
