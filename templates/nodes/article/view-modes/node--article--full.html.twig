@@ -4,19 +4,7 @@
 
   {% block content %}
 
-    <!-- {#{ title_prefix }#}
-      <h2{#{ title_attributes }#}>
-        {#{ label }#}
-      </h2>
-    {#{ title_suffix }#} -->
-
-    <!-- <footer>
-      <div{#{ author_attributes }#}>
-        By {#{- content.field_txex_ref_content_01 -}#}
-        {#{- node.getCreatedTime|format_date('txex_datetime_01') -}#}
-        {#{ metadata }#}
-      </div>
-    </footer> -->
+    {{ content.field_txex_ref_media_01 }}
 
     <div{{ content_attributes }}>
       {{ content|without('field_txex_ref_media_01') }}
