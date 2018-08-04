@@ -58,3 +58,47 @@
     margin-left: 1em;
   }
 }
+
+.exposed-form-article-view {
+  padding-bottom: 15px;
+  border-bottom: 1px solid;
+  border-color: #e6e6e6;
+  margin-left: 45px;
+  margin-right: 50px;
+  // margin-bottom: 45px;
+
+  .form-item {
+    display: inline;
+    padding-right: $space;
+  }
+
+  input[type="radio"] {
+    opacity: 0;
+    width: 0;
+  }
+
+  input[type="radio"] + label {
+    color: #555;
+    font-family: "Sentinel A", "Sentinel B", serif;
+    font-size: 3rem;
+    font-style: italic;
+    font-weight: 700;
+    letter-spacing: -0.005em;
+    line-height: 1.2;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  input[type="radio"] + label:hover {
+    color: #777;
+    cursor: pointer;
+  }
+
+  input[type="radio"]:checked + label {
+    color: $burnt-orange;
+  }
+
+  /* Adding focus styles on the outer-box of the fake checkbox */
+  input[type="radio"]:focus + label::before {
+    outline: rgb(59, 153, 252) auto 5px;
+  }
+}
