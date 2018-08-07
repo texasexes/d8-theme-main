@@ -167,12 +167,13 @@ $font-heading-h3-alt-11: $font-secondary-30;
     @extend .h3;
 
     color: $heading-color-h1-default;
+    letter-spacing: 0.02em;
     line-height: 1.8;
     font-family: $font-heading-2;
     font-size: 1.8rem;
     font-weight: 700;
     margin: 0 0 $space-two-thirds;
-    text-transform: none;
+    // text-transform: none;
 
     &.heading-no-margin {
       margin: 0;
@@ -187,7 +188,7 @@ $font-heading-h3-alt-11: $font-secondary-30;
     font-size: 1.7rem;
     font-weight: 500;
     line-height: 1.8;
-    margin: 0 0 10px;
+    margin: 0 0 $space-two-thirds;
     padding: 0;
   }
 
