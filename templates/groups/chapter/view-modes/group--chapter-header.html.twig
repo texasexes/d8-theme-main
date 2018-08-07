@@ -16,7 +16,7 @@
     <div class="group-header-background" style="{{ image_css }}">{{ content.field_txex_ref_media_01 }}</div>
     {{ content.field_txex_ref_media_02 }}
 
-  {% if (content|without('field_txex_ref_media_01','field_txex_ref_media_02','label') is not empty) %}
+  {% if (content|without('field_txex_ref_media_01','field_txex_ref_media_02','label')|render is not empty) %}
     <div class="group-header-links">
       <div>Keep in touch:</div>
       {{ content|without('field_txex_ref_media_01','field_txex_ref_media_02','label') }}

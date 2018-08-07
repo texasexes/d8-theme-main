@@ -178,7 +178,8 @@ $color-link--hover: $grey-a;
 }
 
 .embedded-entity__file {
-  display: inline;
+  display: inline-block;
+  margin: 0 0 $space-two-thirds;
 
   a {
     @include link;
