@@ -300,12 +300,36 @@ function d8_theme_main_preprocess_paragraph(&$variables) {
 
 }
 
+
+/**
+ * Implements hook_preprocess_HOOK().
+ *
+ * Pass block region value to content so this can be used in
+ * MYTHEME_theme_suggestions_menu_alter.
+ */
 function d8_theme_main_preprocess_block(&$variables) {
   if ("system_menu_block:txex-account" == $variables['plugin_id']) {
     $variables['#cache']['contexts'][] = 'user';
   }
+
+  if (isset($variables['elements']['#id'])) {
+    $region = \Drupal\block\Entity\Block::load($variables['elements']['#id'])->getRegion();
+    $variables['content']['#attributes']['region'] = $region;
+  }
 }
 
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ *
+ * Provide region based menu suggestions.
+ */
+function d8_theme_main_theme_suggestions_menu_alter(&$suggestions, array $variables) {
+  if (isset($variables['attributes']['region'])) {
+    $menu_name = strtr($variables['menu_name'], '-', '_');
+    $suggestions[] = 'menu__' . $menu_name . '__' . $variables['attributes']['region'];
+  }
+}
 
 
 // function d8_theme_main_preprocess_paragraph__txex_paragraph_21(&$variables) {
