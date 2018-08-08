@@ -153,9 +153,12 @@ $font-heading-h3-alt-11: $font-secondary-30;
       font-size: 4.6rem;
       letter-spacing: -0.02em;
       line-height: 1;
-      margin-left: $space-and-half;
-      margin-right: 50px;
       margin-bottom: $space-and-half;
+
+      @include breakpoint($break-nav) {
+        margin-left: $space-and-half;
+        margin-right: 50px;
+      }
     }
 
     &.heading-no-margin {

@@ -70,7 +70,9 @@
             ] %}
 
             <div{{ create_attribute().addClass(menu_dropdown_classes) }}>
-              {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+              <div class="main-menu__dropdown-inner">
+                {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+              </div>
             </div>
 
         {% endif %}

@@ -31,7 +31,7 @@
   {% if items %}
 
     {% set menu_list_classes = [
-      'menu',
+      'side-menu',
       'menu-level-' ~ menu_level
     ] %}
 
@@ -39,7 +39,8 @@
     {% for item in items %}
 
       {% set menu_item_classes = [
-        'menu-item',
+        'side-menu__item',
+        item.below ? 'side-menu__item--with-sub',
         item.is_expanded ? 'menu-item--expanded',
         item.is_collapsed ? 'menu-item--collapsed',
         item.in_active_trail ? 'menu-item--active-trail',
@@ -49,7 +50,18 @@
         {{ link(item.title, item.url) }}
         {% if item.below %}
 
-          {% set menu_dropdown_classes = [] %}
+          <div class="side-menu__expand-sub">
+            {% include "@atoms/04-images/icons/_icon.twig" with {
+              icon_base_class: 'sub-icon',
+              icon_blockname: "side-menu",
+              icon_name: 'chevron',
+            } %}
+          </div>
+
+          {% set menu_dropdown_classes = [
+            'side-menu__dropdown',
+            'side-menu__dropdown--level-' ~ menu_level,
+          ] %}
 
           <div{{ create_attribute().addClass(menu_dropdown_classes) }}>
             {{ menus.menu_links(item.below, attributes, menu_level + 1) }}

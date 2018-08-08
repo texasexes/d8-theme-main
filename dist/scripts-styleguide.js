@@ -52,9 +52,12 @@
   var mainMenuToggleOpen = $('.main-menu-toggle--open');
   var mainMenu = $('.main-nav');
   var mainMenuSub = $('.main-menu__dropdown');
+  var sideMenuSub = $('.side-menu__dropdown');
   var mainMenuWithSub = $('.main-menu__item--with-sub');
   var mainMenuExpandSub = $('.main-menu__expand-sub');
+  var sideMenuExpandSub = $('.side-menu__expand-sub');
   var mainMenuSubIcon = $('.main-menu__sub-icon');
+  var sideMenuSubIcon = $('.side-menu__sub-icon');
   var toolbar = $('.toolbar-bar');
 
   // Calculated values
@@ -66,7 +69,8 @@
 
   // Classes
   var mainMenuSubOpen = 'main-menu__sub-icon--open';
-  var mainMenuVisible = 'js-visible';
+  var sideMenuSubOpen = 'side-menu__sub-icon--open';
+  var menuVisible = 'js-visible';
   var mainMenuActive = 'js-menu-active';
   var noscroll = 'noscroll';
 
@@ -85,7 +89,7 @@
     body.toggleClass(noscroll);
 
     // Display main menu
-    mainMenu.toggleClass(mainMenuVisible);
+    mainMenu.toggleClass(menuVisible);
 
     // Remove the overlay if it exists
     if (mainMenuBg.length) {
@@ -102,7 +106,10 @@
 
   // Expand parent items if current page is the active menu item
   $('.menu-item--active-trail > .main-menu__expand-sub > .main-menu__sub-icon').addClass(mainMenuSubOpen);
-  $('.menu-item--active-trail > .main-menu__dropdown').addClass(mainMenuVisible);
+  $('.menu-item--active-trail > .main-menu__dropdown').addClass(menuVisible);
+
+  $('.menu-item--active-trail > .side-menu__expand-sub > .side-menu__sub-icon').addClass(sideMenuSubOpen);
+  $('.menu-item--active-trail > .side-menu__dropdown').addClass(menuVisible);
 
   // Main Menu
   mainMenuToggle.click(function (e) {
@@ -115,7 +122,13 @@
   mainMenuExpandSub.click(function (e) {
     e.preventDefault();
     $(this).children(mainMenuSubIcon).toggleClass(mainMenuSubOpen);
-    $(this).next(mainMenuSub).toggleClass(mainMenuVisible);
+    $(this).next(mainMenuSub).toggleClass(menuVisible);
+  });
+  // Display Sub-nav
+  sideMenuExpandSub.click(function (e) {
+    e.preventDefault();
+    $(this).children(sideMenuSubIcon).toggleClass(sideMenuSubOpen);
+    $(this).next(sideMenuSub).toggleClass(menuVisible);
   });
 
   // Calculate body padding top (to accommodate the admin menu)
@@ -148,7 +161,7 @@
         // Remove noscroll class from body
         body.removeClass(noscroll);
         // Hide mobile menu
-        mainMenu.removeClass(mainMenuVisible);
+        mainMenu.removeClass(menuVisible);
       }
 
       calculateMenuHeights();
