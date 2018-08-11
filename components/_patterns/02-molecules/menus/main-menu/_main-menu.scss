@@ -201,6 +201,14 @@ $mobile-nav-item-padding: $space-one-half;
       }
 
       @include breakpoint($break-nav) {
+        &.menu-item--active-trail {
+          background-color: $color-menu-bg-dark;
+
+          a {
+            color: $color-menu-text-light;
+          }
+        }
+
         &:hover {
           > a {
             background-color: $color-menu-bg-darker;

@@ -13,7 +13,7 @@
   $container-max-width: $max-width,
   $outer-container-break: $small,
   $v-margin: 0,
-  $v-padding: 0,
+  $v-padding: inherit,
   $h-padding: $space-one-half,
   $h-padding-large: $h-padding
 ) {

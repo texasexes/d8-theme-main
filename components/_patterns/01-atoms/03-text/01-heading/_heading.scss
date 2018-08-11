@@ -153,17 +153,20 @@ $font-heading-h3-alt-11: $font-secondary-30;
       font-size: 4.2rem;
       letter-spacing: -0.02em;
       line-height: 1;
-      margin-bottom: $space-and-half;
+      // margin-bottom: $space-and-half;
 
       @include breakpoint($break-nav) {
         margin-left: $space-and-half;
-        margin-right: 50px;
+        margin-right: $space-and-half;
       }
     }
 
     &--chapter-title {
+      font-size: 2.5rem;
+
       @include breakpoint($break-nav) {
-        margin-left: $space;
+        margin-left: $space-and-half;
+        margin-bottom: $space;
       }
     }
 

@@ -25,6 +25,7 @@ $sidebar-nav-item-padding: $space-one-third;
     font-size: 1.5rem;
     line-height: 1.5;
     margin: -10px 0 0;
+    padding-left: 40px;
 
     a {
       display: block;
@@ -98,16 +99,16 @@ $sidebar-nav-item-padding: $space-one-third;
 
 .side-menu {
   @at-root ul#{&} {
-    padding-left: 20px;
-    position: relative;
+    padding-left: $space-two-thirds;
     width: 100%;
   }
 
   &__item {
     list-style: none;
+    position: relative;
     // Items with children
 
-    &.menu-item--active-trail > a {
+    .menu-item--active-trail > a {
       color: $burnt-orange;
     }
 
@@ -160,6 +161,10 @@ $sidebar-nav-item-padding: $space-one-third;
     fill: $grey-c;
     height: 1rem;
     width: 1rem;
+
+    &.side-menu {
+      padding: 0;
+    }
 
     &:hover {
       fill: $burnt-orange;
