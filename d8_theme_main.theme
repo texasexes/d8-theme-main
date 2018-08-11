@@ -397,6 +397,35 @@ function d8_theme_main_theme_suggestions_views_view_alter(array &$suggestions, a
     // ...
 }
 
+function d8_theme_main_views_pre_render(\Drupal\views\ViewExecutable $view) {
+  // kint($view->header);
+  // kint($view->id());
+  // kint($view->current_display);
+
+}
+
+function d8_theme_main_preprocess_views_view(&$variables) {
+  $view_id = $variables['id'];
+  $display_id = $variables['display_id'];
+  if ('txex_events' === $view_id && 'attachment_2' === $display_id) {
+    if ($variables['header']['area_text_custom']['#markup']) {
+      $variables['header']['area_text_custom']['#markup'] = '<h3 class="block__h3 block__h3--alt-7">Upcoming Featured Events</h3>';
+    }
+  }
+
+  if ('txex_events' === $view_id && 'block_2' === $display_id) {
+    if ($variables['header']['area_text_custom']['#markup']) {
+      $variables['header']['area_text_custom']['#markup'] = '<h3 class="block__h3 block__h3--alt-7">Next Event</h3>';
+    }
+  }
+  // kint($variables['id']);
+  // kint($variables['display_id']);
+  // kint($variables['header']);
+  // kint($variables['header']['area_text_custom']);
+  // kint($variables['header']['area_text_custom']['#markup']);
+  // dump($variables);
+}
+
 // function d8_theme_main_views_pre_render(Drupal\views\ViewExecutable $view) {
 //   if ($view->id() == "txex_events" && $view->current_display == 'block_1') {
 //     // kint($view);
