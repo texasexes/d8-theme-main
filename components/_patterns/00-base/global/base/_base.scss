@@ -15,6 +15,7 @@ body {
 .main {
   @include wrapper;
 
+  padding: $space 0;
   display: block; // Fix for IE weirdness
   background-color: $white;
 }

@@ -4,8 +4,8 @@ $chapter-border: $mushroom-light;
   border: 8px solid $chapter-border;
   font-family: $font-tertiary;
   line-height: 1.5em;
-  padding-bottom: 25px;
-  margin-bottom: 2em;
+  padding: $space-two-thirds;
+  margin-bottom: $space;
 
   header {
     h2 {
@@ -32,15 +32,15 @@ $chapter-border: $mushroom-light;
     }
   }
 
-  > .views-row {
-    // background-image: url(../images/icon-brain.jpg);
-    // background-repeat: no-repeat;
-    // background-position: top left;
-    // background-size: 47px;
-    // padding-left: 80px;
-    margin-left: 30px;
-    margin-right: 30px;
-  }
+  // > .views-row {
+  //   // background-image: url(../images/icon-brain.jpg);
+  //   // background-repeat: no-repeat;
+  //   // background-position: top left;
+  //   // background-size: 47px;
+  //   // padding-left: 80px;
+  //   margin-left: 30px;
+  //   margin-right: 30px;
+  // }
 
   .chapter-next-event-title {
     text-transform: uppercase;
@@ -50,7 +50,7 @@ $chapter-border: $mushroom-light;
     margin: 0;
     width: 50%;
     background: pink;
-    line-height: 1em;
+    line-height: 1;
   }
 
   .views-field-field-txex-ref-media-01 {
@@ -69,19 +69,16 @@ $chapter-border: $mushroom-light;
   }
 
   .upcoming-nearby {
-    margin-left: 30px;
-    line-height: 2em;
-
     a {
       color: $burnt-orange;
       text-decoration: none;
     }
 
-    header {
-      h2 {
-        margin-left: 0;
-      }
-    }
+    // header {
+    //   h2 {
+    //     margin-left: 0;
+    //   }
+    // }
 
     .views-field-title {
       margin-right: 0.5em;
