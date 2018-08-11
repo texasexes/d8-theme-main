@@ -13,8 +13,6 @@ $side-menu-dropdown-toggle-width: $space-double;
 // Moble Nave space
 // $mobile-nav-item-padding: $space-one-half;
 
-
-
 $sidebar-nav-item-padding: $space-one-third;
 
 .block-region-sidebar {
@@ -30,7 +28,7 @@ $sidebar-nav-item-padding: $space-one-third;
 
     a {
       display: block;
-      color: $grey-5;
+      color: $grey-7;
       text-decoration: none;
       padding: $sidebar-nav-item-padding 25px $sidebar-nav-item-padding $sidebar-nav-item-padding;
     }
@@ -99,7 +97,6 @@ $sidebar-nav-item-padding: $space-one-third;
 }
 
 .side-menu {
-
   @at-root ul#{&} {
     padding-left: 20px;
     position: relative;
@@ -160,16 +157,16 @@ $sidebar-nav-item-padding: $space-one-third;
   }
 
   &__sub-icon {
-    fill: $grey-5;
+    fill: $grey-c;
     height: 1rem;
     width: 1rem;
 
-    &:hover{
+    &:hover {
       fill: $burnt-orange;
     }
 
     &--open {
-      fill: $burnt-orange;
+      fill: $grey-c;
       transform: rotate(90deg);
     }
   }
@@ -181,8 +178,8 @@ $sidebar-nav-item-padding: $space-one-third;
 
     &.js-visible {
       // @include breakpoint($break-nav-max) {
-        display: flex;
-        flex-basis: 100%;
+      display: flex;
+      flex-basis: 100%;
       // }
     }
   }
@@ -196,5 +193,4 @@ $sidebar-nav-item-padding: $space-one-third;
   //     @include wrapper;
   //   }
   // }
-
 }
