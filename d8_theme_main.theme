@@ -414,16 +414,12 @@ function d8_theme_main_preprocess_views_view(&$variables) {
   }
 
   if ('txex_events' === $view_id && 'block_2' === $display_id) {
-    if ($variables['header']['area_text_custom']['#markup']) {
-      $variables['header']['area_text_custom']['#markup'] = '<h3 class="block__h3 block__h3--alt-7">Next Event</h3>';
+    if (isset($variables['header']['area_text_custom'])) {
+      if ($variables['header']['area_text_custom']['#markup']) {
+        $variables['header']['area_text_custom']['#markup'] = '<h3 class="block__h3 block__h3--alt-7">Next Event</h3>';
+      }
     }
   }
-  // kint($variables['id']);
-  // kint($variables['display_id']);
-  // kint($variables['header']);
-  // kint($variables['header']['area_text_custom']);
-  // kint($variables['header']['area_text_custom']['#markup']);
-  // dump($variables);
 }
 
 // function d8_theme_main_views_pre_render(Drupal\views\ViewExecutable $view) {
