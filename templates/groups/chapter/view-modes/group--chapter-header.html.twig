@@ -7,7 +7,7 @@
 {% extends "group.html.twig" %}
 {% set attributes = attributes.addClass('group-header') %}
 
-{% set image = content.field_txex_ref_media_01 %}
+{% set image = content.field_txex_ref_media_01|render %}
 {% set image_css = 'background-image:url(' ~ (image|striptags|trim) ~ ');' %}
 
 {% block title %}
