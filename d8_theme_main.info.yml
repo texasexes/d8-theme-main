@@ -33,6 +33,7 @@ regions:
   content: Content  # the content region is required
   sidebar_second: Second Sidebar
   footer: Footer
+  no_display_blocks: Not Displayed - Blocks Hack
 
 # Remove unwanted system stylesheets
 # stylesheets-remove:
