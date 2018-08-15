@@ -1,0 +1,10 @@
+{% extends "group.html.twig" %}
+
+  {% block title %}{% endblock title %}
+
+  {% block content %}
+    <div{{ content_attributes }}>
+        {{ content }}
+        <a class="no-wrap-list-item-link" href="{{ url }}"></a>
+    </div>
+  {% endblock content %}
