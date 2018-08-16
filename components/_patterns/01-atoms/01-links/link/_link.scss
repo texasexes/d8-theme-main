@@ -149,7 +149,8 @@ $color-link--hover: $grey-a;
   }
 }
 
-.event-list {
+.event-list,
+.group-list {
   position: relative; // so that link::after child doesn't break out
 }
 
