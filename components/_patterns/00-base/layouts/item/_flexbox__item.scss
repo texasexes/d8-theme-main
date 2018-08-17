@@ -137,7 +137,7 @@
     align-content: flex-start;
 
     &:first-of-type {
-      flex: 0 1 100%;
+      flex: 0 1 auto;
       align-self: space-around;
     }
   }
