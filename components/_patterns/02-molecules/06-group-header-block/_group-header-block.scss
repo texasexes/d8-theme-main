@@ -1,10 +1,14 @@
 .group-header {
   color: #fff;
   background-color: #294151;
-  min-height: 433px;
+  min-height: 200px;
   position: relative;
   text-align: center;
   font-family: $font-tertiary;
+
+  @include breakpoint($break-layout) {
+    min-height: 433px;
+  }
 
   a:link,
   a:visited,
@@ -27,35 +31,69 @@
     background-position: center;
     background-repeat: none;
     overflow: hidden;
+
+    @include breakpoint($break-nav-max) {
+      display: none;
+    }
   }
 
   .group-header-title {
     position: absolute;
     left: 0;
     right: 0;
-    top: 120px;
+    top: 10px;
     width: 290px;
     height: auto;
     margin-left: auto;
     margin-right: auto;
+
+    @include breakpoint($break-layout) {
+      top: 120px;
+    }
   }
 
   .group-header-links {
     position: absolute;
     left: 0;
     right: 0;
-    top: 275px;
+    top: 100px;
     margin-left: auto;
     margin-right: auto;
+
+    @include breakpoint($break-layout) {
+      top: 275px;
+    }
+
+    .group-header-links-title {
+      @include breakpoint($break-nav-max) {
+        display: none;
+      }
+    }
 
     a {
       width: 32px;
       height: 32px;
       display: inline-block;
-      margin: 20px 8px;
+      margin: 15px 8px 0;
       text-indent: -1000px;
       overflow: hidden;
       background-repeat: none;
+
+      @include breakpoint($break-layout) {
+        margin: 20px 8px;
+      }
+    }
+
+    .field_txex_link_01 {
+      background-image: url(../images/social-icon-white/scholarship-donation-button.svg);
+      background-repeat: no-repeat;
+      width: 210px;
+
+      @include breakpoint($break-layout) {
+        display: block;
+        margin: auto;
+        padding: 0;
+      }
     }
 
     .field_txex_link_02 {
