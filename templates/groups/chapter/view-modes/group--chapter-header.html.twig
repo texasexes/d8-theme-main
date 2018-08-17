@@ -8,7 +8,7 @@
 {% set attributes = attributes.addClass('group-header') %}
 
 {% set image = content.field_txex_ref_media_01|render %}
-{% set image_css = 'background-image:url(' ~ (image|striptags|trim) ~ ');' %}
+{#% set image_css = 'background-image:url(' ~ (image|striptags|trim) ~ ');' %#}
 
 {% block title %}
   <div{{ attributes }}>
@@ -18,7 +18,7 @@
 
   {% if (content|without('field_txex_ref_media_01','field_txex_ref_media_02','label')|render is not empty) %}
     <div class="group-header-links">
-      <div>Keep in touch:</div>
+      <div class="group-header-links-title">Get Involved:</div>
       {{ content|without('field_txex_ref_media_01','field_txex_ref_media_02','label') }}
     </div>
   {% endif %}

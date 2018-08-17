@@ -1,0 +1,11 @@
+{% extends "field.html.twig" %}
+{% set attributes = attributes.addClass('field_txex_link_01') %}
+
+{% block item_block %}
+
+  {% include "@atoms/01-links/link/link.twig" with {
+    "link_content": item.content['#title'],
+    "link_url": item.content['#url']|render,
+  } %}
+
+{% endblock item_block%}
