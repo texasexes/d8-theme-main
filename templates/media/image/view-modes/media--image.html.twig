@@ -13,7 +13,9 @@
  */
 #}
 <article{{ attributes }}>
+{% block content_block %}
   {% if content %}
     {{ content }}
   {% endif %}
+{% endblock %}
 </article>
