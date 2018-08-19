@@ -67,9 +67,11 @@
       padding: 0;
     }
 
-    &,
-    &:only-of-type {
-      padding-left: $row-padding;
+    @include breakpoint($break-layout) {
+      &,
+      &:only-of-type {
+        padding-left: $row-padding;
+      }
     }
   }
 
@@ -129,6 +131,7 @@
   }
 
   &--item-box-8 {
+
     &:first-of-type {
       padding: 0 $component-padding;
     }
@@ -136,6 +139,12 @@
     &,
     &:only-of-type {
       padding: $list-item-padding 0;
+    }
+
+    @include breakpoint(max-width $break-layout) {
+      &:first-of-type {
+        padding: 0 $list-item-padding 0 0;
+      }
     }
   }
 
@@ -197,6 +206,6 @@
 
 @include breakpoint(max-width $break-layout) {
   .flexbox__item.flexbox__item--layout-row {
-    padding: 0;
+    // padding: 0 $space-one-third;
   }
 }

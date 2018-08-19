@@ -66,32 +66,44 @@
   &--1q:nth-of-type(2) {
     top: 0;
     left: 0;
-    margin-top: 50px;
-    margin-left: 50px;
+    
+    @include breakpoint($break-layout) {
+      margin-top: 50px;
+      margin-left: 50px;
+    }
   }
 
   // Top Right Quadrant
   &--2q:nth-of-type(2) {
     top: 0;
     right: 0;
-    margin-top: 50px;
-    margin-right: 50px;
+
+    @include breakpoint($break-layout) {
+      margin-top: 50px;
+      margin-right: 50px;
+    }
   }
 
   // Bottom Right Quadrant
   &--3q:nth-of-type(2) {
     bottom: 0;
     right: 0;
-    margin-bottom: 50px;
-    margin-right: 50px;
+
+    @include breakpoint($break-layout) {
+      margin-bottom: 50px;
+      margin-right: 50px;
+    }
   }
 
   // Bottom Left Quadrant
   &--4q:nth-of-type(2) {
     bottom: 0;
     left: 0;
-    margin-bottom: 50px;
-    margin-left: 50px;
+
+    @include breakpoint($break-layout) {
+      margin-bottom: 50px;
+      margin-left: 50px;
+    }
   }
 
   // Left Side Alignment

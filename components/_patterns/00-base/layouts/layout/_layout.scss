@@ -105,6 +105,7 @@
   // }
 }
 
+
 .absolute {
   position: relative;
   overflow: auto;
@@ -116,27 +117,71 @@
   justify-content: center;
 
   &--horizontal {
-    @include breakpoint($break-layout) {
+    // @include breakpoint($break-layout) {
       flex-direction: row;
       justify-content: stretch;
       align-items: stretch;
+    // }
+
+    // &.flexbox--feature-10,
+    // &.flexbox--feature-15,
+    // &.flexbox--feature-20,
+    // &.flexbox--feature-25,
+    // &.flexbox--feature-33 {
+    //   flex-direction: row;
+    // }
+
+    @include breakpoint(max-width $break-layout) {
+      &.flexbox--feature-40,
+      &.flexbox--feature-50,
+      &.flexbox--feature-60,
+      &.flexbox--feature-66,
+      &.flexbox--feature-75,
+      &.flexbox--feature-80,
+      &.flexbox--feature-75 {
+        flex-direction: column;
+      }
+      &--feature-100 {
+        // flex-direction: column;
+      }
+
+      @at-root .flexbox--region-layout#{&} {
+        flex-direction: column;
+      }
     }
   }
 
   &--vertical {
-    @include breakpoint($break-layout) {
+    // @include breakpoint($break-layout) {
       flex-direction: column;
       justify-content: center;
 
       &:first-of-type {
         justify-content: flex-start;
       }
-    }
+    // }
   }
 
   &--feature-100 {
     flex-wrap: wrap;
     align-content: flex-start;
+  }
+
+  @include breakpoint($break-layout) {
+    &--feature-100-25,
+    &--feature-100-33 {
+      flex-wrap: wrap;
+      align-content: flex-start;
+    }
+  }
+
+  @include breakpoint(max-width $break-layout) {
+    &--layout-row,
+    &--layout-row.flexbox--paragraph-wrapper {
+      flex-direction: column;
+      padding: 0;
+      margin: 0 0 $space;
+    }
   }
 }
 

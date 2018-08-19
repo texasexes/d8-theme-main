@@ -1,6 +1,8 @@
 .flexbox__item {
-  &--reverse-order:first-of-type {
-    order: 2;
+  @include breakpoint($break-layout) {
+    &--reverse-order:first-of-type {
+      order: 2;
+    }
   }
 
   &--vertical {
@@ -10,11 +12,7 @@
   }
 
   &--horizontal {
-    flex: 1 1 auto; //flex-grow flex-shrink flex-basis
-
-    @include breakpoint($break-layout) {
-      flex-basis: 0;
-    }
+    flex: 1 1 0; //flex-grow flex-shrink flex-basis
   }
 
   &--feature {
@@ -71,79 +69,193 @@
     }
   }
 
-  &--feature-40 {
-    &:first-of-type {
-      flex: 0 1 40%;
+  // @include breakpoint(max-width $break-layout) {
+    &--feature-40 {
+      &:first-of-type {
+        flex: 0 1 40%;
+      }
+
+      &:only-of-type {
+        flex: 1 1 auto;
+      }
+
+      @include breakpoint(max-width $break-layout) {
+        flex-basis: auto;
+
+        @at-root .flexbox__item#{&} {
+          padding: $space;
+        }
+      }
+
+
     }
 
-    &:only-of-type {
-      flex: 1 1 auto;
-    }
-  }
+    &--feature-50 {
+      &:first-of-type {
+        flex: 0 1 50%;
+      }
 
-  &--feature-50 {
-    &:first-of-type {
-      flex: 0 1 50%;
-    }
+      &:only-of-type {
+        flex: 1 1 auto;
+      }
 
-    &:only-of-type {
-      flex: 1 1 auto;
-    }
-  }
+      @include breakpoint(max-width $break-layout) {
+        flex-basis: auto;
 
-  &--feature-60 {
-    &:first-of-type {
-      flex: 0 1 60%;
+        @at-root .flexbox__item#{&} {
+          padding: $space;
+        }
+      }
     }
 
-    &:only-of-type {
-      flex: 1 1 auto;
-    }
-  }
+    &--feature-60 {
+      &:first-of-type {
+        flex: 0 1 60%;
+      }
 
-  &--feature-66 {
-    &:first-of-type {
-      flex: 0 1 66%;
-    }
+      &:only-of-type {
+        flex: 1 1 auto;
+      }
 
-    &:only-of-type {
-      flex: 1 1 auto;
-    }
-  }
+      @include breakpoint(max-width $break-layout) {
+        flex-basis: auto;
 
-  &--feature-75 {
-    &:first-of-type {
-      flex: 0 1 75%;
+        @at-root .flexbox__item#{&} {
+          padding: $space;
+        }
+      }
     }
 
-    &:only-of-type {
-      flex: 1 1 auto;
+    &--feature-66 {
+      &:first-of-type {
+        flex: 0 1 66%;
+      }
+
+      &:only-of-type {
+        flex: 1 1 auto;
+      }
+
+      @include breakpoint(max-width $break-layout) {
+        flex-basis: auto;
+
+        @at-root .flexbox__item#{&} {
+          padding: $space;
+        }
+      }
     }
-  }
 
-  &--feature-80 {
-    &:first-of-type {
-      flex: 0 1 80%;
+    &--feature-75 {
+      &:first-of-type {
+        flex: 0 1 75%;
+      }
+
+      &:only-of-type {
+        flex: 1 1 auto;
+      }
+
+      @include breakpoint(max-width $break-layout) {
+        flex-basis: auto;
+
+        @at-root .flexbox__item#{&} {
+          padding: $space;
+        }
+      }
     }
 
-    &:only-of-type {
-      flex: 1 1 auto;
+    &--feature-80 {
+      &:first-of-type {
+        flex: 0 1 80%;
+      }
+
+      &:only-of-type {
+        flex: 1 1 auto;
+      }
+
+      @include breakpoint(max-width $break-layout) {
+        flex-basis: auto;
+
+        @at-root .flexbox__item#{&} {
+          padding: $space;
+        }
+      }
     }
-  }
 
-  &--feature-100 {
-    position: relative;
-    flex-basis: auto;
-    align-content: flex-start;
+    &--feature-100 {
+      position: relative;
+      flex-basis: auto;
+      align-content: flex-start;
 
-    &:first-of-type {
-      flex: 0 1 auto;
-      align-self: space-around;
+      &:first-of-type {
+        flex: 0 1 auto;
+        align-self: space-around;
+      }
+
+      @include breakpoint(max-width $break-layout) {
+        @at-root .flexbox__item#{&} {
+          padding: $space;
+        }
+      }
     }
-  }
 
-  &--region-layout {
-    margin-right: 50px;
+    &--feature-100-25 {
+      position: relative;
+      flex-basis: auto;
+      align-content: flex-start;
+
+      &:first-of-type {
+        flex: 0 1 auto;
+        align-self: space-around;
+      }
+
+      @include breakpoint(max-width $break-layout) {
+        flex-basis: 0;
+
+        &:first-of-type {
+          flex: 0 1 25%;
+        }
+
+        &:only-of-type {
+          flex: 1 1 auto;
+        }
+
+        @at-root .flexbox__item#{&} {
+          padding: $space;
+        }
+      }
+    }
+
+    &--feature-100-33 {
+      position: relative;
+      flex-basis: auto;
+      align-content: flex-start;
+
+      &:first-of-type {
+        flex: 0 1 auto;
+        align-self: space-around;
+      }
+
+      @include breakpoint(max-width $break-layout) {
+        flex-basis: 0;
+
+        &:first-of-type {
+          flex: 0 1 33%;
+        }
+
+        &:only-of-type {
+          flex: 1 1 auto;
+        }
+
+        @at-root .flexbox__item#{&} {
+          padding: $space-one-third $space-one-third $space-one-third 0;
+        }
+      }
+    }
+  // }
+
+  @include breakpoint($break-layout) {
+    &--region-layout {
+      margin-right: 50px;
+    }
   }
 
   &--region-layout:nth-last-child(2) {
