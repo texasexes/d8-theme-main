@@ -32,9 +32,10 @@ body {
   &.align-right {
     clear: right;
     margin-bottom: 3%;
+    margin-left: 5%;
+    width: 33%;
 
     @include breakpoint($medium) {
-      margin-left: 5%;
       width: 25%;
 
       &.wp-import {
@@ -46,9 +47,10 @@ body {
   &.align-left {
     clear: left;
     margin-bottom: 3%;
+    margin-right: 5%;
+    width: 33%;
 
     @include breakpoint($medium) {
-      margin-right: 5%;
       width: 25%;
 
       &.wp-import {
