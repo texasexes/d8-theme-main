@@ -2,6 +2,8 @@
 
 {% block item_block %}
 
+  {% set linkContent = linkContent|default(item.content['#title']) %}
+
   {% set linkAttributes = [] %}
   {% set linkAttributes = linkAttributes|merge({"href" : (item.content['#url']|render)}) %}
   {% if item.attributes %}
@@ -9,7 +11,7 @@
   {% endif %}
 
     {% include "@atoms/01-links/link/link.twig" with {
-      "link_content": item.content['#title'],
+      "link_content": linkContent,
       "link_attributes": linkAttributes,
     } %}
 
