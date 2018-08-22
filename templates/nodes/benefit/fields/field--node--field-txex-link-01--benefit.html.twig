@@ -1,2 +1,21 @@
-{% extends "field--link.html.twig" %}
-{% set attributes = attributes.addClass('wysiwyg__link--button') %}
+{% extends "field.html.twig" %}
+
+{% set link_modifiers = link_modifiers|default([]) %}
+{% set link_modifiers = link_modifiers|merge({'button' : 'button',}) %}
+{% if field_modifiers %}
+  {% set link_modifiers = link_modifiers|merge(field_modifiers) %}
+{% endif %}
+
+{% block item_block %}
+{% if (item.content['#title'] == item.content['#url'].getUri()) %}
+  {% set link_content = 'Redeem Benefit' %}
+  {% else %}
+    {% set link_content = item.content['#title'] %}
+{% endif %}
+  {% include "@atoms/01-links/link/link.twig" with {
+    "link_blockname": 'wysiwyg',
+    "link_modifiers": link_modifiers,
+    "link_content": link_content,
+    "link_url": item.content['#url'],
+  } %}
+{% endblock item_block%}
