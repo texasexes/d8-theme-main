@@ -7,8 +7,8 @@
 {% endif %}
 
 {% block item_block %}
-
-{% if (item.content['#title'] == item.content['#url'].getUri()) %}
+{# only compare the first 50 characters of the strings because the title has a limit of 80 chars #}
+{% if (item.content['#title']|slice(1, 50) == item.content['#url'].getUri()|slice(1, 50)) %}
   {% set link_content = 'Register' %}
   {% else %}
     {% set link_content = item.content['#title'] %}
