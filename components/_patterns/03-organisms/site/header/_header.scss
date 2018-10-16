@@ -1,6 +1,22 @@
 .header-wrapper {
   display: flex;
   background-color: $white;
+
+  @include breakpoint($break-nav-max) {
+    background: #fff;
+    height: 70px;
+    // line-height: 80px
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9998;
+    transition: all 0.5s;
+    &.scrollUp {
+      transform: translateY(-70px); //should match the height, but extra to accomodate admin toolbar (40px) if present?
+    }
+  }
 }
 
 .header-region {
