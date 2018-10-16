@@ -409,7 +409,7 @@ function d8_theme_main_preprocess_views_view(&$variables) {
   $display_id = $variables['display_id'];
   if ('txex_events' === $view_id && 'attachment_2' === $display_id) {
     if ($variables['header']['area_text_custom']['#markup']) {
-      $variables['header']['area_text_custom']['#markup'] = '<h3 class="block__h3 block__h3--alt-7">Upcoming Featured Events</h3>';
+      $variables['header']['area_text_custom']['#markup'] = '<h3 class="block__h3 block__h3--alt-7">Other Association Events</h3>';
     }
   }
 
