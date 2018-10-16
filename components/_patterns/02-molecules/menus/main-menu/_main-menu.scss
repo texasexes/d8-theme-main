@@ -3,7 +3,8 @@ $color-menu-bg-darker: $purple-1;
 $color-menu-bg-dark: $purple-2;
 $color-menu-bg-light: $mushroom-light;
 // Menu width
-$width-mobile-max: 90vw;
+$width-mobile-max: 310px;
+$width-mobile: 90vw;
 // Text
 $color-menu-text-dark: $purple-5;
 $color-menu-text-medium: $purple-4;
@@ -53,12 +54,12 @@ $mobile-nav-item-padding: $space-one-half;
     display: flex;
     flex-flow: row wrap;
     left: -100vw;
-    max-width: 768px;
+    max-width: $width-mobile-max;
     overflow: scroll;
     position: fixed;
     top: 0;
     transition: left 0.5s ease;
-    width: $width-mobile-max;
+    width: $width-mobile;
     z-index: 501; // This is to account for the contextual links overlays which have a z-index of 500
 
     &.js-visible {
@@ -190,6 +191,10 @@ $mobile-nav-item-padding: $space-one-half;
     @include breakpoint($break-nav) {
       width: 100%;
     }
+
+    &.is-active {
+      color: $burnt-orange;
+    }
   }
 
   // li
@@ -209,6 +214,12 @@ $mobile-nav-item-padding: $space-one-half;
           }
         }
 
+        a {
+          &.is-active {
+            color: $color-menu-text-light;
+          }
+        }
+
         &:hover {
           > a {
             background-color: $color-menu-bg-darker;
@@ -224,8 +235,8 @@ $mobile-nav-item-padding: $space-one-half;
         line-height: 1.14;
 
         @include breakpoint($break-nav-max) {
+          max-width: calc(#{$width-mobile-max} - #{$main-menu-dropdown-toggle-width} - #{$space-one-third});
           padding-right: $space-one-third;
-          max-width: calc(#{$width-mobile-max} - #{$main-menu-dropdown-toggle-width});
         }
 
         @include breakpoint($break-nav) {
@@ -246,8 +257,12 @@ $mobile-nav-item-padding: $space-one-half;
         line-height: 1.11;
         padding: $space-two-thirds calc(#{$mobile-nav-item-padding} * 2);
 
+        &.is-active {
+          color: $burnt-orange;
+        }
+
         @include breakpoint($break-nav-max) {
-          max-width: calc(#{$width-mobile-max} - #{$main-menu-dropdown-toggle-width});
+          max-width: calc(#{$width-mobile-max} - #{$main-menu-dropdown-toggle-width} - #{$space-one-third});
           padding-right: $space-one-third;
         }
       }
@@ -373,4 +388,26 @@ $mobile-nav-item-padding: $space-one-half;
   top: 0;
   width: 100vw;
   z-index: 1;
+}
+
+@include breakpoint($break-nav-max) {
+  .header-wrapper {
+    background: #fff;
+    height: 70px;
+    // line-height: 80px
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9998;
+    transition: all 0.5s;
+    &.scrollUp {
+      transform: translateY(-70px); //should match the height, but extra to accomodate admin toolbar (40px) if present?
+    }
+  }
+
+  div.content-top-region {
+    padding-top: 70px;
+  }
 }

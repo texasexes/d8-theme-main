@@ -31,24 +31,26 @@
   const mainMenuToggleOpen = $('.main-menu-toggle--open');
   const mainMenu = $('.main-nav');
   const mainMenuSub = $('.main-menu__dropdown');
-const sideMenuSub = $('.side-menu__dropdown');
+  const sideMenuSub = $('.side-menu__dropdown');
   const mainMenuWithSub = $('.main-menu__item--with-sub');
   const mainMenuExpandSub = $('.main-menu__expand-sub');
-const sideMenuExpandSub = $('.side-menu__expand-sub');
+  const sideMenuExpandSub = $('.side-menu__expand-sub');
   const mainMenuSubIcon = $('.main-menu__sub-icon');
-const sideMenuSubIcon = $('.side-menu__sub-icon');
+  const sideMenuSubIcon = $('.side-menu__sub-icon');
   const toolbar = $('.toolbar-bar');
+  const header = $('.header-wrapper');
 
   // Calculated values
   let winH = win.height();
   let winW = win.width();
   let bodyPaddingTop = '0';
+  let headerHeight = '0';
   let maxHeight = '100vh';
   let mainMenuHeight = mainMenu.outerHeight();
 
   // Classes
   const mainMenuSubOpen = 'main-menu__sub-icon--open';
-const sideMenuSubOpen = 'side-menu__sub-icon--open';
+  const sideMenuSubOpen = 'side-menu__sub-icon--open';
   const menuVisible = 'js-visible';
   const mainMenuActive = 'js-menu-active';
   const noscroll = 'noscroll';
@@ -62,6 +64,15 @@ const sideMenuSubOpen = 'side-menu__sub-icon--open';
     mainMenuBg = '';
   }
 
+
+
+
+
+
+
+
+
+
   // Show/Hide overlay
   function mainMenuBgToggle() {
     // Prevent the background from scrolling when the mobile menu is active
@@ -69,6 +80,10 @@ const sideMenuSubOpen = 'side-menu__sub-icon--open';
 
     // Display main menu
     mainMenu.toggleClass(menuVisible);
+
+    //Scroll to main menu items
+    document.getElementsByClassName('is-active')[0].scrollIntoView();
+
 
     // Remove the overlay if it exists
     if (mainMenuBg.length) {
@@ -87,8 +102,8 @@ const sideMenuSubOpen = 'side-menu__sub-icon--open';
   $('.menu-item--active-trail > .main-menu__expand-sub > .main-menu__sub-icon').addClass(mainMenuSubOpen);
   $('.menu-item--active-trail > .main-menu__dropdown').addClass(menuVisible);
 
-$('.menu-item--active-trail > .side-menu__expand-sub > .side-menu__sub-icon').addClass(sideMenuSubOpen);
-$('.menu-item--active-trail > .side-menu__dropdown').addClass(menuVisible);
+  $('.menu-item--active-trail > .side-menu__expand-sub > .side-menu__sub-icon').addClass(sideMenuSubOpen);
+  $('.menu-item--active-trail > .side-menu__dropdown').addClass(menuVisible);
 
   // Main Menu
   mainMenuToggle.click(function (e) {
@@ -103,25 +118,32 @@ $('.menu-item--active-trail > .side-menu__dropdown').addClass(menuVisible);
     $(this).children(mainMenuSubIcon).toggleClass(mainMenuSubOpen);
     $(this).next(mainMenuSub).toggleClass(menuVisible);
   });
-// Display Sub-nav
-sideMenuExpandSub.click(function (e) {
-  e.preventDefault();
-  $(this).children(sideMenuSubIcon).toggleClass(sideMenuSubOpen);
-  $(this).next(sideMenuSub).toggleClass(menuVisible);
-});
+  // Display Sub-nav
+  sideMenuExpandSub.click(function (e) {
+    e.preventDefault();
+    $(this).children(sideMenuSubIcon).toggleClass(sideMenuSubOpen);
+    $(this).next(sideMenuSub).toggleClass(menuVisible);
+  });
 
   // Calculate body padding top (to accommodate the admin menu)
   function calculateBodyPaddingTop() {
     bodyPaddingTop = parseInt(body.css('padding-top'));
   };
 
-  // Set the height and position of the main-nav
+  // Calculate header height (to accommodate the fixed header bar)
+  function calculateHeaderHeight() {
+    headerHeight = parseInt(header.css('height'));
+  };
+
+  // Set the height and position of the main-nav and header bar
   function calculateMenuHeights() {
     dom.ready(function() {
       winH = win.height();
       calculateBodyPaddingTop();
+      calculateHeaderHeight();
       maxHeight = winH - bodyPaddingTop;
       mainMenu.css({'top': bodyPaddingTop, 'max-height': maxHeight});
+      header.css({'top': bodyPaddingTop});
     });
   };
 
@@ -146,5 +168,19 @@ sideMenuExpandSub.click(function (e) {
       calculateMenuHeights();
     }, 100, "Main menu - window resize");
   });
+
+  // Hide heading bar on scroll down, show on scroll up
+  var c, currentScrollTop = 0;
+  win.scroll(function () {
+     var currentScrollTop = win.scrollTop();
+     var b = header.height();
+
+     if (c < currentScrollTop && currentScrollTop > b + b) {
+       header.addClass("scrollUp");
+     } else if (c > currentScrollTop && !(currentScrollTop <= b)) {
+       header.removeClass("scrollUp");
+     }
+     c = currentScrollTop;
+   });
 
 }(jQuery, Drupal));

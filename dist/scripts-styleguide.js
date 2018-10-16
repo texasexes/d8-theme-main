@@ -59,11 +59,13 @@
   var mainMenuSubIcon = $('.main-menu__sub-icon');
   var sideMenuSubIcon = $('.side-menu__sub-icon');
   var toolbar = $('.toolbar-bar');
+  var header = $('.header-wrapper');
 
   // Calculated values
   var winH = win.height();
   var winW = win.width();
   var bodyPaddingTop = '0';
+  var headerHeight = '0';
   var maxHeight = '100vh';
   var mainMenuHeight = mainMenu.outerHeight();
 
@@ -90,6 +92,9 @@
 
     // Display main menu
     mainMenu.toggleClass(menuVisible);
+
+    //Scroll to main menu items
+    document.getElementsByClassName('is-active')[0].scrollIntoView();
 
     // Remove the overlay if it exists
     if (mainMenuBg.length) {
@@ -136,13 +141,20 @@
     bodyPaddingTop = parseInt(body.css('padding-top'));
   };
 
-  // Set the height and position of the main-nav
+  // Calculate header height (to accommodate the fixed header bar)
+  function calculateHeaderHeight() {
+    headerHeight = parseInt(header.css('height'));
+  };
+
+  // Set the height and position of the main-nav and header bar
   function calculateMenuHeights() {
     dom.ready(function () {
       winH = win.height();
       calculateBodyPaddingTop();
+      calculateHeaderHeight();
       maxHeight = winH - bodyPaddingTop;
       mainMenu.css({ 'top': bodyPaddingTop, 'max-height': maxHeight });
+      header.css({ 'top': bodyPaddingTop });
     });
   };
 
@@ -166,6 +178,21 @@
 
       calculateMenuHeights();
     }, 100, "Main menu - window resize");
+  });
+
+  // Hide heading bar on scroll down, show on scroll up
+  var c,
+      currentScrollTop = 0;
+  win.scroll(function () {
+    var currentScrollTop = win.scrollTop();
+    var b = header.height();
+
+    if (c < currentScrollTop && currentScrollTop > b + b) {
+      header.addClass("scrollUp");
+    } else if (c > currentScrollTop && !(currentScrollTop <= b)) {
+      header.removeClass("scrollUp");
+    }
+    c = currentScrollTop;
   });
 })(jQuery, Drupal);
 //# sourceMappingURL=scripts-styleguide.js.map
