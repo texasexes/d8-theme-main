@@ -131,14 +131,13 @@
   }
 
   &--item-box-8 {
-
     &:first-of-type {
       padding: 0 $component-padding;
     }
 
     &,
     &:only-of-type {
-      padding: $list-item-padding 0;
+      padding: $list-item-padding 5px;
     }
 
     @include breakpoint(max-width $break-layout) {
@@ -200,6 +199,23 @@
     &,
     &:only-of-type {
       padding: 0 $component-padding $component-padding $component-padding;
+    }
+  }
+
+  &--item-box-14 {
+    &:first-of-type {
+      padding: 0 $component-padding;
+    }
+
+    &,
+    &:only-of-type {
+      padding: $list-item-padding;
+    }
+
+    @include breakpoint(max-width $break-layout) {
+      &:first-of-type {
+        padding: 0 $list-item-padding 0 0;
+      }
     }
   }
 }
