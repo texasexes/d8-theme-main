@@ -17,15 +17,29 @@
 {# This var is set to prevent add_attributes griping about an empty var #}
 {% set input_attributes = input_attributes|default([]) %}
 
+{% set additional_input_label_modifier = input_label.input_label_location %}
+{% set input_label_modifiers = input_label_modifiers|default([]) %}
+{% set input_label_modifiers = input_label_modifiers|merge({additional_input_label_modifier : additional_input_label_modifier,}) %}
+
+{% if (additional_input_label_modifier == 'pre') or  (additional_input_label_modifier == 'above') %}
+  {% block input_label %}
+    {% include "@atoms/02-form_elements/04-label/label.twig" with {
+      label_content: input_label.input_label_text,
+      label_attributes: input_label.input_label_attributes,
+      label_modifiers: input_label_modifiers,
+    } %}
+  {% endblock %}
+{% endif %}
+
 <input
  {{ bem(input_base_class, (input_modifiers), input_blockname) }}
  {{ add_attributes(input_attributes) -}}
 />
+
+{% if additional_input_label_modifier == 'post' %}
+  {{ block('input_label') }}
+{% endif %}
+
 {%- block input_children -%}
-  {% if input_label %}
-    <label>
-      {{ input_label }}
-    </label>
-  {% endif %}
  {{- input_children -}}
 {%- endblock -%}

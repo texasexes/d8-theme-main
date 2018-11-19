@@ -68,8 +68,13 @@ function d8_theme_main_preprocess_image(&$variables) {
    array_push($suggestions, $variables['theme_hook_original'] . "__" . $fieldParentBundleType . "__" . $fieldName);
    array_push($suggestions, $variables['theme_hook_original'] . "__" . $fieldParentBundleType . "__" . $fieldName . "__" . $fieldParentBundle);
 
- }
+}
+
 function d8_theme_main_theme_suggestions_image_alter(array &$suggestions, array $variables) {
+  $fieldParentBundle = NULL;
+  $fieldParentBundleType = NULL;
+  $fieldName = NULL;
+  $fieldNameBundle = NULL;
 
   if (isset($variables['attributes']['field_info']['field_parent_bundle'])) {
     $fieldParentBundle = $variables['attributes']['field_info']['field_parent_bundle'];
@@ -408,8 +413,10 @@ function d8_theme_main_preprocess_views_view(&$variables) {
   $view_id = $variables['id'];
   $display_id = $variables['display_id'];
   if ('txex_events' === $view_id && 'attachment_2' === $display_id) {
-    if ($variables['header']['area_text_custom']['#markup']) {
-      $variables['header']['area_text_custom']['#markup'] = '<h3 class="block__h3 block__h3--alt-7">Other Association Events</h3>';
+    if (isset($variables['header']['area_text_custom'])) {
+      if ($variables['header']['area_text_custom']['#markup']) {
+        $variables['header']['area_text_custom']['#markup'] = '<h3 class="block__h3 block__h3--alt-7">Other Association Events</h3>';
+      }
     }
   }
 

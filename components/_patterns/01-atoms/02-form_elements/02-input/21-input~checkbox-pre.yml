@@ -7,7 +7,10 @@ input_modifiers:
   1:
     checkbox
 input_label:
-  "Checkbox Item 1"
-input_label_attributes:
-  for:
-    "checkbox-group-item-1"
+  input_label_text:
+    Checkbox Item 1
+  input_label_location:
+    pre
+  input_label_attributes:
+    for:
+      checkbox-group-item-1

@@ -6,3 +6,5 @@ input_attributes:
 input_modifiers:
   1:
     search
+pre_input_label:
+post_input_label:

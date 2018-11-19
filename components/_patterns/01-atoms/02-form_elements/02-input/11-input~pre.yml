@@ -1,0 +1,15 @@
+input_attributes:
+  title: "Input text."
+  type: "text"
+  size: "15"
+  maxlength: "128"
+input_modifiers:
+  1:
+    text
+input_label:
+  input_label_text:
+    Base Text Input
+  input_label_location:
+    pre
+  input_label_modifiers:
+    text

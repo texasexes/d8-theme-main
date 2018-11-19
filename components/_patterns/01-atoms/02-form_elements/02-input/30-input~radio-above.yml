@@ -1,0 +1,16 @@
+input_attributes:
+  type: "radio"
+  id: "radio-group-item-1"
+  name: "radio-group"
+  value: "radio-group-item-1-checked"
+input_modifiers:
+  1:
+    radio
+input_label:
+  input_label_text:
+    Radio Item 1
+  input_label_location:
+    above
+  input_label_attributes:
+    for:
+      radio-group-item-1

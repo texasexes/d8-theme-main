@@ -1,7 +1,39 @@
+// Label
+$font-input: $font-tertiary;
+
+@mixin input ($color: $grey-7) {
+  font-family: $font-input;
+  font-size: 1.6rem;
+  // color: $color;
+}
+
 .form-text {
   max-width: 100%;
 }
 
 .txex-input {
-  width: 20em;
+  @include input;
+
+  border: 1px solid #c7c7c7;
+  border-radius: 2px;
+  height: 34px;
+  vertical-align: middle;
+  position: relative;
+
+  &--text {
+    padding-left: 1rem;
+    width: 30rem;
+
+    &::placeholder {
+      color: #cdccd2;
+    }
+
+    &:focus {
+      // color: $grey-4;
+    }
+  }
+
+  &--checkbox {
+
+  }
 }
