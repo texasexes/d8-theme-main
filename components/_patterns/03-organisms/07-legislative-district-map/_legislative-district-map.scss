@@ -1,0 +1,83 @@
+.exposed-form-legislative-districts-block-1 {
+  bottom: 2rem;
+  padding: 0 0 0 1.5rem;
+  position: absolute;
+  z-index: 500;
+
+  .form-item {
+    display: inline;
+    // padding-right: $space;
+  }
+
+  input[type="radio"] {
+    @include visually-hidden;
+  }
+
+  input[type="radio"] + label {
+    @include button;
+
+    font-family: $font-tertiary;
+    font-size: 1.5rem;
+    line-height: 1.4;
+    text-decoration: none;
+    -webkit-font-smoothing: antialiased;
+
+    border-width: 2px;
+    border-style: solid;
+    border-color: $burnt-orange;
+    display: inline-block;
+
+    &:hover{
+      border-color: $grey-a;
+    }
+  }
+
+  input[type="radio"] + label:hover {
+    color: #777;
+    cursor: pointer;
+  }
+
+  input[type="radio"]:checked + label {
+    @include button(
+      $background-color: $white,
+      $background-color--hover: $white,
+      $color: $burnt-orange,
+      $color--hover: $burnt-orange
+    );
+
+    border-width: 2px;
+    border-style: solid;
+    border-color: $burnt-orange;
+    cursor: grab;
+    display: inline-block;
+  }
+
+  /* Adding focus styles on the outer-box of the fake checkbox */
+  input[type="radio"]:focus + label::before {
+    outline: rgb(59, 153, 252) auto 5px;
+  }
+}
+
+.leaflet-pane > svg path.leaflet-interactive {
+  fill: $burnt-orange;
+  stroke: $burnt-orange;
+  stroke-width: 2;
+
+  &:hover {
+    fill: black;
+  }
+}
+
+.leaflet-container {
+  .leaflet-popup-content {
+    a {
+      @include link(
+        $color: $burnt-orange,
+        $color--hover: $grey-a,
+        $font-family: $font-tertiary,
+        $font-size: 1.2rem,
+        $line-height: 1.4
+      )
+    }
+  }
+}
