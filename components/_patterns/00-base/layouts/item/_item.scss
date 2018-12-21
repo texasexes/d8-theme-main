@@ -99,15 +99,17 @@
 
   &--item-box-5 {
     &:first-of-type {
-      padding: 0;
+      padding: 0 $component-padding/2 0 0;
     }
 
     &,
     &:only-of-type {
-      padding-left: $component-padding;
+      padding: 0 0 0 $component-padding/2;
     }
   }
 
+// primarily used for stacked cards where the second flexbox item has padding while
+// the first does not
   &--item-box-6 {
     &:first-of-type {
       padding: 0;
