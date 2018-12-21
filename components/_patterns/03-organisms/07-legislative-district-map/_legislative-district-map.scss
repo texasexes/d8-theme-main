@@ -21,13 +21,12 @@
     line-height: 1.4;
     text-decoration: none;
     -webkit-font-smoothing: antialiased;
-
     border-width: 2px;
     border-style: solid;
     border-color: $burnt-orange;
     display: inline-block;
 
-    &:hover{
+    &:hover {
       border-color: $grey-a;
     }
   }
@@ -77,7 +76,25 @@
         $font-family: $font-tertiary,
         $font-size: 1.2rem,
         $line-height: 1.4
-      )
+      );
     }
   }
+}
+
+.exposed-form-legislative-districts-page-4,
+.exposed-form-legislative-districts-page-5 {
+  margin-bottom: 10px;
+
+  select {
+    color: $grey-5;
+    padding: 5px 8px;
+    // width: 130%;
+    // border: none;
+    border-radius: 0;
+    box-shadow: none;
+    background: transparent;
+    // background-image: none;
+    // -webkit-appearance: none;
+  }
+
 }

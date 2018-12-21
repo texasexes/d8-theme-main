@@ -57,7 +57,7 @@
     <div class="flexbox flexbox--horizontal flexbox--feature-20 flexbox--region-layout flexbox--layout-level-1">
 
       {% if page.sidebar_first %}
-      <div class="layout layout--vertical layout--layout-level-2 flexbox__item flexbox__item--horizontal flexbox__item--feature-20 flexbox__item--region-layout">
+      <div id="sidebar_first" class="layout layout--vertical layout--layout-level-2 flexbox__item flexbox__item--horizontal flexbox__item--feature-20 flexbox__item--region-layout">
         <div class="layout__item layout__item--vertical layout__item--layout-level-2">
           <aside class="layout-sidebar-first" role="complementary">
             {{ page.sidebar_first }}
@@ -74,7 +74,7 @@
         </div>
 
         {% if page.sidebar_second %}
-        <div class="layout__item layout__item--vertical layout__item--layout-level-2">
+        <div id="sidebar_second" class="layout__item layout__item--vertical layout__item--layout-level-2">
           <aside class="layout-sidebar-second" role="complementary">
             {{ page.sidebar_second }}
           </aside>

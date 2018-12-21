@@ -1,0 +1,85 @@
+{#
+/**
+ * @file
+ * Theme override for a field.
+ *
+ * To override output, copy the "field.html.twig" from the templates directory
+ * to your theme's directory and customize it, just like customizing other
+ * Drupal templates such as page.html.twig or node.html.twig.
+ *
+ * Instead of overriding the theming for all fields, you can also just override
+ * theming for a subset of fields using
+ * @link themeable Theme hook suggestions. @endlink For example,
+ * here are some theme hook suggestions that can be used for a field_foo field
+ * on an article node type:
+ * - field--node--field-foo--article.html.twig
+ * - field--node--field-foo.html.twig
+ * - field--node--article.html.twig
+ * - field--field-foo.html.twig
+ * - field--text-with-summary.html.twig
+ * - field.html.twig
+ *
+ * Available variables:
+ * - attributes: HTML attributes for the containing element.
+ * - label_hidden: Whether to show the field label or not.
+ * - title_attributes: HTML attributes for the title.
+ * - label: The label for the field.
+ * - multiple: TRUE if a field can contain multiple items.
+ * - items: List of all the field items. Each item contains:
+ *   - attributes: List of HTML attributes for each item.
+ *   - content: The field item's content.
+ * - entity_type: The entity type to which the field belongs.
+ * - field_name: The name of the field.
+ * - field_type: The type of the field.
+ * - label_display: The display settings for the label.
+ *
+ * @see template_preprocess_field()
+ */
+#}
+
+{% if label_hidden %}
+  {% if multiple %}
+    <div{{ attributes }}>
+  {% endif %}
+
+  {% block items_list_prefix %}{% endblock %}
+
+  {% for item in items %}
+  {% block item_block %}
+    <div{{ item.attributes.addClass('flexbox__h1--alt-10').addClass('flexbox--layout-background-6').addClass('flexbox--layout-box-5').setAttribute('style',"color: #555; font-weight: 700; padding: 10px 0 0 0;") }}>{{- item.content -}}</div>
+  {% endblock %}
+  {% endfor %}
+
+  {% if multiple %}
+    </div>
+  {% endif %}
+
+{% else %}
+  <div{{ attributes }}>
+
+    {% if multiple %}
+    <div>
+    {% endif %}
+
+    {{ block('items_list_prefix')}}
+
+    {% for item in items %}
+    {{ block('item_block')}}
+    {% endfor %}
+
+    {% if multiple %}
+    </div>
+    {% endif %}
+
+    {% block field_label %}
+      {% include "@atoms/03-text/01-heading/_heading.twig" with {
+        "heading_content": label,
+        "heading_attributes": title_attributes,
+        "heading_level": 2,
+        "heading_base_class": 'p',
+        "heading_blockname": 'wysiwyg'
+      } %}
+    {% endblock %}
+
+  </div>
+{% endif %}

@@ -1,0 +1,25 @@
+@media print {
+  nav,
+  .header__secondary,
+  #block-breadcrumbs,
+  #block-d8-theme-main-primary-local-tasks,
+  #sidebar_first,
+  #sidebar_second,
+  .do-not-print,
+  footer {
+    display: none !important;
+  }
+
+  header,
+  main,
+  .content-top-region {
+    max-width: 960px !important;
+    margin: auto !important;
+  }
+  main {
+    padding: 0 65px !important;
+  }
+  .header__branding {
+    margin-bottom: 30px !important;
+  }
+}
