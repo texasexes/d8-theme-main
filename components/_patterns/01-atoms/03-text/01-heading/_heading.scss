@@ -283,6 +283,8 @@ $font-heading-h3-alt-11: $font-secondary-30;
       font-size: 2.4rem;
       line-height: 1.25;
       text-transform: none;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
     &--alt-8 {
