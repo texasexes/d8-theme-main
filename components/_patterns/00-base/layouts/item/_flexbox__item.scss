@@ -67,6 +67,10 @@
     &:only-of-type {
       flex: 1 1 auto;
     }
+
+    @include breakpoint(max-width $break-layout) {
+      flex-basis: auto;
+    }
   }
 
   // @include breakpoint(max-width $break-layout) {
@@ -86,8 +90,6 @@
           padding: $space;
         }
       }
-
-
     }
 
     &--feature-50 {
@@ -186,7 +188,7 @@
       align-content: flex-start;
 
       &:first-of-type {
-        flex: 0 1 auto;
+        flex: 0 1 100%;
         align-self: space-around;
       }
 
@@ -203,7 +205,7 @@
       align-content: flex-start;
 
       &:first-of-type {
-        flex: 0 1 auto;
+        flex: 0 1 100%;
         align-self: space-around;
       }
 
@@ -230,7 +232,7 @@
       align-content: flex-start;
 
       &:first-of-type {
-        flex: 0 1 auto;
+        flex: 0 1 100%;
         align-self: space-around;
       }
 
