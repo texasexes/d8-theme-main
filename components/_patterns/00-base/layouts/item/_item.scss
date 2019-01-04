@@ -220,6 +220,26 @@
       }
     }
   }
+
+  &--item-box-15 {
+    @include breakpoint($break-layout) {
+      &:first-of-type {
+        padding: 0;
+      }
+    }
+
+    &,
+    &:only-of-type {
+      padding: $component-padding 0;
+    }
+
+    @include breakpoint(max-width $break-layout) {
+      &,
+      &:only-of-type {
+        padding: $component-padding;
+      }
+    }
+  }
 }
 
 @include breakpoint(max-width $break-layout) {
