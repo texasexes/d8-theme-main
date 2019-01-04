@@ -5,10 +5,10 @@
 
   {% block content %}
     <h2 class="wysiwyg__h2">Local Impact of UT Austin</h2>
-    <p class="wysiwyg__p">Across the state, UT Austin alumni generated approximately $8.8 billion of added income, or the equivalent of adding more than 133,000 new jobs, in 2013 alone.</p>
+    <p style="margin-bottom: 40px;" class="wysiwyg__p">Across the state, UT Austin alumni generated approximately $8.8 billion of added income, or the equivalent of adding more than 133,000 new jobs, in 2013 alone.</p>
     <div{{ content_attributes }}>
       {#{ content }#}
-      <div class="flexbox flexbox--paragraph-wrapper flexbox--horizontal flexbox--layout-row flexbox--feature-50 flexbox--item-box-5">
+      <div style="margin-bottom: 30px;" class="flexbox flexbox--paragraph-wrapper flexbox--horizontal flexbox--layout-row flexbox--feature-50 flexbox--item-box-5">
         <div class="flexbox flexbox--vertical flexbox__item flexbox__item--pargraph-wrapper flexbox__item--horizontal flexbox__item--feature-50 flexbox__item--item-box-5">
           {{ content.field_txex_geofield_01 }}
         </div>
@@ -42,21 +42,20 @@
         </div>
         <div style="justify-content: flex-start" class="flexbox flexbox--vertical flexbox__item flexbox__item--pargraph-wrapper flexbox__item--horizontal flexbox__item--feature-33 flexbox__item--item-box-5">
           <h3 style="color: #bbb; font-weight: 700; margin-bottom: 20px;" class="flexbox__h1--alt-7">District Population</h3>
+          {{ content.field_txex_number_int_04 }}
           <div style="color: #555; font-weight: 700;  padding: 10px 0 0 0;"  class="flexbox__h1--alt-10 flexbox--layout-background-6 flexbox--layout-box-5">
-            <span style="display: inline-block;">{{- content.field_txex_number_int_04[0]['#markup'] -}}
+            <span style="display: inline-block;">{{- content.field_txex_number_int_08[0]['#markup'] -}}
             <span style="display: block;" class="flexbox__h2">
               ({{ content.field_txex_number_decimal_02[0]['#markup'] }})
             </span></span>
           </div>
 
           {% include "@atoms/03-text/01-heading/_heading.twig" with {
-            "heading_content": content.field_txex_number_int_04['#title'],
+            "heading_content": content.field_txex_number_int_08['#title'],
             "heading_level": 2,
             "heading_base_class": 'p',
             "heading_blockname": 'wysiwyg'
           } %}
-
-          {{ content.field_txex_number_int_08 }}
         </div>
         <div style="justify-content: flex-start" class="flexbox flexbox--vertical flexbox__item flexbox__item--pargraph-wrapper flexbox__item--horizontal flexbox__item--feature-33 flexbox__item--item-box-5">
           <h3 style="color: #bbb; font-weight: 700;" class="flexbox__h1--alt-7">State Legislator</h3>
