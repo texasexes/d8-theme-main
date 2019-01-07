@@ -1,4 +1,20 @@
 @media print {
+
+  $scale: 0.67;
+
+  body {
+    zoom: $scale;
+  }
+
+  .flexbox--layout-row, .flexbox--layout-row.flexbox--paragraph-wrapper {
+    flex-direction: row !important;
+  }
+
+  .header-wrapper {
+    position: static !important;
+    height: auto !important;
+  }
+
   nav,
   .header__secondary,
   #block-breadcrumbs,
@@ -11,15 +27,54 @@
   }
 
   header,
-  main,
+  .content-top-region,
+  .header-region,
+  .header__top {
+    // max-width: 960px !important;
+    margin: 0 50px !important;
+    padding: 0 !important;
+  }
+
   .content-top-region {
-    max-width: 960px !important;
-    margin: auto !important;
+    padding-top: 15px !important;
   }
+
   main {
-    padding: 0 65px !important;
+    margin: 0 !important;
+    padding: 0 50px !important;
   }
+
   .header__branding {
-    margin-bottom: 30px !important;
+    margin: 0 0 10px 0 !important;
   }
+
+  .site-logo {
+    text-align: center !important;
+    img {
+      height: 50px !important;
+    }
+  }
+
+  .legislative-district {
+    .flexbox__item.flexbox__item--feature-100-33 {
+      position: relative;
+      flex-basis: auto;
+      align-content: flex-start;
+
+      &:first-of-type {
+        flex: 0 1 100%;
+        align-self: space-around;
+      }
+    }
+
+    .flexbox--feature-100-33 {
+      flex-wrap: wrap;
+      align-content: flex-start;
+
+      img {
+        width: 50%;
+      }
+    }
+  }
+
 }
