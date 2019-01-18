@@ -1,0 +1,47 @@
+{#
+/**
+ * @file
+ * Theme override to present all user data.
+ *
+ * This template is used when viewing a registered user's page,
+ * e.g., example.com/user/123. 123 being the user's ID.
+ *
+ * Available variables:
+ * - content: A list of content items. Use 'content' to print all content, or
+ *   print a subset such as 'content.field_example'. Fields attached to a user
+ *   such as 'user_picture' are available as 'content.user_picture'.
+ * - attributes: HTML attributes for the container element.
+ * - user: A Drupal User entity.
+ *
+ * @see template_preprocess_user()
+ */
+#}
+<article{{ attributes }}>
+  {#
+  /**
+   * Top User Card looking thing with photo, name, and address
+   * - set the entity_id for the user block in code
+   * - Jeff needs to create and set up new view mode  (view_mode_to_come) -- this
+   *   view mode will be styled by Jeff
+   */
+  #}
+
+  <section id="txex-member-profile-main">
+    <div id="txex-member-profile-base">
+      {{ drupal_entity('user', null, 'profile_base_information')}}
+    </div>
+    <div id="txex-member-profile-base">
+      {{ drupal_entity('user', null, 'profile_membership_information')}}
+    </div>
+    <div id="txex-member-profile-base">
+      {{ drupal_entity('user', null, 'profile_extra_information')}}
+    </div>
+  </section>
+
+  <section id="txex-dashboard-sidebar">
+    {{ drupal_view('txex_user_chapter_memberships', 'txex_chapter_membership_block') }}
+    {{ drupal_view('txex_user_events', 'txex_member_events_block') }}
+    {{ drupal_block('txex_giving_status_block') }}
+  </section>
+
+</article>
