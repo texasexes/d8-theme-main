@@ -1,0 +1,6 @@
+{% for item in items %}
+<div class="{{ item.name }}">{{ item.name}}: {{ item.value }}</div>
+<div class="{{ item.name }}"><em>{{ item.name}} italic: {{ item.value }}</em></div>
+<div class="{{ item.name }}"><strong>{{ item.name}} bold: {{ item.value }}</strong></div>
+</br>
+{% endfor %}

@@ -1,0 +1,23 @@
+
+  {% embed "@base/layouts/layout/00-layout.twig" with {
+    "layout_base_class": nested_layout_base_class,
+    "layout_modifiers": nested_layout_modifiers|default({1 : 'horizontal'}),
+    "layout_items": nested_layout_items,
+    "nested_layout_modifiers": nested_layout_layout_extra,
+  }%}
+
+    {% block layout_block %}
+{# type parent() in layout_block if 'called' from Drupal #}
+      {% if layout_item.card_sections %}
+        {% include "@molecules/01-card/00-card.twig" with {
+          "card_base_class": layout_item.layout_base_class,
+          "card_modifiers": layout_item.layout_items_modifiers,
+          "card_sections": layout_item.card_sections,
+          "card_layout_extra": layout_item.layout_items_layout_extra,
+        }%}
+      {% else %}
+        {{ parent() }}
+      {% endif %}
+    {% endblock layout_block %}
+
+  {% endembed %}

@@ -1,0 +1,31 @@
+{#
+/**
+ * Available variables:
+ * - input_base_class - the base class name
+ * - input_modifiers - array of modifiers to add to the base classname
+ * - input_blockname - blockname prepended to the base classname
+ * - input_attributes - array of attribute,value pairs
+ * - input_children - optional additional rendered elements (typically empty)
+ *
+ * Available blocks:
+ * - input_children - used to add content as a sibling of the input element
+ */
+#}
+
+{# An input uses this class along with the blockname whenever it is an element (BEM)#}
+{% set input_base_class = input_base_class|default('txex-input') %}
+{# This var is set to prevent add_attributes griping about an empty var #}
+{% set input_attributes = input_attributes|default([]) %}
+
+<input
+ {{ bem(input_base_class, (input_modifiers), input_blockname) }}
+ {{ add_attributes(input_attributes) -}}
+/>
+{%- block input_children -%}
+  {% if input_label %}
+    <label>
+      {{ input_label }}
+    </label>
+  {% endif %}
+ {{- input_children -}}
+{%- endblock -%}

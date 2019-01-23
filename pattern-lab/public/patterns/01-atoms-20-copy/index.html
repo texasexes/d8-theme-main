@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html class="pl">
+  <head>
+    <title>Pattern Lab</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <!-- Component styles -->
+    <link rel="stylesheet" href="../../../../dist/style.css?1548282367" media="all" />
+
+    <!-- External Fonts (should be added separately to web project)-->
+    <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
+    <link href="https://cloud.typography.com/737040/6549592/css/fonts.css" rel="stylesheet">
+
+    <!-- Begin Pattern Lab (Required for Pattern Lab to run properly) -->
+    <!-- never cache patterns -->
+<meta http-equiv="cache-control" content="max-age=0" />
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="expires" content="0" />
+<meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+<meta http-equiv="pragma" content="no-cache" />
+
+<link rel="stylesheet" href="../../styleguide/css/styleguide.min.css?1548282367" media="all">
+<link rel="stylesheet" href="../../styleguide/css/prism-typeahead.min.css?1548282367" media="all" />
+    <!-- End Pattern Lab -->
+
+  </head>
+  <body class="body">
+    <!-- for js not found errors in Pattern Lab -->
+  	<div class="visually-hidden">
+  		<div id="tabs" class="tabs"></div>
+  	</div>
+<!-- View All Patterns in a Pattern Sub-Type -->
+<div class="sg-main" role="main">
+  <!-- Patterns -->
+  <div id="sg-patterns">
+                  <div id="viewall-atoms-copy" class="sg-subtype">
+  <h2>
+    <a href="../../patterns/01-atoms-20-copy/index.html" class="patternLink" data-patternpartial="viewall-atoms-copy">
+      copy
+    </a>
+  </h2>
+  
+  <div class="sg-pattern-body">
+    
+  </div>
+</div>                        <div id="atoms-copy" class="sg-pattern">
+  <div class="sg-pattern-head">
+    <h3 class="sg-pattern-title">
+      <a href="../../patterns/01-atoms-20-copy-copy/01-atoms-20-copy-copy.html" class="patternLink" data-patternpartial="atoms-copy" title="Link to Pattern">
+        copy
+        
+              </a>
+    </h3>
+    
+    <div class="sg-pattern-breadcrumb">
+      
+    </div>
+    
+    <a href="#" data-patternpartial="atoms-copy" title="View Pattern Info" id="sg-pattern-extra-toggle-atoms-copy" class="sg-pattern-extra-toggle">
+      <span>&#9660;</span>
+    </a>
+  </div>
+  
+  <div class="sg-pattern-extra" id="sg-pattern-extra-atoms-copy"></div>
+    
+  <div class="sg-pattern-example">
+    
+  <div class="copy">
+        
+        
+        
+        
+<h2
+  class="title title--alt-1"
+  
+>This is a Title</h2>
+
+        
+        
+        
+        
+<a href="#" class="copy__link">
+<h2
+  class="title title--link
+# Subtitle"
+  
+>This is a Title with a link wrapper.</h2>
+</a>
+
+        
+        
+        
+        
+<a href="#" class="copy__link"></a>
+
+        
+<h3
+  class="subtitle"
+  
+>This is a subtitle.</h3>
+
+        
+        
+        
+        
+<a href="#" class="copy__link">
+<h3
+  class="subtitle subtitle--link
+# Body"
+  
+>This is subtitle with a link wrapper.</h3>
+</a>
+
+        
+        
+        
+<a href="#" class="copy__link"></a>
+
+        
+        
+
+<p
+  class="body"
+  
+>This is a body. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+        
+        
+        
+        
+        
+        
+<a href="#" class="copy__link">This is a Link</a>
+
+        
+        
+        
+
+<button
+  class="txex-button"
+  href="#">
+  This is a Button</button>
+
+        </div>
+
+  </div>
+  
+  <script type="text/json" id="sg-pattern-data-atoms-copy" class="sg-pattern-data">
+    {"lineage":[],"lineageR":[],"patternBreadcrumb":{"patternType":"atoms","patternSubtype":"copy"},"patternDesc":"","patternExtension":"twig","patternName":"copy","patternPartial":"atoms-copy","patternState":""}
+  </script>
+</div><!--end .sg-pattern-->            </div> <!--end #sg-patterns-->
+</div><!--end .sg-main-->
+  <!--DO NOT REMOVE-->
+  <script type="text/json" id="sg-pattern-data-footer" class="sg-pattern-data">
+  {"patternPartial":"viewall-atoms-copy"}
+</script>
+
+<script>
+  /*!
+  * scriptLoader - v0.1
+  *
+  * Copyright (c) 2014 Dave Olsen, http://dmolsen.com
+  * Licensed under the MIT license
+  *
+  */
+  
+  var scriptLoader = {
+    run: function(js,cb,target) {
+      var s  = document.getElementById(target+'-'+cb);
+      for (var i = 0; i < js.length; i++) {
+        var src = (typeof js[i] != 'string') ? js[i].src : js[i];
+        var c   = document.createElement('script');
+        c.src   = '../../'+src+'?'+cb;
+        if (typeof js[i] != 'string') {
+          if (js[i].dep !== undefined) {
+            c.onload = function(dep,cb,target) {
+              return function() {
+                scriptLoader.run(dep,cb,target);
+              }
+            }(js[i].dep,cb,target);
+          }
+        }
+        s.parentNode.insertBefore(c,s);
+      }
+    }
+  }
+</script>
+
+<script id="pl-js-polyfill-insert-1548282367">
+  (function() {
+    if (self != top) {
+      var cb = '1548282367';
+      var js = [];
+      if (typeof document !== 'undefined' && !('classList' in document.documentElement)) {
+        js.push('styleguide/bower_components/classList.min.js');
+      }
+      scriptLoader.run(js,cb,'pl-js-polyfill-insert');
+    }
+  })();
+</script>
+
+<script id="pl-js-insert-1548282367">
+  (function() {
+    if (self != top) {
+      var cb = '1548282367';
+      var js = [ { 'src': 'styleguide/bower_components/jwerty.min.js', 'dep': [ 'styleguide/js/patternlab-pattern.min.js' ] } ];
+      scriptLoader.run(js,cb,'pl-js-insert');
+    }
+  })();
+</script>
+
+  <!-- Drupal-specific usage -->
+  <!-- example using symlinking -->
+  <!-- cd web/themes/custom/emulsify/components/js -->
+  <!-- ln -s ../../../../../core/assets/vendor/domready/ready.min.js ./ -->
+  <!-- ln -s ../../../../../core/misc/drupal.js ./ -->
+
+  <!-- UNCOMMENT AS NECESSARY -->
+  <script src="../../js/ready.min.js"></script>
+  <script src="../../js/drupal.js"></script>
+
+  <script src="../../../../dist/scripts-styleguide.js"></script>
+
+  <!-- If using Drupal.behaviors, uncomment for them to work in Pattern Lab -->
+  <script>Drupal.attachBehaviors();</script>
+
+  </body>
+</html>

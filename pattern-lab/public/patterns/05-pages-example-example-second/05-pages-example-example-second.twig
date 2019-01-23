@@ -1,0 +1,13 @@
+<div class="layout layout--horizontal">
+    {% include "@organisms/03-flex-layout-3/00-flex-layout-3.twig" with {
+      "flex_layout_3_modifiers": example_items.1.flex_layout_3_modifiers,
+      "flex_layout_3_items": example_items.1.flex_layout_3_items,
+      "flex_layout_3_layout_extra": example_layout_extra,
+    }%}
+
+    {% include "@organisms/03-flex-layout-3/00-flex-layout-3.twig" with {
+      "flex_layout_3_modifiers": example_items.2.flex_layout_3_modifiers,
+      "flex_layout_3_items": example_items.2.flex_layout_3_items,
+      "flex_layout_3_layout_extra": example_layout_extra,
+    }%}
+</div>

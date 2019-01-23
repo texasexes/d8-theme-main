@@ -1,0 +1,30 @@
+<form novalidate="novalidate" onsubmit="return false;">
+  <div class="searchbox sbx-custom">
+    <div role="search" class="sbx-custom__wrapper">
+      <input type="search" name="search" placeholder="Search" autocomplete="off" required="required" class="sbx-custom__input">
+      
+
+<button
+  class="txex-button txex-button--search"
+  type="submit" title="Submit your search.">
+      <svg xmlns="http://www.w3.org/2000/svg" id="sbx-icon-search-9" viewBox="0 0 40 41" width="100%" height="100%">
+    <path d="M25.25 32.2c-2.417 1.307-5.184 2.05-8.126 2.05C7.667 34.25 0 26.58 0 17.123 0 7.667 7.667 0 17.124 0 26.582 0 34.25 7.667 34.25 17.124c0 3.277-.92 6.338-2.517 8.94.29.18.563.397.814.65l6.105 6.103c1.8 1.8 1.795 4.722 0 6.52-1.8 1.8-4.72 1.798-6.52 0l-6.104-6.105c-.314-.313-.572-.66-.777-1.03zm-8.126-4.116c6.053 0 10.96-4.907 10.96-10.96 0-6.052-4.907-10.96-10.96-10.96-6.052 0-10.96 4.908-10.96 10.96 0 6.053 4.908 10.96 10.96 10.96z" fill-rule="evenodd"></path>
+  </svg>
+
+  </button>
+      
+
+<button
+  class="txex-button txex-button--reset"
+  type="reset" title="Reset your search.">
+      <svg xmlns="http://www.w3.org/2000/svg" id="sbx-icon-clear-5" viewBox="0 0 20 20" width="100%" height="100%">
+    <path d="M10 20c5.523 0 10-4.477 10-10S15.523 0 10 0 0 4.477 0 10s4.477 10 10 10zm1.35-10.123l3.567 3.568-1.225 1.226-3.57-3.568-3.567 3.57-1.226-1.227 3.568-3.568-3.57-3.57 1.227-1.224 3.568 3.568 3.57-3.567 1.224 1.225-3.568 3.57zM10 18.272c4.568 0 8.272-3.704 8.272-8.272S14.568 1.728 10 1.728 1.728 5.432 1.728 10 5.432 18.272 10 18.272z" fill-rule="evenodd"></path>
+  </svg>
+
+  </button>
+    </div>
+  </div>
+</form>
+<script type="text/javascript">
+  document.querySelector('.txex-button--reset').addEventListener('click', function() {  this.parentNode.querySelector('input').focus();});
+</script>
