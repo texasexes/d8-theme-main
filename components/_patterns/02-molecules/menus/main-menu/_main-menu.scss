@@ -1,22 +1,28 @@
 // Backgrounds
-$color-menu-bg-darker: $purple-1;
+$color-menu-bg-darker: #272731;
 $color-menu-bg-dark: $purple-2;
 $color-menu-bg-light: $mushroom-light;
 // Menu width
-$width-mobile-max: 310px;
-$width-mobile: 90vw;
+$width-mobile-max: 90vw;
+$width-mobile: 310px;
 // Text
 $color-menu-text-dark: $purple-5;
 $color-menu-text-medium: $purple-4;
 $color-menu-text-light: $white;
 // Submenu toggles
 $main-menu-dropdown-toggle-width: $space-double;
-// Moble Nave space
-$mobile-nav-item-padding: $space-one-half;
+$main-menu-close-toggle-width: $space-double;
+// Moble Nav space
+$mobile-nav-item-horizontal-padding: $space-one-half;
+$mobile-nav-item-vertical-padding: $space-one-third;
+// Main Nav space
+$main-nav-item-padding: 25px;
+// Login icon $width
+$main-menu-login-item-width: 23px;
 
 .primary-nav {
   position: relative;
-  flex: 1 1 25%;
+  flex: 1 1 auto;
 
   @include breakpoint($break-nav) {
     @include breakout;
@@ -37,8 +43,10 @@ $mobile-nav-item-padding: $space-one-half;
   }
 
   .sbx-custom__input {
-    padding-bottom: 2.2rem;
-    padding-top: 2.2rem;
+    @include breakpoint($break-nav) {
+      padding-bottom: 2.2rem;
+      padding-top: 2.2rem;
+    }
   }
 }
 
@@ -66,6 +74,31 @@ $mobile-nav-item-padding: $space-one-half;
       left: 0;
     }
   }
+
+  &--search-mobile {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    &__box {
+      flex: 1 1 auto;
+      padding: 11px $mobile-nav-item-horizontal-padding;
+      max-width: calc(#{$width-mobile-max} - #{$main-menu-close-toggle-width});
+      width: calc(#{$width-mobile} - #{$main-menu-close-toggle-width});
+
+      .sbx-custom__input:active,
+      .sbx-custom__input:focus {
+        max-width: calc(#{$width-mobile-max} - #{$main-menu-close-toggle-width} - (#{$space-one-half} * 2));
+        width: calc(#{$width-mobile} - #{$main-menu-close-toggle-width} - (#{$space-one-half} * 2));
+      }
+    }
+  }
+
+  @include breakpoint($break-nav) {
+    &--search-mobile {
+      display: none;
+    }
+  }
 }
 
 .main-menu-toggle {
@@ -81,10 +114,10 @@ $mobile-nav-item-padding: $space-one-half;
   }
 
   &--close {
-    flex: 0 0 16px;
+    flex: 0 0 $main-menu-close-toggle-width;
     align-items: center;
     background-color: $color-menu-bg-darker;
-    padding-right: $space-one-half;
+    padding: 0;
   }
 
   &__icon,
@@ -94,42 +127,49 @@ $mobile-nav-item-padding: $space-one-half;
     display: block;
     content: '';
     width: $space;
-    height: 3px;
+    height: 4px;
     background-color: $color-menu-text-medium;
     border-radius: 1em;
+    &--close {
+    }
   }
 
   &__icon {
     &::before {
-      top: -6px;
+      top: -8px;
     }
 
     &::after {
-      bottom: -3px;
+      bottom: -4px;
     }
 
     &.js-menu-active {
       background-color: transparent;
-      margin-left: auto;
+      left: 17px;
+      // margin: auto;
 
       &::before {
         transform: rotate(45deg);
         top: 0;
-        left: 6px;
-        width: $space-two-thirds;
+        left: 3px;
+        width: 17px;
+        height: 3px;
       }
 
       &::after {
         transform: rotate(-45deg);
         bottom: 3px;
-        left: 6px;
-        width: $space-two-thirds;
+        left: 3px;
+        width: 17px;
+        height: 3px;
       }
     }
   }
 }
 
 .main-menu {
+  $parent: &;
+
   display: flex;
   flex-basis: 100%;
   flex-flow: column nowrap;
@@ -174,73 +214,240 @@ $mobile-nav-item-padding: $space-one-half;
     width: 100%;
 
     @include breakpoint($break-nav) {
-      @include wrapper;
+      // @include wrapper;
+      padding: $space-one-half 0;
     }
   }
 
   a {
     display: block;
     flex: 1 0 auto;
-    padding: $mobile-nav-item-padding;
+    padding: $mobile-nav-item-vertical-padding $mobile-nav-item-horizontal-padding;
     text-decoration: none;
 
-    &:hover {
+    color: $color-menu-text-light;
+    font-family: $font-tertiary;
+    font-size: 1.6rem;
+    line-height: 1.6;
+
+    max-width: calc(#{$width-mobile-max} - #{$main-menu-dropdown-toggle-width});
+    width: calc(#{$width-mobile} - #{$main-menu-dropdown-toggle-width});
+
+    &.is-active {
       color: $burnt-orange;
     }
 
     @include breakpoint($break-nav) {
+      padding: $mobile-nav-item-horizontal-padding;
       width: 100%;
-    }
-
-    &.is-active {
-      color: $burnt-orange;
+      max-width: none;
     }
   }
 
   // li
   &__item {
+
+    &:hover {
+      > a {
+        &.is-active {
+          color: $burnt-orange;
+        }
+
+        @include breakpoint($break-nav) {
+          background-color: $main-menu-highlight;
+          color: $burnt-orange;
+        }
+      }
+    }
+
+    // @include breakpoint($break-nav) {
+    //   &:hover {
+    //     > a {
+    //       background-color: $main-menu-highlight;
+    //       color: $burnt-orange;
+    //
+    //       &.is-active {
+    //         color: $burnt-orange;
+    //       }
+    //     }
+    //   }
+    // }
+
     &--level-0 {
-      @include breakpoint($break-nav-max) {
-        border-top: 1px solid $color-menu-text-medium;
-        position: relative;
-      }
+      border-top: 1px solid $color-menu-text-medium;
+      position: relative;
+      z-index: 1;
 
-      @include breakpoint($break-nav) {
-        &.menu-item--active-trail {
-          background-color: $color-menu-bg-dark;
-
-          a {
-            color: $color-menu-text-light;
-          }
-        }
-
-        a {
-          &.is-active {
-            color: $color-menu-text-light;
-          }
-        }
-
-        &:hover {
-          > a {
-            background-color: $color-menu-bg-darker;
-            color: $color-menu-text-light;
-          }
-        }
-      }
-
-      a {
+      > a {
         color: $color-menu-text-light;
         font-family: $font-secondary-30;
         font-size: 2.2rem;
         line-height: 1.14;
+        padding: $mobile-nav-item-horizontal-padding;
 
         @include breakpoint($break-nav-max) {
-          max-width: calc(#{$width-mobile-max} - #{$main-menu-dropdown-toggle-width} - #{$space-one-third});
-          padding-right: $space-one-third;
+          // width max link of menu less the dropdown arrow
+          // max-width: calc(#{$width-mobile-max} - #{$main-menu-dropdown-toggle-width});
+          // padding-right: $space-one-third;
         }
 
         @include breakpoint($break-nav) {
+
+          // color: $color-menu-text-dark;
+          //
+          // &.is-active {
+          //   background-color: $color-menu-bg-dark;
+          //   color: $color-menu-text-light;
+          // }
+        }
+
+        &.login-link {
+          padding-left: $space-one-third;
+          // width max link of menu - the login link icon and padding - the
+          // dropdown arrow and padding
+          max-width: calc(#{$width-mobile-max} - #{$main-menu-login-item-width} - #{$space-one-half} - #{$main-menu-dropdown-toggle-width});
+          width: calc(#{$width-mobile} - #{$main-menu-login-item-width}  - #{$space-one-half} - #{$main-menu-dropdown-toggle-width});
+          // we do not want a color change if active because there is a child
+          // link in the menu that will be highlight because it has the same route
+          &.is-active {
+            color: $color-menu-text-light;
+          }
+        }
+      }
+
+      @include breakpoint($break-nav) {
+        border: none;
+
+        &#{$parent}__item--active-trail {
+          background-color: $color-menu-bg-dark;
+
+          > a {
+            color: $color-menu-text-light;
+          }
+        }
+
+        > a {
           color: $color-menu-text-dark;
+
+          &.is-active {
+            background-color: $color-menu-bg-dark;
+            color: $color-menu-text-light;
+          }
+        }
+
+        // this is for the little gap below the 0 menu level and background color
+        // it has to be created before hover so that we can transition top
+        &::before {
+          // bottom is only set here for transition if no sub-menu
+          bottom: 0;
+          content: "";
+          display: block;
+          left: 0;
+          right: 0;
+          position: absolute;
+          top: 0;
+          z-index: -1;
+          // // if there is a sub menu remove bottom setting
+          // // and remove bottom transition
+          // @at-root #{$parent}__item--with-sub#{&} {
+          //   bottom: auto;
+          // }
+        }
+
+        &:hover {
+          // this is for the top eybrow and little gap below the 0 menu level
+          &::before {
+            background-color: $color-menu-bg-darker;
+            box-shadow: 3px 3px 2px 0 rgba(0,0,0,.15);
+            border-radius: 4px;
+            bottom: -5px;
+            content: "";
+            top: -5px;
+            transition-property: top, bottom;
+            transition-duration: 0.1s, 0.1s;
+            transition-delay: ease-in-out, ease-in-out;
+            transition-timing-function: 0s, 0s;
+            // if there is a sub menu, remove bottom border-radius of menu item
+            // and remove bottom transition
+            @at-root #{$parent}__item--with-sub#{&} {
+              border-radius: 4px 4px 0 0;
+              transition: top .1s ease-in-out 0s;
+            }
+          }
+
+          > a {
+            background-color: $color-menu-bg-darker;
+            color: $color-menu-text-light;
+
+            &.is-active {
+              background-color: $color-menu-bg-darker;
+              color: $color-menu-text-light;
+            }
+          }
+
+          > .main-menu__dropdown {
+            opacity: 1;
+            transform: translateY(0%);
+            visibility: visible; /* shows sub-menu */
+            z-index: 1;
+            transition-delay: 0s, 0s, 0s, 0.15s; /* this removes the transition delay so the menu will be visible while the other styles transition */
+          }
+        }
+
+        > .main-menu__dropdown {
+          box-shadow: 3px 3px 2px 0 rgba(0,0,0,.15);
+          border-radius: 0 4px 4px 4px;
+          display: block;
+          left: 0;
+          margin-top: 5px;
+          opacity: 0;
+          position: absolute;
+          top: 100%;
+          transform: translateY(-$space-double);
+          visibility: hidden; /* hides sub-menu */
+          z-index: -1;
+          transition-property: opacity, transform, visibility, z-index;
+          transition-duration: 0.15s, 0.15s, 0s, 0s;
+          transition-delay: ease-in-out, ease-in-out, linear, linear;
+          transition-timing-function: 0s, 0s, 0.3s, 0.01s;
+        }
+
+        // https://stackoverflow.com/questions/15466898/selecting-half-the-elements-with-nth-child
+        /* selecting half or less items. Up to 8 */
+        &:nth-child(n+2):last-child,
+        &:nth-child(n+3):nth-last-child(-n+2),
+        &:nth-child(n+4):nth-last-child(-n+3),
+        &:nth-child(n+5):nth-last-child(-n+4),
+        &:nth-child(n+6):nth-last-child(-n+5),
+        &:nth-child(n+7):nth-last-child(-n+6),
+        &:nth-child(n+8):nth-last-child(-n+7),
+        &:nth-child(n+9):nth-last-child(-n+8) {
+          & > .main-menu__dropdown {
+            border-radius: 4px 0 4px 4px;
+            left: auto;
+            right: 0;
+          }
+          // // bonus box-shadow to bridge top gap
+          // &:hover::after {
+          //   box-shadow: 3px 3px 4px 0px rgba(0, 0, 0, 0.3);
+          //   border-radius: 0 0 4px 4px;
+          //   content: "";
+          //   display: block;
+          //   left: 0;
+          //   right: 0;
+          //   position: absolute;
+          //   bottom: -5px;
+          //   height: 8px;
+          //   transition: box-shadow 0.1s ease-in-out 0s;
+          //   z-index: -1;
+          //   // if there is a sub menu, remove bottom border-radius of menu item
+          //   // can't use regular @at-root becuase of selector list above ( all
+          //   // the nth-child stuff)
+          //   // @at-root #{$parent}__item--with-sub#{&} {
+          //   @at-root #{selector-append("#{$parent}__item--with-sub", &)} {
+          //     border-radius: 0;
+          //   }
+          // }
         }
       }
     }
@@ -251,19 +458,22 @@ $mobile-nav-item-padding: $space-one-half;
       }
 
       a {
-        color: $color-menu-text-light;
-        font-family: $font-tertiary;
-        font-size: 1.6rem;
-        line-height: 1.11;
-        padding: $space-two-thirds calc(#{$mobile-nav-item-padding} * 2);
+        // color: $color-menu-text-light;
+        // font-family: $font-tertiary;
+        // font-size: 1.6rem;
+        // line-height: 1.6;
 
-        &.is-active {
-          color: $burnt-orange;
-        }
+        padding-left: $mobile-nav-item-horizontal-padding * 2;
 
-        @include breakpoint($break-nav-max) {
-          max-width: calc(#{$width-mobile-max} - #{$main-menu-dropdown-toggle-width} - #{$space-one-third});
-          padding-right: $space-one-third;
+        // &.is-active {
+        //   color: $burnt-orange;
+        // }
+
+        @include breakpoint($break-nav) {
+          // padding: $space-one-third calc(#{$mobile-nav-item-horizontal-padding} * 2);
+          // max-width: calc(#{$width-mobile-max} - #{$main-menu-dropdown-toggle-width});
+          // padding-right: $space-one-third;
+          padding: 5px $main-nav-item-padding;
         }
       }
 
@@ -277,43 +487,43 @@ $mobile-nav-item-padding: $space-one-half;
     &--level-2 {
       a {
         color: $color-menu-text-medium;
-        padding-left: $mobile-nav-item-padding * 3;
+        padding-left: $mobile-nav-item-horizontal-padding * 3;
       }
     }
 
     &--level-3 {
       a {
-        padding-left: $mobile-nav-item-padding * 4;
+        padding-left: $mobile-nav-item-horizontal-padding * 4;
       }
     }
 
     &--level-4 {
       a {
-        padding-left: $mobile-nav-item-padding * 5;
+        padding-left: $mobile-nav-item-horizontal-padding * 5;
       }
     }
 
     &--level-5 {
       a {
-        padding-left: $mobile-nav-item-padding * 6;
+        padding-left: $mobile-nav-item-horizontal-padding * 6;
       }
     }
 
     &--level-6 {
       a {
-        padding-left: $mobile-nav-item-padding * 7;
+        padding-left: $mobile-nav-item-horizontal-padding * 7;
       }
     }
 
     &--level-7 {
       a {
-        padding-left: $mobile-nav-item-padding * 8;
+        padding-left: $mobile-nav-item-horizontal-padding * 8;
       }
     }
 
     &--level-8 {
       a {
-        padding-left: $mobile-nav-item-padding * 9;
+        padding-left: $mobile-nav-item-horizontal-padding * 9;
       }
     }
 
@@ -329,20 +539,26 @@ $mobile-nav-item-padding: $space-one-half;
       @include breakpoint($break-nav) {
         flex-flow: column nowrap;
 
-        &.main-menu__item--level-0 {
-          &:hover {
-            > .main-menu__dropdown {
-              display: block;
-              left: 0;
-              position: absolute;
-              top: 100%;
-              width: 100%;
-              z-index: 1;
-            }
-          }
-        }
+
       }
     }
+
+    &--login-wrapper {
+      display: flex;
+      align-items: center;
+
+      @include breakpoint($break-nav) {
+        // hide login menu that has been added programmitically to main menu
+        display: none;
+      }
+    }
+  }
+
+  &__profile-icon {
+    fill: $color-menu-text-light;
+    height: $main-menu-login-item-width;
+    padding-left: $space-one-half;
+    width: calc(#{$main-menu-login-item-width} + #{$space-one-half});
   }
 
   &__expand-sub {
@@ -358,7 +574,7 @@ $mobile-nav-item-padding: $space-one-half;
 
   &__sub-icon {
     fill: $color-menu-text-medium;
-    height: 1rem;
+    height: 1.4rem;
     width: 100%;
 
     &--open {
