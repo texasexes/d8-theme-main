@@ -32,6 +32,7 @@
   const mainMenu = $('.main-nav');
   const mainMenuSub = $('.main-menu__dropdown');
   const sideMenuSub = $('.side-menu__dropdown');
+  // const mainMenuActiveItem = $('.is-active');
   const mainMenuWithSub = $('.main-menu__item--with-sub');
   const mainMenuExpandSub = $('.main-menu__expand-sub');
   const sideMenuExpandSub = $('.side-menu__expand-sub');
@@ -47,6 +48,7 @@
   let headerHeight = '0';
   let maxHeight = '100vh';
   let mainMenuHeight = mainMenu.outerHeight();
+  let mainMenuActiveItem = $('.is-active');
 
   // Classes
   const mainMenuSubOpen = 'main-menu__sub-icon--open';
@@ -58,20 +60,18 @@
   // New elements
   let mainMenuBg = '';
 
+  // Expand parent items if current page is the active menu item
+  $('.main-menu__item--active-trail > .main-menu__expand-sub > .main-menu__sub-icon').addClass(mainMenuSubOpen);
+  $('.main-menu__item--active-trail > .main-menu__dropdown').addClass(menuVisible);
+
+  $('.menu-item--active-trail > .side-menu__expand-sub > .side-menu__sub-icon').addClass(sideMenuSubOpen);
+  $('.menu-item--active-trail > .side-menu__dropdown').addClass(menuVisible);
+
   // Remove mobile nav background
   function removeMainMenuBg() {
     mainMenuBg.remove();
     mainMenuBg = '';
   }
-
-
-
-
-
-
-
-
-
 
   // Show/Hide overlay
   function mainMenuBgToggle() {
@@ -82,14 +82,15 @@
     mainMenu.toggleClass(menuVisible);
 
     //Scroll to main menu items
-    document.getElementsByClassName('is-active')[0].scrollIntoView();
-
+    mainMenuActiveItem = $('.is-active');
+    if (mainMenuActiveItem.length) {
+      mainMenuActiveItem.get(0).scrollIntoView();
+    }
 
     // Remove the overlay if it exists
     if (mainMenuBg.length) {
       removeMainMenuBg();
     }
-
     // Add overlay if needed
     else {
       mainMenuBg = $('<span class="js-main-menu-close" />');
@@ -98,18 +99,14 @@
     }
   };
 
-  // Expand parent items if current page is the active menu item
-  $('.menu-item--active-trail > .main-menu__expand-sub > .main-menu__sub-icon').addClass(mainMenuSubOpen);
-  $('.menu-item--active-trail > .main-menu__dropdown').addClass(menuVisible);
 
-  $('.menu-item--active-trail > .side-menu__expand-sub > .side-menu__sub-icon').addClass(sideMenuSubOpen);
-  $('.menu-item--active-trail > .side-menu__dropdown').addClass(menuVisible);
 
   // Main Menu
   mainMenuToggle.click(function (e) {
     e.preventDefault();
     mainMenuBgToggle();
     // expandParents();
+
   });
 
   // Display Sub-nav
