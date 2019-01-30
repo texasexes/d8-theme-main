@@ -82,8 +82,8 @@
   var mainMenuBg = '';
 
   // Expand parent items if current page is the active menu item
-  $('.menu-item--active-trail > .main-menu__expand-sub > .main-menu__sub-icon').addClass(mainMenuSubOpen);
-  $('.menu-item--active-trail > .main-menu__dropdown').addClass(menuVisible);
+  $('.main-menu__item--active-trail > .main-menu__expand-sub > .main-menu__sub-icon').addClass(mainMenuSubOpen);
+  $('.main-menu__item--active-trail > .main-menu__dropdown').addClass(menuVisible);
 
   $('.menu-item--active-trail > .side-menu__expand-sub > .side-menu__sub-icon').addClass(sideMenuSubOpen);
   $('.menu-item--active-trail > .side-menu__dropdown').addClass(menuVisible);
