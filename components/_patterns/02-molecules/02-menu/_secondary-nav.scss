@@ -1,5 +1,6 @@
 .secondary-nav {
   flex-basis: 100%;
+  margin-top: 1.6rem;
 
   @include breakpoint($break-nav-max) {
     display: none;

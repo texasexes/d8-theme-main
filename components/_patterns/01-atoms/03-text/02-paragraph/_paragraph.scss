@@ -20,7 +20,10 @@ $font-paragraph: $font-tertiary;
 
 // When a paragraph is a block, this is it's class (BEM)
 p,
-.p {
+.p,
+// using .text-long is ugly hack because of events description being difficult
+// to import
+.text-long {
   @include paragraph;
 }
 
