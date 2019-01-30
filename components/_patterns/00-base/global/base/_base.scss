@@ -59,3 +59,8 @@ body {
     }
   }
 }
+
+.dialog-off-canvas-main-canvas {
+  //keeps layout-container filling the screen as screen size is reduced
+  overflow: auto;
+}
