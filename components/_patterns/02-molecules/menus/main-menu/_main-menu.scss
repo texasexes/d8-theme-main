@@ -84,7 +84,7 @@ $main-menu-login-item-width: 23px;
       flex: 1 1 auto;
       padding: 11px $mobile-nav-item-horizontal-padding;
       max-width: calc(#{$width-mobile-max} - #{$main-menu-close-toggle-width});
-      width: calc(#{$width-mobile} - #{$main-menu-close-toggle-width});
+      width: calc(100% - #{$main-menu-close-toggle-width});
 
       .sbx-custom {
         &__input {
@@ -210,6 +210,7 @@ $main-menu-login-item-width: 23px;
         display: flex;
         flex-basis: 100%;
         min-width: inherit;
+        max-width: 100%;
       }
     }
   }
@@ -237,7 +238,7 @@ $main-menu-login-item-width: 23px;
     line-height: 1.6;
 
     max-width: calc(#{$width-mobile-max} - #{$main-menu-dropdown-toggle-width});
-    width: calc(#{$width-mobile} - #{$main-menu-dropdown-toggle-width});
+    width: calc(100% - #{$main-menu-dropdown-toggle-width});
 
     &.is-active {
       color: $burnt-orange;
@@ -266,19 +267,6 @@ $main-menu-login-item-width: 23px;
       }
     }
 
-    // @include breakpoint($break-nav) {
-    //   &:hover {
-    //     > a {
-    //       background-color: $main-menu-highlight;
-    //       color: $burnt-orange;
-    //
-    //       &.is-active {
-    //         color: $burnt-orange;
-    //       }
-    //     }
-    //   }
-    // }
-
     &--level-0 {
       border-top: 1px solid $color-menu-text-medium;
       position: relative;
@@ -291,28 +279,12 @@ $main-menu-login-item-width: 23px;
         line-height: 1.14;
         padding: $mobile-nav-item-horizontal-padding;
 
-        @include breakpoint($break-nav-max) {
-          // width max link of menu less the dropdown arrow
-          // max-width: calc(#{$width-mobile-max} - #{$main-menu-dropdown-toggle-width});
-          // padding-right: $space-one-third;
-        }
-
-        @include breakpoint($break-nav) {
-
-          // color: $color-menu-text-dark;
-          //
-          // &.is-active {
-          //   background-color: $color-menu-bg-dark;
-          //   color: $color-menu-text-light;
-          // }
-        }
-
         &.login-link {
           padding-left: $space-one-third;
           // width max link of menu - the login link icon and padding - the
           // dropdown arrow and padding
           max-width: calc(#{$width-mobile-max} - #{$main-menu-login-item-width} - #{$space-one-half} - #{$main-menu-dropdown-toggle-width});
-          width: calc(#{$width-mobile} - #{$main-menu-login-item-width}  - #{$space-one-half} - #{$main-menu-dropdown-toggle-width});
+          width: calc(100% - #{$main-menu-login-item-width}  - #{$space-one-half} - #{$main-menu-dropdown-toggle-width});
           // we do not want a color change if active because there is a child
           // link in the menu that will be highlight because it has the same route
           &.is-active {
@@ -353,11 +325,6 @@ $main-menu-login-item-width: 23px;
           position: absolute;
           top: 0;
           z-index: -1;
-          // // if there is a sub menu remove bottom setting
-          // // and remove bottom transition
-          // @at-root #{$parent}__item--with-sub#{&} {
-          //   bottom: auto;
-          // }
         }
 
         &:hover {
@@ -433,27 +400,6 @@ $main-menu-login-item-width: 23px;
             left: auto;
             right: 0;
           }
-          // // bonus box-shadow to bridge top gap
-          // &:hover::after {
-          //   box-shadow: 3px 3px 4px 0px rgba(0, 0, 0, 0.3);
-          //   border-radius: 0 0 4px 4px;
-          //   content: "";
-          //   display: block;
-          //   left: 0;
-          //   right: 0;
-          //   position: absolute;
-          //   bottom: -5px;
-          //   height: 8px;
-          //   transition: box-shadow 0.1s ease-in-out 0s;
-          //   z-index: -1;
-          //   // if there is a sub menu, remove bottom border-radius of menu item
-          //   // can't use regular @at-root becuase of selector list above ( all
-          //   // the nth-child stuff)
-          //   // @at-root #{$parent}__item--with-sub#{&} {
-          //   @at-root #{selector-append("#{$parent}__item--with-sub", &)} {
-          //     border-radius: 0;
-          //   }
-          // }
         }
       }
     }
@@ -464,21 +410,9 @@ $main-menu-login-item-width: 23px;
       }
 
       a {
-        // color: $color-menu-text-light;
-        // font-family: $font-tertiary;
-        // font-size: 1.6rem;
-        // line-height: 1.6;
-
         padding-left: $mobile-nav-item-horizontal-padding * 2;
 
-        // &.is-active {
-        //   color: $burnt-orange;
-        // }
-
         @include breakpoint($break-nav) {
-          // padding: $space-one-third calc(#{$mobile-nav-item-horizontal-padding} * 2);
-          // max-width: calc(#{$width-mobile-max} - #{$main-menu-dropdown-toggle-width});
-          // padding-right: $space-one-third;
           padding: 5px $main-nav-item-padding;
         }
       }
@@ -544,8 +478,6 @@ $main-menu-login-item-width: 23px;
 
       @include breakpoint($break-nav) {
         flex-flow: column nowrap;
-
-
       }
     }
 
