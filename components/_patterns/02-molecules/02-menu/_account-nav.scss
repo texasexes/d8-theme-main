@@ -14,12 +14,10 @@ $color-menu-bg-light: $mushroom-light;
   margin: 0;
 
   a {
-    // height: 100%;
     font-family: 'Rubik', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-size: 1.5rem;
-    // text-align: left;
   }
 
   &__dropdown {
