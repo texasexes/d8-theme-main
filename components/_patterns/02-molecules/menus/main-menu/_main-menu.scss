@@ -83,7 +83,7 @@ $main-menu-login-item-width: 23px;
     &__box {
       flex: 1 1 auto;
       padding: 11px $mobile-nav-item-horizontal-padding;
-      max-width: calc(#{$width-mobile-max} - #{$main-menu-close-toggle-width});
+      max-width: calc(100% - #{$main-menu-close-toggle-width});
       width: calc(#{$width-mobile} - #{$main-menu-close-toggle-width});
 
       .sbx-custom {
@@ -210,6 +210,7 @@ $main-menu-login-item-width: 23px;
         display: flex;
         flex-basis: 100%;
         min-width: inherit;
+        max-width: 100%;
       }
     }
   }
@@ -237,7 +238,7 @@ $main-menu-login-item-width: 23px;
     line-height: 1.6;
 
     max-width: calc(#{$width-mobile-max} - #{$main-menu-dropdown-toggle-width});
-    width: calc(#{$width-mobile} - #{$main-menu-dropdown-toggle-width});
+    width: calc(100% - #{$main-menu-dropdown-toggle-width});
 
     &.is-active {
       color: $burnt-orange;
@@ -312,7 +313,7 @@ $main-menu-login-item-width: 23px;
           // width max link of menu - the login link icon and padding - the
           // dropdown arrow and padding
           max-width: calc(#{$width-mobile-max} - #{$main-menu-login-item-width} - #{$space-one-half} - #{$main-menu-dropdown-toggle-width});
-          width: calc(#{$width-mobile} - #{$main-menu-login-item-width}  - #{$space-one-half} - #{$main-menu-dropdown-toggle-width});
+          width: calc(100% - #{$main-menu-login-item-width}  - #{$space-one-half} - #{$main-menu-dropdown-toggle-width});
           // we do not want a color change if active because there is a child
           // link in the menu that will be highlight because it has the same route
           &.is-active {
