@@ -83,8 +83,8 @@ $main-menu-login-item-width: 23px;
     &__box {
       flex: 1 1 auto;
       padding: 11px $mobile-nav-item-horizontal-padding;
-      max-width: calc(100% - #{$main-menu-close-toggle-width});
-      width: calc(#{$width-mobile} - #{$main-menu-close-toggle-width});
+      max-width: calc(#{$width-mobile-max} - #{$main-menu-close-toggle-width});
+      width: calc(100% - #{$main-menu-close-toggle-width});
 
       .sbx-custom {
         &__input {
@@ -478,8 +478,6 @@ $main-menu-login-item-width: 23px;
 
       @include breakpoint($break-nav) {
         flex-flow: column nowrap;
-
-
       }
     }
 
