@@ -10,6 +10,14 @@ body {
   position: relative;
   font-size: 1.6rem;
   background-color: $mushroom-lightest;
+
+  &.noscroll {
+    // cannot hide overflow, because triggers reflow on browsers that are not
+    // autohiding the scrollbar
+    // overflow: hidden;
+    position: fixed;
+    width: 100%;
+  }
 }
 
 .main {
@@ -18,12 +26,6 @@ body {
   padding: $space 0;
   display: block; // Fix for IE weirdness
   background-color: $white;
-}
-
-.noscroll {
-  overflow: hidden;
-  position: fixed;
-  width: 100%;
 }
 
 .embedded-entity__image {
