@@ -14,6 +14,9 @@
  * - user: A Drupal User entity.
  *
  * @see template_preprocess_user()
+ *
+ * Additional variables:
+ * - user_edit_link:
  */
 #}
 <article{{ attributes }}>
@@ -26,11 +29,11 @@
    */
   #}
 
-{{ kint() }}
+{#{ kint() }#}
 
   <section id="txex-member-profile-main">
     <div id="txex-member-profile-base">
-      <h3>My Profile <span class="txex-update-link"><a href="/user/{{- user.id()-}}/edit">{{ "Update" | t }}</a></span></h3>
+      <h3>My Profile <span class="txex-update-link"><a href="{{ user_edit_link }}">{{ "Update" | t }}</a></span></h3>
       {{ drupal_entity('user', null, 'profile_base_information')}}
     </div>
     <div id="txex-member-profile-base">
@@ -38,9 +41,9 @@
       {{ drupal_entity('user', null, 'profile_membership_information')}}
     </div>
     <div id="txex-member-profile-base">
-      <h3>More About Me <span class="txex-update-link"><a href="/user/{{- user.id()-}}/edit">{{ "Update" | t }}</a></span></h3>
+      <h3>More About Me <span class="txex-update-link"><a href="{{ user_edit_link }}">{{ "Update" | t }}</a></span></h3>
       {{ drupal_entity('user', null, 'profile_extra_information')}}
-      <div class="txex-update-link"><a href="/user/{{- user.id()-}}/edit">{{ "See more and make updates" | t }}</a></div>
+      <div class="txex-update-link"><a href="{{ user_edit_link }}">{{ "See more and make updates" | t }}</a></div>
     </div>
   </section>
 
