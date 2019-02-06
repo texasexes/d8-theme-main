@@ -4,7 +4,7 @@
   color: $color;
 }
 
-.page--user {
+.page--user--login {
   .layout-content {
     @include wrapper($container-max-width: $small);
   }
