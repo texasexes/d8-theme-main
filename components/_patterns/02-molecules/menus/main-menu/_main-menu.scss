@@ -183,6 +183,31 @@ $main-menu-login-item-width: 23px;
   max-width: 100%;
   padding: 0;
 
+  a {
+    display: block;
+    flex: 1 0 auto;
+    padding: $mobile-nav-item-vertical-padding $mobile-nav-item-horizontal-padding;
+    text-decoration: none;
+
+    color: $color-menu-text-light;
+    font-family: $font-tertiary;
+    font-size: 1.6rem;
+    line-height: 1.6;
+
+    max-width: calc(#{$width-mobile-max} - #{$main-menu-dropdown-toggle-width});
+    width: calc(100% - #{$main-menu-dropdown-toggle-width});
+
+    &.is-active {
+      color: $burnt-orange;
+    }
+
+    @include breakpoint($break-nav) {
+      padding: $mobile-nav-item-horizontal-padding;
+      width: 100%;
+      max-width: none;
+    }
+  }
+
   // ul
   &--level-0 {
     @include breakpoint($break-nav) {
@@ -223,31 +248,6 @@ $main-menu-login-item-width: 23px;
     @include breakpoint($break-nav) {
       // @include wrapper;
       padding: $space-one-half 0;
-    }
-  }
-
-  a {
-    display: block;
-    flex: 1 0 auto;
-    padding: $mobile-nav-item-vertical-padding $mobile-nav-item-horizontal-padding;
-    text-decoration: none;
-
-    color: $color-menu-text-light;
-    font-family: $font-tertiary;
-    font-size: 1.6rem;
-    line-height: 1.6;
-
-    max-width: calc(#{$width-mobile-max} - #{$main-menu-dropdown-toggle-width});
-    width: calc(100% - #{$main-menu-dropdown-toggle-width});
-
-    &.is-active {
-      color: $burnt-orange;
-    }
-
-    @include breakpoint($break-nav) {
-      padding: $mobile-nav-item-horizontal-padding;
-      width: 100%;
-      max-width: none;
     }
   }
 
