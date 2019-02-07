@@ -1,13 +1,10 @@
-{{ attach_library('d8_theme_main/main_menu') }}
+{% extends "menu--txex--not-hooked.html.twig" %}
+{% set menu_bem_blockname = 'main-menu' %}
+{% set menu_list_classes_extra = ['flexbox','flexbox--horizontal'] %}
+{% set menu_item_classes_extra = ['flexbox__item'] %}
 
-{# {% embed "@molecules/menus/main-menu/main-menu.twig" with {
-  menu_items: items,
-} %}
-  {% block search_form %}
-    {{ drupal_entity('block', 'searchform') }}
-  {% endblock %}
-{% endembed %}
- #}
+{% block content %}
+{{ attach_library('d8_theme_main/main_menu') }}
 <div class="main-menu-wrapper">
   <a href="#" class="main-menu-toggle main-menu-toggle--open">
     <span class="main-menu-toggle__icon"></span>
@@ -21,6 +18,7 @@
         <span class="main-menu-toggle__icon js-menu-active"></span>
       </a>
     </div>
-    {% include "menu--txex-main--not-hooked.html.twig" %}
+    {{ parent() }}
   </nav>
 </div>
+{% endblock content %}
