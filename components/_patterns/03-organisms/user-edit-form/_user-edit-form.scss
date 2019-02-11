@@ -1,0 +1,54 @@
+@mixin user-edit-form-text($color: $grey-7) {
+  font-family: $font-tertiary;
+  font-size: 1.6rem;
+  color: $color;
+}
+
+.page--user--edit {
+  .layout-content {
+    @include wrapper($container-max-width: $small);
+  }
+}
+
+.user-form {
+  padding-bottom: 170px;
+
+  .form-item {
+    display: flex;
+    flex-flow: row wrap;
+    margin-bottom: $space-one-third;
+  }
+
+  label {
+    @include user-edit-form-text;
+
+    display: flex;
+    align-items: center;
+    width: 135px;
+  }
+
+  .form-text {
+    border: 1px solid $grey-c;
+    border-radius: 2px;
+    height: 34px;
+    padding: 0 0.5em;
+
+    @include breakpoint(350px) {
+      width: 234px;
+    }
+
+    &::placeholder {
+      @include user-edit-form-text(
+        $color: $grey-b
+      );
+    }
+  }
+
+  .description {
+    @include visually-hidden;
+  }
+
+  .form-submit {
+    @include button-small;
+  }
+}
