@@ -7,3 +7,13 @@
     margin: 0 50px 60px;
   }
 }
+
+.page-title-block {
+  border-bottom: 1px solid $grey-e;
+  margin: $space-one-half 0;
+  padding-bottom: $space-one-half;
+
+  @include breakpoint($break-nav) {
+    margin: $space-one-half $space-and-half;
+  }
+}
