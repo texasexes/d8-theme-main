@@ -58,7 +58,6 @@
           ]|merge(menu_item_classes_extra) %}
 
           <li{{ item.attributes.addClass(menu_item_classes) }}>
-            <div class="{{menu_bem_blockname ~ '__item--wrapper'}}">
             {# checks for an html attribute set in a link plugin in txex_menus module #}
             {% if (item.is_login_link) %}
               {# remove attributes before svg render because they get passed to the svg render erroneously #}
@@ -74,9 +73,9 @@
                 icon_name: 'txex-icon-profile',
               } %}
             {% endif %}
-
             {{ link(item.title, item.url) }}
             {% if item.below %}
+
               <div class="{{menu_bem_blockname ~ '__expand-sub'}}">
                 {# remove attributes before svg render because they get passed to the svg render erroneously #}
                 {% set attributes = attributes.removeClass(menu_list_classes) %}
@@ -86,7 +85,6 @@
                   icon_name: 'chevron',
                 } %}
               </div>
-            </div>
 
                 {% set menu_dropdown_classes = [
                   menu_bem_blockname ~ '__dropdown',
