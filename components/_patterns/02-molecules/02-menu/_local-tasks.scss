@@ -1,18 +1,70 @@
+// @mixin local-tasks-text($color: $grey-7) {
+//   color: $color;
+//   font-family: $font-tertiary;
+//   font-size: 1.6rem;
+//   text-decoration: none;
+// }
+
+$color-menu-bg-darker: #272731;
+$color-menu-bg-dark: $purple-2;
+
 .local-tasks-nav {
-  & a {
-    // color: $blue;
-    text-decoration: none;
-    padding-right: 1em;
-    font-size: 0.8em;
-    font-family: "Rubik";
+  // @include wrapper($container-max-width: $xl);
+  // margin: $space-one-half 0;
+  @include breakpoint($break-nav) {
+    box-shadow: -1px 0 3px 1px rgba(0, 0, 0, 0.3333);
   }
 
   ul {
+    background-color: $burnt-orange;
     list-style: none;
-    padding-left: 52px;
+    margin: 0;
+    // margin: $space-one-third;
+
+    @include breakpoint($break-nav) {
+      padding: 0 $space-and-half;
+      // margin: $space-one-half 0;
+    }
   }
 
   li {
     display: inline-block;
+  }
+
+  a {
+    // @include local-tasks-text($color: $burnt-orange);
+    @include link($color: $white, $color--hover: $white);
+
+    padding: 5px $space-one-half;
+
+    &.is-active {
+      background-color: $purple-2;
+      color: $white;
+    }
+
+    &:hover {
+      background-color: #272731;
+
+      &.is-active {
+        background-color: $purple-2;
+        color: $white;
+      }
+    }
+  }
+
+  &__txex-logo-circle {
+    bottom: 0;
+    color: $burnt-orange;
+    display: none;
+    fill: $white;
+    left: 12px;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    width: 2rem;
+
+    @include breakpoint($break-nav) {
+      display: block;
+    }
   }
 }
