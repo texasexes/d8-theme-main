@@ -53,23 +53,28 @@
   var mainMenu = $('.main-nav');
   var mainMenuSub = $('.main-menu__dropdown');
   var sideMenuSub = $('.side-menu__dropdown');
-  // const mainMenuActiveItem = $('.is-active');
+  var sideMenuSubInner = $('.side-menu__dropdown-inner');
   var mainMenuWithSub = $('.main-menu__item--with-sub');
   var mainMenuExpandSub = $('.main-menu__expand-sub');
   var sideMenuExpandSub = $('.side-menu__expand-sub');
   var mainMenuSubIcon = $('.main-menu__sub-icon');
   var sideMenuSubIcon = $('.side-menu__sub-icon');
-  var toolbar = $('.toolbar-bar');
   var header = $('.header-wrapper');
+  var contentTopRegion = $('.content-top-region');
+  var layoutContainer = $('.layout-container');
 
   // Calculated values
-  var winH = win.height();
-  var winW = win.width();
-  var bodyPaddingTop = '0';
-  var headerHeight = '0';
+  var winH = parseInt(win.height(), 10);
+  var winW = parseInt(win.width(), 10);
+  var bodyPaddingTop = 0;
+  var headerHeight = 0;
   var maxHeight = '100vh';
   var mainMenuHeight = mainMenu.outerHeight();
   var mainMenuActiveItem = $('.is-active');
+  var dummyElement = $('');
+  var dummyElementMaxHeight = '0';
+  var currentScrollTop = 0;
+  var totalHeightToSkip = 0;
 
   // Classes
   var mainMenuSubOpen = 'main-menu__sub-icon--open';
@@ -85,8 +90,8 @@
   $('.main-menu__item--active-trail > .main-menu__expand-sub > .main-menu__sub-icon').addClass(mainMenuSubOpen);
   $('.main-menu__item--active-trail > .main-menu__dropdown').addClass(menuVisible);
 
-  $('.menu-item--active-trail > .side-menu__expand-sub > .side-menu__sub-icon').addClass(sideMenuSubOpen);
-  $('.menu-item--active-trail > .side-menu__dropdown').addClass(menuVisible);
+  $('.side-menu__item--active-trail > .side-menu__expand-sub > .side-menu__sub-icon').addClass(sideMenuSubOpen);
+  $('.side-menu__item--active-trail > .side-menu__dropdown').addClass(menuVisible);
 
   // Remove mobile nav background
   function removeMainMenuBg() {
@@ -142,23 +147,38 @@
 
   // Calculate body padding top (to accommodate the admin menu)
   function calculateBodyPaddingTop() {
-    bodyPaddingTop = parseInt(body.css('padding-top'));
+    bodyPaddingTop = parseInt(body.css('padding-top'), 10);
   };
 
   // Calculate header height (to accommodate the fixed header bar)
   function calculateHeaderHeight() {
-    headerHeight = parseInt(header.css('height'));
+    headerHeight = 0;
+    if (header.css('position') == 'fixed') {
+      headerHeight = parseInt(header.css('height'), 10);
+    }
   };
+
+  function setSideMenuSubMaxHeight() {
+    $(sideMenuSubInner).each(function () {
+      dummyElement = $(this).clone();
+      dummyElement.css({ 'visibility': 'hidden', 'position': 'absolute' }).insertAfter(this);
+      dummyElementMaxHeight = dummyElement.height();
+      dummyElement.remove();
+      $(this).closest(sideMenuSub).css({ 'max-height': dummyElementMaxHeight });
+    });
+  }
 
   // Set the height and position of the main-nav and header bar
   function calculateMenuHeights() {
     dom.ready(function () {
-      winH = win.height();
+      winH = parseInt(win.height(), 10);
       calculateBodyPaddingTop();
       calculateHeaderHeight();
       maxHeight = winH - bodyPaddingTop;
       mainMenu.css({ 'top': bodyPaddingTop, 'max-height': maxHeight });
       header.css({ 'top': bodyPaddingTop });
+      layoutContainer.css({ 'margin-top': headerHeight });
+      setSideMenuSubMaxHeight();
     });
   };
 
@@ -167,7 +187,7 @@
   // Update everything when the window is resized
   win.resize(function () {
     waitForFinalEvent(function () {
-      winW = win.width();
+      winW = parseInt(win.width(), 10);
       // If desktop width remove all mobile menu stuff
       if (winW > 900) {
         // Remove background overlay
@@ -179,21 +199,19 @@
         // Hide mobile menu
         mainMenu.removeClass(menuVisible);
       }
-
+      // setHeaderMarginTop();
       calculateMenuHeights();
     }, 100, "Main menu - window resize");
   });
 
-  // Hide heading bar on scroll down, show on scroll up
-  var c,
-      currentScrollTop = 0;
-  win.scroll(function () {
-    var currentScrollTop = win.scrollTop();
-    var b = header.height();
+  calculateBodyPaddingTop();
+  var c;
 
-    if (c < currentScrollTop && currentScrollTop > b + b) {
+  win.scroll(function () {
+    currentScrollTop = parseInt(win.scrollTop());
+    if (c < currentScrollTop && currentScrollTop > bodyPaddingTop + headerHeight) {
       header.addClass("scrollUp");
-    } else if (c > currentScrollTop && !(currentScrollTop <= b)) {
+    } else if (c > currentScrollTop && !(currentScrollTop <= headerHeight)) {
       header.removeClass("scrollUp");
     }
     c = currentScrollTop;
