@@ -27,7 +27,10 @@ ckeditor_stylesheets:
 
 
 regions:
-  header: Header
+  header_top: Header Top
+  header_branding: Branding
+  header_user_nav: User Navigation
+  header_main_nav: Main Navigation
   content_top: Content Top
   sidebar_first: First Sidebar
   content: Content  # the content region is required

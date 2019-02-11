@@ -1,12 +1,15 @@
 $break-layout: $medium;
 
 .layout-container {
+  // position: relative;
+
   .adminimal & {
     width: 97%;
   }
 }
 
 .layout-sidebar-first {
+  margin: 0 0 $space-and-half;
   padding-left: 45px;
 }
 

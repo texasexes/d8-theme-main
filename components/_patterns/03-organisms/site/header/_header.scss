@@ -1,11 +1,11 @@
 $header-wrapper-height: 50px;
+$toobar-height: 39px;
 
 .header-wrapper {
   display: flex;
   background-color: $white;
 
   @include breakpoint($break-nav-max) {
-    background: #fff;
     height: $header-wrapper-height;
     // line-height: 80px
     box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
@@ -13,16 +13,21 @@ $header-wrapper-height: 50px;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 9998;
+    z-index: 500;
     transition: all 0.5s;
     &.scrollUp {
+      top: 0;
       transform: translateY(-$header-wrapper-height); //should match the height, but extra to accomodate admin toolbar (40px) if present?
+
+      @at-root .toolbar-vertical #{&} {
+        transform: translateY(-$header-wrapper-height + -$toobar-height);
+      }
     }
   }
 }
 
-.header-region {
-  @include wrapper;
+.header-regions {
+  // @include wrapper;
 
   display: flex;
   flex-flow: row nowrap;
@@ -34,6 +39,8 @@ $header-wrapper-height: 50px;
   }
 
   @include breakpoint($break-nav-max) {
+    @include wrapper;
+
     .site-logo {
       a {
         display: block;
@@ -44,44 +51,40 @@ $header-wrapper-height: 50px;
       }
     }
   }
-}
 
-.header {
-  &__top {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
-    align-items: center;
-    flex: 1 1 100%;
+  &__section {
 
-    @include breakpoint($break-nav) {
-      flex-basis: 75%;
-      margin: 0 40px;
-    }
-  }
+    &--1 {
 
-  &__branding {
-    flex: 1 1 auto;
+      display: flex;
+      // flex-flow: row nowrap;
+      justify-content: space-between;
+      align-items: center;
 
-    img {
-      max-width: 288px;
+
+      @include breakpoint($break-nav) {
+        // @include breakout;
+
+        // flex-basis: 100vw;
+        flex: 1 1 100%;
+        order: 1;
+      }
     }
 
-    @include breakpoint($break-nav) {
-      flex-basis: 50%;
-    }
-  }
+    &--2 {
+      @include wrapper;
 
-  &__secondary {
-    flex: 1 1 auto;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: flex-end;
-    text-align: right;
+      display: flex;
+      // flex-flow: row nowrap;
+      justify-content: space-between;
+      align-items: center;
+      flex: 1 1 100%;
 
-    @include breakpoint($break-nav) {
-      flex-basis: 50%;
-      padding: 1.6rem 0;
+      @include breakpoint($break-nav) {
+        // flex-basis: 75%;
+        padding: 0 40px;
+      }
     }
+
   }
 }

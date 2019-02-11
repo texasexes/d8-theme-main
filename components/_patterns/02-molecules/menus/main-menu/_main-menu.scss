@@ -21,15 +21,15 @@ $main-nav-item-padding: 25px;
 $main-menu-login-item-width: 23px;
 
 .primary-nav {
-  position: relative;
-  flex: 1 1 auto;
-
+  // position: relative;
+  // flex: 1 1 auto;
+  //
   @include breakpoint($break-nav) {
-    @include breakout;
-
+    // @include breakout;
+  //
     background-color: $color-menu-bg-light;
-    flex-basis: 100vw;
-    order: 1;
+  //   flex-basis: 100vw;
+  //   order: 1;
   }
 
   .search-block-form {

@@ -45,8 +45,16 @@
 #}
 <div class="{{ layout_classes|default('layout-container') }}">
 
-  <header role="banner" class="header-wrapper">
-    {{ page.header }}
+  {{ page.header_top }}
+
+  <header role="banner" class="header-wrapper header-regions">
+      <div class="header-regions__section--1">
+        {{ page.header_main_nav }}
+      </div>
+      <div class="header-regions__section--2">
+          {{ page.header_branding }}
+          {{ page.header_user_nav }}
+      </div>
   </header>
 
   {{ page.content_top }}
