@@ -138,6 +138,7 @@
     $(this).children(mainMenuSubIcon).toggleClass(mainMenuSubOpen);
     $(this).next(mainMenuSub).toggleClass(menuVisible);
   });
+
   // Display Sub-nav
   sideMenuExpandSub.click(function (e) {
     e.preventDefault();
@@ -161,7 +162,7 @@
   function setSideMenuSubMaxHeight() {
     $(sideMenuSubInner).each(function () {
       dummyElement = $(this).clone();
-      dummyElement.css({ 'visibility': 'hidden', 'position': 'absolute' }).insertAfter(this);
+      dummyElement.css({ 'visibility': 'hidden', 'position': 'absolute', 'max-height': 'unset' }).insertAfter(this);
       dummyElementMaxHeight = dummyElement.height();
       dummyElement.remove();
       $(this).closest(sideMenuSub).css({ 'max-height': dummyElementMaxHeight });
