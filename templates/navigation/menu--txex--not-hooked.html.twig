@@ -25,7 +25,10 @@
 {% set menu_list_classes_extra = menu_list_classes_extra|default([]) %}
 {% set menu_item_classes_extra = menu_item_classes_extra|default([]) %}
 
+{{ attach_library('d8_theme_main/main_menu') }}
+
 {% block content %}
+
   {% import _self as menus %}
 
   {#
