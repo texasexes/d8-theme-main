@@ -55,6 +55,7 @@
             menu_bem_blockname ~ '__item--level-' ~ menu_level,
             item.below ? (menu_bem_blockname ~ '__item--with-sub'),
             item.in_active_trail ? (menu_bem_blockname ~ '__item--active-trail'),
+            (item.in_active_trail and not item.below) ? (menu_bem_blockname ~ '__item--active-trail-last'),
             item.is_expanded ? (menu_bem_blockname ~ '__item--expanded'),
             item.is_collapsed ? (menu_bem_blockname ~ '__item--collapsed'),
             item.is_login_link ? (menu_bem_blockname ~ '__item--login-wrapper')
