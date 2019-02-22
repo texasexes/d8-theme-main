@@ -38,13 +38,17 @@ $sidebar-nav-item-vertical-padding: $space-one-third;
   }
 
   &__dropdown {
+    &.js-visible {
+      & > #{$parent}__dropdown-inner {
+        max-height: inherit;
+        transition: max-height 0.25s ease-in;
+      }
+    }
+  }
+
+  &__dropdown-inner {
     max-height: 0;
     transition: max-height 0.15s ease-out;
-
-    &.js-visible {
-      max-height: inherit;
-      transition: max-height 0.25s ease-in;
-    }
   }
 
   &__item {
