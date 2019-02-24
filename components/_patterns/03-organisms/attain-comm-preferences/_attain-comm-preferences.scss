@@ -1,0 +1,37 @@
+@mixin attain-comm-preferences-form-text($color: $grey-7) {
+  font-family: $font-tertiary;
+  font-size: 1.6rem;
+  color: $color;
+}
+
+.attain-comm-preferences-form {
+  padding-bottom: 30px;
+  
+  label {
+    @include attain-comm-preferences-form-text;
+
+    padding: 0 0 15px 15px;
+  }
+
+  fieldset {
+    border: 1px solid #ecede8;
+    padding: 20px;
+  }
+
+  legend {
+    .fieldset-legend {
+      @extend .wysiwyg__h2;
+      padding: 0 5px;
+    }
+  }
+
+  .form-submit {
+    @include button-small;
+
+    margin-bottom: 10px;
+  }
+
+  .form-wrapper {
+    margin-bottom: 10px;
+  }
+}
