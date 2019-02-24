@@ -1,0 +1,41 @@
+.txex-mini-card {
+  position: relative;
+
+  &__section--1 {
+    display: inline-block;
+    fill: #cb6015;
+    // position: absolute;
+    // top: 0;
+    height: 20px;
+    vertical-align: top;
+    width: 20px;
+  }
+
+  &__section--2 {
+    display: inline-block;
+    padding-left: 10px;
+    vertical-align: top;
+  }
+
+  &__item {
+    &--icon {
+      display: block;
+      height: 100%;
+      width: 100%;
+    }
+
+    &--heading {
+      line-height: 1;
+      margin: 0 0 5px;
+    }
+
+    &--link::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+  }
+}
