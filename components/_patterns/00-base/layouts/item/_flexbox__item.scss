@@ -21,7 +21,7 @@
 
   &--feature-10 {
     &:first-of-type {
-      flex: 0 1 10%;
+      flex: 0 0 10%;
     }
 
     &:only-of-type {
@@ -31,7 +31,7 @@
 
   &--feature-15 {
     &:first-of-type {
-      flex: 0 1 15%;
+      flex: 0 0 15%;
     }
 
     &:only-of-type {
@@ -41,7 +41,7 @@
 
   &--feature-20 {
     &:first-of-type {
-      flex: 0 1 20%;
+      flex: 0 0 20%;
     }
 
     &:only-of-type {
@@ -51,7 +51,7 @@
 
   &--feature-25 {
     &:first-of-type {
-      flex: 0 1 25%;
+      flex: 0 0 25%;
     }
 
     &:only-of-type {
@@ -76,7 +76,7 @@
   // @include breakpoint(max-width $break-layout) {
     &--feature-40 {
       &:first-of-type {
-        flex: 0 1 40%;
+        flex: 0 0 40%;
       }
 
       &:only-of-type {
@@ -94,7 +94,7 @@
 
     &--feature-50 {
       &:first-of-type {
-        flex: 0 1 50%;
+        flex: 0 0 50%;
       }
 
       &:only-of-type {
@@ -112,7 +112,7 @@
 
     &--feature-60 {
       &:first-of-type {
-        flex: 0 1 60%;
+        flex: 0 0 60%;
       }
 
       &:only-of-type {
@@ -130,7 +130,7 @@
 
     &--feature-66 {
       &:first-of-type {
-        flex: 0 1 66%;
+        flex: 0 0 66%;
       }
 
       &:only-of-type {
@@ -148,7 +148,7 @@
 
     &--feature-75 {
       &:first-of-type {
-        flex: 0 1 75%;
+        flex: 0 0 75%;
       }
 
       &:only-of-type {
@@ -166,7 +166,7 @@
 
     &--feature-80 {
       &:first-of-type {
-        flex: 0 1 80%;
+        flex: 0 0 80%;
       }
 
       &:only-of-type {
@@ -188,7 +188,7 @@
       align-content: flex-start;
 
       &:first-of-type {
-        flex: 0 1 100%;
+        flex: 0 0 100%;
         align-self: space-around;
       }
 
@@ -205,7 +205,7 @@
       align-content: flex-start;
 
       &:first-of-type {
-        flex: 0 1 100%;
+        flex: 0 0 100%;
         align-self: space-around;
       }
 
@@ -213,7 +213,7 @@
         flex-basis: 0;
 
         &:first-of-type {
-          flex: 0 1 25%;
+          flex: 0 0 25%;
         }
 
         &:only-of-type {
@@ -232,7 +232,7 @@
       align-content: flex-start;
 
       &:first-of-type {
-        flex: 0 1 100%;
+        flex: 0 0 100%;
         align-self: space-around;
       }
 
@@ -240,7 +240,7 @@
         flex-basis: 0;
 
         &:first-of-type {
-          flex: 0 1 33%;
+          flex: 0 0 33%;
         }
 
         &:only-of-type {
