@@ -21,7 +21,8 @@
  * @see d8_theme_main_preprocess_user()
  */
 #}
-<article{{ attributes }}>
+
+<article{{ attributes.addClass('txex-user-profile-page') }}>
   {#
   /**
    * Top User Card looking thing with photo, name, and address
@@ -30,33 +31,6 @@
    *   view mode will be styled by Jeff
    */
   #}
-
-{#{ kint() }#}
-
-  <!-- <section id="txex-member-profile-main">
-    <div id="txex-member-profile-base">
-      <h3>My Profile <span class="txex-update-link"><a href="{#{ user_edit_link }#}">{#{ "Update" | t }#}</a></span></h3>
-      {#{ drupal_entity('user', null, 'profile_base_information')}#}
-    </div>
-    <div id="txex-member-profile-base">
-      <h3>My Membership</h3>
-      {#{ drupal_entity('user', null, 'profile_membership_information')}#}
-    </div>
-    <div id="txex-member-profile-base">
-      <h3>More About Me <span class="txex-update-link"><a href="{#{ user_edit_link }#}">{#{ "Update" | t }#}</a></span></h3>
-      {#{ drupal_entity('user', null, 'profile_extra_information')}#}
-      <div class="txex-update-link"><a href="{#{ user_edit_link }#}">{#{ "See more and make updates" | t }#}</a></div>
-    </div>
-  </section>
-
-  <section id="txex-dashboard-sidebar">
-    <h3>{#{ "My Groups" | t }#}</h3>
-    {#{ drupal_view('txex_user_chapter_memberships', 'txex_chapter_membership_block') }#}
-    <h3>{#{ "My Events" | t }#}</h3>
-    {#{ drupal_view('txex_user_events', 'txex_member_events_block') }#}
-    <h3>{#{ "My Giving" | t }#}</h3>
-    {#{ drupal_block('txex_giving_status_block') }#}
-  </section> -->
 
   {% block user_profile %}
 
@@ -67,16 +41,16 @@
     {% set user_profile_base_class = 'flexbox' %}
 
     {% set user_profile_blocks_left = user_profile_blocks_left|merge({ 0 : (drupal_entity('user', null, 'profile_base_information'))}) %}
-    {% set user_profile_blocks_left = user_profile_blocks_left|merge({ 0 : (drupal_entity('user', null, 'profile_membership_information'))}) %}
-    {% set user_profile_blocks_left = user_profile_blocks_left|merge({ 0 : (drupal_entity('user', null, 'profile_extra_information'))}) %}
+    {% set user_profile_blocks_left = user_profile_blocks_left|merge({ 1 : (drupal_entity('user', null, 'profile_membership_information'))}) %}
+    {% set user_profile_blocks_left = user_profile_blocks_left|merge({ 2 : (drupal_entity('user', null, 'profile_extra_information'))}) %}
 
     {% set user_profile_blocks_right = user_profile_blocks_right|merge({ 0 : (drupal_view('txex_user_chapter_memberships', 'txex_chapter_membership_block'))}) %}
-    {% set user_profile_blocks_right = user_profile_blocks_right|merge({ 0 : (drupal_view('txex_user_events', 'txex_member_events_block'))}) %}
-    {% set user_profile_blocks_right = user_profile_blocks_right|merge({ 0 : (drupal_block('txex_giving_status_block'))}) %}
+    {% set user_profile_blocks_right = user_profile_blocks_right|merge({ 1 : (drupal_view('txex_events', 'block_3'))}) %}
+    {% set user_profile_blocks_right = user_profile_blocks_right|merge({ 2 : (drupal_block('txex_giving_status_block'))}) %}
 
     {% set user_profile_blocks = user_profile_blocks|merge({ 0 : (user_profile_blocks_left), 1 : user_profile_blocks_right}) %}
 
-    {% set user_profile_layout_classes = user_profile_layout_classes|merge({'paragraph-wrapper' : 'paragraph-wrapper', 'horizontal' : 'horizontal', 'layout-row' : 'layout-row', 'feature-50' : 'feature-50', 'layout-background-3' : 'layout-background-3', 'layout-box-4' : 'layout-box-4', 'item-box-2' : 'item-box-2'}) %}
+    {% set user_profile_layout_classes = user_profile_layout_classes|merge({'paragraph-wrapper' : 'paragraph-wrapper', 'horizontal' : 'horizontal', 'layout-row' : 'layout-row', 'feature-50' : 'feature-50', 'layout-box-6' : 'layout-box-6', 'item-box-5' : 'item-box-5'}) %}
 
     {% if paragraph_modifiers %}
       {% set user_profile_layout_classes = user_profile_layout_classes|merge(user_profile_modifiers) %}
