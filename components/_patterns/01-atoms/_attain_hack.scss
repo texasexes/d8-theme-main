@@ -1,0 +1,209 @@
+.active-pledge-wrapper,
+.active-membership-wrapper {
+  position: relative;
+
+  > div:first-child {
+    fill: #cb6015;
+    position: absolute;
+    top: 0;
+    height: 50px;
+    width: 50px;
+  }
+
+  > div:nth-child(2) {
+    padding-left: 70px;
+  }
+
+}
+.active-pledge__txex-icon-giving,
+.active-membership__txex-icon-pay-invoice {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+.txex-membership-toolbox {
+  list-style: none;
+  padding: 0;
+
+  &__password,
+  &__payment {
+    height: 50px;
+    position: relative;
+  }
+
+  & a {
+    padding-left: 70px;
+  }
+
+  &__txex-icon-password,
+  &__txex-icon-pay-updatecard {
+    display: block;
+    height: 100%;
+    width: 100%;
+    fill: #cb6015;
+    position: absolute;
+    top: 0;
+    height: 50px;
+    width: 50px;
+  }
+}
+
+
+.fieldset-wrapper {
+  .description {
+    @extend .p;
+
+    margin: 0 0 20px;
+  }
+}
+
+.wysiwyg__h4--user {
+  display: inline-block;
+  &::after {
+    content: ":";
+  }
+}
+
+
+.active-pledge-wrapper,
+.active-membership-wrapper,
+.giving-links-wrapper,
+.toolbox-link-wrapper,
+.txex-card-member-bio,
+.txex-profile-base-information,
+.membership-wrapper,
+#block-givinghistory,
+#block-commemorativetileblock {
+  margin-bottom: 10px;
+  position: relative;
+
+  .wysiwyg__h4,
+  .p {
+    margin: 0;
+  }
+
+  svg {
+    height: 30px;
+    fill: $burnt-orange;
+    float: left;
+    padding: 0;
+    width: 20px;
+
+    & + a {
+      //vertically centers single line link following the icon
+      line-height: 30px;
+    }
+  }
+}
+
+.active-pledge-wrapper,
+.active-membership-wrapper,
+.giving-links-wrapper,
+.toolbox-link-wrapper {
+  h3,
+  p,
+  a {
+    display: block;
+    padding-left: 35px;
+  }
+}
+
+
+.txex-giving-status-block,
+.txex-giving-page,
+.txex-user-profile-page,
+.txex-membership-page {
+  .wysiwyg__h2 {
+    border-bottom-style: solid;
+    border-color: #f6f6f2;
+    border-width: 1px;
+
+    padding-bottom: 10px;
+    margin-bottom: 20px
+  }
+}
+
+.group_logo {
+  background: #cb6015;
+  border-radius: 5px;
+  display: inline-block;
+  margin: 10px 10px 10px 0;
+  padding: 3px;
+  position: relative;
+  vertical-align: middle;
+  width: 100px;
+}
+
+.txex-update-link {
+  padding-left: 15px;
+}
+
+.txex-user-profile-page,
+.txex-membership-page {
+  .views-element-container {
+    margin-bottom: 30px;
+  }
+}
+
+.txex-profile-base-information,
+.txex-membership-renewal,
+.txex-profile-extra-information,
+.views-element-container,
+.membership-wrapper {
+  margin-bottom: 30px;
+}
+
+#gift-detail-table-wrapper {
+  #gift-detail-table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  .gift-header {
+    @extend .wysiwyg__h4;
+
+    text-align: left;
+  }
+
+  .gift-sample-row {
+    display: none;
+  }
+
+  .gift-row {
+    border-top-style: solid;
+    border-color: #f6f6f2;
+    border-width: 1px;
+    padding: 5px 0;
+  }
+
+  .gift-data {
+    @extend .p;
+
+    padding: 5px 0;
+  }
+}
+
+#tile-information-wrapper {
+  @extend .p;
+
+  .tile-intro {
+    @extend .wysiwyg__h4;
+
+    border-top-style: solid;
+    border-color: #f6f6f2;
+    border-width: 1px;
+    padding: 5px 0;
+  }
+
+  .tile-location-wrapper,
+  .tile-inscription-wrapper {
+    & > div {
+      display: inline-block;
+
+      &:first-child {
+        min-width: 25%;
+      }
+    }
+  }
+
+}
