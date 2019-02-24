@@ -4,19 +4,38 @@
   color: $color;
 }
 
+label {
+  @include user-edit-form-text;
+
+  display: inline-flex;
+  align-items: center;
+  padding: 0 0 15px 15px;
+  // width: 135px;
+}
+
 .page--user--edit {
   .layout-content {
-    @include wrapper($container-max-width: $small);
+    // @include wrapper($container-max-width: $medium);
   }
 }
 
 .user-form {
-  padding-bottom: 170px;
+  padding-bottom: 30px;
 
   .form-item {
-    display: flex;
-    flex-flow: row wrap;
-    margin-bottom: $space-one-third;
+    // display: flex;
+    // flex-flow: row wrap;
+    margin-bottom: $space-one-half;
+  }
+
+  .field-group-html-element {
+    & > * {
+      padding-left: 30px;
+
+      &:first-child {
+        padding-left: 0;
+      }
+    }
   }
 
   label {
@@ -24,17 +43,19 @@
 
     display: flex;
     align-items: center;
-    width: 135px;
+    padding: 0 0 2px ;
+    // width: 135px;
   }
 
-  .form-text {
+  .form-text,
+  .form-email {
     border: 1px solid $grey-c;
     border-radius: 2px;
     height: 34px;
     padding: 0 0.5em;
 
     @include breakpoint(350px) {
-      width: 234px;
+      // width: 234px;
     }
 
     &::placeholder {
@@ -42,6 +63,31 @@
         $color: $grey-b
       );
     }
+  }
+
+  fieldset {
+    border: 1px solid #ecede8;
+    padding: 20px;
+  }
+
+  legend {
+    .fieldset-legend {
+      @extend .wysiwyg__h2;
+      padding: 0 5px;
+    }
+  }
+
+  summary {
+    @extend .wysiwyg__h3;
+  }
+
+  .wysiwyg__h4 {
+    margin: 0;
+  }
+
+  .option {
+    display: inline;
+    padding: 0 0 15px 15px;
   }
 
   .description {
