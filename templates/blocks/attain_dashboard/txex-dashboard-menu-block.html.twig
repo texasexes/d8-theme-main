@@ -1,0 +1,10 @@
+<div{{attributes}}>
+  {% if login_message %}
+    {{ login_message }}
+  {% endif %}
+  <ul class="attain-task-nav-menu txex-member-dashboard-menu">
+    {% for item in member_dashboards  %}
+      {{ item }}
+    {% endfor %}
+  </ul>
+</div>
