@@ -9,6 +9,7 @@ $color-menu-bg-darker: #272731;
 $color-menu-bg-dark: $purple-2;
 
 .local-tasks-nav {
+  position: relative;
   // @include wrapper($container-max-width: $xl);
   // margin: $space-one-half 0;
   @include breakpoint($break-nav) {
@@ -50,10 +51,10 @@ $color-menu-bg-dark: $purple-2;
   }
 
   &__txex-logo-circle {
-    bottom: 0;
+    bottom: auto;
     color: $burnt-orange;
-    display: none;
     fill: $white;
+    height: 3rem;
     left: 12px;
     margin: auto;
     position: absolute;
@@ -61,7 +62,8 @@ $color-menu-bg-dark: $purple-2;
     width: 2rem;
 
     @include breakpoint($break-nav) {
-      display: block;
+      bottom: 0;
+      height: auto;
     }
   }
 }
