@@ -1,0 +1,16 @@
+@mixin messages-text($color: $grey-7) {
+  font-family: $font-tertiary;
+  font-size: 1.5rem;
+  line-height: 1.5;
+  color: $color;
+}
+
+.messages {
+  @include messages-text;
+
+  margin: 9px 0 10px 8px;
+
+  @include breakpoint($break-nav) {
+    margin: $space-one-half $space-and-half $space-one-half ($space-and-half + 8px);
+  }
+}
