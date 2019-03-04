@@ -503,6 +503,11 @@ $main-menu-login-item-width: 23px;
         display: none;
       }
     }
+
+    // since
+    &--remove-for-redundancy {
+      display: none;
+    }
   }
 
   &__profile-icon {
