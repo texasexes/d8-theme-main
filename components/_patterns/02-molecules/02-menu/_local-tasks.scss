@@ -19,11 +19,9 @@ $color-menu-bg-dark: $purple-2;
     background-color: $burnt-orange;
     list-style: none;
     margin: 0;
-    // margin: $space-one-third;
 
     @include breakpoint($break-nav) {
       padding: 0 $space-and-half;
-      // margin: $space-one-half 0;
     }
   }
 
@@ -32,7 +30,6 @@ $color-menu-bg-dark: $purple-2;
   }
 
   a {
-    // @include local-tasks-text($color: $burnt-orange);
     @include link($color: $white, $color--hover: $white);
 
     padding: 5px $space-one-half;
