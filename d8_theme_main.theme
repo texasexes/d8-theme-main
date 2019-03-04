@@ -331,6 +331,35 @@ function d8_theme_main_preprocess_block(&$variables) {
 function d8_theme_main_preprocess_user(&$variables) {
   $user_id = $variables['user']->id();
   $variables['user_edit_link'] = Url::fromRoute('entity.user.edit_form', ['user' => $user_id], []);
+
+  if ('profile_base_information'=== $variables['elements']['#view_mode']) {
+    $name_first = array_key_exists(0, $variables['elements']['field_txex_text_plain_01']) ? $variables['elements']['field_txex_text_plain_01'][0]['#context']['value'] : null;
+    $name_middle = array_key_exists(0, $variables['elements']['field_txex_text_plain_03']) ? $variables['elements']['field_txex_text_plain_03'][0]['#context']['value'] : null;
+    $name_last = array_key_exists(0, $variables['elements']['field_txex_text_plain_02']) ? $variables['elements']['field_txex_text_plain_02'][0]['#context']['value'] : null;
+    $name_suffix = array_key_exists(0, $variables['elements']['field_txex_text_plain_04']) ? $variables['elements']['field_txex_text_plain_04'][0]['#context']['value'] : null;
+
+    $names_array = array($name_first, $name_middle, $name_last, $name_suffix);
+    $full_name = implode(' ', array_filter($names_array, function($v){ return $v !== null; }));
+
+    $heading_template = '{% include "@atoms/03-text/01-heading/_heading.twig" %}';
+    $full_name_render_array = [
+      $build['full_name_render'] = [
+        '#type' => 'inline_template',
+        '#template' => $heading_template,
+        '#context' => [
+          'heading_base_class' => 'h4',
+          'heading_blockname' => 'wysiwyg',
+          'heading_content' => $full_name,
+          'heading_level' => 3,
+          // attributes need because custom twig function bem.php wants it as
+          // an array index in processing
+          'attributes' => [],
+        ],
+      ],
+    ];
+
+    $variables['full_name'] = $full_name_render_array;
+  }
 }
 
 
