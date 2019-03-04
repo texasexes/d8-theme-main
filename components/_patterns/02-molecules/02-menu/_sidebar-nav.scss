@@ -30,7 +30,8 @@ $sidebar-nav-item-vertical-padding: $space-one-third;
   // -webkit-font-smoothing: antialiased;
   // -moz-osx-font-smoothing: grayscale;
 
-  a {
+  a,
+  span {
     color: $grey-7;
     display: inline-block;
     position: relative;
@@ -59,7 +60,8 @@ $sidebar-nav-item-vertical-padding: $space-one-third;
     overflow: hidden;
     position: relative;
 
-    a {
+    a,
+    span {
       padding: $sidebar-nav-item-vertical-padding $sidebar-nav-item-horizontal-padding;
       padding-right: $side-menu-dropdown-toggle-total-width;
 
