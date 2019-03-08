@@ -1,0 +1,66 @@
+{#
+/**
+ * @file
+ * Theme override to present all user data.
+ *
+ * This template is used when viewing a registered user's page,
+ * e.g., example.com/user/123. 123 being the user's ID.
+ *
+ * Available variables:
+ * - content: A list of content items. Use 'content' to print all content, or
+ *   print a subset such as 'content.field_example'. Fields attached to a user
+ *   such as 'user_picture' are available as 'content.user_picture'.
+ * - attributes: HTML attributes for the container element.
+ * - user: A Drupal User entity.
+ *
+ * @see template_preprocess_user()
+ */
+#}
+
+<div class="txex-profile-base-information">
+  <h2 class="wysiwyg__h2">My Profile <span class="txex-update-link"><a class="link" href="{{ user_edit_link }}">{{ "Update" | t }}</a></span></h2>
+  <div class="txex-card-member-bio">
+    {% set giving_status_blocks = [] %}
+    {% set giving_status_blocks_left = [] %}
+    {% set giving_status_blocks_right = [] %}
+    {% set giving_status_layout_classes = [] %}
+    {% set giving_status_base_class = 'flexbox' %}
+
+    {% set giving_status_blocks_left = giving_status_blocks_left|merge({ 0 : (content.user_picture)}) %}
+
+    {% set giving_status_blocks_right = giving_status_blocks_right|merge({ 0 : (full_name) }) %}
+    {% set giving_status_blocks_right = giving_status_blocks_right|merge({ 1 : (content.field_txex_address_01)}) %}
+
+    {% set giving_status_blocks = giving_status_blocks|merge({ 0 : (giving_status_blocks_left), 1 : giving_status_blocks_right}) %}
+
+    {% set giving_status_layout_classes = giving_status_layout_classes|merge({'paragraph-wrapper' : 'paragraph-wrapper', 'horizontal' : 'horizontal', 'feature-25' : 'feature-25', 'layout-background-4' : 'layout-background-4', 'layout-box-6' : 'layout-box-6', 'item-box-5' : 'item-box-5'}) %}
+
+    {% if paragraph_modifiers %}
+      {% set giving_status_layout_classes = giving_status_layout_classes|merge(giving_status_modifiers) %}
+    {% endif %}
+
+    {% include "@molecules/01-card/00-card.twig" with {
+      "card_base_class": giving_status_base_class,
+      "card_modifiers": giving_status_layout_classes,
+      "card_sections": giving_status_blocks,
+      "layout_section_base_class": 'flexbox',
+      "layout_section_modifiers": {1 : 'vertical'},
+      "layout_section_layout_extra": giving_status_layout_classes,
+    }%}
+  </div>
+
+  {{ content | without(
+    'user_picture',
+    'field_txex_text_plain_01',
+    'field_txex_text_plain_02',
+    'field_txex_text_plain_03',
+    'field_txex_text_plain_04',
+    'field_txex_address_01',
+    'field_txex_text_list_01',
+    'field_txex_text_list_02',
+    'field_txex_list_text_03',
+    'field_txex_list_text_04',
+    'profile_base_information_membership_toolbox_links') }}
+
+  {{ content.profile_base_information_membership_toolbox_links }}
+</div>

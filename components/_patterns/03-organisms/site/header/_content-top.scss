@@ -1,11 +1,9 @@
 .content-top-region {
   @include wrapper;
-
-  display: flex;
-  flex-direction: column;
+  
+  // display: flex;
+  // flex-direction: column;
   background-color: $white;
-
-  @include breakpoint($break-nav-max) {
-    padding-top: 70px;
-  }
+  // to cancel out collaped margins of first child and last child
+  overflow: auto;
 }

@@ -1,0 +1,17 @@
+<div{{ attributes }}>
+  <h2 class="wysiwyg__h2">{{'Thank you for your support'|t}}</h2>
+
+  {% if has_active_pledge == true %}
+    <div class="active-pledge-wrapper">
+          <svg><use xlink:href="/themes/custom/d8-theme-main/dist/img/sprite/sprite.svg#{{ pledge_details.icon }}"></use></svg>
+      <h3 class="wysiwyg__h4" id="current-pledge">{{ "Current Pledge" | t }}</h3>
+        <p class="p pledge-details">{{ pledge_details.total_value }} ({{ pledge_details.remaining_balance }} {{"Remaining" |t}})</p>
+        <p class="p pledge-next-payment">{{ "Next payment will be on " |t }}{{ pledge_details.next_payment }}
+    </div>
+  {% endif %}
+
+  <div class="giving-links-wrapper">
+    {{ giving_toolbox_links }}
+  </div>
+
+</div>

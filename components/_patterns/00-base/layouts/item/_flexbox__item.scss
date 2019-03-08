@@ -6,7 +6,7 @@
   }
 
   &--vertical {
-    flex: 0 0 auto; //flex-grow flex-shrink flex-basis
+    flex: 0 1 auto; //flex-grow flex-shrink flex-basis
     // justify-content: stretch; // This isn't a thing...
     margin-bottom: 0;
   }
@@ -61,7 +61,7 @@
 
   &--feature-33 {
     &:first-of-type {
-      flex: 0 0 33%;
+      flex: 0 1 33%;
     }
 
     &:only-of-type {
@@ -188,7 +188,7 @@
       align-content: flex-start;
 
       &:first-of-type {
-        flex: 0 1 100%;
+        flex: 0 0 100%;
         align-self: space-around;
       }
 
@@ -205,7 +205,7 @@
       align-content: flex-start;
 
       &:first-of-type {
-        flex: 0 1 100%;
+        flex: 0 0 100%;
         align-self: space-around;
       }
 
@@ -232,7 +232,7 @@
       align-content: flex-start;
 
       &:first-of-type {
-        flex: 0 1 100%;
+        flex: 0 0 100%;
         align-self: space-around;
       }
 
@@ -256,7 +256,7 @@
 
   @include breakpoint($break-layout) {
     &--region-layout {
-      margin-right: 50px;
+      margin-right: 40px;
     }
   }
 
@@ -282,6 +282,12 @@
     @include breakpoint($break-nav-max) {
       display: block;
       width: 100%;
+    }
+  }
+
+  &--layout-row {
+    &:first-of-type {
+      flex-shrink: 0;
     }
   }
 }

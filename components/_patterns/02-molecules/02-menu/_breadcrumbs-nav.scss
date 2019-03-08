@@ -1,20 +1,27 @@
 .breadcrumbs-nav {
+  display: none;
+  
+  @include breakpoint($break-nav) {
+    display: block;
+    margin: $space-one-half 0;
+  }
+
   & a {
     color: $menu-text-color-6;
     text-decoration: none;
-    // padding-right: 0.5em;
-    padding: 0.5em;
-    font-size: 0.8em;
+    padding: $space-one-half 0.8rem;
+    font-size: 1.3rem;
     font-family: "Rubik";
 
     &:hover {
-      background-color: $main-menu-highlight;
-      color: $menu-text-color-2;
+      // background-color: $main-menu-highlight;
+      // color: $menu-text-color-2;
+      color: $burnt-orange;
     }
   }
 
   & svg {
-    width: 0.25em;
+    width: 0.4rem;
     // height: 16px;
     vertical-align: middle;
     fill: $menu-text-color-5;
@@ -28,21 +35,21 @@
 
   ol {
     list-style: none;
+    margin: 0;
     padding: 0;
 
     @include breakpoint($break-nav) {
-      padding-left: 46px;
-      margin-bottom: $space;
+      padding: 0 $space-and-half;
     }
 
     li:last-of-type {
       a {
-        color: #888;
-        background-color: #f6f6f2;
+        cursor: default;
+        // color: $burnt-orange;
 
         &:hover {
-          background-color: #34364d;
-          color: #f6f6f2;
+          // background-color: $mushroom-lighter;
+          color: $menu-text-color-6;
         }
       }
     }

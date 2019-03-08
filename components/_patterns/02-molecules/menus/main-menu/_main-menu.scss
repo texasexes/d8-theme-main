@@ -21,15 +21,15 @@ $main-nav-item-padding: 25px;
 $main-menu-login-item-width: 23px;
 
 .primary-nav {
-  position: relative;
-  flex: 1 1 auto;
-
+  // position: relative;
+  // flex: 1 1 auto;
+  //
   @include breakpoint($break-nav) {
-    @include breakout;
-
+    // @include breakout;
+  //
     background-color: $color-menu-bg-light;
-    flex-basis: 100vw;
-    order: 1;
+  //   flex-basis: 100vw;
+  //   order: 1;
   }
 
   .search-block-form {
@@ -183,6 +183,32 @@ $main-menu-login-item-width: 23px;
   max-width: 100%;
   padding: 0;
 
+  a,
+  span {
+    display: block;
+    flex: 1 0 auto;
+    padding: $mobile-nav-item-vertical-padding $mobile-nav-item-horizontal-padding;
+    text-decoration: none;
+
+    color: $color-menu-text-light;
+    font-family: $font-tertiary;
+    font-size: 1.6rem;
+    line-height: 1.6;
+
+    max-width: calc(#{$width-mobile-max} - #{$main-menu-dropdown-toggle-width});
+    width: calc(100% - #{$main-menu-dropdown-toggle-width});
+
+    &.is-active {
+      color: $burnt-orange;
+    }
+
+    @include breakpoint($break-nav) {
+      padding: $mobile-nav-item-horizontal-padding;
+      width: 100%;
+      max-width: none;
+    }
+  }
+
   // ul
   &--level-0 {
     @include breakpoint($break-nav) {
@@ -226,36 +252,12 @@ $main-menu-login-item-width: 23px;
     }
   }
 
-  a {
-    display: block;
-    flex: 1 0 auto;
-    padding: $mobile-nav-item-vertical-padding $mobile-nav-item-horizontal-padding;
-    text-decoration: none;
-
-    color: $color-menu-text-light;
-    font-family: $font-tertiary;
-    font-size: 1.6rem;
-    line-height: 1.6;
-
-    max-width: calc(#{$width-mobile-max} - #{$main-menu-dropdown-toggle-width});
-    width: calc(100% - #{$main-menu-dropdown-toggle-width});
-
-    &.is-active {
-      color: $burnt-orange;
-    }
-
-    @include breakpoint($break-nav) {
-      padding: $mobile-nav-item-horizontal-padding;
-      width: 100%;
-      max-width: none;
-    }
-  }
-
   // li
   &__item {
 
     &:hover {
-      > a {
+      > a,
+      > span {
         &.is-active {
           color: $burnt-orange;
         }
@@ -272,7 +274,8 @@ $main-menu-login-item-width: 23px;
       position: relative;
       z-index: 1;
 
-      > a {
+      > a,
+      > span {
         color: $color-menu-text-light;
         font-family: $font-secondary-30;
         font-size: 2.2rem;
@@ -304,7 +307,8 @@ $main-menu-login-item-width: 23px;
           }
         }
 
-        > a {
+        > a,
+        > span {
           color: $color-menu-text-dark;
 
           &.is-active {
@@ -348,7 +352,8 @@ $main-menu-login-item-width: 23px;
             }
           }
 
-          > a {
+          > a,
+          > span {
             background-color: $color-menu-bg-darker;
             color: $color-menu-text-light;
 
@@ -409,7 +414,8 @@ $main-menu-login-item-width: 23px;
         flex-flow: column nowrap;
       }
 
-      a {
+      a,
+      span {
         padding-left: $mobile-nav-item-horizontal-padding * 2;
 
         @include breakpoint($break-nav) {
@@ -425,44 +431,51 @@ $main-menu-login-item-width: 23px;
     }
 
     &--level-2 {
-      a {
+      a,
+      span {
         color: $color-menu-text-medium;
         padding-left: $mobile-nav-item-horizontal-padding * 3;
       }
     }
 
     &--level-3 {
-      a {
+      a,
+      span {
         padding-left: $mobile-nav-item-horizontal-padding * 4;
       }
     }
 
     &--level-4 {
-      a {
+      a,
+      span {
         padding-left: $mobile-nav-item-horizontal-padding * 5;
       }
     }
 
     &--level-5 {
-      a {
+      a,
+      span {
         padding-left: $mobile-nav-item-horizontal-padding * 6;
       }
     }
 
     &--level-6 {
-      a {
+      a,
+      span {
         padding-left: $mobile-nav-item-horizontal-padding * 7;
       }
     }
 
     &--level-7 {
-      a {
+      a,
+      span {
         padding-left: $mobile-nav-item-horizontal-padding * 8;
       }
     }
 
     &--level-8 {
-      a {
+      a,
+      span {
         padding-left: $mobile-nav-item-horizontal-padding * 9;
       }
     }
@@ -490,6 +503,18 @@ $main-menu-login-item-width: 23px;
         display: none;
       }
     }
+
+    // since
+    &--remove-for-redundancy {
+      display: none;
+    }
+  }
+
+  &__profile-icon {
+    fill: $color-menu-text-light;
+    height: $main-menu-login-item-width;
+    padding-left: $space-one-half;
+    width: calc(#{$main-menu-login-item-width} + #{$space-one-half});
   }
 
   &__profile-icon {

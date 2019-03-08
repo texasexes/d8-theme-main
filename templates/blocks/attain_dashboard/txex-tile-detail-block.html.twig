@@ -1,0 +1,29 @@
+<div{{ attributes }}>
+  <div id='tile-messages'>
+    <p class="tile-messages">{{ "Loading Tile Information..." | t }}</p>
+  </div>
+  <div id="tiles-list-wrapper">
+    <div id="tile-information-wrapper" class="tiles-sample-wrapper" style="display:none">
+      <h4 id="tile-intro-header" class="tile-intro">{{- "Your " | t -}}
+        <span class="tile-size"></span>
+        {{- " purchased on " | t -}}
+        <span class="tile-date"></span>
+        {{- " for " | t -}}
+        <span class="tile-recipiant"></span>.
+      </h4>
+      <div class="tile-location-wrapper">
+        <div class="tile-location-label">{{- "Location" | t -}}</div>
+        <div>
+          <span class="tile-location-area"></span>
+          <span class="tile-location-row"></span>
+          <span class="tile-location-column"></span>
+        </div>
+      </div>
+      <div class="tile-inscription-wrapper">
+        <div class="tile-inscription-label">{{- "Inscription" | t -}}</div>
+        <div class="tile-inscription"></div>
+      </div>
+    </div>
+  </div>
+  <a class="wysiwyg__link txex-give-tile" href="/tiles">{{- "Give a tile now" | t -}}</a>
+</div>

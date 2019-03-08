@@ -1,0 +1,5 @@
+{% extends "field--user--user.html.twig" %}
+
+{% block item_block %}
+  <div{{ item.attributes.addClass('p') }}>{{- item.content -}}</div>
+{% endblock %}

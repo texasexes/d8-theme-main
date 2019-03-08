@@ -26,5 +26,7 @@
  */
 #}
 {% block item_block %}
-  {{ item }}
+{# must be item.content instead of item #}
+{# https://drupal.stackexchange.com/questions/253594/user-error-attributes-is-an-invalid-render-array-key-when-rendering-image #}
+  {{ item.content }}
 {% endblock %}

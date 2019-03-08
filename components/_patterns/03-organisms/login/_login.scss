@@ -4,29 +4,9 @@
   color: $color;
 }
 
-.page--user {
+.page--user--login {
   .layout-content {
     @include wrapper($container-max-width: $small);
-  }
-
-  .local-tasks-nav {
-    @include wrapper($container-max-width: $small);
-
-    border-bottom: 1px solid $grey-e;
-    margin-top: 120px;
-    margin-bottom: $space;
-
-    ul {
-      padding: 0;
-    }
-
-    a {
-      @include login-form-text($color: $burnt-orange);
-
-      &.is-active {
-        color: $grey-7;
-      }
-    }
   }
 }
 

@@ -1,0 +1,69 @@
+{#
+/**
+ * @file
+ * Theme override to present all user data.
+ *
+ * This template is used when viewing a registered user's page,
+ * e.g., example.com/user/123. 123 being the user's ID.
+ *
+ * Available variables:
+ * - content: A list of content items. Use 'content' to print all content, or
+ *   print a subset such as 'content.field_example'. Fields attached to a user
+ *   such as 'user_picture' are available as 'content.user_picture'.
+ * - attributes: HTML attributes for the container element.
+ * - user: A Drupal User entity.
+ *
+ * @see template_preprocess_user()
+ *
+ * Additional variables:
+ * - user_edit_link:
+ *
+ * @see d8_theme_main_preprocess_user()
+ */
+#}
+
+<article{{ attributes.addClass('txex-user-profile-page') }}>
+  {#
+  /**
+   * Top User Card looking thing with photo, name, and address
+   * - set the entity_id for the user block in code
+   * - Jeff needs to create and set up new view mode  (view_mode_to_come) -- this
+   *   view mode will be styled by Jeff
+   */
+  #}
+
+  {% block user_profile %}
+
+    {% set user_profile_blocks = [] %}
+    {% set user_profile_blocks_left = [] %}
+    {% set user_profile_blocks_right = [] %}
+    {% set user_profile_layout_classes = [] %}
+    {% set user_profile_base_class = 'flexbox' %}
+
+    {% set user_profile_blocks_left = user_profile_blocks_left|merge({ 0 : (drupal_entity('user', null, 'profile_base_information'))}) %}
+    {% set user_profile_blocks_left = user_profile_blocks_left|merge({ 1 : (drupal_entity('user', null, 'profile_membership_information'))}) %}
+    {% set user_profile_blocks_left = user_profile_blocks_left|merge({ 2 : (drupal_entity('user', null, 'profile_extra_information'))}) %}
+
+    {% set user_profile_blocks_right = user_profile_blocks_right|merge({ 0 : (drupal_view('txex_user_chapter_memberships', 'txex_chapter_membership_block'))}) %}
+    {% set user_profile_blocks_right = user_profile_blocks_right|merge({ 1 : (drupal_view('txex_events', 'block_3'))}) %}
+    {% set user_profile_blocks_right = user_profile_blocks_right|merge({ 2 : (drupal_block('txex_giving_status_block'))}) %}
+
+    {% set user_profile_blocks = user_profile_blocks|merge({ 0 : (user_profile_blocks_left), 1 : user_profile_blocks_right}) %}
+
+    {% set user_profile_layout_classes = user_profile_layout_classes|merge({'paragraph-wrapper' : 'paragraph-wrapper', 'horizontal' : 'horizontal', 'layout-row' : 'layout-row', 'feature-50' : 'feature-50', 'layout-box-6' : 'layout-box-6', 'item-box-5' : 'item-box-5'}) %}
+
+    {% if paragraph_modifiers %}
+      {% set user_profile_layout_classes = user_profile_layout_classes|merge(user_profile_modifiers) %}
+    {% endif %}
+
+    {% include "@base/layouts/layout/00-layout.twig" with {
+      "layout_attributes": attributes,
+      "layout_base_class": user_profile_base_class,
+      "layout_modifiers": user_profile_layout_classes,
+      "layout_items": user_profile_blocks,
+      "layout_modifiers_additional": {1 : 'vertical'}
+    }%}
+
+  {% endblock user_profile %}
+
+</article>

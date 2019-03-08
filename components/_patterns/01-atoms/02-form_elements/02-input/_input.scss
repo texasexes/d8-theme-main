@@ -5,3 +5,75 @@
 .txex-input {
   width: 20em;
 }
+
+$toggle-check-width: 60px;
+$toggle-check-padding-vert: 0.4rem;
+$toggle-check-padding-horiz-small: 0.7rem;
+$toggle-check-padding-horiz-large: 3.1rem;
+$toggle-check-border-radius: 1.7rem;
+$toggle-check-button-circ: 1.7rem;
+$toggle-check-button-circ-edge-padding: 0.4rem;
+
+.toggle-check {
+  display: inline-block;
+  position: relative;
+}
+
+.toggle-check-input {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  position: absolute;
+  z-index: 1;
+}
+
+.toggle-check-text {
+  font-family: $font-tertiary;
+  font-size: 1.5rem;
+  line-height: 1.25;
+
+  background: $grey-c;
+  border-radius: $toggle-check-border-radius;
+  color: $white;
+  cursor: pointer;
+  display: inline-block;
+  padding: $toggle-check-padding-vert $toggle-check-padding-horiz-small $toggle-check-padding-vert $toggle-check-padding-horiz-large;
+  position: relative;
+  text-align: right;
+  transition: background-color 0.15s;
+  width: $toggle-check-width;
+  height: ($toggle-check-button-circ + ($toggle-check-padding-vert * 2));
+}
+
+.toggle-check-text:after {
+  content: ' ';
+  display: block;
+  background: $white;
+  width: $toggle-check-button-circ;
+  height: $toggle-check-button-circ;
+  border-radius: $toggle-check-border-radius;
+  position: absolute;
+  left: $toggle-check-button-circ-edge-padding;
+  top: $toggle-check-padding-vert;
+  transition: left 0.15s, margin-left 0.15s;
+}
+
+.toggle-check-text:before {
+  content: 'No';
+}
+
+.toggle-check-input:checked ~ .toggle-check-text {
+  background: $burnt-orange;
+  text-align: left;
+  padding-left: $toggle-check-padding-horiz-small;
+  padding-right: $toggle-check-padding-horiz-large;
+}
+
+.toggle-check-input:checked ~ .toggle-check-text:before {
+  content: 'Yes';
+}
+
+.toggle-check-input:checked ~ .toggle-check-text:after {
+  left: 100%;
+  margin-left: -($toggle-check-button-circ + $toggle-check-button-circ-edge-padding);
+}

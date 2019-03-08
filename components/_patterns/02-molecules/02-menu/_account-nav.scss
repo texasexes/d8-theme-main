@@ -214,4 +214,8 @@ $color-menu-bg-light: $mushroom-light;
       fill: $burnt-orange;
     }
   }
+
+  &__expand-sub {
+    display: none;
+  }
 }
