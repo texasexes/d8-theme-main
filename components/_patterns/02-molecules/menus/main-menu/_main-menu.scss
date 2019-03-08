@@ -517,6 +517,13 @@ $main-menu-login-item-width: 23px;
     width: calc(#{$main-menu-login-item-width} + #{$space-one-half});
   }
 
+  &__profile-icon {
+    fill: $color-menu-text-light;
+    height: $main-menu-login-item-width;
+    padding-left: $space-one-half;
+    width: calc(#{$main-menu-login-item-width} + #{$space-one-half});
+  }
+
   &__expand-sub {
     align-items: center;
     cursor: pointer;
