@@ -88,6 +88,18 @@ $sidebar-nav-item-vertical-padding: $space-one-third;
       }
     }
 
+    &--active-trail-last {
+      a,
+      span {
+        background: $mushroom-light;
+        color: $burnt-orange;
+
+        &:hover{
+          background: $mushroom-light;
+        }
+      }
+    }
+
     &--level-1 {
       a {
         padding-left: $sidebar-nav-item-horizontal-padding * 3;

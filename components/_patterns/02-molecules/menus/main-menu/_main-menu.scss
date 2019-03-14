@@ -269,6 +269,20 @@ $main-menu-login-item-width: 23px;
       }
     }
 
+    &--active-trail-last {
+      > a,
+      > span {
+        color: $burnt-orange;
+      }
+      
+      &:hover {
+        > a,
+        > span {
+          color: $burnt-orange;
+        }
+      }
+    }
+
     &--level-0 {
       border-top: 1px solid $color-menu-text-medium;
       position: relative;
@@ -296,6 +310,15 @@ $main-menu-login-item-width: 23px;
         }
       }
 
+      &--active-trail-last {
+        > a,
+        > span {
+          &.login-link {
+            color: $color-menu-text-light;
+          }
+        }
+      }
+
       @include breakpoint($break-nav) {
         border: none;
 
@@ -314,6 +337,22 @@ $main-menu-login-item-width: 23px;
           &.is-active {
             background-color: $color-menu-bg-dark;
             color: $color-menu-text-light;
+          }
+        }
+
+        &--active-trail-last {
+          > a,
+          > span {
+            background-color: $color-menu-bg-dark;
+            color: $color-menu-text-light;
+          }
+
+          &:hover {
+            > a,
+            > span {
+              background-color: $color-menu-bg-darker;
+              color: $color-menu-text-light;
+            }
           }
         }
 
