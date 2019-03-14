@@ -202,6 +202,10 @@ $font-heading-h3-alt-11: $font-secondary-30;
     line-height: 1.8;
     margin: 0 0 $space-two-thirds;
     padding: 0;
+
+    &.heading-no-margin {
+      margin: 0;
+    }
   }
 
   &__h5 {
@@ -210,6 +214,10 @@ $font-heading-h3-alt-11: $font-secondary-30;
     font-family: $font-tertiary;
     font-size: 1.6rem;
     margin: 0 0 10px;
+
+    &.heading-no-margin {
+      margin: 0;
+    }
   }
 
   &__h6 {
@@ -218,6 +226,10 @@ $font-heading-h3-alt-11: $font-secondary-30;
     font-family: $font-tertiary;
     font-size: 1.5rem;
     margin: 0 0 10px;
+
+    &.heading-no-margin {
+      margin: 0;
+    }
   }
 }
 
