@@ -392,6 +392,32 @@ function d8_theme_main_theme_suggestions_menu_alter(&$suggestions, array $variab
   }
 }
 
+function d8_theme_main_preprocess_node__article__full(&$variables) {
+  $current_node = $variables['elements']['#node'];
+
+  $created_date = $current_node->getCreatedTime();
+  $formatted_created_date = date('F j, Y',$created_date);
+
+  if (!$current_node->field_txex_ref_content_01->isEmpty() && !$current_node->field_txex_ref_content_01->entity->title->isEmpty()) {
+    $author_field_title = $current_node->field_txex_ref_content_01->entity->title->value;
+  } else {
+    $author_field_title = NULL;
+  }
+
+  if (!$current_node->field_txex_ref_tax_term_01->isEmpty() && !$current_node->field_txex_ref_tax_term_01->entity->name->isEmpty()) {
+    $article_type_name = $current_node->field_txex_ref_tax_term_01->entity->name->value;
+    $article_type_parent_path = "/" . $current_node->field_txex_ref_tax_term_01->entity->field_txex_text_formatted_path->value;
+  } else {
+    $article_type_name = NULL;
+    $article_type_parent_path = NULL;
+  }
+
+  $variables['created_date'] = $formatted_created_date;
+  $variables['author_field_title'] = $author_field_title;
+  $variables['article_type_name'] = $article_type_name;
+  $variables['article_type_parent_path'] = $article_type_parent_path;
+}
+
 
 // function d8_theme_main_preprocess_paragraph__txex_paragraph_21(&$variables) {
 //   $current_paragraph = $variables['elements']['#paragraph'];
