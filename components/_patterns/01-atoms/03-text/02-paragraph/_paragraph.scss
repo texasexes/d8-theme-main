@@ -26,12 +26,16 @@ p,
 .text-long {
   @include paragraph;
 
+  &--strong {
+    font-weight: 500;
+  }
+
   &--paragraph-no-margin {
     margin: 0;
   }
 }
 
-// An paragraph that is an element of a paragraph-01 block
+// A paragraph that is an element of a paragraph-01 block
 .p-01__paragraph {
   @extend .p;
 }
