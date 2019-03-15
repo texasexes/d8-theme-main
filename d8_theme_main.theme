@@ -241,7 +241,7 @@ function d8_theme_main_preprocess_paragraph(&$variables) {
   $current_paragraph = $variables['elements']['#paragraph'];
   $paragraph_modifiers = [];
 
-  if (!empty($current_paragraph->field_txex_ref_content_01)) {
+  if (array_key_exists('field_txex_ref_content_01', $variables['elements'])) {
     $reference_field = $current_paragraph->get('field_txex_ref_content_01')->first();
 
     if ($reference_field) {
