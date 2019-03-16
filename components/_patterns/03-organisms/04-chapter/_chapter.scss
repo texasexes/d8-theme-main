@@ -93,8 +93,7 @@ $chapter-border: $mushroom-light;
 .chapter-add-content {
   border: 8px solid $burnt-orange;
   padding: 10px;
-  margin-left: 30px;
-  margin-bottom: 20px;
+  margin-bottom: $space-two-thirds;
 
   h2 {
     color: #555;

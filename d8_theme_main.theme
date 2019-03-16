@@ -494,6 +494,7 @@ function d8_theme_main_views_pre_render(\Drupal\views\ViewExecutable $view) {
 function d8_theme_main_preprocess_views_view(&$variables) {
   $view_id = $variables['id'];
   $display_id = $variables['display_id'];
+
   if ('txex_events' === $view_id && 'attachment_2' === $display_id) {
     if (isset($variables['header']['area_text_custom'])) {
       if ($variables['header']['area_text_custom']['#markup']) {
@@ -509,6 +510,42 @@ function d8_theme_main_preprocess_views_view(&$variables) {
       }
     }
   }
+
+  if ('txex_articles' === $view_id) {
+    if (array_key_exists('more', $variables)) {
+      $variables['more']['#options']['attributes']['class'] = ['flexbox__link',];
+    }
+  }
+}
+
+function d8_theme_main_preprocess_views_view__txex_articles__block_2(&$variables) {
+  $icon_template = '{% include "@atoms/04-images/icons/_icon.twig" %}';
+  $icon_render_array = [
+    '#type' => 'inline_template',
+    '#template' => $icon_template,
+    '#context' => [
+      'icon_name' => 'news-box-logo',
+      'icon_modifiers' => [
+        'news',
+      ],
+      'attributes' => [],
+    ],
+  ];
+
+  $link_template = '{% include "@atoms/01-links/link/link.twig" %}';
+  $link_render_array = [
+    $build['link_render'] = [
+      '#type' => 'inline_template',
+      '#template' => $link_template,
+      '#context' => [
+        'link_content' => $icon_render_array,
+        'link_url' => "/scholarships/news",
+        'attributes' => [],
+      ],
+    ],
+  ];
+
+  $variables['news_icon_link'] = $link_render_array;
 }
 
 // function d8_theme_main_views_pre_render(Drupal\views\ViewExecutable $view) {
