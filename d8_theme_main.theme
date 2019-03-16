@@ -494,6 +494,7 @@ function d8_theme_main_views_pre_render(\Drupal\views\ViewExecutable $view) {
 function d8_theme_main_preprocess_views_view(&$variables) {
   $view_id = $variables['id'];
   $display_id = $variables['display_id'];
+
   if ('txex_events' === $view_id && 'attachment_2' === $display_id) {
     if (isset($variables['header']['area_text_custom'])) {
       if ($variables['header']['area_text_custom']['#markup']) {
@@ -509,6 +510,14 @@ function d8_theme_main_preprocess_views_view(&$variables) {
       }
     }
   }
+
+  if ('txex_articles' === $view_id) {
+    if (array_key_exists('more', $variables)) {
+      $variables['more']['#options']['attributes']['class'] = ['flexbox__link',];
+    }
+  }
+}
+
 }
 
 // function d8_theme_main_views_pre_render(Drupal\views\ViewExecutable $view) {
