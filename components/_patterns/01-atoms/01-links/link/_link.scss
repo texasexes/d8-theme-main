@@ -37,6 +37,11 @@ $color-link--hover: $grey-a;
   @include link;
 
   display: inline;
+
+  &--chapter-title {
+    @extend .wysiwyg__h2;
+    @extend .wysiwyg__h2--chapter-title;
+  }
 }
 
 .card__link {
