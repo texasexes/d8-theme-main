@@ -172,8 +172,7 @@ $font-heading-h3-alt-11: $font-secondary-30;
       font-size: 2.5rem;
 
       @include breakpoint($break-nav) {
-        margin-left: $space-and-half;
-        margin-bottom: $space;
+        margin-bottom: $space-two-thirds;
       }
     }
 
