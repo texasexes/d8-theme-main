@@ -518,6 +518,34 @@ function d8_theme_main_preprocess_views_view(&$variables) {
   }
 }
 
+function d8_theme_main_preprocess_views_view__txex_articles__block_2(&$variables) {
+  $icon_template = '{% include "@atoms/04-images/icons/_icon.twig" %}';
+  $icon_render_array = [
+    '#type' => 'inline_template',
+    '#template' => $icon_template,
+    '#context' => [
+      'icon_name' => 'news-box-logo',
+      'icon_modifiers' => [
+        'news',
+      ],
+      'attributes' => [],
+    ],
+  ];
+
+  $link_template = '{% include "@atoms/01-links/link/link.twig" %}';
+  $link_render_array = [
+    $build['link_render'] = [
+      '#type' => 'inline_template',
+      '#template' => $link_template,
+      '#context' => [
+        'link_content' => $icon_render_array,
+        'link_url' => "/scholarships/news",
+        'attributes' => [],
+      ],
+    ],
+  ];
+
+  $variables['news_icon_link'] = $link_render_array;
 }
 
 // function d8_theme_main_views_pre_render(Drupal\views\ViewExecutable $view) {
