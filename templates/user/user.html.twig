@@ -45,7 +45,7 @@
     {% set user_profile_blocks_left = user_profile_blocks_left|merge({ 2 : (drupal_entity('user', null, 'profile_extra_information'))}) %}
 
     {% set user_profile_blocks_right = user_profile_blocks_right|merge({ 0 : (drupal_view('txex_user_chapter_memberships', 'txex_chapter_membership_block'))}) %}
-    {% set user_profile_blocks_right = user_profile_blocks_right|merge({ 1 : (drupal_view('txex_events', 'block_3'))}) %}
+    {% set user_profile_blocks_right = user_profile_blocks_right|merge({ 1 : (drupal_view('txex_user_events', 'txex_member_events_block'))}) %}
     {% set user_profile_blocks_right = user_profile_blocks_right|merge({ 2 : (drupal_block('txex_giving_status_block'))}) %}
 
     {% set user_profile_blocks = user_profile_blocks|merge({ 0 : (user_profile_blocks_left), 1 : user_profile_blocks_right}) %}
