@@ -25,9 +25,17 @@ p,
 // to import
 .text-long {
   @include paragraph;
+
+  &--strong {
+    font-weight: 500;
+  }
+
+  &--paragraph-no-margin {
+    margin: 0;
+  }
 }
 
-// An paragraph that is an element of a paragraph-01 block
+// A paragraph that is an element of a paragraph-01 block
 .p-01__paragraph {
   @extend .p;
 }
@@ -47,6 +55,10 @@ p,
     @extend .p;
 
     margin: 0 0 20px;
+
+    &--paragraph-no-margin {
+      margin: 0;
+    }
   }
 }
 
@@ -103,6 +115,10 @@ p,
         line-height: 11rem;
         color: rgba(255, 255, 255, 0.12);
       }
+    }
+
+    &--paragraph-no-margin {
+      margin: 0;
     }
   }
 }

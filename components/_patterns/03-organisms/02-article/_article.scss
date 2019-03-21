@@ -25,28 +25,8 @@
 }
 
 .article-alcalde,
-.article-general {
-  p {
-    font-family: "Sentinel A", "Sentinel B";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 19px;
-    color: #555;
-    letter-spacing: -0.2px;
-    line-height: 32px;
-    margin-bottom: 10px;
-  }
-
-  h2 {
-    font-family: "Sentinel A", "Sentinel B";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 44px;
-    color: #555;
-    letter-spacing: -0.46px;
-    line-height: 51px;
-    margin-bottom: 10px;
-  }
+.article {
+  margin-top: 10px;
 
   .alignleft {
     float: left;

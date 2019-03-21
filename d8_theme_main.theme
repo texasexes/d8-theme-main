@@ -392,6 +392,32 @@ function d8_theme_main_theme_suggestions_menu_alter(&$suggestions, array $variab
   }
 }
 
+function d8_theme_main_preprocess_node__article__full(&$variables) {
+  $current_node = $variables['elements']['#node'];
+
+  $created_date = $current_node->getCreatedTime();
+  $formatted_created_date = date('F j, Y',$created_date);
+
+  if (!$current_node->field_txex_ref_content_01->isEmpty() && !$current_node->field_txex_ref_content_01->entity->title->isEmpty()) {
+    $author_field_title = $current_node->field_txex_ref_content_01->entity->title->value;
+  } else {
+    $author_field_title = NULL;
+  }
+
+  if (!$current_node->field_txex_ref_tax_term_01->isEmpty() && !$current_node->field_txex_ref_tax_term_01->entity->name->isEmpty()) {
+    $article_type_name = $current_node->field_txex_ref_tax_term_01->entity->name->value;
+    $article_type_parent_path = "/" . $current_node->field_txex_ref_tax_term_01->entity->field_txex_text_formatted_path->value;
+  } else {
+    $article_type_name = NULL;
+    $article_type_parent_path = NULL;
+  }
+
+  $variables['created_date'] = $formatted_created_date;
+  $variables['author_field_title'] = $author_field_title;
+  $variables['article_type_name'] = $article_type_name;
+  $variables['article_type_parent_path'] = $article_type_parent_path;
+}
+
 
 // function d8_theme_main_preprocess_paragraph__txex_paragraph_21(&$variables) {
 //   $current_paragraph = $variables['elements']['#paragraph'];
@@ -468,6 +494,7 @@ function d8_theme_main_views_pre_render(\Drupal\views\ViewExecutable $view) {
 function d8_theme_main_preprocess_views_view(&$variables) {
   $view_id = $variables['id'];
   $display_id = $variables['display_id'];
+
   if ('txex_events' === $view_id && 'attachment_2' === $display_id) {
     if (isset($variables['header']['area_text_custom'])) {
       if ($variables['header']['area_text_custom']['#markup']) {
@@ -483,6 +510,42 @@ function d8_theme_main_preprocess_views_view(&$variables) {
       }
     }
   }
+
+  if ('txex_articles' === $view_id) {
+    if (array_key_exists('more', $variables)) {
+      $variables['more']['#options']['attributes']['class'] = ['flexbox__link',];
+    }
+  }
+}
+
+function d8_theme_main_preprocess_views_view__txex_articles__block_2(&$variables) {
+  $icon_template = '{% include "@atoms/04-images/icons/_icon.twig" %}';
+  $icon_render_array = [
+    '#type' => 'inline_template',
+    '#template' => $icon_template,
+    '#context' => [
+      'icon_name' => 'news-box-logo',
+      'icon_modifiers' => [
+        'news',
+      ],
+      'attributes' => [],
+    ],
+  ];
+
+  $link_template = '{% include "@atoms/01-links/link/link.twig" %}';
+  $link_render_array = [
+    $build['link_render'] = [
+      '#type' => 'inline_template',
+      '#template' => $link_template,
+      '#context' => [
+        'link_content' => $icon_render_array,
+        'link_url' => "/scholarships/news",
+        'attributes' => [],
+      ],
+    ],
+  ];
+
+  $variables['news_icon_link'] = $link_render_array;
 }
 
 // function d8_theme_main_views_pre_render(Drupal\views\ViewExecutable $view) {

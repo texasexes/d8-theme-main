@@ -126,6 +126,10 @@ a.tabledrag-handle .handle {
   }
 }
 
-.lede-image {
-  margin-bottom: $space;
+.article-lede-image-wrapper {
+  margin: $space 0;
+}
+
+.paragraphs-tabs-wrapper {
+  overflow: auto;
 }
