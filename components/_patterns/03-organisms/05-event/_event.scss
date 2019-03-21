@@ -1,4 +1,11 @@
+.event {
+  margin-top: $space-one-third;
+}
+
 .event-meta {
+  margin-top: $space-and-half;
+  margin-bottom: $space-one-half;
+
   h1 {
     margin: 37px 0 17px;
     background-position: top left;
@@ -17,7 +24,7 @@
   }
 
   .event-meta-item {
-    padding-bottom: 0.8em;
+    padding-bottom: $space-one-half;
     font-family: $font-tertiary;
     color: $grey-a;
     background-position: 33px 0;
