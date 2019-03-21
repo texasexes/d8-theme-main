@@ -418,6 +418,87 @@ function d8_theme_main_preprocess_node__article__full(&$variables) {
   $variables['article_type_parent_path'] = $article_type_parent_path;
 }
 
+function d8_theme_main_preprocess_node__event__full(&$variables) {
+
+  $current_node = $variables['elements']['#node'];
+  $current_view_mode = $variables['elements']['#view_mode'];
+
+  // couldn't figure out how to alter the <time> tag in the default date field formatter
+  // suggestions alter is hard because it is just a render array so...
+  // we build a new render array for a <time> element
+
+  $date_start = $current_node->field_txex_date_01->view($current_view_mode);
+  $time_start = $current_node->field_txex_time_01->view($current_view_mode);
+  $formatted_date_start_text = $date_start[0]['#text'];
+  $formatted_time_start_text = $time_start[0]['#markup'];
+  // lower case am/pm with periods per TXEX style guid (https://regex101.com/)
+  $formatted_time_start_text = preg_replace('/(?i)(?<= |^)am(?= |$)/', 'a.m.', $formatted_time_start_text);
+  $formatted_time_start_text = preg_replace('/(?i)(?<= |^)pm(?= |$)/', 'p.m.', $formatted_time_start_text);
+
+  // getting values for date and time field to use in the datetime attribute for the <time> element
+  $date_start_value = $current_node->field_txex_date_01->value;
+  $time_start_seconds = $current_node->field_txex_time_01->value;
+  // format change from seconds to 00:00:00 for datetime attribute
+  $time_start_time = gmdate("H:i:s", $time_start_seconds);
+  // see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time or
+  // https://www.w3.org/TR/html5-author/the-time-element.html#attr-time-datetime
+  $combined_start_date_time = $date_start_value . "T" . $time_start_time;
+  $drupal_date_time_start = new \Drupal\Core\Datetime\DrupalDateTime($combined_start_date_time);
+
+  $variables['date_time_start'] = [
+    '#type' => 'html_tag',
+    '#tag' => 'time',
+    '#attributes' => [
+      'datetime' => $combined_start_date_time,
+    ],
+    '#value' => $formatted_date_start_text . ", " . $formatted_time_start_text,
+  ];
+
+  $date_end = $current_node->field_txex_date_02->view($current_view_mode);
+  $time_end = $current_node->field_txex_time_02->view($current_view_mode);
+  $formatted_date_end_text = $date_end[0]['#text'];
+  $formatted_time_end_text = $time_end[0]['#markup'];
+  // lower case am/pm with periods per TXEX style guid (https://regex101.com/)
+  $formatted_time_end_text = preg_replace('/(?i)(?<= |^)am(?= |$)/', 'a.m.', $formatted_time_end_text);
+  $formatted_time_end_text = preg_replace('/(?i)(?<= |^)pm(?= |$)/', 'p.m.', $formatted_time_end_text);
+
+  // getting values for date and time field to use in the datetime attribute for the <time> element
+  $date_end_value = $current_node->field_txex_date_02->value;
+  $time_end_seconds = $current_node->field_txex_time_02->value;
+  // format change from seconds to 00:00:00 for datetime attribute
+  $time_end_time = gmdate("H:i:s", $time_end_seconds);
+  // see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time or
+  // https://www.w3.org/TR/html5-author/the-time-element.html#attr-time-datetime
+  $combined_end_date_time = $date_end_value . "T" . $time_end_time;
+  $drupal_date_time_end = new \Drupal\Core\Datetime\DrupalDateTime($combined_end_date_time);
+
+  $variables['date_time_end'] = [
+    '#type' => 'html_tag',
+    '#tag' => 'time',
+    '#attributes' => [
+      'datetime' => $combined_end_date_time,
+    ],
+    '#value' => $formatted_date_end_text . ", " . $formatted_time_end_text,
+  ];
+
+  $combined_start_date_time_end_time = $date_start_value . "T" . $time_end_time;
+  $variables['date_start_time_end'] = [
+    '#type' => 'html_tag',
+    '#tag' => 'time',
+    '#attributes' => [
+      'datetime' => $combined_start_date_time_end_time,
+    ],
+    '#value' => $formatted_time_end_text,
+  ];
+
+  if ($current_node->field_txex_date_01->value === $current_node->field_txex_date_02->value) {
+    $variables['start_end_date_equal'] = TRUE;
+  } else {
+    $variables['start_end_date_equal'] = FALSE;
+  }
+
+}
+
 
 // function d8_theme_main_preprocess_paragraph__txex_paragraph_21(&$variables) {
 //   $current_paragraph = $variables['elements']['#paragraph'];

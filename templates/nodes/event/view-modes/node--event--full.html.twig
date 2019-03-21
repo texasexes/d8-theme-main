@@ -1,7 +1,20 @@
 {% extends  "node.html.twig" %}
 {% set attributes = attributes.addClass('event') %}
 
-  {% block title %}{% endblock %}
+  {% block title %}
+  {# remove class for overriden template block #}
+  {% set attributes = attributes.removeClass('event') %}
+
+    {{ title_prefix }}
+    {% include "@atoms/03-text/01-heading/_heading.twig" with {
+      "heading_attributes": title_attributes,
+      "heading_blockname": 'wysiwyg',
+      "heading_content": label,
+      "heading_level": 2,
+      "heading_modifiers": {'event-title':'event-title'},
+    } %}
+    {{ title_suffix }}
+  {% endblock title %}
 
   {% block content %}
     <div{{ content_attributes }}>
@@ -10,13 +23,17 @@
 
       <div class="event-meta">
         {#{ label }#}
-
-        {{ content.field_txex_date_01 }}
+        {# check if two date fields are on the same day #}
+        {% if start_end_date_equal %}
+          <div class = 'event-date event-meta-item'>{{date_time_start}} – {{date_start_time_end}}</div>
+        {% else %}
+          <div class = 'event-date event-meta-item'>{{date_time_start}} – {{date_time_end}}</div>
+        {% endif %}
 
         {{ content.field_txex_address_01 }}
       </div>
 
-      {{ content.field_txex_text_long_summary_01 }}
+      {{ content.field_txex_text_long_02 }}
 
       {{ content.field_txex_link_01 }}
 
