@@ -200,9 +200,10 @@ function d8_theme_main_preprocess_breadcrumb(&$variables) {
 
 function d8_theme_main_preprocess_field(&$variables) {
   //get the value of the field
+  $element = $variables['element'];
   $field_layout_type_value = NULL;
   $field_modifiers = NULL;
-  $parent_entity = $variables['element']['#object'];
+  $parent_entity = $element['#object'];
 
   if ($parent_entity->hasField('field_txex_ref_content_01')) {
     if (!$parent_entity->get('field_txex_ref_content_01')->isEmpty()) {
