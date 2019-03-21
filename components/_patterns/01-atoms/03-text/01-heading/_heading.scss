@@ -154,18 +154,9 @@ $font-heading-h3-alt-11: $font-secondary-30;
     }
 
     &--page-title {
-      // padding-bottom: $space-one-half;
-      // border-bottom: 1px solid;
-      // border-color: $grey-e;
       font-size: 4.2rem;
       letter-spacing: -0.02em;
       margin: 0;
-      // margin-bottom: $space-and-half;
-
-      // @include breakpoint($break-nav) {
-      //   margin-left: $space-and-half;
-      //   margin-right: $space-and-half;
-      // }
     }
 
     &--chapter-title {
