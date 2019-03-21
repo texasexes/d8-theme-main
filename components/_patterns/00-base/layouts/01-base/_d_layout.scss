@@ -130,6 +130,22 @@ a.tabledrag-handle .handle {
   margin: $space 0;
 }
 
+.event-lede-image-wrapper {
+  margin: $space-and-half 0;
+}
+
 .paragraphs-tabs-wrapper {
   overflow: auto;
+}
+
+.txex-views-column-hack {
+  // display: flex;
+  // align-items: center;
+
+  &--column {
+    // flex: 0 1 100%;
+    &:last-of-type {
+      // flex: 0 0 auto;
+    }
+  }
 }
