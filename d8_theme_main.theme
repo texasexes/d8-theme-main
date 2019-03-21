@@ -501,7 +501,8 @@ function d8_theme_main_preprocess_node__event__full(&$variables) {
 }
 
 function d8_theme_main_theme_suggestions_views_view_alter(array &$suggestions, array $variables) {
-    $suggestions[] = sprintf('views_view__%s', $variables['view']->id());
+    $suggestions[] = $variables['theme_hook_original'] . '__' . $variables['view']->current_display;
+}
 
 }
 
