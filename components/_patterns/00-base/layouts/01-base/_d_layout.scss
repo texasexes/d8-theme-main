@@ -137,3 +137,15 @@ a.tabledrag-handle .handle {
 .paragraphs-tabs-wrapper {
   overflow: auto;
 }
+
+.txex-views-column-hack {
+  // display: flex;
+  // align-items: center;
+
+  &--column {
+    // flex: 0 1 100%;
+    &:last-of-type {
+      // flex: 0 0 auto;
+    }
+  }
+}
