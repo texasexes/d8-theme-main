@@ -1,0 +1,7 @@
+{% extends "field.html.twig" %}
+
+{% block item_block %}
+  <span{{ item.attributes.addClass('event-date event-meta-item') }}>
+    {{- item.content -}}
+  </span>
+{% endblock %}
