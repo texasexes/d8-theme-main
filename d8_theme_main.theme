@@ -500,76 +500,11 @@ function d8_theme_main_preprocess_node__event__full(&$variables) {
 
 }
 
-
-// function d8_theme_main_preprocess_paragraph__txex_paragraph_21(&$variables) {
-//   $current_paragraph = $variables['elements']['#paragraph'];
-//
-//   // if ($variables['elements']['field_txex_ref_rev_para_01']) {
-//   if ($current_paragraph->hasField('field_txex_ref_rev_para_01')) {
-//     $referenced_paragraphs = $current_paragraph->get('field_txex_ref_rev_para_01')->getValue();
-//
-//     foreach ( $referenced_paragraphs as $key => $element ) {
-//       $loaded_child_paragraph = \Drupal\paragraphs\Entity\Paragraph::load( $element['target_id'] );
-//
-//       if ($loaded_child_paragraph->hasField('field_txex_ref_content_01')) {
-//           $node_reference_field = $loaded_child_paragraph->get('field_txex_ref_content_01')->first();
-//
-//         if ($node_reference_field) {
-//           $referenced_entity = $node_reference_field->getValue();
-//           $loaded_entity = \Drupal\node\Entity\Node::load($referenced_entity['target_id']);
-//
-//           if ($loaded_entity->hasField('field_txex_ref_view_mode')) {
-//             if (!empty($loaded_entity->get('field_txex_ref_view_mode')->first())) {
-//               $paragraph_view_mode = $loaded_entity->get('field_txex_ref_view_mode')->first()->getValue();
-//               $paragraph_view_mode_value = $paragraph_view_mode['target_id'];
-//               $paragraph_view_mode_value = explode('.', $paragraph_view_mode_value, 2)[1];
-//               $variables['content']['field_txex_ref_rev_para_01'][$key]['#view_mode'] = $paragraph_view_mode_value;
-//             }
-//           }
-//         }
-//       }
-//     }
-//   }
-// }
-
-// function d8_theme_main_preprocess_paragraph__txex_paragraph_22(&$variables) {
-//   $current_paragraph = $variables['elements']['#paragraph'];
-//
-//   // if ($variables['elements']['field_txex_ref_rev_para_01']) {
-//
-// }
-
-// function d8_theme_main_entity_view_mode_alter(&$view_mode, Drupal\Core\Entity\EntityInterface $entity, $context) {
-//   kint($entity);
-// kint($entity->getEntityTypeId());
-// kint($entity->bundle());
-//   // if ($entity->getEntityTypeId() == 'txex_paragraph_02' && $entity->bundle() == 'paragraph') {
-//   //   $view_mode = 'para_view_mode_01';
-//   // }
-// }
-
-// function d8_theme_main_entity_view_mode_alter(&$view_mode, Drupal\Core\Entity\EntityInterface $entity, $context) {
-//
-//   // For nodes, change the view mode when it is teaser.
-//   if ($entity
-//     ->getEntityTypeId() == 'node' && $view_mode == 'teaser') {
-//     $view_mode = 'my_custom_view_mode';
-//   }
-// }
-
 function d8_theme_main_theme_suggestions_views_view_alter(array &$suggestions, array $variables) {
-    // If you want you can add a template suggestion for all views
-    // based on their ID:
     $suggestions[] = sprintf('views_view__%s', $variables['view']->id());
 
-    // Or you can check the ID, add suggestions, do whatever you want
-    // ...
 }
 
-function d8_theme_main_views_pre_render(\Drupal\views\ViewExecutable $view) {
-  // kint($view->header);
-  // kint($view->id());
-  // kint($view->current_display);
 
 }
 
@@ -629,28 +564,3 @@ function d8_theme_main_preprocess_views_view__txex_articles__block_2(&$variables
 
   $variables['news_icon_link'] = $link_render_array;
 }
-
-// function d8_theme_main_views_pre_render(Drupal\views\ViewExecutable $view) {
-//   if ($view->id() == "txex_events" && $view->current_display == 'block_1') {
-//     // kint($view);
-//     // kint($view->args[0]);
-//     // kint($view->field['rendered_entity']->options['view_mode']);
-//     // $view->field['rendered_entity']->options['view_mode'] = 'node_view_mode_01';
-//     foreach ($view->result as &$row) {
-//       // kint($row);
-//       $gid = $row->groups_field_data_group_content_field_data_id;
-//       $entity = $row->_entity;
-//       // kint($entity);
-//       // kint($entity);
-//       // kint($entity->get('field_txex_ref_rev_para_01'));
-//
-//       // $field = 'field_txex_ref_group_01';
-//       // $entity->set($field, $gid);
-//     }
-//   }
-// }
-
-// function d8_theme_main_node_create(\Drupal\Core\Entity\EntityInterface $entity) {
-//
-//   kint($entity);
-// }
