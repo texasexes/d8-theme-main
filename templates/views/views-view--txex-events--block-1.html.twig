@@ -62,6 +62,8 @@
     {% set tempArray1 = tempArray1|merge({(key+1) : (child),}) %}
   {% endfor %}
 
+  {# Moving no results text inside the block instead of outside#}
+  {% set tempArray1 = {0 : empty}|merge(tempArray1) %}
   {% set tempArray1 = {0 : exposed}|merge(tempArray1) %}
 
   {% set views_view_items = views_view_items|merge({0 : (tempArray1), 1 : (attachment_before),}) %}
@@ -84,9 +86,6 @@
     "layout_modifiers_additional": {1 : 'vertical'}
   }%}
 
-
-
-  {{ empty }}
   {{ pager }}
 
   {{ attachment_after }}
