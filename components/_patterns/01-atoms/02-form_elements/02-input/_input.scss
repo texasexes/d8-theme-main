@@ -77,3 +77,13 @@ $toggle-check-button-circ-edge-padding: 0.4rem;
   left: 100%;
   margin-left: -($toggle-check-button-circ + $toggle-check-button-circ-edge-padding);
 }
+
+.views-exposed-form {
+  position: relative;
+}
+.event-search-form {
+  position: absolute;
+  left: 20px;
+  top: 25px;
+  background-color: $white;
+}
