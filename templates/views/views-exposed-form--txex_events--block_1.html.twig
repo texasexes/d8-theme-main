@@ -1,0 +1,24 @@
+{#
+/**
+* @file
+* Theme override for a views exposed form.
+*
+* Available variables:
+* - form: A render element representing the form.
+*
+* @see template_preprocess_views_exposed_form()
+*/
+#}
+{% if q is not empty %}
+    {#
+      This ensures that, if clean URLs are off, the 'q' is added first,
+      as a hidden form element, so that it shows up first in the POST URL.
+    #}
+    {{ q }}
+{% endif %}
+<div class="event-search-head">
+    <span class="search-label">Events</span><span class="location-searched"> near {{ form['#extra'].search_val }}</span><span class="toggle-event-search"><a class="search-toggle">Change</a></span>
+</div>
+<div class="form--inline clearfix event-search-form hidden">
+    {{ form }}
+</div>
