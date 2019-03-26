@@ -24,16 +24,29 @@ $font-label: $font-primary;
   font-size: 1.85rem;
   line-height: 1.25;
   margin: 0 0 3px;
+  padding: 0 1rem 0 0;
   text-transform: none;
 }
 
 .location-searched {
   color: $grey-7;
   font-size: 1.2rem;
+  padding: 0 1rem 0 0;
 }
 
-.toggle-event-search a {
+.search-toggle {
   @include link;
-  padding: 0 1rem;
+  padding: 0 1rem 0 0;
   display: inline-block;
+  &.active {
+    color: $grey-7;
+
+    &::after {
+      content: "\25bc";
+      color: $grey-7;
+      font-size: 0.85rem;
+      padding-left: 0.3rem;
+    }
+  }
 }
+
