@@ -16,6 +16,10 @@ $font-label: $font-primary;
   @include label;
 }
 
+
+// events search 
+// homepage
+
 .search-label {
   @include label;
   color: $grey-7;

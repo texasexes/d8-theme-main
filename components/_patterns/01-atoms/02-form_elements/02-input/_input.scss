@@ -79,7 +79,8 @@ $toggle-check-button-circ-edge-padding: 0.4rem;
 }
 
 
-// events search
+// events search 
+// homepage
 .event-search-head {
   margin-bottom: 2rem;
 }
@@ -135,3 +136,37 @@ $toggle-check-button-circ-edge-padding: 0.4rem;
   margin-left: -2rem;
   margin-right: -2rem;
 }
+
+// events search 
+// events page
+#views-exposed-form-txex-events-page-1 {
+  #edit-proximity {
+    display: flex;
+  }
+  .form-item-sort-by,
+  .form-item-sort-order {
+    display: inline-block;
+    padding-top: 2rem;
+  }
+}
+.form-item-proximity-source-configuration-search {
+  .description {
+    font-family: $font-tertiary;
+    background-color: $white;
+    padding: 1rem 2rem;
+    color: $grey-9;
+    margin-left: -2rem;
+    margin-right: -2rem;
+    margin-top: 1rem;
+  }
+
+  input {
+    font-family: $font-tertiary;
+    color: $grey-9;
+    line-height: 2.2;
+    padding: 0 1rem;
+    max-width: 75%;
+  }
+}
+
+
