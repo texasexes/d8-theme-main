@@ -1,3 +1,6 @@
+$event-search-max: max-width 800px;
+$event-search-form-max-width: 450px;
+
 .form-text {
   max-width: 100%;
 }
@@ -83,6 +86,9 @@ $toggle-check-button-circ-edge-padding: 0.4rem;
 // homepage
 .event-search-head {
   margin-bottom: 2rem;
+  @include breakpoint($event-search-max) {
+    padding: 2rem;
+  }
 }
 
 .views-exposed-form {
@@ -91,13 +97,16 @@ $toggle-check-button-circ-edge-padding: 0.4rem;
 .event-search-form {
   position: absolute;
   left: 20px;
+  right: 20px;
   top: 55px;
   background-color: $white;
+  width: 90%;
   max-width: 400px;
   z-index: 1;
   font-family: $font-tertiary;
   box-shadow: 0 0 10px rgba($color: #000000, $alpha: 0.4);
   border: 1px solid $grey-9;
+
   @include breakpoint($large) {
     top: 30px;
   }
@@ -124,10 +133,12 @@ $toggle-check-button-circ-edge-padding: 0.4rem;
     position: absolute;
     right: 32px;
     top: 21px;
+    z-index: 1;
+
     a.close-button {
       display: block;
-      width: 20px;
-      height: 20px;
+      width: 24px;
+      height: 24px;
       cursor: pointer;
     }
     &:before, &:after {
@@ -149,7 +160,7 @@ $toggle-check-button-circ-edge-padding: 0.4rem;
   }
   .search-trigger {
     position: absolute;
-    top: 18px;
+    top: 10px;
   }
 
   input {
@@ -187,12 +198,31 @@ $toggle-check-button-circ-edge-padding: 0.4rem;
 .event-page-search-form {
   #edit-proximity {
     display: flex;
+    align-content: center;
 
     input {
       font-family: $font-tertiary;
       color: $grey-9;
       line-height: 2.2;
       padding: 0 2.4rem 0 1rem;
+    }
+  }
+  .proximity-origin-client {
+    flex-grow: 1;
+    flex-shrink: 1;
+    width: 80%;
+    max-width: $event-search-form-max-width;
+  }
+
+  .form-item-proximity-value {
+    display: flex;
+    flex: 0 auto;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 15px;
+    label {
+      margin: 0;
+      padding: 0 15px 0 0;
     }
   }
   .form-item-sort-by,
@@ -202,28 +232,32 @@ $toggle-check-button-circ-edge-padding: 0.4rem;
   }
   .search-trigger {
     position: absolute;
-    top: 51px;
+    top: 10px;
   }
   .locate-me-wrapper {
     display: none;
+    box-shadow: 0 0 10px rgba($color: #000000, $alpha: 0.4);
+    border: 1px solid $grey-9;
+
     &.active {
       display: block;
+      position: absolute;
+      top:40px;
+      left: 0;
+      width: 100%;
+      max-width: $event-search-form-max-width;
+      z-index: 1;
     }
   }
 }
 .form-item-proximity-source-configuration-search {
-  .fieldset-wrapper {
-    max-width: 70%;
-  }
-  .form-item-proximity-source-configuration-search {
-    max-width: 70%;
-  }
+  position: relative;
+
   .description {
     font-family: $font-tertiary;
     background-color: $white;
     padding: 1rem 2rem;
     color: $grey-9;
-    margin-top: 1rem;
   }
 }
 
