@@ -156,24 +156,34 @@ $toggle-check-button-circ-edge-padding: 0.4rem;
     font-family: $font-tertiary;
     color: $grey-9;
     line-height: 2.2;
-    padding: 0 1rem;
-    max-width: 75%;
+    padding: 0 2.4rem 0 1rem;
+    max-width: 80%;
+  }
+  .places-locate-me-button {
+    margin-left: -2rem;
+    margin-right: -2rem;
   }
 }
+
 .places-locate-me-button {
   padding: 1rem 2rem;
   background-color: $burnt-orange;
   display: block;
   color: $white;
-  margin-left: -2rem;
-  margin-right: -2rem;
 }
 
 // events search
 // events page
-#views-exposed-form-txex-events-page-1 {
+.event-page-search-form {
   #edit-proximity {
     display: flex;
+
+    input {
+      font-family: $font-tertiary;
+      color: $grey-9;
+      line-height: 2.2;
+      padding: 0 2.4rem 0 1rem;
+    }
   }
   .form-item-sort-by,
   .form-item-sort-order {
@@ -184,26 +194,18 @@ $toggle-check-button-circ-edge-padding: 0.4rem;
     position: absolute;
     top: 51px;
   }
-}
-.form-item-proximity-source-configuration-search {
+  .fieldset-wrapper {
+    max-width: 70%;
+  }
+  .form-item-proximity-source-configuration-search {
+    max-width: 70%;
+  }
   .description {
     font-family: $font-tertiary;
     background-color: $white;
     padding: 1rem 2rem;
     color: $grey-9;
-    margin-left: -2rem;
-    margin-right: -2rem;
     margin-top: 1rem;
   }
-
-  input {
-    font-family: $font-tertiary;
-    color: $grey-9;
-    line-height: 2.2;
-    padding: 0 1rem;
-    max-width: 75%;
-  }
-
 }
-
 
