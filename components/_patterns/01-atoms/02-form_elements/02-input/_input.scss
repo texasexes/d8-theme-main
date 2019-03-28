@@ -167,11 +167,16 @@ $toggle-check-button-circ-edge-padding: 0.4rem;
 
 // Handling for placing google places wrapper.
 .locate-me-wrapper {
-  .pac-container.pac-logo {
+
+  .pac-container.pac-logo  {
+    display: block !important;
     position: relative !important;
     top: auto !important;
     left: auto !important;
     width: 100% !important;
+  }
+  .pac-container ~ .pac-container {
+    display: none !important;
   }
 
   .places-locate-me-button {
