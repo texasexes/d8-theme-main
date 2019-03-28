@@ -199,6 +199,12 @@ $toggle-check-button-circ-edge-padding: 0.4rem;
   #edit-proximity {
     display: flex;
     align-content: center;
+    flex-flow: column nowrap;
+
+    @include breakpoint($event-search-max) {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
 
     input {
       font-family: $font-tertiary;
@@ -206,12 +212,19 @@ $toggle-check-button-circ-edge-padding: 0.4rem;
       line-height: 2.2;
       padding: 0 2.4rem 0 1rem;
     }
+
+    @include breakpoint($large) {
+      flex-flow: row wrap;
+    }
   }
   .proximity-origin-client {
     flex-grow: 1;
     flex-shrink: 1;
-    width: 80%;
-    max-width: $event-search-form-max-width;
+
+    @include breakpoint($large) {
+      width: 80%;
+      max-width: $event-search-form-max-width;
+    }
   }
 
   .form-item-proximity-value {
@@ -219,7 +232,13 @@ $toggle-check-button-circ-edge-padding: 0.4rem;
     flex: 0 auto;
     align-items: center;
     justify-content: space-between;
-    padding-left: 15px;
+
+    @include breakpoint($event-search-max) {
+      padding-top: 2rem;
+    }
+    @include breakpoint($large) {
+      padding-left: 15px;
+    }
     label {
       margin: 0;
       padding: 0 15px 0 0;
