@@ -160,18 +160,28 @@ $toggle-check-button-circ-edge-padding: 0.4rem;
     max-width: 75%;
   }
 }
-.places-locate-me-button {
-  padding: 1rem 2rem;
-  background-color: $burnt-orange;
-  display: block;
-  color: $white;
-  margin-left: -2rem;
-  margin-right: -2rem;
+
+// Handling for placing google places wrapper.
+.locate-me-wrapper {
+  .pac-container.pac-logo {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    width: 100% !important;
+  }
+  .places-locate-me-button {
+    padding: 1rem 2rem;
+    background-color: $burnt-orange;
+    display: block;
+    color: $white;
+    margin-left: -2rem;
+    margin-right: -2rem;
+  }
 }
 
 // events search
 // events page
-#views-exposed-form-txex-events-page-1 {
+.event-page-search-form {
   #edit-proximity {
     display: flex;
   }
@@ -183,6 +193,12 @@ $toggle-check-button-circ-edge-padding: 0.4rem;
   .search-trigger {
     position: absolute;
     top: 51px;
+  }
+  .locate-me-wrapper {
+    display: none;
+    &.active {
+      display: block;
+    }
   }
 }
 .form-item-proximity-source-configuration-search {
