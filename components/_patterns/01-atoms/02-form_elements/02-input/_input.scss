@@ -201,7 +201,7 @@ $toggle-check-button-circ-edge-padding: 0.4rem;
 // events search
 // events page
 .event-page-search-form {
-  #edit-proximity {
+  [data-drupal-selector="edit-proximity"] {
     display: flex;
     align-content: center;
     flex-flow: column nowrap;
