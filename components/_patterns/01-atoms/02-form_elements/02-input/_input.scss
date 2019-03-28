@@ -124,13 +124,19 @@ $toggle-check-button-circ-edge-padding: 0.4rem;
     position: absolute;
     right: 32px;
     top: 21px;
+    a.close-button {
+      display: block;
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+    }
     &:before, &:after {
       height: 20px;
       width: 0;
       position: absolute;
       content: "";
       top: 0;
-      right: 0;
+      right: 50%;
     }
     &:before {
       border-right: 1px solid white;
@@ -174,6 +180,10 @@ $toggle-check-button-circ-edge-padding: 0.4rem;
     display: inline-block;
     padding-top: 2rem;
   }
+  .search-trigger {
+    position: absolute;
+    top: 51px;
+  }
 }
 .form-item-proximity-source-configuration-search {
   .description {
@@ -193,10 +203,7 @@ $toggle-check-button-circ-edge-padding: 0.4rem;
     padding: 0 1rem;
     max-width: 75%;
   }
-  .search-trigger {
-    position: absolute;
-    top: 51px;
-  }
+
 }
 
 
