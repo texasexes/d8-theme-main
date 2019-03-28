@@ -79,7 +79,7 @@ $toggle-check-button-circ-edge-padding: 0.4rem;
 }
 
 
-// events search 
+// events search
 // homepage
 .event-search-head {
   margin-bottom: 2rem;
@@ -120,6 +120,32 @@ $toggle-check-button-circ-edge-padding: 0.4rem;
     margin-top: 1rem;
   }
 
+  .search-form-close {
+    position: absolute;
+    right: 32px;
+    top: 21px;
+    &:before, &:after {
+      height: 20px;
+      width: 0;
+      position: absolute;
+      content: "";
+      top: 0;
+      right: 0;
+    }
+    &:before {
+      border-right: 1px solid white;
+      transform: rotate(-45deg);
+    }
+    &:after {
+      border-left: 1px solid white;
+      transform: rotate(45deg);
+    }
+  }
+  .search-trigger {
+    position: absolute;
+    top: 18px;
+  }
+
   input {
     font-family: $font-tertiary;
     color: $grey-9;
@@ -137,7 +163,7 @@ $toggle-check-button-circ-edge-padding: 0.4rem;
   margin-right: -2rem;
 }
 
-// events search 
+// events search
 // events page
 #views-exposed-form-txex-events-page-1 {
   #edit-proximity {
@@ -166,6 +192,10 @@ $toggle-check-button-circ-edge-padding: 0.4rem;
     line-height: 2.2;
     padding: 0 1rem;
     max-width: 75%;
+  }
+  .search-trigger {
+    position: absolute;
+    top: 51px;
   }
 }
 
