@@ -11,12 +11,17 @@
         <th class="gift-header gift-date">{{ "Date" | t }}</th>
         <th class="gift-header gift-purpose">{{ "Purpose" | t }}</th>
         <th class="gift-header gift-amount">{{ "Amount" | t }}</th>
+        <th class="gift-header gift-deductable">{{ "Tax Deductable Amount" | t }}</th>
       </tr>
       <tr class="gift-sample-row">
         <td class="gift-data gift-date"></td>
         <td class="gift-data gift-purpose"></td>
         <td class="gift-data gift-amount"></td>
+        <td class="gift-data gift-deductable"></td>
       </tr>
     </table>
+  </div>
+  <div id="gift-receipts-links">
+    {{ receipts }}
   </div>
 </div>
