@@ -85,9 +85,10 @@ $toggle-check-button-circ-edge-padding: 0.4rem;
 // events search
 // homepage
 .event-search-head {
-  margin-bottom: 2rem;
+  margin-bottom: $space-one-half;
+
   @include breakpoint($event-search-max) {
-    padding: 2rem;
+    padding: $space-one-half $space;
   }
 }
 
@@ -108,21 +109,21 @@ $toggle-check-button-circ-edge-padding: 0.4rem;
   border: 1px solid $grey-9;
 
   @include breakpoint($large) {
-    top: 30px;
+    top: $space;
   }
   >.js-form-wrapper {
     background-color: $purple-1;
-    padding: 1rem 2rem 0;
+    padding:$space-one-half $space 0;
   }
 
   .description {
     font-family: $font-tertiary;
     background-color: $white;
-    padding: 1rem 2rem;
+    padding: $space-one-half $space;
     color: $grey-9;
-    margin-left: -2rem;
-    margin-right: -2rem;
-    margin-top: 1rem;
+    margin-left: -$space;
+    margin-right: -$space;
+    margin-top: $space-one-half;
   }
 
   .search-form-close {
@@ -163,12 +164,12 @@ $toggle-check-button-circ-edge-padding: 0.4rem;
     font-family: $font-tertiary;
     color: $grey-9;
     line-height: 2.2;
-    padding: 0 2.4rem 0 1rem;
+    padding: 0 $space+$space-one-third 0 $space-one-half;
     max-width: 80%;
   }
   .places-locate-me-button {
-    margin-left: -2rem;
-    margin-right: -2rem;
+    margin-left: -$space;
+    margin-right: -$space;
   }
 }
 
@@ -188,7 +189,7 @@ $toggle-check-button-circ-edge-padding: 0.4rem;
 
   .places-locate-me-button {
     font-family: $font-tertiary;
-    padding: 1rem 2rem;
+    padding: $space-one-half $space;
     background-color: $burnt-orange;
     display: block;
     color: $white;
@@ -209,15 +210,15 @@ $toggle-check-button-circ-edge-padding: 0.4rem;
     flex-flow: column nowrap;
 
     @include breakpoint($event-search-max) {
-      padding-left: 15px;
-      padding-right: 15px;
+      padding-left: $space-one-half;
+      padding-right: $space-one-half;
     }
 
     input {
       font-family: $font-tertiary;
       color: $grey-9;
       line-height: 2.2;
-      padding: 0 2.4rem 0 1rem;
+      padding: 0 $space+$space-one-third 0 $space-one-half;
     }
 
     @include breakpoint($large) {
@@ -241,20 +242,20 @@ $toggle-check-button-circ-edge-padding: 0.4rem;
     justify-content: space-between;
 
     @include breakpoint($event-search-max) {
-      padding-top: 2rem;
+      padding-top: $space;
     }
     @include breakpoint($large) {
-      padding-left: 15px;
+      padding-left: $space-one-half;
     }
     label {
       margin: 0;
-      padding: 0 15px 0 0;
+      padding: 0 $space-one-half 0 0;
     }
   }
   .form-item-sort-by,
   .form-item-sort-order {
     display: inline-block;
-    padding-top: 2rem;
+    padding-top: $space;
   }
   .search-trigger {
     position: absolute;
@@ -282,7 +283,7 @@ $toggle-check-button-circ-edge-padding: 0.4rem;
   .description {
     font-family: $font-tertiary;
     background-color: $white;
-    padding: 1rem 2rem;
+    padding: $space-one-half $space;
     color: $grey-9;
   }
 }
