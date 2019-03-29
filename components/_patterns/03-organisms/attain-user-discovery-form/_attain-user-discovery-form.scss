@@ -1,0 +1,83 @@
+@mixin attain-user-discovery-form-text($color: $grey-7) {
+  font-family: $font-tertiary;
+  font-size: 1.6rem;
+  color: $color;
+}
+
+.attain-user-discovery-form {
+  padding-bottom: $space;
+
+  .form-item {
+    margin-bottom: $space-one-half;
+  }
+
+  .field-group-html-element {
+    & > * {
+      padding-left: $space;
+
+      &:first-child {
+        padding-left: 0;
+      }
+    }
+  }
+
+  label {
+    @include attain-user-discovery-form-text;
+
+    display: flex;
+    align-items: center;
+    padding: 0 0 2px ;
+    // width: 135px;
+  }
+
+  .form-text,
+  .form-email {
+    border: 1px solid $grey-c;
+    border-radius: 2px;
+    height: 34px;
+    padding: 0 0.5em;
+
+    @include breakpoint(350px) {
+      // width: 234px;
+    }
+
+    &::placeholder {
+      @include attain-user-discovery-form-text(
+        $color: $grey-b
+      );
+    }
+  }
+
+  fieldset {
+    border: 1px solid #ecede8;
+    padding: $space-two-thirds;
+  }
+
+  legend {
+    .fieldset-legend {
+      @extend .wysiwyg__h2;
+      padding: 0 5px;
+    }
+  }
+
+  summary {
+    @extend .wysiwyg__h3;
+  }
+
+  .wysiwyg__h4 {
+    margin: 0;
+  }
+
+  .option {
+    display: inline;
+    padding: 0 0 $space-one-half $space-one-half;
+  }
+
+  .description {
+    @include visually-hidden;
+  }
+
+  .form-submit {
+    @include button-small;
+  }
+}
