@@ -35,7 +35,7 @@
     dom_id ? 'js-view-dom-id-' ~ dom_id,
   ]
 %}
-<div{{ attributes.addClass(classes) }}>
+<section{{ attributes.addClass(classes) }}>
   {{ title_prefix }}
   {{ title }}
   {{ title_suffix }}
@@ -92,4 +92,4 @@
   {% endif %}
 
   {{ feed_icons }}
-</div>
+</section>
