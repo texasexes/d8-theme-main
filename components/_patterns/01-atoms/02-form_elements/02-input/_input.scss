@@ -184,8 +184,47 @@ $toggle-check-button-circ-edge-padding: 0.4rem;
     left: auto !important;
     width: 100% !important;
   }
-  .pac-container ~ .pac-container {
-    display: none !important;
+
+  .pac-container {
+    & .pac-item {
+      line-height: 1.2;
+      padding: $space-one-half $space-one-third;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    & .pac-item-query {
+      font-family: $font-tertiary;
+      font-size: 16px;
+      background-color: $white;
+      // padding: $space-one-half $space;
+      color: $grey-9;
+      // margin-left: -$space;
+      // margin-right: -$space;
+      // margin-top: $space-one-half;
+    }
+
+    & .pac-icon {
+      margin: 0 7px 0;
+    }
+
+    &.pac-logo  {
+      display: block !important;
+      position: relative !important;
+      top: auto !important;
+      left: auto !important;
+      width: 100% !important;
+
+      &:after {
+        border-top: 1px solid #e6e6e6;
+      }
+    }
+
+    & ~ .pac-container {
+      display: none !important;
+    }
   }
 
   .places-locate-me-button {
@@ -196,6 +235,7 @@ $toggle-check-button-circ-edge-padding: 0.4rem;
     color: $white;
     cursor: pointer;
   }
+
   .icon-crosshairs {
     font-size: 2.4rem;
     vertical-align: middle;
