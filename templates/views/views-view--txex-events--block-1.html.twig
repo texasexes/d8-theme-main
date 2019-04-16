@@ -79,7 +79,7 @@
   {% endif %}
 
   {% include "@base/layouts/layout/00-layout.twig" with {
-    "layout_attributes": attributes.addClass(classes),
+    "layout_attributes": attributes.removeClass(classes),
     "layout_base_class": paragraph_base_class,
     "layout_modifiers": tempArray5,
     "layout_items": views_view_items,
