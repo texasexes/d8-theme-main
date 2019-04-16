@@ -58,6 +58,7 @@
   {% set views_view_items = {
     0 : tempArray1,
     1 : attachment_before,
+    2 : attachment_after,
   } %}
 
   {% set layout_level = layout_level + 1 |default(1) %}
@@ -82,8 +83,6 @@
   }%}
 
   {{ pager }}
-
-  {{ attachment_after }}
 
   {% if footer %}
     <footer>
