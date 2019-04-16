@@ -40,47 +40,42 @@
   {{ title }}
   {{ title_suffix }}
 
+  {% set views_view_items = [] %}
+
   {% if header %}
     <header>
       {{ header }}
     </header>
   {% endif %}
 
-{% set views_view_items = [] %}
+{% set tempArray1 = {
+    1 : exposed,
+    2 : empty,
+    3 : rows,
+    4 : more,
+  } %}
 
-  {#{ exposed }#}
-  {#{ kint (attachment_before) }#}
-  {#{ attachment_before }#}
-  {#{ kint(rows) }#}
-  {#{ rows }#}
-
-
-
-
-  {% set tempArray1 = [] %}
-  {% for key, child in rows %}
-    {% set tempArray1 = tempArray1|merge({(key+1) : (child),}) %}
-  {% endfor %}
-
-  {# Moving no results text inside the block instead of outside#}
-  {% set tempArray1 = {0 : empty}|merge(tempArray1) %}
-  {% set tempArray1 = {0 : exposed}|merge(tempArray1) %}
-
-  {% set views_view_items = views_view_items|merge({0 : (tempArray1), 1 : (attachment_before),}) %}
-  {% set paragraph_base_class = 'flexbox' %}
-  {% set tempArray5 = [] %}
+  {% set views_view_items = {
+    0 : tempArray1,
+    1 : attachment_before,
+  } %}
 
   {% set layout_level = layout_level + 1 |default(1) %}
-  {% set tempArray5 = tempArray5|merge({'layout_level' : ('layout-level-'~layout_level),}) %}
-  {% set tempArray5 = tempArray5|merge({'paragraph-wrapper' : 'paragraph-wrapper', 'horizontal' : 'horizontal', 'feature-50' : 'feature-50', 'layout-background-3' : 'layout-background-3', 'layout-box-4' : 'layout-box-4', 'layout-row' : 'layout-row', 'item-box-2' : 'item-box-2'}) %}
 
-  {% if paragraph_modifiers %}
-    {% set tempArray5 = tempArray5|merge(paragraph_modifiers) %}
-  {% endif %}
+  {% set tempArray5 = {
+    'layout_level' : ('layout-level-' ~ layout_level),
+    'paragraph-wrapper' : 'paragraph-wrapper',
+    'horizontal' : 'horizontal',
+    'feature-50' : 'feature-50',
+    'layout-background-3' : 'layout-background-3',
+    'layout-row' : 'layout-row',
+    'layout-box-4' : 'layout-box-4',
+    'item-box-2' : 'item-box-2'
+  } %}
 
   {% include "@base/layouts/layout/00-layout.twig" with {
     "layout_attributes": attributes.removeClass(classes),
-    "layout_base_class": paragraph_base_class,
+    "layout_base_class": 'flexbox',
     "layout_modifiers": tempArray5,
     "layout_items": views_view_items,
     "layout_modifiers_additional": {1 : 'vertical'}
@@ -89,7 +84,6 @@
   {{ pager }}
 
   {{ attachment_after }}
-  {{ more }}
 
   {% if footer %}
     <footer>
