@@ -176,13 +176,14 @@ $toggle-check-button-circ-edge-padding: 0.4rem;
 
 // Handling for placing google places wrapper.
 .locate-me-wrapper {
+  &.active {
+    .description {
+      display: none;
+    }
 
-  .pac-container.pac-logo  {
-    display: block !important;
-    position: relative !important;
-    top: auto !important;
-    left: auto !important;
-    width: 100% !important;
+    .places-locate-me-button {
+      display: none;
+    }
   }
 
   .pac-container {
@@ -320,12 +321,4 @@ $toggle-check-button-circ-edge-padding: 0.4rem;
 }
 .form-item-proximity-source-configuration-search {
   position: relative;
-
-  .description {
-    font-family: $font-tertiary;
-    background-color: $white;
-    padding: $space-one-half $space;
-    color: $grey-9;
-  }
 }
-
