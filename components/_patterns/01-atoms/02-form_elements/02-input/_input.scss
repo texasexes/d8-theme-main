@@ -113,7 +113,7 @@ $toggle-check-button-circ-edge-padding: 0.4rem;
   }
   >.js-form-wrapper {
     background-color: $purple-1;
-    padding:$space-one-half $space 0;
+    padding:$space-one-half 0;
   }
 
   .description {
@@ -121,8 +121,8 @@ $toggle-check-button-circ-edge-padding: 0.4rem;
     background-color: $white;
     padding: $space-one-half $space;
     color: $grey-9;
-    margin-left: -$space;
-    margin-right: -$space;
+    // margin-left: -$space;
+    // margin-right: -$space;
     margin-top: $space-one-half;
   }
 
@@ -165,11 +165,12 @@ $toggle-check-button-circ-edge-padding: 0.4rem;
     color: $grey-9;
     line-height: 2.2;
     padding: 0 $space+$space-one-third 0 $space-one-half;
+    margin: 0 $space;
     max-width: 80%;
   }
   .places-locate-me-button {
-    margin-left: -$space;
-    margin-right: -$space;
+    // margin-left: -$space;
+    // margin-right: -$space;
   }
 }
 
