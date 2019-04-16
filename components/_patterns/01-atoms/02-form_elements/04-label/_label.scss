@@ -21,9 +21,13 @@ $font-label: $font-primary;
 // homepage
 
 .location-searched {
-  color: $grey-7;
-  font-size: 1.2rem;
-  padding: 0 $space-one-half 0 0;
+  @extend .flexbox__h2;
+  @extend .flexbox__h2--alt-5;
+  // color: $grey-7;
+  // font-size: 1.2rem;
+  // padding: 0 $space-one-half 0 0;
+
+  // flexbox__h2 flexbox__h2--subtitle flexbox__h2--alt-5 clearfix text-formatted quickedit-field
 }
 
 .search-toggle {
@@ -41,4 +45,3 @@ $font-label: $font-primary;
     }
   }
 }
-
