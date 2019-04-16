@@ -78,7 +78,7 @@
     {% set tempArray5 = tempArray5|merge(paragraph_modifiers) %}
   {% endif %}
 
-  {% include "@base/layouts/layout/00-layout.twig" with {
+  {% include "@base/layouts/layout/00-layout-2.twig" with {
     "layout_attributes": attributes.addClass(classes),
     "layout_base_class": paragraph_base_class,
     "layout_modifiers": tempArray5,
