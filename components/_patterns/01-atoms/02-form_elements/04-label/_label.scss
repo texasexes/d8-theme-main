@@ -20,18 +20,6 @@ $font-label: $font-primary;
 // events search 
 // homepage
 
-.search-label {
-  @include label;
-  color: $grey-7;
-  font-style: italic;
-  font-weight: 800;
-  font-size: 1.85rem;
-  line-height: 1.25;
-  margin: 0 0 3px;
-  padding: 0 $space-one-half 0 0;
-  text-transform: none;
-}
-
 .location-searched {
   color: $grey-7;
   font-size: 1.2rem;
