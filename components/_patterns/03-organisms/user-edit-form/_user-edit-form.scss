@@ -4,15 +4,6 @@
   color: $color;
 }
 
-label {
-  @include user-edit-form-text;
-
-  display: inline-flex;
-  align-items: center;
-  padding: 0 0 15px 15px;
-  // width: 135px;
-}
-
 .page--user--edit {
   .layout-content {
     // @include wrapper($container-max-width: $medium);
@@ -38,14 +29,7 @@ label {
     }
   }
 
-  label {
-    @include user-edit-form-text;
 
-    display: flex;
-    align-items: center;
-    padding: 0 0 2px ;
-    // width: 135px;
-  }
 
   .form-text,
   .form-email {
