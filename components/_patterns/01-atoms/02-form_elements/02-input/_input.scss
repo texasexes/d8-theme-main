@@ -1,3 +1,18 @@
+input {
+  color: $grey-5;
+}
+
+input[type="submit"] {
+  background-color: $burnt-orange;
+  border: none;
+  border-radius: 2px;
+  color: $mushroom-lighter;
+  font-size: 1.6rem;
+  font-family: $font-tertiary;
+  min-width: 100px;
+  padding: .4em 1em;
+}
+
 .form-text {
   max-width: 100%;
 }
