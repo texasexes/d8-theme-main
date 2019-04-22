@@ -1,17 +1,25 @@
 // Label
-$font-label: $font-primary;
+$color-label: $grey-7;
+$font-family-label: $font-tertiary;
+$font-size-label: 1.6rem;
 
-// Create a mixin for blockquote styles that can be implemented
+// Create a mixin for label styles that can be implemented
 // in components with other classnames.
 @mixin label(
-  $margin: 0 0 0 1em,
-  $padding: 0 0 0 1em,
-  $font-family: $font-label) {
+  $color: $color-label,
+  $font-family: $font-family-label,
+  $font-size: $font-size-label,
+  $margin: 0,
+  $padding: 0 0 2px) {
+  color: $color;
+  display: block;
   font-family: $font-family;
+  font-size: $font-size;
   margin: #{$margin};
   padding: #{$padding};
 }
 
+label,
 .txex-label {
   @include label;
 }
