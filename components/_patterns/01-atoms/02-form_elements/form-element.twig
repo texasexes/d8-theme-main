@@ -1,0 +1,27 @@
+{#
+/**
+ * Available variables:
+ * - element_base_class - the base class name
+ * - element_modifiers - array of modifiers to add to the base classname
+ * - element_blockname - blockname prepended to the base classname
+ * - element_attributes - array of attribute,value pairs
+ * - element_children - optional additional rendered elements (typically empty)
+ *
+ * Available blocks:
+ * - element_children - used to add content as a sibling of the element element
+ */
+#}
+
+{# An element uses this class along with the blockname whenever it is an element (BEM)#}
+{% set element_base_class = element_base_class|default('txex-form-element') %}
+{# This var is set to prevent add_attributes griping about an empty var #}
+{% set element_attributes = element_attributes|default([]) %}
+
+<div
+ {{ bem(element_base_class, (element_modifiers), element_blockname) }}
+ {{ add_attributes(element_attributes) -}}
+>
+{%- block element_content_block -%}
+  {{ element_content }}
+{%- endblock -%}
+</div>
