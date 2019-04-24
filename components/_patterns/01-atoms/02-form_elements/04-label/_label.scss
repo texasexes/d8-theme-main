@@ -19,7 +19,6 @@ $font-size-label: 1.6rem;
   padding: #{$padding};
 }
 
-label,
 .label {
   @include label;
 }
