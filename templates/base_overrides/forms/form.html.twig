@@ -1,0 +1,16 @@
+{#
+/**
+ * @file
+ * Theme override for a 'form' element.
+ *
+ * Available variables
+ * - attributes: A list of HTML attributes for the wrapper element.
+ * - children: The child elements of the form.
+ *
+ * @see template_preprocess_form()
+ */
+#}
+{% include "@molecules/08-form/form.twig" with {
+  "form_children": children,
+  "form_attributes": attributes,
+} %}
