@@ -1,28 +1,16 @@
-legend,
-  color: #777;
-  font-family: "Sentinel A","Sentinel B",serif;
-  font-size: 2.096rem;
 .legend {
+  color: #555;
+  font-family: $font-primary;
+  font-size: 3rem;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 700;
   letter-spacing: -.005em;
-  line-height: 1.29;
+  line-height: 1.2;
+  padding: 0 5px;
   text-transform: none;
   width: auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  color: #555;
-  font-size: 3rem;
-  font-weight: 700;
-  line-height: 1.2;
-  margin: 0 0 20px;
-
-  padding: 0 5px;
-  margin: 0;
-
-  // @extend .wysiwyg__h2;
-
 
   &-span {
 //
