@@ -5,7 +5,7 @@
 }
 
 .attain-comm-preferences-form {
-  padding-bottom: $space;
+  // margin-bottom: $space;
 
   .description {
     margin: 0;
@@ -32,9 +32,9 @@
   }
 
   .form-submit {
-    @include button-small;
+    // @include button-small;
 
-    margin-bottom: 10px;
+    // margin-bottom: 10px;
   }
 
   .form-wrapper {

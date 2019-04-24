@@ -11,12 +11,12 @@
 }
 
 .user-form {
-  padding-bottom: 30px;
+  // padding-bottom: 30px;
 
   .form-item {
     // display: flex;
     // flex-flow: row wrap;
-    margin-bottom: $space-one-half;
+    // margin-bottom: $space-one-half;
   }
 
   .field-group-html-element {
@@ -50,14 +50,14 @@
   }
 
   fieldset {
-    border: 1px solid #ecede8;
-    padding: 20px;
+    // border: 1px solid #ecede8;
+    // padding: 20px;
   }
 
   legend {
     .fieldset-legend {
-      @extend .wysiwyg__h2;
-      padding: 0 5px;
+      // @extend .wysiwyg__h2;
+      // padding: 0 5px;
     }
   }
 
@@ -79,6 +79,6 @@
   }
 
   .form-submit {
-    @include button-small;
+    // @include button-small;
   }
 }
