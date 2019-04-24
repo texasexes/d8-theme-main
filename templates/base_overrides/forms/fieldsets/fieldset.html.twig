@@ -26,13 +26,13 @@
     'form-item',
     'js-form-wrapper',
     'form-wrapper',
-    'txex-fieldset',
+    'fieldset',
   ]
 %}
 <fieldset{{ attributes.addClass(classes) }}>
   {%
     set legend_classes = [
-      'txex-legend',
+      'legend',
     ]
   %}
   {%
@@ -40,7 +40,7 @@
       'fieldset-legend',
       required ? 'js-form-required',
       required ? 'form-required',
-      'txex-legend-span',
+      'legend-span',
     ]
   %}
   {#  Always wrap fieldset legends in a SPAN for CSS positioning. #}

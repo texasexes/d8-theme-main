@@ -13,7 +13,7 @@
 #}
 
 {# An element uses this class along with the blockname whenever it is an element (BEM)#}
-{% set element_base_class = element_base_class|default('txex-form-element') %}
+{% set element_base_class = element_base_class|default('form-element') %}
 {# This var is set to prevent add_attributes griping about an empty var #}
 {% set element_attributes = element_attributes|default([]) %}
 
