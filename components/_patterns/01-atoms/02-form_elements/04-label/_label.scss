@@ -21,4 +21,9 @@ $font-size-label: 1.6rem;
 
 .label {
   @include label;
+
+  .input[type="radio"] + & {
+    display: inline;
+    padding-left: 5px;
+  }
 }
