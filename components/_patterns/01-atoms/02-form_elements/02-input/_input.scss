@@ -113,7 +113,7 @@ $toggle-check-button-circ-edge-padding: 0.4rem;
   }
   >.js-form-wrapper {
     background-color: $purple-1;
-    padding:$space-one-half 0;
+    padding-top: $space-one-half;
   }
 
   .description {
@@ -123,36 +123,89 @@ $toggle-check-button-circ-edge-padding: 0.4rem;
     color: $grey-9;
     // margin-left: -$space;
     // margin-right: -$space;
-    margin-top: $space-one-half;
+    // margin-top: $space-one-half;
   }
 
   .search-form-close {
+    background-color: transparent;
     position: absolute;
-    right: 32px;
-    top: 21px;
+    right: 0;
+    top: 15px;
     z-index: 1;
 
     a.close-button {
-      display: block;
-      width: 24px;
-      height: 24px;
+      align-items: center;
+      background-color: #272731;
+      display: flex;
+      justify-content: center;
+      width: 43px;
+      height: 40px;
       cursor: pointer;
     }
-    &:before, &:after {
-      height: 20px;
-      width: 0;
-      position: absolute;
-      content: "";
-      top: 0;
-      right: 50%;
+    // &:before, &:after {
+    //   height: 20px;
+    //   width: 0;
+    //   position: absolute;
+    //   content: "";
+    //   top: 0;
+    //   right: 50%;
+    // }
+    // &:before {
+    //   border-right: 1px solid white;
+    //   transform: rotate(-45deg);
+    // }
+    // &:after {
+    //   border-left: 1px solid white;
+    //   transform: rotate(45deg);
+    // }
+
+    &__icon,
+    &__icon::before,
+    &__icon::after {
+      position: relative;
+      display: block;
+      content: '';
+      // width: $space;
+      // height: 4px;
+      background-color: transparent;
+
+      border-radius: 1em;
+      &--close {
+      }
     }
-    &:before {
-      border-right: 1px solid white;
-      transform: rotate(-45deg);
-    }
-    &:after {
-      border-left: 1px solid white;
-      transform: rotate(45deg);
+
+    &__icon {
+      &::before {
+        background-color: $purple-4;
+        top: -8px;
+      }
+
+      &::after {
+        background-color: $purple-4;
+        bottom: -4px;
+      }
+
+      &.js-menu-active {
+
+        // left: 17px;
+        // margin: auto;
+
+        &::before {
+          transform: rotate(45deg);
+          top: 0;
+          // left: 3px;
+          width: 17px;
+          height: 3px;
+        }
+
+        &::after {
+          transform: rotate(-45deg);
+          bottom: 3px;
+          // left: 3px;
+          width: 17px;
+          height: 3px;
+        }
+      }
     }
   }
   .search-trigger {
@@ -165,7 +218,9 @@ $toggle-check-button-circ-edge-padding: 0.4rem;
     color: $grey-9;
     line-height: 2.2;
     padding: 0 $space+$space-one-third 0 $space-one-half;
-    margin: 0 $space;
+    margin-bottom: $space-one-half;
+    margin-left: $space-one-half;
+    // margin: 0 $space;
     max-width: 80%;
   }
   .places-locate-me-button {

@@ -21,7 +21,11 @@
     <span class="toggle-event-search"><a class="flexbox__link search-toggle">Change</a></span>
 </div>
 <div class="form--inline clearfix event-search-form hidden">
-    <div class="search-form-close"><a class="close-button"></a></div>
+    <div class="search-form-close">
+      <a href="#" class="search-form-close__link close-button">
+        <span class="search-form-close__icon js-menu-active"></span>
+      </a>
+    </div>
     <div class="hidden">{{ form.actions }}</div>
     {{ form|without('actions') }}
 </div>
