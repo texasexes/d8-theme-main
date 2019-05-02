@@ -1,0 +1,22 @@
+<div{{ attributes }}>
+  <h3 class="wysiwyg__h4">{{ "My Open Pledges" | t }}</h3>
+  <div id='pledge-messages'>
+    <p class="p pledge-messages">{{ "Loading Your Open Pledges..." | t }}</p>
+  </div>
+  <div id="pledges-list-wrapper">
+    <div class="pledges-sample-wrapper" style="display:none">
+      <h4 class="pledge-name"><!-- GAU --></h4>
+      <div class="pledge-total">{{ "Total pledge" | t }}:<span class="pledge-total-value"><!-- Total amount --></span></div>
+      <div class="pledge-balance">{{ "Remaining balance" | t }}:<span class="pledge-remaining-value"><!-- balance amount --></span></div>
+      <div class="pledge-details-list-wrapper" >
+        <table class="pledge-sample-payments" style="dispaly:none">
+          <tr>
+            <td class="pledge-data pledge-payment-amount"></td>
+            <td class="pledge-data pledge-payment-status"></td>
+            <td class="pledge-data pledge-payment-due"></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
