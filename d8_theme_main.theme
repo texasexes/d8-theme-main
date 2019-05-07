@@ -1,12 +1,15 @@
 <?php
-require_once('modules/contrib/devel/kint/kint/Kint.class.php');
 /**
  * @file
  * Functions to support theming in the Pattern Lab theme.
  */
+require_once('modules/contrib/devel/kint/kint/Kint.class.php');
 
-// storing img_blockname in attributes so that I can pass it on
+/**
+ * Implements hook_preprocess_HOOK().
+ */
 function d8_theme_main_preprocess_responsive_image_formatter(&$variables) {
+  // Storing img_blockname in attributes so that I can pass it on.
   if (isset($variables['item'])){
     $itemParent = $variables['item']->getParent();
     $fieldName = $itemParent->getName();
@@ -27,17 +30,24 @@ function d8_theme_main_preprocess_responsive_image_formatter(&$variables) {
   }
 }
 
-// fixes bug where style_name is never set
+/**
+ * Implements hook_preprocess_HOOK().
+ */
  function d8_theme_main_preprocess_responsive_image(&$variables) {
+   // fixes bug where style_name is never set
+
    if (isset($variables['responsive_image_style_id'])) {
      $variables['img_element']['#style_name'] = $variables['responsive_image_style_id'];
    }
  }
 
-// retrieving img_blockname from attributes so that it can be used in the BEM class
-// then unsetting it so it doesn't display as an attribute
-function d8_theme_main_preprocess_image(&$variables) {
 
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function d8_theme_main_preprocess_image(&$variables) {
+  // Retrieving img_blockname from attributes so that it can be used in the 
+  // BEM class, then unsetting it so it doesn't display as an attribute.
   if (isset($variables['attributes']['img_blockname'])) {
     $variables['img_blockname'] = implode($variables['attributes']['img_blockname']);
     unset($variables['attributes']['img_blockname']);
@@ -46,6 +56,53 @@ function d8_theme_main_preprocess_image(&$variables) {
   if (isset($variables['attributes']['field_info'])) {
     unset($variables['attributes']['field_info']);
   }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function d8_theme_main_preprocess_user(&$variables) {
+  $user_id = $variables['user']->id();
+  $user = user_load($user_id);
+   
+  // Show only the preferred email & phone. 
+  $phone_field = $user->get('field_txex_list_text_03')->first()->getValue();
+  $preferred_phone = $phone_field['value'];
+
+  $email_field = $user->get('field_txex_list_text_04')->first()->getValue();
+  $preferred_email = $email_field['value'];
+
+  switch ($preferred_email) {
+    case 'Work':
+      $variables['preferred_email'] = $variables['elements']['field_txex_email_02'];
+    break;
+
+    case 'Personal':
+      $variables['preferred_email'] = $variables['elements']['field_txex_email_01'];
+    break;
+
+    case 'Alternate':
+      $variables['preferred_email'] = $variables['elements']['field_txex_email_03'];
+    break;
+  }
+
+  switch ($preferred_phone) {
+    case 'Work':
+      $variables['preferred_phone'] = $variables['elements']['field_txex_phone_01'];
+    break;
+
+    case 'Home':
+      $variables['preferred_phone'] = $variables['elements']['field_txex_phone_02'];
+    break;
+    
+    case 'Mobile':
+      $variables['preferred_phone'] = $variables['elements']['field_txex_phone_03'];
+    break;
+
+    case 'Other':
+    $variables['preferred_phone'] = $variables['elements']['field_txex_phone_04'];
+  break;
+  }  
 }
 
 /**
@@ -67,9 +124,11 @@ function d8_theme_main_preprocess_image(&$variables) {
    array_push($suggestions, $variables['theme_hook_original'] . "__" . $fieldParentBundleType . "__" . $fieldParentBundle);
    array_push($suggestions, $variables['theme_hook_original'] . "__" . $fieldParentBundleType . "__" . $fieldName);
    array_push($suggestions, $variables['theme_hook_original'] . "__" . $fieldParentBundleType . "__" . $fieldName . "__" . $fieldParentBundle);
-
 }
 
+/**
+ * Implements hook_theme_suggestions_HOOK().
+ */
 function d8_theme_main_theme_suggestions_image_alter(array &$suggestions, array $variables) {
   $fieldParentBundle = NULL;
   $fieldParentBundleType = NULL;
@@ -98,7 +157,9 @@ function d8_theme_main_theme_suggestions_image_alter(array &$suggestions, array 
   array_push($suggestions, $variables['theme_hook_original'] . "__" . $fieldParentBundleType . "__" . $fieldName . "__" . $fieldParentBundle);
 }
 
-
+/**
+ * Implements hook_theme_suggestions_HOOK().
+ */
 function d8_theme_main_theme_suggestions_field_alter(array &$suggestions, array $variables) {
   $element = $variables['element'];
   $sanitized_view_mode = strtr($element['#view_mode'], '.', '_');
@@ -115,16 +176,22 @@ function d8_theme_main_theme_suggestions_taxonomy_term_alter(array &$suggestions
 }
 
 
-// **** Adding theme suggestions to forms and form submit items
+/**
+ * Implements hook_form_alter().
+ */
 function d8_theme_main_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  // Adding theme suggestions to forms and form submit items.
   $form['actions']['submit']['#attributes']['data-twig-suggestion'] = $form['#form_id'];
   foreach (Drupal\Core\Render\Element::children($form) as $child) {
     $form[$child]['#attributes']['data-twig-suggestion'] = $form['#form_id'];
   }
 }
 
+/**
+ * Implements hook_form_alter().
+ */
 function d8_theme_main_form_views_exposed_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
-  // convert the very specific #id to underscores only for use in suggestion
+  // Convert the very specific #id to underscores only for use in suggestion.
   $form_id = str_replace('-', '_', $form['#id']);
   $form['actions']['submit']['#attributes']['data-twig-suggestion'] = $form_id;
   foreach (Drupal\Core\Render\Element::children($form) as $child) {
@@ -132,18 +199,25 @@ function d8_theme_main_form_views_exposed_form_alter(&$form, \Drupal\Core\Form\F
   }
 }
 
+/**
+ * Implements hook_form_alter().
+ */
 function d8_theme_main_theme_suggestions_form_alter(&$suggestions, array $variables) {
   $element = $variables['element'];
-  $suggestions[] = 'form__' . $element['#form_id']; // Machine name of form.
+  // Machine name of form.
+  $suggestions[] = 'form__' . $element['#form_id']; 
 
-  // checks if the form_id isn't specific enough -- for example with form for a
-  // views exposed form
+  // Checks if the form_id isn't specific enough -- for example with form for a
+  // views exposed form.
   $alternate_form_id = str_replace('-', '_', $element['#id']);
   if ($element['#form_id'] != $alternate_form_id) {
     $suggestions[] = 'form__' . $alternate_form_id;
   }
 }
 
+/**
+ * Implements hook_form_alter().
+ */
 function d8_theme_main_theme_suggestions_input_alter(&$suggestions, array $variables) {
   $element = $variables['element'];
   if (isset($element['#attributes']['data-twig-suggestion'])) {
@@ -151,15 +225,9 @@ function d8_theme_main_theme_suggestions_input_alter(&$suggestions, array $varia
   }
 }
 
-// function d8_theme_main_theme_suggestions_form_element_label_alter(&$suggestions, array $variables) {
-// }
-//
-// function d8_theme_main_theme_theme_suggestions_form_element_alter(array &$suggestions, array $variables, $hook) {
-// }
-// ******************
-
 /**
  * Implements hook_theme_registry_alter().
+ * 
  * @param $theme_registry
  */
 function d8_theme_main_theme_registry_alter(&$theme_registry) {
@@ -179,8 +247,11 @@ function d8_theme_main_preprocess_breadcrumb(&$variables) {
   }
 }
 
+/**
+ * Implements hook_preprocess_HOOK().
+ */
 function d8_theme_main_preprocess_field(&$variables) {
-  //get the value of the field
+  // Get the value of the field.
   $field_layout_type_value = NULL;
   $field_modifiers = NULL;
   $parent_entity = $variables['element']['#object'];
@@ -216,7 +287,9 @@ function d8_theme_main_preprocess_field(&$variables) {
   }
 }
 
-// function d8_theme_main_preprocess_paragraph__txex_paragraph_02(&$variables) {
+/**
+ * Implements hook_preprocess_HOOK().
+ */
 function d8_theme_main_preprocess_paragraph(&$variables) {
 
   $current_paragraph = $variables['elements']['#paragraph'];
@@ -300,11 +373,9 @@ function d8_theme_main_preprocess_paragraph(&$variables) {
       }
     }
   }
-
   $variables['paragraph_modifiers'] = $paragraph_modifiers;
 
 }
-
 
 /**
  * Implements hook_preprocess_HOOK().
@@ -336,63 +407,6 @@ function d8_theme_main_theme_suggestions_menu_alter(&$suggestions, array $variab
   }
 }
 
-
-// function d8_theme_main_preprocess_paragraph__txex_paragraph_21(&$variables) {
-//   $current_paragraph = $variables['elements']['#paragraph'];
-//
-//   // if ($variables['elements']['field_txex_ref_rev_para_01']) {
-//   if ($current_paragraph->hasField('field_txex_ref_rev_para_01')) {
-//     $referenced_paragraphs = $current_paragraph->get('field_txex_ref_rev_para_01')->getValue();
-//
-//     foreach ( $referenced_paragraphs as $key => $element ) {
-//       $loaded_child_paragraph = \Drupal\paragraphs\Entity\Paragraph::load( $element['target_id'] );
-//
-//       if ($loaded_child_paragraph->hasField('field_txex_ref_content_01')) {
-//           $node_reference_field = $loaded_child_paragraph->get('field_txex_ref_content_01')->first();
-//
-//         if ($node_reference_field) {
-//           $referenced_entity = $node_reference_field->getValue();
-//           $loaded_entity = \Drupal\node\Entity\Node::load($referenced_entity['target_id']);
-//
-//           if ($loaded_entity->hasField('field_txex_ref_view_mode')) {
-//             if (!empty($loaded_entity->get('field_txex_ref_view_mode')->first())) {
-//               $paragraph_view_mode = $loaded_entity->get('field_txex_ref_view_mode')->first()->getValue();
-//               $paragraph_view_mode_value = $paragraph_view_mode['target_id'];
-//               $paragraph_view_mode_value = explode('.', $paragraph_view_mode_value, 2)[1];
-//               $variables['content']['field_txex_ref_rev_para_01'][$key]['#view_mode'] = $paragraph_view_mode_value;
-//             }
-//           }
-//         }
-//       }
-//     }
-//   }
-// }
-
-// function d8_theme_main_preprocess_paragraph__txex_paragraph_22(&$variables) {
-//   $current_paragraph = $variables['elements']['#paragraph'];
-//
-//   // if ($variables['elements']['field_txex_ref_rev_para_01']) {
-//
-// }
-
-// function d8_theme_main_entity_view_mode_alter(&$view_mode, Drupal\Core\Entity\EntityInterface $entity, $context) {
-//   kint($entity);
-// kint($entity->getEntityTypeId());
-// kint($entity->bundle());
-//   // if ($entity->getEntityTypeId() == 'txex_paragraph_02' && $entity->bundle() == 'paragraph') {
-//   //   $view_mode = 'para_view_mode_01';
-//   // }
-// }
-
-// function d8_theme_main_entity_view_mode_alter(&$view_mode, Drupal\Core\Entity\EntityInterface $entity, $context) {
-//
-//   // For nodes, change the view mode when it is teaser.
-//   if ($entity
-//     ->getEntityTypeId() == 'node' && $view_mode == 'teaser') {
-//     $view_mode = 'my_custom_view_mode';
-//   }
-// }
-
 function d8_theme_main_theme_suggestions_views_view_alter(array &$suggestions, array $variables) {
     // If you want you can add a template suggestion for all views
     // based on their ID:
@@ -409,6 +423,9 @@ function d8_theme_main_views_pre_render(\Drupal\views\ViewExecutable $view) {
 
 }
 
+/**
+ * Implements hook_preprocess_views_view().
+ */
 function d8_theme_main_preprocess_views_view(&$variables) {
   $view_id = $variables['id'];
   $display_id = $variables['display_id'];
@@ -428,28 +445,3 @@ function d8_theme_main_preprocess_views_view(&$variables) {
     }
   }
 }
-
-// function d8_theme_main_views_pre_render(Drupal\views\ViewExecutable $view) {
-//   if ($view->id() == "txex_events" && $view->current_display == 'block_1') {
-//     // kint($view);
-//     // kint($view->args[0]);
-//     // kint($view->field['rendered_entity']->options['view_mode']);
-//     // $view->field['rendered_entity']->options['view_mode'] = 'node_view_mode_01';
-//     foreach ($view->result as &$row) {
-//       // kint($row);
-//       $gid = $row->groups_field_data_group_content_field_data_id;
-//       $entity = $row->_entity;
-//       // kint($entity);
-//       // kint($entity);
-//       // kint($entity->get('field_txex_ref_rev_para_01'));
-//
-//       // $field = 'field_txex_ref_group_01';
-//       // $entity->set($field, $gid);
-//     }
-//   }
-// }
-
-// function d8_theme_main_node_create(\Drupal\Core\Entity\EntityInterface $entity) {
-//
-//   kint($entity);
-// }
