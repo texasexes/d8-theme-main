@@ -213,22 +213,6 @@ $toggle-check-button-circ-edge-padding: 0.4rem;
     & .pac-icon {
       margin: 0 7px 0;
     }
-
-    &.pac-logo  {
-      display: block !important;
-      position: relative !important;
-      top: auto !important;
-      left: auto !important;
-      width: 100% !important;
-
-      &:after {
-        border-top: 1px solid #e6e6e6;
-      }
-    }
-
-    & ~ .pac-container {
-      display: none !important;
-    }
   }
 
   .places-locate-me-button {
