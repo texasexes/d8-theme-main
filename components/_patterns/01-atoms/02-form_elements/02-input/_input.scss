@@ -95,6 +95,7 @@ $toggle-check-button-circ-edge-padding: 0.4rem;
 .views-exposed-form {
   position: relative;
 }
+
 .event-search-form {
   position: absolute;
   left: 20px;
@@ -111,6 +112,7 @@ $toggle-check-button-circ-edge-padding: 0.4rem;
   @include breakpoint($large) {
     top: $space;
   }
+
   >.js-form-wrapper {
     background-color: $purple-1;
     padding-top: $space-one-half;
@@ -121,9 +123,6 @@ $toggle-check-button-circ-edge-padding: 0.4rem;
     background-color: $white;
     padding: $space-one-half $space;
     color: $grey-9;
-    // margin-left: -$space;
-    // margin-right: -$space;
-    // margin-top: $space-one-half;
   }
 
   .search-form-close {
@@ -142,36 +141,15 @@ $toggle-check-button-circ-edge-padding: 0.4rem;
       height: 40px;
       cursor: pointer;
     }
-    // &:before, &:after {
-    //   height: 20px;
-    //   width: 0;
-    //   position: absolute;
-    //   content: "";
-    //   top: 0;
-    //   right: 50%;
-    // }
-    // &:before {
-    //   border-right: 1px solid white;
-    //   transform: rotate(-45deg);
-    // }
-    // &:after {
-    //   border-left: 1px solid white;
-    //   transform: rotate(45deg);
-    // }
 
     &__icon,
     &__icon::before,
     &__icon::after {
-      position: relative;
-      display: block;
-      content: '';
-      // width: $space;
-      // height: 4px;
       background-color: transparent;
-
       border-radius: 1em;
-      &--close {
-      }
+      content: '';
+      display: block;
+      position: relative;
     }
 
     &__icon {
@@ -182,29 +160,6 @@ $toggle-check-button-circ-edge-padding: 0.4rem;
 
       &::after {
         background-color: $purple-4;
-        bottom: -4px;
-      }
-
-      &.js-menu-active {
-
-        // left: 17px;
-        // margin: auto;
-
-        &::before {
-          transform: rotate(45deg);
-          top: 0;
-          // left: 3px;
-          width: 17px;
-          height: 3px;
-        }
-
-        &::after {
-          transform: rotate(-45deg);
-          bottom: 3px;
-          // left: 3px;
-          width: 17px;
-          height: 3px;
-        }
       }
     }
   }
@@ -358,6 +313,7 @@ $toggle-check-button-circ-edge-padding: 0.4rem;
     position: absolute;
     top: 10px;
   }
+
   .locate-me-wrapper {
     display: none;
     box-shadow: 0 0 10px rgba($color: #000000, $alpha: 0.4);
