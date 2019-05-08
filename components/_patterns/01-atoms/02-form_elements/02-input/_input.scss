@@ -175,12 +175,9 @@ $toggle-check-button-circ-edge-padding: 0.4rem;
     padding: 0 $space+$space-one-third 0 $space-one-half;
     margin-bottom: $space-one-half;
     margin-left: $space-one-half;
-    // margin: 0 $space;
     max-width: 80%;
   }
   .places-locate-me-button {
-    // margin-left: -$space;
-    // margin-right: -$space;
   }
 }
 
@@ -210,11 +207,7 @@ $toggle-check-button-circ-edge-padding: 0.4rem;
       font-family: $font-tertiary;
       font-size: 16px;
       background-color: $white;
-      // padding: $space-one-half $space;
       color: $grey-9;
-      // margin-left: -$space;
-      // margin-right: -$space;
-      // margin-top: $space-one-half;
     }
 
     & .pac-icon {
