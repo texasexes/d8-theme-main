@@ -256,7 +256,7 @@ $toggle-check-button-circ-edge-padding: 0.4rem;
 // events search
 // events page
 .event-page-search-form {
-  [data-drupal-selector="edit-proximity"] {
+  div[data-drupal-selector="edit-proximity"] {
     display: flex;
     align-content: center;
     flex-flow: column nowrap;
@@ -266,7 +266,7 @@ $toggle-check-button-circ-edge-padding: 0.4rem;
       padding-right: $space-one-half;
     }
 
-    input {
+    .places-locate {
       font-family: $font-tertiary;
       color: $grey-9;
       line-height: 2.2;
