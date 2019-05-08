@@ -261,16 +261,16 @@ $toggle-check-button-circ-edge-padding: 0.4rem;
     align-content: center;
     flex-flow: column nowrap;
 
-    @include breakpoint($event-search-max) {
-      padding-left: $space-one-half;
-      padding-right: $space-one-half;
-    }
-
     .places-locate {
       font-family: $font-tertiary;
       color: $grey-9;
       line-height: 2.2;
       padding: 0 $space+$space-one-third 0 $space-one-half;
+    }
+
+    @include breakpoint($event-search-max) {
+      padding-left: $space-one-half;
+      padding-right: $space-one-half;
     }
 
     @include breakpoint($large) {
