@@ -74,7 +74,8 @@
 .txex-profile-base-information,
 .membership-wrapper,
 #block-givinghistory,
-#block-commemorativetileblock {
+#block-commemorativetileblock,
+#block-myopenpledges {
   margin-bottom: 10px;
   position: relative;
 
@@ -177,6 +178,39 @@
   }
 
   .gift-data {
+    @extend .p;
+
+    padding: 5px 0;
+  }
+}
+
+#pledges-list-wrapper {
+  .pledge-details-table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  .pledge-sample-payments {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  .pledge-header {
+    @extend .wysiwyg__h4;
+
+    text-align: left;
+  }
+
+  .pledge-sample-row {
+    display: none;
+  }
+
+  .pledge-row {
+    border-top-style: solid;
+    border-color: #f6f6f2;
+    border-width: 1px;
+    padding: 5px 0;
+  }
+
+  .pledge-data {
     @extend .p;
 
     padding: 5px 0;
