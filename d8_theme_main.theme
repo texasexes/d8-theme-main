@@ -1,15 +1,18 @@
 <?php
-require_once('modules/contrib/devel/kint/kint/Kint.class.php');
-
-use Drupal\Core\Url;
-use Drupal\Core\Form\FormStateInterface;
 /**
  * @file
  * Functions to support theming in the Pattern Lab theme.
  */
 
-// storing img_blockname in attributes so that I can pass it on
+use Drupal\Core\Url;
+use Drupal\Core\Form\FormStateInterface;
+require_once('modules/contrib/devel/kint/kint/Kint.class.php');
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
 function d8_theme_main_preprocess_responsive_image_formatter(&$variables) {
+  // Storing img_blockname in attributes so that I can pass it on.
   if (isset($variables['item'])){
     $itemParent = $variables['item']->getParent();
     $fieldName = $itemParent->getName();
@@ -30,17 +33,22 @@ function d8_theme_main_preprocess_responsive_image_formatter(&$variables) {
   }
 }
 
-// fixes bug where style_name is never set
+/**
+ * Implements hook_preprocess_HOOK().
+ */
  function d8_theme_main_preprocess_responsive_image(&$variables) {
+   // Fixes bug where style_name is never set.
    if (isset($variables['responsive_image_style_id'])) {
      $variables['img_element']['#style_name'] = $variables['responsive_image_style_id'];
    }
  }
 
-// retrieving img_blockname from attributes so that it can be used in the BEM class
-// then unsetting it so it doesn't display as an attribute
+/**
+ * Implements hook_preprocess_HOOK().
+ */
 function d8_theme_main_preprocess_image(&$variables) {
-
+  // Retrieving img_blockname from attributes so that it can be used in the
+  // BEM class, then unsetting it so it doesn't display as an attribute.
   if (isset($variables['attributes']['img_blockname'])) {
     $variables['img_blockname'] = implode($variables['attributes']['img_blockname']);
     unset($variables['attributes']['img_blockname']);
@@ -60,19 +68,19 @@ function d8_theme_main_preprocess_image(&$variables) {
 
    $fieldName = $itemParent->getName();
    $fieldNameBundle = $itemParent->getFieldDefinition()->getType();
-
    $fieldParent = $variables['item']->getEntity();
    $fieldParentBundle = $fieldParent->bundle();
-
    $fieldParentBundleType = $fieldParent->getEntityTypeId();
 
    array_push($suggestions, $variables['theme_hook_original'] . "__" . $fieldParentBundleType);
    array_push($suggestions, $variables['theme_hook_original'] . "__" . $fieldParentBundleType . "__" . $fieldParentBundle);
    array_push($suggestions, $variables['theme_hook_original'] . "__" . $fieldParentBundleType . "__" . $fieldName);
    array_push($suggestions, $variables['theme_hook_original'] . "__" . $fieldParentBundleType . "__" . $fieldName . "__" . $fieldParentBundle);
-
 }
 
+/**
+ * Implements hook_theme_suggestions_HOOK().
+ */
 function d8_theme_main_theme_suggestions_image_alter(array &$suggestions, array $variables) {
   $fieldParentBundle = NULL;
   $fieldParentBundleType = NULL;
@@ -101,7 +109,9 @@ function d8_theme_main_theme_suggestions_image_alter(array &$suggestions, array 
   array_push($suggestions, $variables['theme_hook_original'] . "__" . $fieldParentBundleType . "__" . $fieldName . "__" . $fieldParentBundle);
 }
 
-
+/**
+ * Implements hook_theme_suggestions_HOOK().
+ */
 function d8_theme_main_theme_suggestions_field_alter(array &$suggestions, array $variables) {
   $element = $variables['element'];
   $sanitized_view_mode = strtr($element['#view_mode'], '.', '_');
@@ -110,6 +120,9 @@ function d8_theme_main_theme_suggestions_field_alter(array &$suggestions, array 
   array_push($suggestions, 'field__' . $element['#entity_type'] . '__' . $element['#field_name'] . '__' . $element['#bundle'] . '__' . $sanitized_view_mode);
 }
 
+/**
+ * Implements hook_theme_suggestions_HOOK().
+ */
 function d8_theme_main_theme_suggestions_taxonomy_term_alter(array &$suggestions, &$variables) {
   $element = $variables['elements'];
   $sanitized_view_mode = strtr($element['#view_mode'], '.', '_');
@@ -118,18 +131,22 @@ function d8_theme_main_theme_suggestions_taxonomy_term_alter(array &$suggestions
 }
 
 
-// **** Adding theme suggestions to forms and form submit items
+/**
+ * Implements hook_form_alter().
+ */
 function d8_theme_main_form_alter(&$form, FormStateInterface $form_state, $form_id) {
-  $form_id = str_replace('-', '_', $form['#id']);
-  foreach (Drupal\Core\Render\Element::children($form) as $child_group) {
-    $form[$child_group]['#attributes']['data-twig-suggestion'] = $form_id;
-    foreach (Drupal\Core\Render\Element::children($form[$child_group]) as $child) {
-      $form[$child_group][$child]['#attributes']['data-twig-suggestion'] = $form_id;
-    }
+  // Adding theme suggestions to forms and form submit items.
+  $form['actions']['submit']['#attributes']['data-twig-suggestion'] = $form['#form_id'];
+  foreach (Drupal\Core\Render\Element::children($form) as $child) {
+    $form[$child]['#attributes']['data-twig-suggestion'] = $form['#form_id'];
   }
 }
 
+/**
+ * Implements hook_form_alter().
+ */
 function d8_theme_main_form_views_exposed_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  // Convert the very specific #id to underscores only for use in suggestion.
   $form_id = str_replace('-', '_', $form['#id']);
   $form['actions']['submit']['#attributes']['data-twig-suggestion'] = $form_id;
   foreach (Drupal\Core\Render\Element::children($form) as $child) {
@@ -137,19 +154,26 @@ function d8_theme_main_form_views_exposed_form_alter(&$form, FormStateInterface 
   }
 }
 
+/**
+ * Implements hook_theme_suggestions_HOOK().
+ */
 function d8_theme_main_theme_suggestions_form_alter(&$suggestions, array $variables) {
   $element = $variables['element'];
   $form_id = str_replace('-', '_', $element['#form_id']);
-  $suggestions[] = $variables['theme_hook_original'] . "__" . $form_id; // Machine name of form.
+  // Machine name of form.
+  $suggestions[] = $variables['theme_hook_original'] . "__" . $form_id;
 
-  // checks if the form_id isn't specific enough -- for example with form for a
-  // views exposed form
+  // Checks if the form_id isn't specific enough -- for example with form for a
+  // views exposed form.
   $alternate_form_id = str_replace('-', '_', $element['#id']);
   if ($form_id != $alternate_form_id) {
     $suggestions[] = $variables['theme_hook_original'] . "__" . $alternate_form_id;
   }
 }
 
+/**
+ * Implements hook_theme_suggestions_HOOK().
+ */
 function d8_theme_main_theme_suggestions_form_element_alter(array &$suggestions, array $variables, $hook) {
   $element = $variables['element'];
   if (isset($element['#attributes']['data-twig-suggestion'])) {
@@ -159,6 +183,9 @@ function d8_theme_main_theme_suggestions_form_element_alter(array &$suggestions,
   }
 }
 
+/**
+ * Implements hook_theme_suggestions_HOOK().
+ */
 function d8_theme_main_theme_suggestions_input_alter(&$suggestions, array $variables) {
   $element = $variables['element'];
   if (isset($element['#attributes']['data-twig-suggestion'])) {
@@ -179,12 +206,16 @@ function d8_theme_main_theme_suggestions_input_alter(&$suggestions, array $varia
 
 /**
  * Implements hook_theme_registry_alter().
+ *
  * @param $theme_registry
  */
 function d8_theme_main_theme_registry_alter(&$theme_registry) {
   $theme_registry['menu']['variables']['top_parent'] = "TEST";
 }
 
+/**
+ * Implements hook_preprocess_HOOK().
+ */
 function d8_theme_main_preprocess_breadcrumb(&$variables) {
   if (($node = \Drupal::routeMatch()->getParameter('node')) && $variables['breadcrumb']) {
     $title = $node->getTitle();
@@ -198,12 +229,15 @@ function d8_theme_main_preprocess_breadcrumb(&$variables) {
   }
 }
 
+/**
+ * Implements hook_preprocess_HOOK().
+ */
 function d8_theme_main_preprocess_field(&$variables) {
-  //get the value of the field
   $element = $variables['element'];
+  // Get the value of the field.
   $field_layout_type_value = NULL;
   $field_modifiers = NULL;
-  $parent_entity = $element['#object'];
+  $parent_entity = $variables['element']['#object'];
 
   if ($parent_entity->hasField('field_txex_ref_content_01')) {
     if (!$parent_entity->get('field_txex_ref_content_01')->isEmpty()) {
@@ -236,9 +270,10 @@ function d8_theme_main_preprocess_field(&$variables) {
   }
 }
 
-// function d8_theme_main_preprocess_paragraph__txex_paragraph_02(&$variables) {
+/**
+ * Implements hook_preprocess_HOOK().
+ */
 function d8_theme_main_preprocess_paragraph(&$variables) {
-
   $current_paragraph = $variables['elements']['#paragraph'];
   $paragraph_modifiers = [];
 
@@ -320,11 +355,8 @@ function d8_theme_main_preprocess_paragraph(&$variables) {
       }
     }
   }
-
   $variables['paragraph_modifiers'] = $paragraph_modifiers;
-
 }
-
 
 /**
  * Implements hook_preprocess_HOOK().
@@ -348,6 +380,7 @@ function d8_theme_main_preprocess_block(&$variables) {
  */
 function d8_theme_main_preprocess_user(&$variables) {
   $user_id = $variables['user']->id();
+  $user = user_load($user_id);
   $variables['user_edit_link'] = Url::fromRoute('entity.user.edit_form', ['user' => $user_id], []);
 
   if ('profile_base_information'=== $variables['elements']['#view_mode']) {
@@ -377,6 +410,59 @@ function d8_theme_main_preprocess_user(&$variables) {
     ];
 
     $variables['full_name'] = $full_name_render_array;
+
+    // Show only the preferred email & phone.
+    $phone_field = $user->get('field_txex_list_text_03')->first()->getValue();
+    $preferred_phone = $phone_field['value'];
+
+    $email_field = $user->get('field_txex_list_text_04')->first()->getValue();
+    $preferred_email = $email_field['value'];
+
+    switch ($preferred_email) {
+      case 'Work':
+      if (isset($variables['elements']['field_txex_email_02'])) {
+        $variables['preferred_email'] = $variables['elements']['field_txex_email_02'];
+      }
+      break;
+
+      case 'Personal':
+      if (isset($variables['elements']['field_txex_email_01'])) {
+        $variables['preferred_email'] = $variables['elements']['field_txex_email_01'];
+      }
+      break;
+
+      case 'Alternate':
+      if (isset($variables['elements']['field_txex_email_03'])) {
+        $variables['preferred_email'] = $variables['elements']['field_txex_email_03'];
+      }
+      break;
+    }
+
+    switch ($preferred_phone) {
+      case 'Work':
+      if (isset($variables['elements']['field_txex_phone_01'])) {
+        $variables['preferred_phone'] = $variables['elements']['field_txex_phone_01'];
+      }
+      break;
+
+      case 'Home':
+      if (isset($variables['elements']['field_txex_phone_02'])) {
+        $variables['preferred_phone'] = $variables['elements']['field_txex_phone_02'];
+      }
+      break;
+
+      case 'Mobile':
+      if (isset($variables['elements']['field_txex_phone_03'])) {
+        $variables['preferred_phone'] = $variables['elements']['field_txex_phone_03'];
+      }
+      break;
+
+      case 'Other':
+      if (isset($variables['elements']['field_txex_phone_04'])) {
+      $variables['preferred_phone'] = $variables['elements']['field_txex_phone_04'];
+      }
+    break;
+    }
   }
 }
 
@@ -393,6 +479,9 @@ function d8_theme_main_theme_suggestions_menu_alter(&$suggestions, array $variab
   }
 }
 
+/**
+ * Implements hook_preprocess_HOOK().
+ */
 function d8_theme_main_preprocess_node__article__full(&$variables) {
   $current_node = $variables['elements']['#node'];
 
@@ -401,14 +490,16 @@ function d8_theme_main_preprocess_node__article__full(&$variables) {
 
   if (!$current_node->field_txex_ref_content_01->isEmpty() && !$current_node->field_txex_ref_content_01->entity->title->isEmpty()) {
     $author_field_title = $current_node->field_txex_ref_content_01->entity->title->value;
-  } else {
+  }
+  else {
     $author_field_title = NULL;
   }
 
   if (!$current_node->field_txex_ref_tax_term_01->isEmpty() && !$current_node->field_txex_ref_tax_term_01->entity->name->isEmpty()) {
     $article_type_name = $current_node->field_txex_ref_tax_term_01->entity->name->value;
     $article_type_parent_path = "/" . $current_node->field_txex_ref_tax_term_01->entity->field_txex_text_formatted_path->value;
-  } else {
+  }
+  else {
     $article_type_name = NULL;
     $article_type_parent_path = NULL;
   }
@@ -419,30 +510,33 @@ function d8_theme_main_preprocess_node__article__full(&$variables) {
   $variables['article_type_parent_path'] = $article_type_parent_path;
 }
 
+/**
+ * Implements hook_preprocess_HOOK().
+ */
 function d8_theme_main_preprocess_node__event__full(&$variables) {
-
   $current_node = $variables['elements']['#node'];
   $current_view_mode = $variables['elements']['#view_mode'];
 
-  // couldn't figure out how to alter the <time> tag in the default date field formatter
-  // suggestions alter is hard because it is just a render array so...
-  // we build a new render array for a <time> element
+  // I Couldn't figure out how to alter the <time> tag in the default date field
+  // formatter. Suggestions alter is hard because it is just a render array, so
+  // we build a new render array for a <time> element.
 
   $date_start = $current_node->field_txex_date_01->view($current_view_mode);
   $time_start = $current_node->field_txex_time_01->view($current_view_mode);
   $formatted_date_start_text = $date_start[0]['#text'];
   $formatted_time_start_text = $time_start[0]['#markup'];
-  // lower case am/pm with periods per TXEX style guid (https://regex101.com/)
+  // Lower case am/pm with periods per TXEX style guid (https://regex101.com/).
   $formatted_time_start_text = preg_replace('/(?i)(?<= |^)am(?= |$)/', 'a.m.', $formatted_time_start_text);
   $formatted_time_start_text = preg_replace('/(?i)(?<= |^)pm(?= |$)/', 'p.m.', $formatted_time_start_text);
 
-  // getting values for date and time field to use in the datetime attribute for the <time> element
+  // Getting values for date and time field to use in the datetime attribute
+  // for the <time> element.
   $date_start_value = $current_node->field_txex_date_01->value;
   $time_start_seconds = $current_node->field_txex_time_01->value;
-  // format change from seconds to 00:00:00 for datetime attribute
+  // Format change from seconds to 00:00:00 for datetime attribute.
   $time_start_time = gmdate("H:i:s", $time_start_seconds);
-  // see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time or
-  // https://www.w3.org/TR/html5-author/the-time-element.html#attr-time-datetime
+  // @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time or
+  // http://www.w3.org/TR/html5-author/the-time-element.html#attr-time-datetime.
   $combined_start_date_time = $date_start_value . "T" . $time_start_time;
   $drupal_date_time_start = new \Drupal\Core\Datetime\DrupalDateTime($combined_start_date_time);
 
@@ -459,17 +553,18 @@ function d8_theme_main_preprocess_node__event__full(&$variables) {
   $time_end = $current_node->field_txex_time_02->view($current_view_mode);
   $formatted_date_end_text = $date_end[0]['#text'];
   $formatted_time_end_text = $time_end[0]['#markup'];
-  // lower case am/pm with periods per TXEX style guid (https://regex101.com/)
+  // Lower case am/pm with periods per TXEX style guide (https://regex101.com/).
   $formatted_time_end_text = preg_replace('/(?i)(?<= |^)am(?= |$)/', 'a.m.', $formatted_time_end_text);
   $formatted_time_end_text = preg_replace('/(?i)(?<= |^)pm(?= |$)/', 'p.m.', $formatted_time_end_text);
 
-  // getting values for date and time field to use in the datetime attribute for the <time> element
+  // Getting values for date and time field to use in the datetime attribute
+  // For the <time> element.
   $date_end_value = $current_node->field_txex_date_02->value;
   $time_end_seconds = $current_node->field_txex_time_02->value;
-  // format change from seconds to 00:00:00 for datetime attribute
+  // Format change from seconds to 00:00:00 for datetime attribute.
   $time_end_time = gmdate("H:i:s", $time_end_seconds);
-  // see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time or
-  // https://www.w3.org/TR/html5-author/the-time-element.html#attr-time-datetime
+  // @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time or
+  // http://www.w3.org/TR/html5-author/the-time-element.html#attr-time-datetime.
   $combined_end_date_time = $date_end_value . "T" . $time_end_time;
   $drupal_date_time_end = new \Drupal\Core\Datetime\DrupalDateTime($combined_end_date_time);
 
@@ -494,32 +589,48 @@ function d8_theme_main_preprocess_node__event__full(&$variables) {
 
   if ($current_node->field_txex_date_01->value === $current_node->field_txex_date_02->value) {
     $variables['start_end_date_equal'] = TRUE;
-  } else {
+  }
+  else {
     $variables['start_end_date_equal'] = FALSE;
   }
 
 }
 
+/**
+ * Implements hook_theme_suggestions_HOOK().
+ */
 function d8_theme_main_theme_suggestions_views_view_alter(array &$suggestions, array $variables) {
     $suggestions[] = $variables['theme_hook_original'] . '__' . $variables['view']->id();
     $suggestions[] = $variables['theme_hook_original'] . '__' . $variables['view']->id() . '__' . $variables['view']->current_display;
 }
 
+/**
+ * Implements hook_theme_suggestions_HOOK().
+ */
 function d8_theme_main_theme_suggestions_views_view_unformatted_alter(array &$suggestions, array $variables) {
     $suggestions[] = $variables['theme_hook_original'] . '__' . $variables['view']->id();
     $suggestions[] = $variables['theme_hook_original'] . '__' . $variables['view']->id() . '__' . $variables['view']->current_display;
 }
 
+/**
+ * Implements hook_theme_suggestions_HOOK().
+ */
 function d8_theme_main_theme_suggestions_views_view_fields_alter(array &$suggestions, array $variables) {
     $suggestions[] = $variables['theme_hook_original'] . '__' . $variables['view']->id();
     $suggestions[] = $variables['theme_hook_original'] . '__' . $variables['view']->id() . '__' . $variables['view']->current_display;
 }
 
+/**
+ * Implements hook_theme_suggestions_HOOK().
+ */
 function d8_theme_main_theme_suggestions_views_view_field_alter(array &$suggestions, array $variables) {
     $suggestions[] = $variables['theme_hook_original'] . '__' . $variables['view']->id();
     $suggestions[] = $variables['theme_hook_original'] . '__' . $variables['view']->id() . '__' . $variables['view']->current_display;
 }
 
+/**
+ * Implements hook_theme_suggestions_HOOK().
+ */
 function d8_theme_main_preprocess_views_view(&$variables) {
   $view_id = $variables['id'];
   $display_id = $variables['display_id'];
@@ -547,6 +658,9 @@ function d8_theme_main_preprocess_views_view(&$variables) {
   }
 }
 
+/**
+ * Implements hook_preprocess_HOOK().
+ */
 function d8_theme_main_preprocess_views_view__txex_articles__block_2(&$variables) {
   $icon_template = '{% include "@atoms/04-images/icons/_icon.twig" %}';
   $icon_render_array = [
