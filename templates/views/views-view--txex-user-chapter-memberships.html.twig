@@ -59,10 +59,7 @@
   {{ more }}
   {% if footer %}
     <footer>
-      {% include "@atoms/03-text/02-paragraph/paragraph.twig" with {
-        "paragraph_attributes": footer.attributes.addClass('clearfix', 'text-formatted'),
-        "paragraph_content": footer|render|striptags,
-      } %}
+      {{ footer }}
     </footer>
   {% endif %}
 
