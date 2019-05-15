@@ -176,6 +176,20 @@
   margin-bottom: 30px;
 }
 
+#gift-messages,
+#pledge-messages,
+#tile-messages {
+  .ajax-progress {
+    .p {
+      display: inline-block;
+    }
+
+    .throbber {
+      padding: 1px 6px;
+      margin-right: 5px;
+    }
+  }
+}
 #gift-detail-table-wrapper {
   #gift-detail-table {
     border-collapse: collapse;
