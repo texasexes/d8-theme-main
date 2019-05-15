@@ -65,7 +65,6 @@
   }
 }
 
-
 .active-pledge-wrapper,
 .active-membership-wrapper,
 .giving-links-wrapper,
@@ -73,10 +72,8 @@
 .txex-card-member-bio,
 .txex-profile-base-information,
 .membership-wrapper,
-#block-givinghistory,
-#block-commemorativetileblock,
-#block-myopenpledges {
-  margin-bottom: 10px;
+.block-attain-dashboard {
+  margin-bottom: 20px;
   position: relative;
 
   .wysiwyg__h4,
