@@ -108,17 +108,19 @@
 }
 
 
-.txex-giving-status-block,
+
 .txex-giving-page,
 .txex-user-profile-page,
-.txex-membership-page {
+.txex-membership-page,
+.txex-tax-receipt-page,
+.block-attain-dashboard {
   .wysiwyg__h2 {
     border-bottom-style: solid;
     border-color: #f6f6f2;
     border-width: 1px;
 
     padding-bottom: 10px;
-    margin-bottom: 20px
+    margin-bottom: 10px
   }
 }
 
