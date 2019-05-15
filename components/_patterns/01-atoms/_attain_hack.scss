@@ -164,10 +164,27 @@
     border-collapse: collapse;
     width: 100%;
   }
+
   .gift-header {
     @extend .wysiwyg__h4;
 
-    text-align: left;
+    &.gift-date,
+    &.gift-purpose,
+    &.gift-amount,
+    &.gift-deductible {
+      padding: 0 10px;
+    }
+
+    &.gift-date,
+    &.gift-purpose {
+      text-align: left;
+    }
+
+
+    &.gift-amount,
+    &.gift-deductible {
+      text-align: right;
+    }
   }
 
   .gift-sample-row {
@@ -184,7 +201,13 @@
   .gift-data {
     @extend .p;
 
-    padding: 5px 0;
+    padding: 5px 10px;
+    vertical-align: top;
+
+    &.gift-amount,
+    &.gift-deductible {
+      text-align: right;
+    }
   }
 }
 
@@ -200,7 +223,20 @@
   .pledge-header {
     @extend .wysiwyg__h4;
 
-    text-align: left;
+    &.pledge-date,
+    &.pledge-purpose,
+    &.pledge-amount {
+      padding: 0 10px;
+    }
+
+    &.pledge-date,
+    &.pledge-purpose {
+      text-align: left;
+    }
+
+    &.pledge-amount {
+      text-align: right;
+    }
   }
 
   .pledge-sample-row {
@@ -217,7 +253,16 @@
   .pledge-data {
     @extend .p;
 
-    padding: 5px 0;
+    padding: 5px 10px;
+    vertical-align: top;
+
+    &.pledge-payment-amount {
+      text-align: right;
+    }
+
+    &.pledge-payment-link {
+      text-align: center;
+    }
   }
 }
 
