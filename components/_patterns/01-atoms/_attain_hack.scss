@@ -151,6 +151,23 @@
   }
 }
 
+#gift-detail-table {
+  .gift-row:last-of-type {
+    .gift-data:last-of-type {
+      padding: 0;
+
+      span {
+        border-top-style: solid;
+        border-top-width: 1px;
+        display: inline-block;
+        font-weight: 500;
+        padding: 5px 0 5px 10px;
+        margin-right: 10px;
+      }
+    }
+  }
+}
+
 .txex-profile-base-information,
 .txex-membership-renewal,
 .txex-profile-extra-information,
