@@ -156,7 +156,7 @@
     .gift-data:last-of-type {
       padding: 0;
 
-      span {
+      .total-taxable-amount {
         border-top-style: solid;
         border-top-width: 1px;
         display: inline-block;
@@ -216,7 +216,6 @@
     &.gift-purpose {
       text-align: left;
     }
-
 
     &.gift-amount,
     &.gift-deductible {
