@@ -136,9 +136,12 @@ function d8_theme_main_theme_suggestions_taxonomy_term_alter(array &$suggestions
  */
 function d8_theme_main_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   // Adding theme suggestions to forms and form submit items.
-  $form['actions']['submit']['#attributes']['data-twig-suggestion'] = $form['#form_id'];
-  foreach (Drupal\Core\Render\Element::children($form) as $child) {
-    $form[$child]['#attributes']['data-twig-suggestion'] = $form['#form_id'];
+  $form_id = str_replace('-', '_', $form['#id']);
+  foreach (Drupal\Core\Render\Element::children($form) as $child_group) {
+    $form[$child_group]['#attributes']['data-twig-suggestion'] = $form_id;
+    foreach (Drupal\Core\Render\Element::children($form[$child_group]) as $child) {
+      $form[$child_group][$child]['#attributes']['data-twig-suggestion'] = $form_id;
+    }
   }
 }
 
@@ -237,7 +240,7 @@ function d8_theme_main_preprocess_field(&$variables) {
   // Get the value of the field.
   $field_layout_type_value = NULL;
   $field_modifiers = NULL;
-  $parent_entity = $variables['element']['#object'];
+  $parent_entity = $element['#object'];
 
   if ($parent_entity->hasField('field_txex_ref_content_01')) {
     if (!$parent_entity->get('field_txex_ref_content_01')->isEmpty()) {
@@ -380,7 +383,6 @@ function d8_theme_main_preprocess_block(&$variables) {
  */
 function d8_theme_main_preprocess_user(&$variables) {
   $user_id = $variables['user']->id();
-  $user = user_load($user_id);
   $variables['user_edit_link'] = Url::fromRoute('entity.user.edit_form', ['user' => $user_id], []);
 
   if ('profile_base_information'=== $variables['elements']['#view_mode']) {
