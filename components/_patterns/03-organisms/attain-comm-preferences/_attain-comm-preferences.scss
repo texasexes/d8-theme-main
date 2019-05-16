@@ -14,31 +14,13 @@
     padding-left: 4px + $space-one-half + 60px;
   }
 
-  label {
+  .form-element {
+    margin-bottom: 20px;
+  }
+
+  .label {
     display: inline;
     font-weight: 500;
     padding: 0 0 0 $space-one-half;
-  }
-
-  fieldset {
-    // border: 1px solid #ecede8;
-    // padding: 20px;
-  }
-
-  legend {
-    .fieldset-legend {
-      // @extend .wysiwyg__h2;
-      // padding: 0 5px;
-    }
-  }
-
-  .form-submit {
-    // @include button-small;
-
-    // margin-bottom: 10px;
-  }
-
-  .form-wrapper {
-    // margin-bottom: 10px;
   }
 }
