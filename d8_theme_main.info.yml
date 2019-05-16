@@ -65,9 +65,6 @@ component-libraries:
   organisms:
     paths:
       - components/_patterns/03-organisms
-  templates:
-    paths:
-      - components/_patterns/04-templates
   pages:
     paths:
       - components/_patterns/05-pages
