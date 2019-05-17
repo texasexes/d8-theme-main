@@ -383,6 +383,7 @@ function d8_theme_main_preprocess_block(&$variables) {
  */
 function d8_theme_main_preprocess_user(&$variables) {
   $user_id = $variables['user']->id();
+  $user = user_load($user_id);
   $variables['user_edit_link'] = Url::fromRoute('entity.user.edit_form', ['user' => $user_id], []);
 
   if ('profile_base_information'=== $variables['elements']['#view_mode']) {
