@@ -414,61 +414,8 @@ function d8_theme_main_preprocess_user(&$variables) {
 
     $variables['full_name'] = $full_name_render_array;
 
-    // Show only the preferred email & phone.
-    $phone_field = $user->get('field_txex_list_text_03')->first()->getValue();
-    $preferred_phone = $phone_field['value'];
-
-    $email_field = $user->get('field_txex_list_text_04')->first()->getValue();
-    $preferred_email = $email_field['value'];
-
-    switch ($preferred_email) {
-      case 'Work':
-      if (isset($variables['elements']['field_txex_email_02'])) {
-        $variables['preferred_email'] = $variables['elements']['field_txex_email_02'];
-      }
-      break;
-
-      case 'Personal':
-      if (isset($variables['elements']['field_txex_email_01'])) {
-        $variables['preferred_email'] = $variables['elements']['field_txex_email_01'];
-      }
-      break;
-
-      case 'Alternate':
-      if (isset($variables['elements']['field_txex_email_03'])) {
-        $variables['preferred_email'] = $variables['elements']['field_txex_email_03'];
-      }
-      break;
-    }
-
-    switch ($preferred_phone) {
-      case 'Work':
-      if (isset($variables['elements']['field_txex_phone_01'])) {
-        $variables['preferred_phone'] = $variables['elements']['field_txex_phone_01'];
-      }
-      break;
-
-      case 'Home':
-      if (isset($variables['elements']['field_txex_phone_02'])) {
-        $variables['preferred_phone'] = $variables['elements']['field_txex_phone_02'];
-      }
-      break;
-
-      case 'Mobile':
-      if (isset($variables['elements']['field_txex_phone_03'])) {
-        $variables['preferred_phone'] = $variables['elements']['field_txex_phone_03'];
-      }
-      break;
-
-      case 'Other':
-      if (isset($variables['elements']['field_txex_phone_04'])) {
-      $variables['preferred_phone'] = $variables['elements']['field_txex_phone_04'];
-      }
-    break;
-    }
   }
 }
-
 
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
