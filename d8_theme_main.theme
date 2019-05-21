@@ -382,8 +382,8 @@ function d8_theme_main_preprocess_block(&$variables) {
  * Implements hook_preprocess_HOOK().
  */
 function d8_theme_main_preprocess_user(&$variables) {
-
-  if ('profile_base_information'=== $variables['elements']['#view_mode']) {
+  $view_mode = $variables['elements']['#view_mode'];
+  if ('profile_base_information'=== $view_mode) {
     $name_first = array_key_exists(0, $variables['elements']['field_txex_text_plain_01']) ? $variables['elements']['field_txex_text_plain_01'][0]['#context']['value'] : null;
     $name_middle = array_key_exists(0, $variables['elements']['field_txex_text_plain_03']) ? $variables['elements']['field_txex_text_plain_03'][0]['#context']['value'] : null;
     $name_last = array_key_exists(0, $variables['elements']['field_txex_text_plain_02']) ? $variables['elements']['field_txex_text_plain_02'][0]['#context']['value'] : null;
