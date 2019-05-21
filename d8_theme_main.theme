@@ -416,7 +416,6 @@ function d8_theme_main_preprocess_user(&$variables) {
   }
 }
 
-
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
  *
