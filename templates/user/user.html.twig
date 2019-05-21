@@ -41,8 +41,14 @@
     {% set user_profile_classes = [] %}
 
     {% set user_profile_blocks_left = user_profile_blocks_left|merge({ 0 : (drupal_entity('user', null, 'profile_base_information'))}) %}
-    {% set user_profile_blocks_left = user_profile_blocks_left|merge({ 1 : (drupal_entity('user', null, 'profile_membership_information'))}) %}
-    {% set user_profile_blocks_left = user_profile_blocks_left|merge({ 2 : (drupal_entity('user', null, 'profile_extra_information'))}) %}
+    {# Use content|without instead of content.field because weird rendering order things that will happen. #}
+    {# It is currently unclear how this ordering functions. #}
+    {% set user_profile_blocks_left = user_profile_blocks_left|merge({ 2 : (content|without('profile_full_membership_toolbox_links' , 'masquerade'))}) %}
+    {% set user_profile_blocks_left = user_profile_blocks_left|merge({ 4 : (content.profile_full_membership_toolbox_links)}) %}
+    {#####################################}
+    {% set user_profile_blocks_left = user_profile_blocks_left|merge({ 5 : (drupal_entity('user', null, 'profile_membership_information'))}) %}
+    {% set user_profile_blocks_left = user_profile_blocks_left|merge({ 6 : (drupal_entity('user', null, 'profile_extra_information'))}) %}
+
 
     {% set user_profile_blocks_right = user_profile_blocks_right|merge({ 0 : (drupal_view('txex_user_chapter_memberships', 'txex_chapter_membership_block'))}) %}
     {% set user_profile_blocks_right = user_profile_blocks_right|merge({ 1 : (drupal_view('txex_user_events', 'txex_member_events_block'))}) %}
