@@ -33,12 +33,12 @@
   #}
 
   {% block user_profile %}
-
-    {% set user_profile_blocks = [] %}
+    {% set user_profile_base_class = 'flexbox' %}
     {% set user_profile_blocks_left = [] %}
     {% set user_profile_blocks_right = [] %}
+    {% set user_profile_blocks = [] %}
     {% set user_profile_layout_classes = [] %}
-    {% set user_profile_base_class = 'flexbox' %}
+    {% set user_profile_classes = [] %}
 
     {% set user_profile_blocks_left = user_profile_blocks_left|merge({ 0 : (drupal_entity('user', null, 'profile_base_information'))}) %}
     {% set user_profile_blocks_left = user_profile_blocks_left|merge({ 1 : (drupal_entity('user', null, 'profile_membership_information'))}) %}
@@ -51,10 +51,6 @@
     {% set user_profile_blocks = user_profile_blocks|merge({ 0 : (user_profile_blocks_left), 1 : user_profile_blocks_right}) %}
 
     {% set user_profile_layout_classes = user_profile_layout_classes|merge({'paragraph-wrapper' : 'paragraph-wrapper', 'horizontal' : 'horizontal', 'layout-row' : 'layout-row', 'feature-50' : 'feature-50', 'layout-box-6' : 'layout-box-6', 'item-box-5' : 'item-box-5'}) %}
-
-    {% if paragraph_modifiers %}
-      {% set user_profile_layout_classes = user_profile_layout_classes|merge(user_profile_modifiers) %}
-    {% endif %}
 
     {% include "@base/layouts/layout/00-layout.twig" with {
       "layout_attributes": attributes,
