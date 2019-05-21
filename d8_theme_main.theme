@@ -382,9 +382,6 @@ function d8_theme_main_preprocess_block(&$variables) {
  * Implements hook_preprocess_HOOK().
  */
 function d8_theme_main_preprocess_user(&$variables) {
-  $user_id = $variables['user']->id();
-  $user = user_load($user_id);
-  $variables['user_edit_link'] = Url::fromRoute('entity.user.edit_form', ['user' => $user_id], []);
 
   if ('profile_base_information'=== $variables['elements']['#view_mode']) {
     $name_first = array_key_exists(0, $variables['elements']['field_txex_text_plain_01']) ? $variables['elements']['field_txex_text_plain_01'][0]['#context']['value'] : null;
@@ -413,59 +410,6 @@ function d8_theme_main_preprocess_user(&$variables) {
     ];
 
     $variables['full_name'] = $full_name_render_array;
-
-    // Show only the preferred email & phone.
-    $phone_field = $user->get('field_txex_list_text_03')->first()->getValue();
-    $preferred_phone = $phone_field['value'];
-
-    $email_field = $user->get('field_txex_list_text_04')->first()->getValue();
-    $preferred_email = $email_field['value'];
-
-    switch ($preferred_email) {
-      case 'Work':
-      if (isset($variables['elements']['field_txex_email_02'])) {
-        $variables['preferred_email'] = $variables['elements']['field_txex_email_02'];
-      }
-      break;
-
-      case 'Personal':
-      if (isset($variables['elements']['field_txex_email_01'])) {
-        $variables['preferred_email'] = $variables['elements']['field_txex_email_01'];
-      }
-      break;
-
-      case 'Alternate':
-      if (isset($variables['elements']['field_txex_email_03'])) {
-        $variables['preferred_email'] = $variables['elements']['field_txex_email_03'];
-      }
-      break;
-    }
-
-    switch ($preferred_phone) {
-      case 'Work':
-      if (isset($variables['elements']['field_txex_phone_01'])) {
-        $variables['preferred_phone'] = $variables['elements']['field_txex_phone_01'];
-      }
-      break;
-
-      case 'Home':
-      if (isset($variables['elements']['field_txex_phone_02'])) {
-        $variables['preferred_phone'] = $variables['elements']['field_txex_phone_02'];
-      }
-      break;
-
-      case 'Mobile':
-      if (isset($variables['elements']['field_txex_phone_03'])) {
-        $variables['preferred_phone'] = $variables['elements']['field_txex_phone_03'];
-      }
-      break;
-
-      case 'Other':
-      if (isset($variables['elements']['field_txex_phone_04'])) {
-      $variables['preferred_phone'] = $variables['elements']['field_txex_phone_04'];
-      }
-    break;
-    }
   }
 }
 
