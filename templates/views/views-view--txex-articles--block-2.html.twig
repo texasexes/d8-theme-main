@@ -40,22 +40,20 @@
   {{ title }}
   {{ title_suffix }}
 
-{% set views_view_items = [] %}
-
-  {{ exposed }}
+  {% set views_view_items = [] %}
 
   {% set tempArray1 = {
     0 : header,
-    1 : rows,
-    2 : more
+    1 : exposed,
+    2 : empty,
+    3 : rows,
+    4 : more,
   } %}
 
   {% set views_view_items = {
     0 : attachment_before,
     1 : tempArray1,
   } %}
-
-  {% set paragraph_base_class = 'flexbox' %}
 
   {% set layout_level = layout_level + 1 |default(1) %}
 
@@ -71,14 +69,13 @@
   } %}
 
   {% include "@base/layouts/layout/00-layout.twig" with {
-    "layout_attributes": attributes.addClass(classes),
+    "layout_attributes": attributes.removeClass(classes),
     "layout_base_class": 'flexbox',
     "layout_modifiers": tempArray5,
     "layout_items": views_view_items,
     "layout_modifiers_additional": {1 : 'vertical'}
   }%}
 
-  {{ empty }}
   {{ pager }}
 
   {{ attachment_after }}

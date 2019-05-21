@@ -1,3 +1,6 @@
+$event-search-max: max-width 800px;
+$event-search-form-max-width: 450px;
+
 .form-text {
   max-width: 100%;
 }
@@ -76,4 +79,254 @@ $toggle-check-button-circ-edge-padding: 0.4rem;
 .toggle-check-input:checked ~ .toggle-check-text:after {
   left: 100%;
   margin-left: -($toggle-check-button-circ + $toggle-check-button-circ-edge-padding);
+}
+
+
+// events search
+// homepage
+.event-search-head {
+  margin-bottom: $space-one-half;
+
+  @include breakpoint($event-search-max) {
+    padding: $space-one-half $space;
+  }
+}
+
+.views-exposed-form {
+  position: relative;
+}
+
+.event-search-form {
+  position: absolute;
+  left: 10px;
+  right: 20px;
+  top: 55px;
+  background-color: $white;
+  width: 90vw;
+  max-width: 340px;
+  z-index: 1;
+  font-family: $font-tertiary;
+  box-shadow: 0 0 10px rgba($color: #000000, $alpha: 0.4);
+  border: 1px solid $grey-9;
+
+  @include breakpoint($large) {
+    top: $space;
+  }
+
+  >.js-form-wrapper {
+    background-color: $purple-1;
+    padding-top: $space-one-half;
+  }
+
+  .description {
+    font-family: $font-tertiary;
+    background-color: $white;
+    padding: $space-one-half $space;
+    color: $grey-9;
+  }
+
+  .search-form-close {
+    background-color: transparent;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1;
+
+    a.close-button {
+      align-items: center;
+      background-color: #272731;
+      display: flex;
+      justify-content: center;
+      width: 69px;
+      height: 69px;
+      cursor: pointer;
+    }
+
+    &__icon,
+    &__icon::before,
+    &__icon::after {
+      background-color: transparent;
+      border-radius: 1em;
+      content: '';
+      display: block;
+      height: 3px;
+      position: relative;
+      width: 17px;
+    }
+
+    &__icon {
+      &::before {
+        background-color: $purple-4;
+        transform: rotate(45deg);
+        top: 0;
+      }
+
+      &::after {
+        background-color: $purple-4;
+        transform: rotate(-45deg);
+        bottom: 3px
+      }
+    }
+  }
+  .search-trigger {
+    position: absolute;
+    top: 10px;
+  }
+
+  .places-locate {
+    font-family: $font-tertiary;
+    color: $grey-9;
+    line-height: 2.2;
+    padding: 0 $space+$space-one-third 0 $space-one-half;
+    margin-bottom: $space-one-half;
+    margin-left: $space-one-half;
+    padding-left: 5px;
+    padding-right: 30px;
+    max-width: 254px;
+  }
+}
+
+// Handling for placing google places wrapper.
+.locate-me-wrapper {
+  &.active {
+    .description {
+      display: none;
+    }
+
+    .places-locate-me-button {
+      display: none;
+    }
+  }
+
+  .pac-container {
+    // override inline styles added by google library
+    top: auto !important;
+    left: auto !important;
+    width: 100% !important;
+
+    &:after {
+      border-top: 1px solid #e6e6e6;
+    }
+
+    & .pac-item {
+      line-height: 1.2;
+      padding: $space-one-half $space-one-third;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    & .pac-item-query {
+      font-family: $font-tertiary;
+      font-size: 16px;
+      background-color: $white;
+      color: $grey-9;
+    }
+
+    & .pac-icon {
+      margin: 0 7px 0;
+    }
+  }
+
+  .places-locate-me-button {
+    font-family: $font-tertiary;
+    padding: $space-one-half $space;
+    background-color: $burnt-orange;
+    display: block;
+    color: $white;
+    cursor: pointer;
+  }
+
+  .icon-crosshairs {
+    font-size: 2.4rem;
+    vertical-align: middle;
+  }
+}
+
+// events search
+// events page
+.event-page-search-form {
+  div[data-drupal-selector="edit-proximity"] {
+    display: flex;
+    align-content: center;
+    flex-flow: column nowrap;
+
+    .places-locate {
+      font-family: $font-tertiary;
+      color: $grey-9;
+      line-height: 2.2;
+      padding: 0 $space+$space-one-third 0 $space-one-half;
+    }
+
+    @include breakpoint($event-search-max) {
+      padding-left: $space-one-half;
+      padding-right: $space-one-half;
+    }
+
+    @include breakpoint($large) {
+      flex-flow: row wrap;
+    }
+  }
+  .proximity-origin-client {
+    flex-grow: 1;
+    flex-shrink: 1;
+
+    @include breakpoint($large) {
+      width: 80%;
+      max-width: $event-search-form-max-width;
+    }
+  }
+
+  .form-item-proximity-value {
+    display: flex;
+    flex: 0 auto;
+    align-items: center;
+    justify-content: space-between;
+
+    @include breakpoint($event-search-max) {
+      padding-top: $space;
+    }
+    @include breakpoint($large) {
+      padding-left: $space-one-half;
+    }
+    label {
+      margin: 0;
+      padding: 0 $space-one-half 0 0;
+    }
+  }
+  .form-item-sort-by,
+  .form-item-sort-order {
+    display: inline-block;
+    padding-top: $space;
+  }
+  .search-trigger {
+    position: absolute;
+    top: 10px;
+  }
+
+  .locate-me-wrapper {
+    display: none;
+    box-shadow: 0 0 10px rgba($color: #000000, $alpha: 0.4);
+    border: 1px solid $grey-9;
+
+    &.active {
+      display: block;
+      position: absolute;
+      top:40px;
+      left: 0;
+      width: 100%;
+      max-width: $event-search-form-max-width;
+      z-index: 1;
+    }
+  }
+
+  .txex-button {
+    margin-left: 200px;
+    margin-top: 20px;
+    position: absolute;
+  }
+}
+.form-item-proximity-source-configuration-search {
+  position: relative;
 }

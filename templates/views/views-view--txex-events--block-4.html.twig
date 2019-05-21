@@ -35,12 +35,10 @@
     dom_id ? 'js-view-dom-id-' ~ dom_id,
   ]
 %}
-<section{{ attributes.addClass(classes) }}>
+<div{{ attributes.addClass(classes) }}>
   {{ title_prefix }}
   {{ title }}
   {{ title_suffix }}
-
-  {% set views_view_items = [] %}
 
   {% if header %}
     <header>
@@ -48,41 +46,16 @@
     </header>
   {% endif %}
 
-{% set tempArray1 = {
-    1 : exposed,
-    2 : empty,
-    3 : rows,
-    4 : attachment_after,
-    5 : more,
-  } %}
+{% set views_view_items = [] %}
 
-  {% set views_view_items = {
-    0 : tempArray1,
-    1 : attachment_before,
-  } %}
-
-  {% set layout_level = layout_level + 1 |default(1) %}
-
-  {% set tempArray5 = {
-    'layout_level' : ('layout-level-' ~ layout_level),
-    'paragraph-wrapper' : 'paragraph-wrapper',
-    'horizontal' : 'horizontal',
-    'feature-50' : 'feature-50',
-    'layout-background-3' : 'layout-background-3',
-    'layout-row' : 'layout-row',
-    'layout-box-4' : 'layout-box-4',
-    'item-box-2' : 'item-box-2'
-  } %}
-
-  {% include "@base/layouts/layout/00-layout.twig" with {
-    "layout_attributes": attributes.removeClass(classes),
-    "layout_base_class": 'flexbox',
-    "layout_modifiers": tempArray5,
-    "layout_items": views_view_items,
-    "layout_modifiers_additional": {1 : 'vertical'}
-  }%}
-
+  {{ exposed }}
+  {{ attachment_before }}
+  {{ rows }}
+  {{ empty }}
   {{ pager }}
+
+  {{ attachment_after }}
+  {{ more }}
 
   {% if footer %}
     <footer>
@@ -91,4 +64,4 @@
   {% endif %}
 
   {{ feed_icons }}
-</section>
+</div>

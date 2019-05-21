@@ -15,3 +15,33 @@ $font-label: $font-primary;
 .txex-label {
   @include label;
 }
+
+
+// events search 
+// homepage
+
+.location-searched {
+  @extend .flexbox__h2;
+  @extend .flexbox__h2--alt-5;
+  // color: $grey-7;
+  // font-size: 1.2rem;
+  // padding: 0 $space-one-half 0 0;
+
+  // flexbox__h2 flexbox__h2--subtitle flexbox__h2--alt-5 clearfix text-formatted quickedit-field
+}
+
+.search-toggle {
+  @include link;
+  padding: 0 $space-one-half 0 0;
+  display: inline-block;
+  &.active {
+    color: $grey-7;
+
+    &::after {
+      content: "\25bc";
+      color: $grey-7;
+      font-size: 0.85rem;
+      padding-left: $space-one-third;
+    }
+  }
+}

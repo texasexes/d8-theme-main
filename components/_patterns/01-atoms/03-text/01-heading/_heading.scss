@@ -541,3 +541,15 @@ $font-heading-h3-alt-11: $font-secondary-30;
     }
   }
 }
+
+.search-label {
+  color: $grey-7;
+  display: inline;
+  font-style: italic;
+  font-family: $font-primary;
+  font-weight: 800;
+  font-size: 2.4rem;
+  line-height: 1.25;
+  padding: 0 5px 0 0;
+  text-transform: none;
+}
