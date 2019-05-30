@@ -383,6 +383,8 @@ function d8_theme_main_preprocess_block(&$variables) {
  */
 function d8_theme_main_preprocess_user(&$variables) {
   $view_mode = $variables['elements']['#view_mode'];
+  $variables['user_edit_link'] = array_key_exists('#user_edit_link', $variables['elements']) ? $variables['elements']['#user_edit_link'] : null;
+  $variables['manage_membership_link'] = array_key_exists('#manage_membership_link', $variables['elements']) ? $variables['elements']['#manage_membership_link'] : null;
 
   switch ($view_mode) {
     case 'profile_base_information':
