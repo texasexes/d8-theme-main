@@ -67,4 +67,4 @@
   {{ feed_icons }}
 </div>
 
-  {{drupal_block('txex_event_purchases_block')}}
+  {#{drupal_block('txex_event_purchases_block')}#}

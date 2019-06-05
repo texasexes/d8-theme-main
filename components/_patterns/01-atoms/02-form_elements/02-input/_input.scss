@@ -12,17 +12,18 @@
   font-family: $font-tertiary;
   min-width: 100px;
   padding: .4em 1em;
+
+  &.button--danger {
+    background-color: red;
+  }
 }
 
 .form-text {
   max-width: 100%;
 }
 
-.input {
-  // width: 20em;
-}
-
-$toggle-check-width: 60px;
+// $toggle-check-width: 60px;
+$toggle-check-width: 42px;
 $toggle-check-padding-vert: 0.4rem;
 $toggle-check-padding-horiz-small: 0.7rem;
 $toggle-check-padding-horiz-large: 3.1rem;
@@ -33,6 +34,24 @@ $toggle-check-button-circ-edge-padding: 0.4rem;
 .toggle-check {
   display: inline-block;
   position: relative;
+  vertical-align: middle;
+
+  // Help label be centered related to toggle 'button'.
+  & + .label {
+    display: inline-block;
+    font-weight: 500;
+    margin: 0;
+    padding: 0 0 0 $space-one-half;
+    vertical-align: middle;
+
+    & + .description {
+      margin: 0;
+      // 4px is because the two elemens above are inline-block/inline-flex
+      // $space-one-half is the label left-padding
+      // and $toggle-check-width is the width of the 'checkbox'
+      padding-left: 4px + $space-one-half + $toggle-check-width;
+    }
+  }
 }
 
 .toggle-check-input {
@@ -52,7 +71,7 @@ $toggle-check-button-circ-edge-padding: 0.4rem;
   border-radius: $toggle-check-border-radius;
   color: $white;
   cursor: pointer;
-  display: inline-block;
+  display: inline-flex;
   padding: $toggle-check-padding-vert $toggle-check-padding-horiz-small $toggle-check-padding-vert $toggle-check-padding-horiz-large;
   position: relative;
   text-align: right;
@@ -75,7 +94,7 @@ $toggle-check-button-circ-edge-padding: 0.4rem;
 }
 
 .toggle-check-text:before {
-  content: 'No';
+  // content: 'No';
 }
 
 .toggle-check-input:checked ~ .toggle-check-text {
@@ -86,7 +105,7 @@ $toggle-check-button-circ-edge-padding: 0.4rem;
 }
 
 .toggle-check-input:checked ~ .toggle-check-text:before {
-  content: 'Yes';
+  // content: 'Yes';
 }
 
 .toggle-check-input:checked ~ .toggle-check-text:after {

@@ -22,27 +22,28 @@
       {{ content.field_txex_ref_media_01 }}
 
       <div class="event-meta">
-        {#{ label }#}
-        {# check if two date fields are on the same day #}
-        {% if start_end_date_equal %}
-          <div class = 'event-date event-meta-item'>{{date_time_start}} – {{date_start_time_end}}</div>
-        {% else %}
-          <div class = 'event-date event-meta-item'>{{date_time_start}} – {{date_time_end}}</div>
-        {% endif %}
-
-        {{ content.field_txex_address_01 }}
+        {{ kint(content.field_txex_ref_tax_term_01) }}
+        {{ content.field_txex_ref_tax_term_01 }}
+        <div class="event-date event-meta-item">
+          {% include "@atoms/04-images/icons/_icon.twig" with {
+            icon_blockname: menu_bem_blockname,
+            icon_modifiers: {'alt-1' : 'alt-1'},
+            icon_name: 'txex-event-icon-date',
+          } %}
+          <span>{{date_time_start}} – {{date_time_end}}</span>
+        </div>
+        <div class="event-address event-meta-item">
+          {% include "@atoms/04-images/icons/_icon.twig" with {
+            icon_blockname: menu_bem_blockname,
+            icon_modifiers: {'alt-1' : 'alt-1'},
+            icon_name: 'txex-event-icon-location',
+          } %}
+          {{ content.field_txex_address_01 }}
+        </div>
       </div>
 
       {{ content.field_txex_text_long_02 }}
-
       {{ content.field_txex_link_01 }}
-
-      {#% set url = url('<current>')['#markup']|url_encode %#}
-      <!-- <p>
-        <a href="https://www.facebook.com/sharer/sharer.php?u={#{ url }#}&t={#{ node.getTitle() }#}"
-           onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
-           target="_blank" title="Share on Facebook" class="facebook-share">Share on Facebook</a>
-      </p> -->
 
     </div>
   {% endblock content %}

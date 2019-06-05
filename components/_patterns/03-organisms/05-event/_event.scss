@@ -3,64 +3,20 @@
 }
 
 .event-meta {
-  margin-top: $space-and-half;
-  margin-bottom: $space-one-half;
-
-  h1 {
-    margin: 37px 0 17px;
-    background-position: top left;
-    background-repeat: no-repeat;
-    background-image: url(../images/icon-brain.jpg);
-    height: 46px;
-    min-height: 46px;
-    background-size: 46px;
-    line-height: 2em;
-    font-size: 1.4em;
-  }
-
-  .event-meta-item,
-  h1 {
-    padding-left: 75px;
-  }
+  margin: $space 0;
 
   .event-meta-item {
-    padding-bottom: $space-one-half;
+    margin-bottom: $space-one-half;
     font-family: $font-tertiary;
     color: $grey-a;
-    background-position: 33px 0;
-    background-repeat: no-repeat;
-    line-height: 1em;
 
-    a {
+    .link--address {
       color: $grey-a;
       text-decoration: none;
+
+      span {
+        display: inline-block;
+      }
     }
   }
-
-  .event-address {
-    background-image: url(../images/temp-icon/location-icon.png);
-  }
-
-  .event-date {
-    background-image: url(../images/temp-icon/calendar-icon.png);
-  }
 }
-
-.register-link {
-  display: inline-block;
-  text-transform: none;
-  margin: 2em 0;
-  color: $white !important;
-}
-
-// .facebook-share {
-//   @extend .link;
-//
-//   font-size: 0.94em;
-//   text-decoration: none;
-//   color: $blue !important;
-//   padding-left: 24px;
-//   background-image: url(../images/temp-icon/facebook-icon.png);
-//   background-repeat: no-repeat;
-//   background-position: top left;
-// }
