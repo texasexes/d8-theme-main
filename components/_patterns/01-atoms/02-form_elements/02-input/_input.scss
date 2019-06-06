@@ -34,6 +34,24 @@ $toggle-check-button-circ-edge-padding: 0.4rem;
 .toggle-check {
   display: inline-block;
   position: relative;
+  vertical-align: middle;
+
+  // Help label be centered related to toggle 'button'.
+  & + .label {
+    display: inline-block;
+    font-weight: 500;
+    margin: 0;
+    padding: 0 0 0 $space-one-half;
+    vertical-align: middle;
+
+    & + .description {
+      margin: 0;
+      // 4px is because the two elemens above are inline-block/inline-flex
+      // $space-one-half is the label left-padding
+      // and $toggle-check-width is the width of the 'checkbox'
+      padding-left: 4px + $space-one-half + $toggle-check-width;
+    }
+  }
 }
 
 .toggle-check-input {
