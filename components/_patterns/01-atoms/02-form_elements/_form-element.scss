@@ -1,4 +1,4 @@
-.webform-submission-form{
+.webform-submission-form {
   div.form-element.form-item, // hack because of over-specific webforms css
   .form-element {
     color: $grey-7;
@@ -10,4 +10,8 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+}
+
+.form-element {
+  margin-bottom: $space-two-thirds;
 }
