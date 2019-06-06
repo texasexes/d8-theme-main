@@ -3,33 +3,20 @@
 }
 
 .event-meta {
-  margin-top: $space-and-half;
-  margin-bottom: $space-one-half;
-
-  .event-meta-item,
-  h1 {
-    padding-left: 75px;
-  }
+  margin: $space 0;
 
   .event-meta-item {
-    padding-bottom: $space-one-half;
+    margin-bottom: $space-one-half;
     font-family: $font-tertiary;
     color: $grey-a;
-    background-position: 33px 0;
-    background-repeat: no-repeat;
-    line-height: 1em;
 
-    a {
+    .link--address {
       color: $grey-a;
       text-decoration: none;
+
+      span {
+        display: inline-block;
+      }
     }
-  }
-
-  .event-address {
-    background-image: url(../images/temp-icon/location-icon.png);
-  }
-
-  .event-date {
-    background-image: url(../images/temp-icon/calendar-icon.png);
   }
 }

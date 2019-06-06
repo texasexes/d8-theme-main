@@ -72,7 +72,8 @@
 .txex-card-member-bio,
 .txex-profile-base-information,
 .membership-wrapper,
-.block-attain-dashboard {
+.block-attain-dashboard,
+.txex-tax-receipt-page {
   margin-bottom: 20px;
   position: relative;
 
@@ -185,7 +186,8 @@
 
 #gift-messages,
 #pledge-messages,
-#tile-messages {
+#tile-messages,
+#ticket-messages {
   .ajax-progress {
     .p {
       display: inline-block;
@@ -209,7 +211,8 @@
     width: 100%;
   }
 
-  .gift-header {
+  .gift-header,
+  th {
     @extend .wysiwyg__h4;
 
     &.gift-date,
@@ -234,14 +237,16 @@
     display: none;
   }
 
-  .gift-row {
+  .gift-row,
+  tr {
     border-top-style: solid;
     border-color: #f6f6f2;
     border-width: 1px;
     padding: 5px 0;
   }
 
-  .gift-data {
+  .gift-data,
+  td {
     @extend .p;
 
     max-width: 46rem;
@@ -310,16 +315,79 @@
   }
 }
 
-#tile-information-wrapper {
-  @extend .p;
+#ticket-list-table-wrapper {
+  #ticket-detail-table {
+    border-collapse: collapse;
+    width: 100%;
+  }
 
-  .tile-intro {
+  .pledge-sample-payments {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  .ticket-header {
     @extend .wysiwyg__h4;
 
+    &.ticket-date,
+    &.ticket-event,
+    &.ticket-info{
+      padding: 0 10px;
+      text-align: left;
+    }
+  }
+
+  .ticket-sample-row {
+    display: none;
+  }
+
+  .ticket-row {
     border-top-style: solid;
     border-color: #f6f6f2;
     border-width: 1px;
     padding: 5px 0;
+  }
+
+  .ticket-data {
+    @extend .p;
+
+    padding: 5px 10px;
+    vertical-align: top;
+  }
+}
+
+#tiles-list-wrapper {
+  @extend .p;
+
+  .tile-header {
+    font-weight: 400;
+    text-align: left;
+    width: 11rem;
+    vertical-align: top;
+  }
+
+  .tile-intro-header {
+    font-weight: 500;
+  }
+
+  .tile-wrapper {
+    border-bottom-style: solid;
+    border-color: #f6f6f2;
+    border-width: 1px;
+    padding: 5px 0;
+    margin-bottom: $space-two-thirds;
+  }
+
+  .tile-intro-row,
+  .tile-location-row,
+  .tile-inscription-row {
+    // @extend .wysiwyg__h4;
+
+    // border-top-style: solid;
+    // border-color: #f6f6f2;
+    // border-width: 1px;
+    // padding: 5px 0;
+    border-style: none;
   }
 
   .tile-location-wrapper,
