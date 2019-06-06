@@ -1,0 +1,26 @@
+$icon-width: $space;
+$icon-width--alt-1: $space-two-thirds;
+
+.icon {
+  height: $icon-width;
+  fill: $burnt-orange;
+  float: left;
+  padding: 0;
+  width: $icon-width;
+
+  & + * {
+    //vertically centers single line link following the icon
+    display: inline-block;
+    line-height: $icon-width;
+    padding-left: $space-two-thirds;
+  }
+
+  &--alt-1 {
+    fill: $purple-2;
+    height: $icon-width--alt-1;
+    width: $icon-width--alt-1;
+    & + * {
+      line-height: $icon-width--alt-1;
+    }
+  }
+}
