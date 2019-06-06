@@ -22,7 +22,8 @@
   // width: 20em;
 }
 
-$toggle-check-width: 60px;
+// $toggle-check-width: 60px;
+$toggle-check-width: 42px;
 $toggle-check-padding-vert: 0.4rem;
 $toggle-check-padding-horiz-small: 0.7rem;
 $toggle-check-padding-horiz-large: 3.1rem;
@@ -75,7 +76,7 @@ $toggle-check-button-circ-edge-padding: 0.4rem;
 }
 
 .toggle-check-text:before {
-  content: 'No';
+  // content: 'No';
 }
 
 .toggle-check-input:checked ~ .toggle-check-text {
@@ -86,7 +87,7 @@ $toggle-check-button-circ-edge-padding: 0.4rem;
 }
 
 .toggle-check-input:checked ~ .toggle-check-text:before {
-  content: 'Yes';
+  // content: 'Yes';
 }
 
 .toggle-check-input:checked ~ .toggle-check-text:after {
