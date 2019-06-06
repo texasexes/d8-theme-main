@@ -12,6 +12,10 @@
   font-family: $font-tertiary;
   min-width: 100px;
   padding: .4em 1em;
+
+  &.button--danger {
+    background-color: red;
+  }
 }
 
 .form-text {
@@ -67,7 +71,7 @@ $toggle-check-button-circ-edge-padding: 0.4rem;
   border-radius: $toggle-check-border-radius;
   color: $white;
   cursor: pointer;
-  display: inline-block;
+  display: inline-flex;
   padding: $toggle-check-padding-vert $toggle-check-padding-horiz-small $toggle-check-padding-vert $toggle-check-padding-horiz-large;
   position: relative;
   text-align: right;
