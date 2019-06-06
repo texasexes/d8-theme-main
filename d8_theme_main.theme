@@ -6,6 +6,7 @@
 
 use Drupal\Core\Url;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\twig_tweak\TwigExtension;
 require_once('modules/contrib/devel/kint/kint/Kint.class.php');
 
 /**
@@ -528,6 +529,15 @@ function d8_theme_main_preprocess_views_view(&$variables) {
     if (array_key_exists('more', $variables)) {
       $variables['more']['#options']['attributes']['class'] = ['flexbox__link',];
     }
+  }
+
+  if ('txex_user_events' === $view_id && "txex_user_events_display" === $display_id) {
+    // Create new txex_event_purchases_block.
+    $config = [];
+    $twig_extension = new TwigExtension;
+    $txex_event_purchases_block = $twig_extension->drupalBlock('txex_event_purchases_block', $config);
+
+    $variables['footer'][] = $txex_event_purchases_block;
   }
 }
 
