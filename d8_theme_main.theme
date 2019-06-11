@@ -466,6 +466,8 @@ function d8_theme_main_preprocess_node__article__full(&$variables) {
  * Implements hook_preprocess_HOOK().
  */
 function d8_theme_main_preprocess_node__event__full(&$variables) {
+  $variables['tax_term_parent_icon'] = array_key_exists('tax_term_parent_icon', $variables['elements']) ? $variables['elements']['tax_term_parent_icon'] : NULL;
+  $variables['tax_term_parent_name'] = array_key_exists('#tax_term_parent_name', $variables['elements']) ? $variables['elements']['#tax_term_parent_name'] : NULL;
   $variables['date_time_start'] = array_key_exists('date_time_start', $variables['elements']) ? $variables['elements']['date_time_start'] : 'date missing';
   $variables['date_time_end'] = array_key_exists('date_time_end', $variables['elements']) ? $variables['elements']['date_time_end'] : 'date missing';
 }

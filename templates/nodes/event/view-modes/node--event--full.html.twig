@@ -22,27 +22,35 @@
       {{ content.field_txex_ref_media_01 }}
 
       <div class="event-meta">
-        <div class="event-date event-meta-item">
-          {% include "@atoms/04-images/icons/_icon.twig" with {
-            icon_blockname: menu_bem_blockname,
-            icon_modifiers: {'alt-1' : 'alt-1'},
-            icon_name: 'txex-event-icon-date',
-          } %}
-          <span>{{date_time_start}} – {{date_time_end}}</span>
+        <div class="event-meta-section">
+          <div class="event-meta-item event-category-icon">
+            {{ tax_term_parent_icon }}
+          </div>
         </div>
-        <div class="event-address event-meta-item">
-          {% include "@atoms/04-images/icons/_icon.twig" with {
-            icon_blockname: menu_bem_blockname,
-            icon_modifiers: {'alt-1' : 'alt-1'},
-            icon_name: 'txex-event-icon-location',
-          } %}
-          {{ content.field_txex_address_01 }}
+        <div class="event-meta-section">
+          <div class="event-meta-item event-date">
+            {% include "@atoms/04-images/icons/_icon.twig" with {
+              icon_blockname: menu_bem_blockname,
+              icon_modifiers: {'alt-1' : 'alt-1'},
+              icon_name: 'txex-event-icon-date',
+            } %}
+            <p class="p p--paragraph-no-margin">{{date_time_start}} – {{date_time_end}}</p>
+          </div>
+          <div class="event-meta-item event-address">
+            {% include "@atoms/04-images/icons/_icon.twig" with {
+              icon_blockname: menu_bem_blockname,
+              icon_modifiers: {'alt-1' : 'alt-1'},
+              icon_name: 'txex-event-icon-location',
+            } %}
+            {{ content.field_txex_address_01 }}
+          </div>
           <div class="event-meta-item event-category-name">
             {% include "@atoms/04-images/icons/_icon.twig" with {
               icon_blockname: menu_bem_blockname,
               icon_modifiers: {'alt-1' : 'alt-1'},
               icon_name: 'txex-event-icon-category',
             } %}
+            <p class="p p--paragraph-no-margin">{{ tax_term_parent_name }}</p>
           </div>
         </div>
       </div>
