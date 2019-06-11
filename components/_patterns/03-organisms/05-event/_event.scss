@@ -3,33 +3,17 @@
 }
 
 .event-meta {
-  margin-top: $space-and-half;
-  margin-bottom: $space-one-half;
+  margin: $space 0;
+  display: flex;
 
-  .event-meta-item,
-  h1 {
-    padding-left: 75px;
-  }
-
-  .event-meta-item {
-    padding-bottom: $space-one-half;
-    font-family: $font-tertiary;
-    color: $grey-a;
-    background-position: 33px 0;
-    background-repeat: no-repeat;
-    line-height: 1em;
-
-    a {
-      color: $grey-a;
-      text-decoration: none;
+  .event-meta-section {
+    &:first-child {
+      flex: 0 0 $space-double;
+      margin-right: $space-two-thirds;
     }
   }
 
-  .event-address {
-    background-image: url(../images/temp-icon/location-icon.png);
-  }
-
-  .event-date {
-    background-image: url(../images/temp-icon/calendar-icon.png);
+  .event-meta-item {
+    margin-bottom: $space-one-half;
   }
 }
