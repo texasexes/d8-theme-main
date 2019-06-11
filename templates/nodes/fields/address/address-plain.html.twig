@@ -65,9 +65,9 @@
   {% set concatenated_address = concatenated_address ~ ', ' ~ administrative_area.name ~ ', ' ~ locality.code ~ postal_code %}
 {% endif %}
 
-<div class="address-wrapper" translate="no">
-  <a class="link--address" href="{{search_link_url}}" target="_blank">
-    <span>{{concatenated_address}}</span>
+<p class="p p--paragraph-no-margin" translate="no">
+  <span>{{concatenated_address}}</span>
+  <a class="link" href="{{search_link_url}}" target="_blank">
+    View Map
   </a>
-  <!-- <span>{#{ country.name }#}</span> -->
-</div>
+</p>
