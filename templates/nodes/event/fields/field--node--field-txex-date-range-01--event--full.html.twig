@@ -1,0 +1,5 @@
+{% extends "field.html.twig" %}
+
+{% block item_block %}
+  <p{{ item.attributes.addClass('p p--paragraph-no-margin') }}>{{-item.content-}}</p>
+{% endblock item_block %}
