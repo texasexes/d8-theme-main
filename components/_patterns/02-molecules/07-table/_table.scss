@@ -39,8 +39,8 @@
 
 .table {
   border-collapse: collapse;
+  margin: 0 0 $space-one-half;
   width: 100%;
-
 }
 
 .tr {
@@ -52,6 +52,9 @@
 
 .th {
   @extend .wysiwyg__h4;
+
+  text-align: left;
+  padding: 0 10px;
 }
 
 .td {
