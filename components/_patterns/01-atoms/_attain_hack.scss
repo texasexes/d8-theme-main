@@ -73,7 +73,9 @@
 .txex-profile-base-information,
 .membership-wrapper,
 .block-attain-dashboard,
-.txex-tax-receipt-page {
+.txex-tax-receipt-page,
+.views-data-export-feed,
+.event-summary-details {
   margin-bottom: 20px;
   position: relative;
 
@@ -104,7 +106,8 @@
 .active-pledge-wrapper,
 .active-membership-wrapper,
 .giving-links-wrapper,
-.toolbox-link-wrapper {
+.toolbox-link-wrapper,
+.views-data-export-feed {
   h3,
   p,
   a {
@@ -331,9 +334,14 @@
 
     &.ticket-date,
     &.ticket-event,
-    &.ticket-info{
+    &.ticket-info,
+    &.ticket-amount {
       padding: 0 10px;
       text-align: left;
+    }
+
+    &.ticket-amount {
+      text-align: right;
     }
   }
 
@@ -353,6 +361,10 @@
 
     padding: 5px 10px;
     vertical-align: top;
+
+    &.ticket-amount {
+      text-align: right;
+    }
   }
 }
 
@@ -395,4 +407,11 @@
     }
   }
 
+}
+
+.txex-user-events--txex-user-events-display {
+  > div:last-of-type,
+  .txex-event-purchase-block {
+    margin-bottom: $space;
+  }
 }
