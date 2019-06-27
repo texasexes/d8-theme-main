@@ -10,9 +10,13 @@ $icon-width--alt-1: $space-two-thirds;
 
   & + * {
     //vertically centers single line link following the icon
-    display: inline-block;
+    // display: inline-block;
     line-height: $icon-width;
     padding-left: $space-two-thirds;
+  }
+
+  & ~ * {
+    display: inline-block;
   }
 
   &--alt-1 {
@@ -21,7 +25,7 @@ $icon-width--alt-1: $space-two-thirds;
     height: $icon-width--alt-1;
     width: $icon-width--alt-1;
     & + * {
-      display: table-cell;
+      // display: table-cell;
       line-height: $icon-width--alt-1;
     }
   }
