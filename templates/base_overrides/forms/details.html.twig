@@ -14,11 +14,12 @@
  * @see template_preprocess_details()
  */
 #}
-<details{{ attributes }}>
+<details{{ attributes.addClass('txex-details') }}>
   {%
     set summary_classes = [
       required ? 'js-form-required',
       required ? 'form-required',
+      'summary',
     ]
   %}
   {%- if title -%}
