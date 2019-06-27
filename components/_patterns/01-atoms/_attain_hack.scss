@@ -415,3 +415,18 @@
     margin-bottom: $space;
   }
 }
+
+.txex-registration-page {
+  margin: 0 45px;
+}
+
+.qr-code-wrapper {
+  @include breakpoint($break-layout) {
+    float: right;
+  }
+}
+
+.geofield-google-map {
+  clear: both;
+  margin: $space auto;
+}
