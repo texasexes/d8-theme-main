@@ -35,6 +35,15 @@
               icon_name: 'txex-event-icon-date',
             } %}
             {{ content.field_txex_date_range_01 }}
+            {% if not start_date_only %}
+              {{ content.field_txex_tz_01}}
+            {% endif %}
+            {% if ics_file_01 %}
+              <a class="wysiwyg__link" href="{{ ics_file_01 }}">Add to Calendar</a>
+            {% endif %}
+            {% if ics_file_02 %}
+              <a class="wysiwyg__link" href="{{ ics_file_02 }}">Add to Calendar</a>
+            {% endif %}
           </div>
           <div class="event-meta-item event-address">
             {% include "@atoms/04-images/icons/_icon.twig" with {
