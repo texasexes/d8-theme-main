@@ -174,7 +174,7 @@ function d8_theme_main_form_alter(&$form, FormStateInterface $form_state, $form_
 }
 
 /**
- * Implements hook_form_alter().
+ * Implements hook_form_FORM_ID_alter().
  */
 function d8_theme_main_form_views_exposed_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   // Convert the very specific #id to underscores only for use in suggestion.
@@ -191,6 +191,18 @@ function d8_theme_main_form_views_exposed_form_alter(&$form, FormStateInterface 
 function d8_theme_main_form_user_login_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   $form['name']['#attributes']['placeholder'] = t("Enter username.");
   $form['pass']['#attributes']['placeholder'] = t("Enter password.");
+
+  $custom_template = '{% include "@molecules/social-auth/custom-social-auth-block.twig" %}';
+  $form['custom_social_auth'] = [
+    '#type' => 'inline_template',
+    '#template' => $custom_template,
+    '#context' => [
+      // Attributes need because custom twig function bem.php wants it as
+      // an array index in processing.
+      'attributes' => [],
+    ],
+    '#weight' => 100,
+  ];
 }
 
 /**

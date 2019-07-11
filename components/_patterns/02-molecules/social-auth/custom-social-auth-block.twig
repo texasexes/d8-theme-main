@@ -1,0 +1,26 @@
+{{ attach_library('d8_theme_main/social-auth-fonts') }}
+<div class="social-auth-break"><span class="social-auth-break-text">{{ 'or'|t }}</span></div>
+<div class="social-auth--link" style="background-color: #4285F4;">
+  {% include "@atoms/04-images/icons/_icon.twig" with {
+    icon_blockname: menu_bem_blockname,
+    icon_modifiers: {'alt-google-login' : 'alt-google-login'},
+    icon_name: 'btn_google_light_normal_ios',
+  } %}
+  <span class="social-auth--link-text-google">Log in with Google</span>
+  <a class="no-wrap-list-item-link" href="/user/login/google"></a>
+</div>
+
+<div class="social-auth--link" style="background-color: #4267B2;">
+  {% include "@atoms/04-images/icons/_icon.twig" with {
+    icon_blockname: menu_bem_blockname,
+    icon_modifiers: {'alt-facebook-login' : 'alt-facebook-login'},
+    icon_name: 'btn_facebook',
+  } %}
+  <span class="social-auth--link-text-facebook">Log in with Facebook</span>
+  <a class="no-wrap-list-item-link" href="/user/login/facebook"></a>
+</div>
+<div class="social-auth-break"></div>
+<div class="find-my-record-section-wrapper">
+  <div>Not sure if you have an account?</div>
+  <a class="link" href="/user/find-my-record">Search for your record.</a>
+</div>

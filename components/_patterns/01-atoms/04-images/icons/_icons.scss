@@ -1,5 +1,9 @@
 $icon-width: $space;
 $icon-width--alt-1: $space-two-thirds;
+$icon-width--alt-facebook-login: $space-two-thirds;
+$icon-width--alt-google-login: $space-two-thirds;
+$icon-margin: 8px;
+
 
 .icon {
   height: $icon-width;
@@ -27,6 +31,30 @@ $icon-width--alt-1: $space-two-thirds;
     & + * {
       // display: table-cell;
       line-height: $icon-width--alt-1;
+    }
+  }
+
+  &--alt-google-login {
+    background-color: $white;
+    border-radius: 2px;
+    fill: $purple-2;
+    height: $icon-width--alt-google-login;
+    margin: $icon-margin;
+    width: $icon-width--alt-google-login;
+    & + * {
+      line-height: $icon-width--alt-google-login + ($icon-margin * 2);
+      padding-left: $space-one-third;
+    }
+  }
+
+  &--alt-facebook-login {
+    fill: $white;
+    height: $icon-width--alt-facebook-login;
+    margin: $icon-margin;
+    width: $icon-width--alt-facebook-login;
+    & + * {
+      line-height: $icon-width--alt-facebook-login + ($icon-margin * 2);
+      padding-left: $space-one-third;
     }
   }
 }
