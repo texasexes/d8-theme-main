@@ -10,7 +10,7 @@
  * @see template_preprocess_form()
  */
 #}
-{% include "@molecules/08-form/form.twig" with {
-  "form_children": children,
-  "form_attributes": attributes,
-} %}
+{% extends "@molecules/08-form/form.twig" %}
+
+{% set form_children = children %}
+{% set form_attributes = attributes %}
