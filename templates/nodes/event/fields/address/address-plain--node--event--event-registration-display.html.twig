@@ -39,7 +39,7 @@
               address_line2 ~ ', ' ~
               dependent_locality.code ~ ' ' ~
               administrative_area.name ~ ', ' ~
-              locality.code ~ ' ' ~
+              locality ~ ' ' ~
               postal_code ~ ' ' ~
               country.name
 %}
@@ -61,8 +61,8 @@
 {% if dependent_locality.code %}
   {% set concatenated_address = concatenated_address ~ dependent_locality.code %}
 {% endif %}
-{% if locality.code or postal_code or administrative_area.code %}
-  {% set concatenated_address = concatenated_address ~ ', ' ~ administrative_area.name ~ ', ' ~ locality.code ~ postal_code %}
+{% if locality or postal_code or administrative_area.code %}
+  {% set concatenated_address = concatenated_address ~ ', ' ~ locality ~ ', ' ~  administrative_area.code ~ ' ' ~ postal_code %}
 {% endif %}
 
 <p class="p p--paragraph-no-margin" translate="no">
