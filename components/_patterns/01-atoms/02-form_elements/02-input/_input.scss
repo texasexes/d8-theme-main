@@ -1,5 +1,13 @@
 .input {
   color: $grey-5;
+
+  &:focus {
+    border-color: transparent;
+    outline-color: $burnt-orange;
+    outline-offset: -1px;
+    outline-width: 4px;
+    outline-style: double;
+  }
 }
 
 .input[type="submit"] {
