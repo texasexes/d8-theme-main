@@ -4,6 +4,7 @@
  * Functions to support theming in the Pattern Lab theme.
  */
 
+use Drupal\block\Entity\Block;
 use Drupal\Core\Url;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\twig_tweak\TwigExtension;
@@ -400,8 +401,11 @@ function d8_theme_main_preprocess_block(&$variables) {
   }
 
   if (isset($variables['elements']['#id'])) {
-    $region = \Drupal\block\Entity\Block::load($variables['elements']['#id'])->getRegion();
-    $variables['content']['#attributes']['region'] = $region;
+    $block = Block::load($variables['elements']['#id']);
+    if ($block) {
+      $region = $block->getRegion();
+      $variables['content']['#attributes']['region'] = $region;
+    }
   }
 }
 
