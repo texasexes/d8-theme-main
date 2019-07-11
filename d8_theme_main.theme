@@ -186,6 +186,21 @@ function d8_theme_main_form_views_exposed_form_alter(&$form, FormStateInterface 
 }
 
 /**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function d8_theme_main_form_user_login_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  $form['name']['#attributes']['placeholder'] = t("Enter username.");
+  $form['pass']['#attributes']['placeholder'] = t("Enter password.");
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function d8_theme_main_form_user_pass_alter(&$form, FormStateInterface $form_state, $form_id) {
+  $form['name']['#attributes']['placeholder'] = t("Enter your username or email address.");
+}
+
+/**
  * Implements hook_theme_suggestions_HOOK().
  */
 function d8_theme_main_theme_suggestions_form_alter(&$suggestions, array $variables) {
