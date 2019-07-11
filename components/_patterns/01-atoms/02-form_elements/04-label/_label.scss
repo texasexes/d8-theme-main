@@ -22,8 +22,9 @@ $font-size-label: 1.6rem;
 .label {
   @include label;
 
-  .input[type="radio"] + & {
+  .input[type="radio"] + &,
+  .input[type="checkbox"] + & {
     display: inline;
-    padding-left: 5px;
+    padding: 0 0 0 $space-one-half;
   }
 }
