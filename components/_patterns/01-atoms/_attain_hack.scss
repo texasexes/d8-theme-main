@@ -98,6 +98,16 @@
   }
 }
 
+.event-summary-details {
+  .wysiwyg__h4 {
+    display: inline-block;
+
+    &::after {
+      content: " –";
+    }
+  }
+}
+
 .toolbox-link-wrapper {
   margin-bottom: 10px;
   position: relative;
