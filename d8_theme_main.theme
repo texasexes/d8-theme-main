@@ -189,8 +189,8 @@ function d8_theme_main_form_views_exposed_form_alter(&$form, FormStateInterface 
  * Implements hook_form_FORM_ID_alter().
  */
 function d8_theme_main_form_user_login_form_alter(&$form, FormStateInterface $form_state, $form_id) {
-  $form['name']['#attributes']['placeholder'] = t("Enter username.");
-  $form['pass']['#attributes']['placeholder'] = t("Enter password.");
+  unset($form['name']['#attributes']['placeholder']);
+  unset($form['pass']['#attributes']['placeholder']);
 
   $custom_template = '{% include "@molecules/social-auth/custom-social-auth-block.twig" %}';
   $form['custom_social_auth'] = [
@@ -209,7 +209,7 @@ function d8_theme_main_form_user_login_form_alter(&$form, FormStateInterface $fo
  * Implements hook_form_FORM_ID_alter().
  */
 function d8_theme_main_form_user_pass_alter(&$form, FormStateInterface $form_state, $form_id) {
-  $form['name']['#attributes']['placeholder'] = t("Enter your username or email address.");
+  unset($form['name']['#attributes']['placeholder']);
 }
 
 /**
