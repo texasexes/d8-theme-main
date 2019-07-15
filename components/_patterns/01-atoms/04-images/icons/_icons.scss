@@ -1,4 +1,5 @@
-$icon-width: $space;
+$icon-width: $space-two-thirds;
+$icon-height: $space;
 $icon-width--alt-1: $space-two-thirds;
 $icon-width--alt-facebook-login: $space-two-thirds;
 $icon-width--alt-google-login: $space-two-thirds;
@@ -6,7 +7,7 @@ $icon-margin: $space-one-third;
 
 
 .icon {
-  height: $icon-width;
+  height: $icon-height;
   fill: $burnt-orange;
   float: left;
   padding: 0;
@@ -15,7 +16,7 @@ $icon-margin: $space-one-third;
   & + * {
     //vertically centers single line link following the icon
     // display: inline-block;
-    line-height: $icon-width;
+    line-height: $icon-height;
     padding-left: $space-two-thirds;
   }
 
@@ -29,7 +30,16 @@ $icon-margin: $space-one-third;
     height: $icon-width--alt-1;
     width: $icon-width--alt-1;
     & + * {
-      // display: table-cell;
+      line-height: $icon-width--alt-1;
+    }
+  }
+
+  // Make icon that is a vertical rectangle roughly the same size as other icons.
+  &--alt-2 {
+    height: $icon-width--alt-1;
+    width: 16px;
+    margin: 0 2px;
+    & + * {
       line-height: $icon-width--alt-1;
     }
   }

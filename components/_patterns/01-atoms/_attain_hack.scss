@@ -84,22 +84,22 @@
     margin: 0;
   }
 
-  svg {
-    height: 30px;
-    fill: $burnt-orange;
-    float: left;
-    padding: 0;
-    width: 20px;
-
-    & + a {
-      //vertically centers single line link following the icon
-      line-height: 30px;
-    }
-  }
+  // svg {
+  //   height: 30px;
+  //   fill: $burnt-orange;
+  //   float: left;
+  //   padding: 0;
+  //   width: 20px;
+  //
+  //   & + a {
+  //     //vertically centers single line link following the icon
+  //     line-height: 30px;
+  //   }
+  // }
 }
 
 .event-summary-details {
-  .wysiwyg__h4 {
+  :first-child {
     display: inline-block;
 
     &::after {
