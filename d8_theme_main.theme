@@ -409,6 +409,7 @@ function d8_theme_main_preprocess_paragraph(&$variables) {
     if (!$current_paragraph->get('field_txex_boolean_01')->isEmpty()) {
       $paragraph_reverse_order = $current_paragraph->get('field_txex_boolean_01')->first()->getValue();
       if ($paragraph_reverse_order['value']) {
+        $variables['tabs'] = TRUE;
         $paragraph_modifiers = $paragraph_modifiers + array('reverse-order' => 'reverse-order');
       }
     }

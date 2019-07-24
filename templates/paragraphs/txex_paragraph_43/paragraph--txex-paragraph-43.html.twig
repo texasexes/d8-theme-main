@@ -3,7 +3,7 @@
 {% set accordion_base_class = accordion_base_class|default('accordion') %}
 
 {% block paragraph %}
-  <div {{ bem("item", accordion_item_modifiers, accordion_base_class) }}>
+  <div {{ bem('item', accordion_item_modifiers, accordion_base_class) }}>
     {% include "@atoms/04-images/icons/_icon.twig" with {
       icon_base_class: 'expand-icon',
       icon_blockname: accordion_base_class,
