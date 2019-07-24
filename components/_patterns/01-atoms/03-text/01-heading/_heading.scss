@@ -132,7 +132,8 @@ $font-heading-h3-alt-11: $font-secondary-30;
     letter-spacing: -0.025em;
     text-transform: none;
 
-    &.heading-no-margin {
+    &.heading-no-margin,
+    &.no-margin {
       margin: 0;
     }
   }
@@ -168,7 +169,8 @@ $font-heading-h3-alt-11: $font-secondary-30;
       // }
     }
 
-    &.heading-no-margin {
+    &.heading-no-margin,
+    &.no-margin {
       margin: 0;
     }
   }
@@ -185,7 +187,8 @@ $font-heading-h3-alt-11: $font-secondary-30;
     margin: 0 0 $space-two-thirds;
     // text-transform: none;
 
-    &.heading-no-margin {
+    &.heading-no-margin,
+    &.no-margin {
       margin: 0;
     }
   }
@@ -201,7 +204,8 @@ $font-heading-h3-alt-11: $font-secondary-30;
     margin: 0 0 $space-two-thirds;
     padding: 0;
 
-    &.heading-no-margin {
+    &.heading-no-margin,
+    &.no-margin {
       margin: 0;
     }
   }
@@ -213,7 +217,8 @@ $font-heading-h3-alt-11: $font-secondary-30;
     font-size: 1.6rem;
     margin: 0 0 10px;
 
-    &.heading-no-margin {
+    &.heading-no-margin,
+    &.no-margin {
       margin: 0;
     }
   }
@@ -225,7 +230,8 @@ $font-heading-h3-alt-11: $font-secondary-30;
     font-size: 1.5rem;
     margin: 0 0 10px;
 
-    &.heading-no-margin {
+    &.heading-no-margin,
+    &.no-margin {
       margin: 0;
     }
   }
