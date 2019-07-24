@@ -6,9 +6,12 @@
     font-family: $font-tertiary;
     font-weight: 400;
     line-height: 1.5;
-    margin-bottom: $space-one-half;
+    margin-bottom: $space-one-third;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+  .label {
+    margin: 0;
   }
 }
 
