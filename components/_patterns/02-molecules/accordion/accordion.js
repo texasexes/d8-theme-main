@@ -74,9 +74,18 @@
 
   accordionHeading.click(function (e) {
     e.preventDefault();
-    $(this).parent().addClass(openClass).removeClass(closedClass);
-    $(this).parent().children().addClass(openClass).removeClass(closedClass);
 
+    if (accordionTabsItem.length && winW > breakpoint) {
+      // Tabs are active. Click does not toggle, just sets to open.
+      $(this).parent().addClass(openClass).removeClass(closedClass);
+      $(this).parent().children().addClass(openClass).removeClass(closedClass);
+    } else {
+        // Toggle click element open/closed.
+        $(this).parent().toggleClass(openClass).toggleClass(closedClass);
+        $(this).parent().children().toggleClass(openClass).toggleClass(closedClass);
+    }
+
+    // Close all other elements.
     $(this).parent().siblings().addClass(closedClass).removeClass(openClass);
     $(this).parent().siblings().children().addClass(closedClass).removeClass(openClass);
   });
