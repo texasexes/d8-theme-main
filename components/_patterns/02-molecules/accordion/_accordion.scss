@@ -4,6 +4,7 @@ $accordion-border-color: $grey-e;
 
 .accordion {
   margin: 0;
+  position: relative;
 
   @include breakpoint($break-nav) {
     margin: 0 50px;
