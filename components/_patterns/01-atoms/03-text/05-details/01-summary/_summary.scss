@@ -1,3 +1,5 @@
 .summary {
-  @extend .wysiwyg__h3;
+  @extend .wysiwyg__h4;
+
+  margin-bottom: $space-one-third;
 }
