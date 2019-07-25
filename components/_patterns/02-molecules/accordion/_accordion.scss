@@ -7,9 +7,8 @@ $accordion-border-color: $grey-e;
   position: relative;
 
   @include breakpoint($break-nav) {
-    margin: 0 50px;
-
     @at-root .tabs #{&} {
+      margin: 0 50px;
       display: flex;
       justify-content: center;
     }
