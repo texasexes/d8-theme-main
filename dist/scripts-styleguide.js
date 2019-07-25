@@ -25,6 +25,7 @@
     };
   }();
 
+  var tabsAccordion = $('.tabs .accordion');
   var accordionTabsItem = $('.tabs .accordion__item');
   var accordionTabsItemContent = $('.tabs .accordion__item .accordion__content');
   var accordionTabsItemHeading = $('.tabs .accordion__item .accordion__heading');
@@ -37,6 +38,7 @@
   var openClass = 'js-open';
   var closedClass = 'js-closed';
   var win = $(window);
+  var breakpoint = 900;
 
   var winW = parseInt(win.width(), 10);
 
@@ -50,10 +52,13 @@
   var maxTabsContentHeight = maxHeight(accordionTabsItemContent);
   var maxTabHeight = maxTabsHeadingHeight + maxTabsContentHeight;
 
-  accordionTabsItem.outerHeight(maxTabHeight);
-  // Add extra pixel to make header overlap content and override it's border.
-  accordionTabsItemHeading.outerHeight(parseInt(maxTabsHeadingHeight) + 1);
-  accordionTabsItemContent.css({ top: maxTabsHeadingHeight });
+  // Tabs are allowed to be active.
+  if (winW > breakpoint) {
+    accordionTabsItem.outerHeight(maxTabHeight);
+    // Add extra pixel to make header overlap content and override it's border.
+    accordionTabsItemHeading.outerHeight(parseInt(maxTabsHeadingHeight) + 1);
+    accordionTabsItemContent.css({ top: maxTabsHeadingHeight });
+  }
 
   var maxHeadingHeight = maxHeight(accordionHeading);
   var maxIconHeight = maxHeight(accordionIcon);
@@ -71,9 +76,18 @@
 
   accordionHeading.click(function (e) {
     e.preventDefault();
-    $(this).parent().addClass(openClass).removeClass(closedClass);
-    $(this).parent().children().addClass(openClass).removeClass(closedClass);
 
+    if (accordionTabsItem.length && winW > breakpoint) {
+      // Tabs are active. Click does not toggle, just sets to open.
+      $(this).parent().addClass(openClass).removeClass(closedClass);
+      $(this).parent().children().addClass(openClass).removeClass(closedClass);
+    } else {
+      // Toggle click element open/closed.
+      $(this).parent().toggleClass(openClass).toggleClass(closedClass);
+      $(this).parent().children().toggleClass(openClass).toggleClass(closedClass);
+    }
+
+    // Close all other elements.
     $(this).parent().siblings().addClass(closedClass).removeClass(openClass);
     $(this).parent().siblings().children().addClass(closedClass).removeClass(openClass);
   });
@@ -84,14 +98,15 @@
       winW = parseInt(win.width(), 10);
       // If desktop width set height
       // Clear manually set css and height
-      accordionTabsItem.height('');
+      accordionTabsItem.outerHeight('');
+      accordionTabsItemHeading.outerHeight('');
       accordionTabsItemContent.css({ top: '' });
-      accordionTabsItemHeading.height('');
 
       // Always position icon
       accordionIcon.css({ top: parseInt(maxTabsHeadingHeight) / 2 });
 
-      if (winW > 900) {
+      // Tabs are allowed to be active.
+      if (winW > breakpoint) {
         maxTabsHeadingHeight = maxHeight(accordionTabsItemHeading);
         maxTabsContentHeight = maxHeight(accordionTabsItemContent);
         maxTabHeight = maxTabsHeadingHeight + maxTabsContentHeight;
