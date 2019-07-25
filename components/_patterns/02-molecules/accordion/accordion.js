@@ -35,6 +35,7 @@
   const openClass = 'js-open';
   const closedClass = 'js-closed';
   const win = $(window);
+  const breakpoint = 900;
 
   let winW = parseInt(win.width(), 10);
 
@@ -90,7 +91,8 @@
     // Always position icon
     accordionIcon.css({ top: (parseInt(maxTabsHeadingHeight) / 2) });
 
-    if (winW > 900) {
+    // Tabs are allowed to be active.
+    if (winW > breakpoint) {
       maxTabsHeadingHeight = maxHeight(accordionTabsItemHeading);
       maxTabsContentHeight = maxHeight(accordionTabsItemContent);
       maxTabHeight = maxTabsHeadingHeight + maxTabsContentHeight;
