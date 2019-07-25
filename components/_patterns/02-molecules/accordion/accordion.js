@@ -50,10 +50,13 @@
   let maxTabsContentHeight = maxHeight(accordionTabsItemContent);
   let maxTabHeight = maxTabsHeadingHeight + maxTabsContentHeight;
 
-  accordionTabsItem.outerHeight(maxTabHeight);
-  // Add extra pixel to make header overlap content and override it's border.
-  accordionTabsItemHeading.outerHeight((parseInt(maxTabsHeadingHeight) + 1));
-  accordionTabsItemContent.css({ top: maxTabsHeadingHeight });
+  // Tabs are allowed to be active.
+  if (winW > breakpoint) {
+    accordionTabsItem.outerHeight(maxTabHeight);
+    // Add extra pixel to make header overlap content and override it's border.
+    accordionTabsItemHeading.outerHeight((parseInt(maxTabsHeadingHeight) + 1));
+    accordionTabsItemContent.css({ top: maxTabsHeadingHeight });
+  }
 
   let maxHeadingHeight = maxHeight(accordionHeading);
   let maxIconHeight = maxHeight(accordionIcon);
@@ -84,9 +87,9 @@
     winW = parseInt(win.width(), 10);
     // If desktop width set height
     // Clear manually set css and height
-    accordionTabsItem.height('');
+    accordionTabsItem.outerHeight('');
+    accordionTabsItemHeading.outerHeight('');
     accordionTabsItemContent.css({ top: '' });
-    accordionTabsItemHeading.height('');
 
     // Always position icon
     accordionIcon.css({ top: (parseInt(maxTabsHeadingHeight) / 2) });
