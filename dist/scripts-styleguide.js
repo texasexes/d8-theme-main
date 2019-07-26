@@ -25,7 +25,6 @@
     };
   }();
 
-  var tabsAccordion = $('.tabs .accordion');
   var accordionTabsItem = $('.tabs .accordion__item');
   var accordionTabsItemContent = $('.tabs .accordion__item .accordion__content');
   var accordionTabsItemHeading = $('.tabs .accordion__item .accordion__heading');
@@ -40,7 +39,7 @@
   var win = $(window);
   var breakpoint = 900;
 
-  var winW = parseInt(win.width(), 10);
+  var winW = parseInt(win.outerWidth(), 10);
 
   var maxHeight = function maxHeight(elems) {
     return Math.max.apply(null, elems.map(function () {
@@ -95,7 +94,7 @@
   // Update everything when the window is resized
   win.resize(function () {
     waitForFinalEvent(function () {
-      winW = parseInt(win.width(), 10);
+      winW = parseInt(win.outerWidth(), 10);
       // If desktop width set height
       // Clear manually set css and height
       accordionTabsItem.outerHeight('');
