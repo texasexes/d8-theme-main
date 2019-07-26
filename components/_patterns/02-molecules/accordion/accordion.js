@@ -37,7 +37,7 @@
   const win = $(window);
   const breakpoint = 900;
 
-  let winW = parseInt(win.width(), 10);
+  let winW = parseInt(win.outerWidth(), 10);
 
   let maxHeight = function(elems){
     return Math.max.apply(null, elems.map(function ()
@@ -93,7 +93,7 @@
   // Update everything when the window is resized
   win.resize(function () {
     waitForFinalEvent(function(){
-    winW = parseInt(win.width(), 10);
+    winW = parseInt(win.outerWidth(), 10);
     // If desktop width set height
     // Clear manually set css and height
     accordionTabsItem.outerHeight('');
