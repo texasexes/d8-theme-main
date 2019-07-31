@@ -75,6 +75,10 @@
   accordionHeading.click(function (e) {
     e.preventDefault();
 
+    // Close all other elements but self.
+    $(this).parent().siblings().addClass(closedClass).removeClass(openClass);
+    $(this).parent().siblings().children().addClass(closedClass).removeClass(openClass);
+
     if (accordionTabsItem.length && winW > breakpoint) {
       // Click does not toggle, just sets to open.
       $(this).parent().addClass(openClass).removeClass(closedClass);
@@ -85,9 +89,6 @@
         $(this).parent().children().toggleClass(openClass).toggleClass(closedClass);
     }
 
-    // Close all other elements.
-    $(this).parent().siblings().addClass(closedClass).removeClass(openClass);
-    $(this).parent().siblings().children().addClass(closedClass).removeClass(openClass);
   });
 
   // Update everything when the window is resized
