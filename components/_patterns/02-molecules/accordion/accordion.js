@@ -23,6 +23,7 @@
     };
   })();
 
+  const win = $(window);
   const accordionTabsItem = $('.tabs .accordion__item');
   const accordionTabsItemContent = $('.tabs .accordion__item .accordion__content');
   const accordionTabsItemHeading = $('.tabs .accordion__item .accordion__heading');
@@ -34,7 +35,6 @@
   const hiddenClass = 'js-hidden';
   const openClass = 'js-open';
   const closedClass = 'js-closed';
-  const win = $(window);
   const breakpoint = 900;
 
   let winW = parseInt(win.outerWidth(), 10);
@@ -76,11 +76,11 @@
     e.preventDefault();
 
     if (accordionTabsItem.length && winW > breakpoint) {
-      // Tabs are active. Click does not toggle, just sets to open.
+      // Click does not toggle, just sets to open.
       $(this).parent().addClass(openClass).removeClass(closedClass);
       $(this).parent().children().addClass(openClass).removeClass(closedClass);
     } else {
-        // Toggle click element open/closed.
+        // Click toggles element open/closed.
         $(this).parent().toggleClass(openClass).toggleClass(closedClass);
         $(this).parent().children().toggleClass(openClass).toggleClass(closedClass);
     }

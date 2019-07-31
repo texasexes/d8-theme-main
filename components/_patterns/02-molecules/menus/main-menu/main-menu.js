@@ -104,14 +104,10 @@
     }
   };
 
-
-
   // Main Menu
   mainMenuToggle.click(function (e) {
     e.preventDefault();
     mainMenuBgToggle();
-    // expandParents();
-
   });
 
   // Display Sub-nav
@@ -182,7 +178,7 @@
         // Hide mobile menu
         mainMenu.removeClass(menuVisible);
       }
-      // setHeaderMarginTop();
+
       calculateMenuHeights();
     }, 100, "Main menu - window resize");
   });
