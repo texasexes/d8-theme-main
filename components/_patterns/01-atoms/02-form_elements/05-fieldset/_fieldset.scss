@@ -4,7 +4,7 @@
   margin-bottom: $space;
 
   @include breakpoint($small) {
-    padding: 25px;
+    padding: $space;
   }
 
   &-wrapper {
