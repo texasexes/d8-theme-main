@@ -49,7 +49,9 @@
   let headerHeight = 0;
   let maxHeight = '100vh';
   let mainMenuHeight = mainMenu.outerHeight();
-  let mainMenuActiveItem = $('.is-active');
+  // Needs .main-menu__item--active-trail-last in case menu item is in menu
+  // twice. Always scrolls to "main" menu item (the one designated on the entity).
+  let mainMenuActiveItem = $('#main-nav .main-menu__item--active-trail-last .is-active');
   let dummyElement = $('');
   let dummyElementMaxHeight = '0';
   let currentScrollTop = 0;
@@ -92,10 +94,15 @@
     // Display main menu
     mainMenu.toggleClass(menuVisible);
 
-    //Scroll to main menu items
-    mainMenuActiveItem = $('.is-active');
+    //Scroll to main menu active item.
+    mainMenuActiveItem = $('#main-nav .main-menu__item--active-trail-last .is-active');
     if (mainMenuActiveItem.length) {
-      mainMenuActiveItem.get(0).scrollIntoView();
+      // Wait for the menu to slide in, currently set at 0.5s in _main-menu.scss.
+      setTimeout(function() {
+        mainMenuActiveItem.get(0).scrollIntoView({
+          behavior: "smooth"
+        });
+      }, 500);
     }
 
     // Remove the overlay if it exists
