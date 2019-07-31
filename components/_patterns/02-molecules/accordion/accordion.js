@@ -23,6 +23,7 @@
     };
   })();
 
+  const dom = $(document);
   const win = $(window);
   const accordionTabsItem = $('.tabs .accordion__item');
   const accordionTabsItemContent = $('.tabs .accordion__item .accordion__content');
@@ -37,6 +38,17 @@
   const closedClass = 'js-closed';
   const breakpoint = 900;
 
+  let toolbarAdministration = null;
+  let toolbarTrayHorizontal = null;
+  let toolbarOffset = null;
+  let headerWrapperScrollUp = null;
+  let headerWrapper = null;
+  let headerWrapperOffset = null;
+  let additionalOffset = 0;
+  let bodyFixedAdminBar = null;
+  let bodyFixedAdminHorizontalTray = null;
+  let bodyFixedAdminBarHeight = 0;
+
   let winW = parseInt(win.outerWidth(), 10);
 
   let maxHeight = function(elems){
@@ -45,6 +57,23 @@
         return $(this).outerHeight();
     }).get());
   }
+
+  // Calculate body padding top (to accommodate the admin menu)
+  function calculateBodyFixedAdminBarHeight() {
+    bodyFixedAdminBar = $('body.toolbar-fixed #toolbar-bar');
+    bodyFixedAdminHorizontalTray = $('body.toolbar-fixed.toolbar-tray-open.toolbar-horizontal #toolbar-item-administration-tray');
+    bodyFixedAdminBarHeight = (parseInt(bodyFixedAdminBar.outerHeight()) || 0) + (parseInt(bodyFixedAdminHorizontalTray.outerHeight()) || 0);
+  };
+
+  function calculateHeights() {
+    dom.ready(function() {
+      // Handle fixed Drupal admin bar.
+     calculateBodyFixedAdminBarHeight();
+
+    });
+  };
+
+  calculateHeights();
 
   let maxTabsHeadingHeight = maxHeight(accordionTabsItemHeading);
   let maxTabsContentHeight = maxHeight(accordionTabsItemContent);
@@ -79,14 +108,40 @@
     $(this).parent().siblings().addClass(closedClass).removeClass(openClass);
     $(this).parent().siblings().children().addClass(closedClass).removeClass(openClass);
 
+    // When accordion uses tabs display and window is wider than breakpoint.
+    // Keep in mind that tabs styles are only applied when wider than breakpoint
+    // in scss files.
     if (accordionTabsItem.length && winW > breakpoint) {
       // Click does not toggle, just sets to open.
       $(this).parent().addClass(openClass).removeClass(closedClass);
       $(this).parent().children().addClass(openClass).removeClass(closedClass);
+      // This is default accordion behavior (no tabs display).
     } else {
         // Click toggles element open/closed.
         $(this).parent().toggleClass(openClass).toggleClass(closedClass);
         $(this).parent().children().toggleClass(openClass).toggleClass(closedClass);
+
+        if (winW <= breakpoint) {
+          // Handle scroll behavior offset in relation to scroll-hide mobile menu bar.
+          headerWrapper = $('.header-wrapper');
+          headerWrapperScrollUp = $('.header-wrapper .scrollUp');
+          headerWrapperOffset = (parseInt(headerWrapper.outerHeight()) || 0) - (parseInt(headerWrapperScrollUp.outerHeight()) || 0);
+
+          if ( $(this).offset().top < (win.scrollTop() + headerWrapperOffset) ) {
+            additionalOffset = headerWrapperOffset;
+          }
+        }
+
+        calculateBodyFixedAdminBarHeight();
+        additionalOffset += bodyFixedAdminBarHeight;
+
+
+        // Scroll behavior when an accordion item is clicked.
+        $('html,body').animate({
+          scrollTop: $(this).offset().top - additionalOffset
+        }, 500);
+        // Re-Initialize scroll additional offset for next click.
+        additionalOffset = 0;
     }
 
   });
@@ -95,11 +150,12 @@
   win.resize(function () {
     waitForFinalEvent(function(){
     winW = parseInt(win.outerWidth(), 10);
-    // If desktop width set height
     // Clear manually set css and height
     accordionTabsItem.outerHeight('');
     accordionTabsItemHeading.outerHeight('');
     accordionTabsItemContent.css({ top: '' });
+
+    calculateHeights();
 
     // Always position icon
     accordionIcon.css({ top: (parseInt(maxTabsHeadingHeight) / 2) });
