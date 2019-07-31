@@ -2,9 +2,13 @@ $accordion-background-color-hover: $mushroom-lighter;
 $accordion-background-color-active: $mushroom-lightest;
 $accordion-border-color: $grey-e;
 
+.tabs {
+  // Provides wrapper for position:static __item.
+  position: relative;
+}
+
 .accordion {
   margin: 0;
-  position: relative;
 
   @include breakpoint($break-nav) {
     @at-root .tabs #{&} {
