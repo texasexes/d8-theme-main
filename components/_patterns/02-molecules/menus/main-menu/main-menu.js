@@ -76,7 +76,13 @@
   function removeMainMenuBg() {
     mainMenuBg.remove();
     mainMenuBg = '';
-  }
+  };
+
+  // Add mobile nav background
+  function addMainMenuBg() {
+    mainMenuBg = $('<span class="js-main-menu-close" />');
+    mainMenuToggleOpen.append(mainMenuBg);
+  };
 
   // Show/Hide overlay
   function mainMenuBgToggle() {
@@ -98,9 +104,7 @@
     }
     // Add overlay if needed
     else {
-      mainMenuBg = $('<span class="js-main-menu-close" />');
-      mainMenuBg.css({top: bodyPaddingTop});
-      mainMenuToggleOpen.append(mainMenuBg);
+      addMainMenuBg();
     }
   };
 
