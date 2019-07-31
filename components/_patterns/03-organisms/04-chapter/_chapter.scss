@@ -92,10 +92,9 @@ $chapter-border: $mushroom-light;
 
 .chapter-add-content,
 .chapter-report-toolbox {
-  // border: 8px solid $burnt-orange;
-  border: 8px solid $grey-e;
   padding: 10px;
   margin-bottom: $space-two-thirds;
+  background-color: $mushroom-lightest;
 
   h2 {
     color: #555;
