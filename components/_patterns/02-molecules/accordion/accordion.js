@@ -111,7 +111,7 @@
     // When accordion uses tabs display and window is wider than breakpoint.
     // Keep in mind that tabs styles are only applied when wider than breakpoint
     // in scss files.
-    if (accordionTabsItem.length && winW > breakpoint) {
+    if ($(this).parent().parent().hasClass('tabs-child') && winW > breakpoint) {
       // Click does not toggle, just sets to open.
       $(this).parent().addClass(openClass).removeClass(closedClass);
       $(this).parent().children().addClass(openClass).removeClass(closedClass);

@@ -1,10 +1,10 @@
 {% extends "paragraph.html.twig" %}
 
 {% block paragraph %}
-{{ attach_library('d8_theme_main/accordion') }}
-{% if tabs %}
-  {% set attributes = attributes.addClass('tabs') %}
-{% endif %}
+  {{ attach_library('d8_theme_main/accordion') }}
+  {% if paragraph.field_txex_boolean_01.value %}
+    {% set attributes = attributes.addClass('tabs') %}
+  {% endif %}
   <div{{ attributes.addClass(classes) }}>
     {{ content }}
   </div>
