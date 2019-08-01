@@ -11,6 +11,12 @@ body {
   font-size: 1.6rem;
   background-color: $mushroom-lightest;
 
+  // Modal in views behaves very strangely from some reason if font-size is set
+  // on body, so we unset it. @TODO Look into this further.
+  &.path-admin {
+    font-size: unset;
+  }
+
   &.noscroll {
     // cannot hide overflow, because triggers reflow on browsers that are not
     // autohiding the scrollbar
