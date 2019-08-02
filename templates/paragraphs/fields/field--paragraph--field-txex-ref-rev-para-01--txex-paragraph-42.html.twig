@@ -1,12 +1,10 @@
 {% extends "field.html.twig" %}
+
 {% set attributes = attributes.addClass('accordion') %}
+{% if element['#object'].field_txex_boolean_01.value %}
+  {% set attributes = attributes.addClass('tabs') %}
+{% endif %}
 
 {% block item_block %}
-  {% if element['#object'].field_txex_boolean_01.value %}
-    <div{{ item.attributes.addClass('tabs-child') }}>
-      {{- item.content -}}
-    </div>
-  {% else %}
-    {{- item.content -}}
-  {% endif %}
+  {{- item.content -}}
 {% endblock %}

@@ -25,9 +25,9 @@
 
   const dom = $(document);
   const win = $(window);
-  const accordionTabsItem = $('.tabs .accordion__item');
-  const accordionTabsItemContent = $('.tabs .accordion__item .accordion__content');
-  const accordionTabsItemHeading = $('.tabs .accordion__item .accordion__heading');
+  const accordionTabsItem = $('.accordion__item.tabs');
+  const accordionTabsItemContent = $('.accordion__content.tabs');
+  const accordionTabsItemHeading = $('.accordion__heading.tabs');
   const accordionItem = $('.accordion__item');
   const accordionHeading = $('.accordion__heading');
   const accordionContent = $('.accordion__content');
@@ -69,7 +69,6 @@
     dom.ready(function() {
       // Handle fixed Drupal admin bar.
      calculateBodyFixedAdminBarHeight();
-
     });
   };
 
@@ -111,7 +110,7 @@
     // When accordion uses tabs display and window is wider than breakpoint.
     // Keep in mind that tabs styles are only applied when wider than breakpoint
     // in scss files.
-    if ($(this).parent().parent().hasClass('tabs-child') && winW > breakpoint) {
+    if ($(this).hasClass('tabs') && winW > breakpoint) {
       // Click does not toggle, just sets to open.
       $(this).parent().addClass(openClass).removeClass(closedClass);
       $(this).parent().children().addClass(openClass).removeClass(closedClass);

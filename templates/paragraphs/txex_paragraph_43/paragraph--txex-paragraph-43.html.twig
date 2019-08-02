@@ -3,16 +3,25 @@
 {% set accordion_base_class = accordion_base_class|default('accordion') %}
 
 {% block paragraph %}
-  <div {{ bem('item', accordion_item_modifiers, accordion_base_class) }}>
+
+{% set extra_classes = {} %}
+{# If parent paragraph has "display tabs" field checked #}
+{% if elements['#paragraph'].getParentEntity.field_txex_boolean_01.value %}
+  {% set extra_classes = {'tabs':'tabs'} %}
+{% endif %}
+
+{% set test_attributes = create_attribute() %}
+  <div {{ bem('item', accordion_item_modifiers, accordion_base_class, extra_classes) }}>
     {% include "@atoms/04-images/icons/_icon.twig" with {
       icon_base_class: 'expand-icon',
       icon_blockname: accordion_base_class,
       icon_name: 'chevron',
+      icon_js_class: extra_classes,
     } %}
-    <div {{ bem('heading', accordion_term_modifiers, accordion_base_class) }}>
+    <div {{ bem('heading', accordion_term_modifiers, accordion_base_class, extra_classes) }}>
       {{ content.field_txex_ref_rev_para_01 }}
     </div>
-    <div {{ bem('content', accordion_def_modifiers, accordion_base_class) }}>
+    <div {{ bem('content', accordion_def_modifiers, accordion_base_class, extra_classes) }}>
       {{ content.field_txex_ref_rev_para_02 }}
     </div>
   </div>
