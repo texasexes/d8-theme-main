@@ -27,9 +27,9 @@
 
   var dom = $(document);
   var win = $(window);
-  var accordionTabsItem = $('.tabs .accordion__item');
-  var accordionTabsItemContent = $('.tabs .accordion__item .accordion__content');
-  var accordionTabsItemHeading = $('.tabs .accordion__item .accordion__heading');
+  var accordionTabsItem = $('.accordion__item.tabs');
+  var accordionTabsItemContent = $('.accordion__content.tabs');
+  var accordionTabsItemHeading = $('.accordion__heading.tabs');
   var accordionItem = $('.accordion__item');
   var accordionHeading = $('.accordion__heading');
   var accordionContent = $('.accordion__content');
@@ -111,7 +111,7 @@
     // When accordion uses tabs display and window is wider than breakpoint.
     // Keep in mind that tabs styles are only applied when wider than breakpoint
     // in scss files.
-    if ($(this).parent().parent().hasClass('tabs-child') && winW > breakpoint) {
+    if ($(this).hasClass('tabs') && winW > breakpoint) {
       // Click does not toggle, just sets to open.
       $(this).parent().addClass(openClass).removeClass(closedClass);
       $(this).parent().children().addClass(openClass).removeClass(closedClass);
