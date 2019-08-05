@@ -468,3 +468,14 @@
     -moz-osx-font-smoothing: grayscale;
   }
 }
+
+.page--entity--webform--canonical {
+  .block-region-main {
+
+  @include breakpoint($break-layout) {
+    margin-left: 50px;
+    margin-right: 40px;
+  }
+
+  }
+}
