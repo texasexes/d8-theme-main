@@ -1,0 +1,12 @@
+.page--user--pass {
+  .layout-content {
+    max-width: $small;
+    margin: 0 auto;
+  }
+
+  .user-pass {
+    .description {
+      @include visually-hidden;
+    }
+  }
+}

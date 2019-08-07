@@ -43,7 +43,7 @@
  * @see html.html.twig
  */
 #}
-<div class="{{ layout_classes|default('layout-container') }}">
+<div{{ attributes.addClass('layout-container') }}>
 
   {{ page.header_top }}
 

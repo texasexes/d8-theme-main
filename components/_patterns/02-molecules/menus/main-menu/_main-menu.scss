@@ -64,7 +64,7 @@ $main-menu-login-item-width: 23px;
     left: -100vw;
     max-width: $width-mobile-max;
     overflow: scroll;
-    position: fixed;
+    position: absolute;
     top: 0;
     transition: left 0.5s ease;
     width: $width-mobile;
@@ -274,7 +274,7 @@ $main-menu-login-item-width: 23px;
       > span {
         color: $burnt-orange;
       }
-      
+
       &:hover {
         > a,
         > span {

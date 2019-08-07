@@ -17,6 +17,7 @@
 
   nav,
   .header__secondary,
+  .theme__region--header-user-nav,
   #block-breadcrumbs,
   #block-d8-theme-main-primary-local-tasks,
   #sidebar_first,
@@ -44,12 +45,13 @@
     padding: 0 50px !important;
   }
 
-  .header__branding {
+  .header__branding,
+  .header-regions__section--2 {
     margin: 0 0 10px 0 !important;
   }
 
   .site-logo {
-    text-align: center !important;
+    text-align: left !important;
     img {
       height: 50px !important;
     }
@@ -75,6 +77,14 @@
         width: 50%;
       }
     }
+  }
+
+  .txex-registration-page {
+    margin: 0;
+  }
+
+  .qr-code-wrapper {
+    float: right !important;
   }
 
 }

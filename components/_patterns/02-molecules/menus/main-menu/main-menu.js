@@ -41,19 +41,26 @@
   const header = $('.header-wrapper');
   const contentTopRegion = $('.content-top-region');
   const layoutContainer = $('.layout-container');
+  const adminToolbar = $('#toolbar-bar');
 
   // Calculated values
-  let winH = parseInt(win.height(), 10);
-  let winW = parseInt(win.width(), 10);
-  let bodyPaddingTop = 0;
+  let winH = parseInt(win.outerHeight(), 10);
+  let winW = parseInt(win.outerWidth(), 10);
   let headerHeight = 0;
   let maxHeight = '100vh';
   let mainMenuHeight = mainMenu.outerHeight();
-  let mainMenuActiveItem = $('.is-active');
+  // Needs .main-menu__item--active-trail-last in case menu item is in menu
+  // twice. Always scrolls to "main" menu item (the one designated on the entity).
+  let mainMenuActiveItem = $('#main-nav .main-menu__item--active-trail-last .is-active');
   let dummyElement = $('');
   let dummyElementMaxHeight = '0';
   let currentScrollTop = 0;
   let totalHeightToSkip = 0;
+  let adminToolbarHeight = parseInt(adminToolbar.outerHeight()) || 0;
+  let bodyFixedAdminBarHeight = 0;
+  let bodyFixedAdminBar = $('body.toolbar-fixed #toolbar-bar');
+  let bodyFixedAdminHorizontalTray = $('body.toolbar-fixed.toolbar-tray-open.toolbar-horizontal #toolbar-item-administration-tray');
+  let adminToolbarHorizontalTray = $('body.toolbar-tray-open.toolbar-horizontal #toolbar-item-administration-tray');
 
   // Classes
   const mainMenuSubOpen = 'main-menu__sub-icon--open';
@@ -76,7 +83,13 @@
   function removeMainMenuBg() {
     mainMenuBg.remove();
     mainMenuBg = '';
-  }
+  };
+
+  // Add mobile nav background
+  function addMainMenuBg() {
+    mainMenuBg = $('<span class="js-main-menu-close" />');
+    mainMenuToggleOpen.append(mainMenuBg);
+  };
 
   // Show/Hide overlay
   function mainMenuBgToggle() {
@@ -86,10 +99,15 @@
     // Display main menu
     mainMenu.toggleClass(menuVisible);
 
-    //Scroll to main menu items
-    mainMenuActiveItem = $('.is-active');
+    //Scroll to main menu active item.
+    mainMenuActiveItem = $('#main-nav .main-menu__item--active-trail-last .is-active');
     if (mainMenuActiveItem.length) {
-      mainMenuActiveItem.get(0).scrollIntoView();
+      // Wait for the menu to slide in, currently set at 0.5s in _main-menu.scss.
+      setTimeout(function() {
+        mainMenuActiveItem.get(0).scrollIntoView({
+          behavior: "smooth"
+        });
+      }, 500);
     }
 
     // Remove the overlay if it exists
@@ -98,20 +116,14 @@
     }
     // Add overlay if needed
     else {
-      mainMenuBg = $('<span class="js-main-menu-close" />');
-      mainMenuBg.css({top: bodyPaddingTop});
-      mainMenuToggleOpen.append(mainMenuBg);
+      addMainMenuBg();
     }
   };
-
-
 
   // Main Menu
   mainMenuToggle.click(function (e) {
     e.preventDefault();
     mainMenuBgToggle();
-    // expandParents();
-
   });
 
   // Display Sub-nav
@@ -129,16 +141,21 @@
   });
 
   // Calculate body padding top (to accommodate the admin menu)
-  function calculateBodyPaddingTop() {
-    bodyPaddingTop = parseInt(body.css('padding-top'), 10);
+  function calculateAdminToolbarHeight() {
+    adminToolbarHorizontalTray = $('body.toolbar-tray-open.toolbar-horizontal #toolbar-item-administration-tray');
+    adminToolbarHeight = (parseInt(adminToolbar.outerHeight()) || 0) + (parseInt(adminToolbarHorizontalTray.outerHeight()) || 0);
+  };
+
+  // Calculate body padding top (to accommodate the admin menu)
+  function calculateBodyFixedAdminBarHeight() {
+    bodyFixedAdminBar = $('body.toolbar-fixed #toolbar-bar');
+    bodyFixedAdminHorizontalTray = $('body.toolbar-fixed.toolbar-tray-open.toolbar-horizontal #toolbar-item-administration-tray');
+    bodyFixedAdminBarHeight = (parseInt(bodyFixedAdminBar.outerHeight()) || 0) + (parseInt(bodyFixedAdminHorizontalTray.outerHeight()) || 0);
   };
 
   // Calculate header height (to accommodate the fixed header bar)
   function calculateHeaderHeight() {
-    headerHeight = 0;
-    if (header.css('position') == 'fixed') {
-      headerHeight = parseInt(header.css('height'), 10);
-    }
+    headerHeight = parseInt(header.outerHeight()) || 0;
   };
 
   function setSideMenuSubMaxHeight() {
@@ -154,13 +171,26 @@
   // Set the height and position of the main-nav and header bar
   function calculateMenuHeights() {
     dom.ready(function() {
-      winH = parseInt(win.height(), 10);
-      calculateBodyPaddingTop();
+      winH = parseInt(win.outerHeight(), 10);
+      winW = parseInt(win.outerWidth(), 10);
+      bodyFixedAdminBar = $('body.toolbar-fixed #toolbar-bar');
+
+      // calculateBodyPaddingTop();
       calculateHeaderHeight();
-      maxHeight = winH - bodyPaddingTop;
-      mainMenu.css({'top': bodyPaddingTop, 'max-height': maxHeight});
-      header.css({'top': bodyPaddingTop});
-      layoutContainer.css({'margin-top': headerHeight});
+      calculateAdminToolbarHeight();
+      calculateBodyFixedAdminBarHeight();
+
+      maxHeight = winH - adminToolbarHeight;
+      mainMenu.css({'max-height': maxHeight});
+
+      if (winW <= 900) {
+        body.css({'padding-top': adminToolbarHeight + headerHeight});
+      } else {
+        body.css({'padding-top': adminToolbarHeight});
+      }
+
+      header.css({'top': adminToolbarHeight});
+
       setSideMenuSubMaxHeight();
     });
   };
@@ -177,27 +207,54 @@
         if (mainMenuBg.length) {
           removeMainMenuBg();
         }
+        // Class may remain if initial load is in mobile.
+        header.removeClass("scrollUp");
+
+        // Margin may have been added.
+        header.css({'margin-top': ''});
+
         // Remove noscroll class from body
         body.removeClass(noscroll);
         // Hide mobile menu
         mainMenu.removeClass(menuVisible);
       }
-      // setHeaderMarginTop();
+
       calculateMenuHeights();
     }, 100, "Main menu - window resize");
   });
 
-  calculateBodyPaddingTop();
-  var c;
-
+  var lastScrollTop = 0;
   win.scroll(function () {
-     currentScrollTop = parseInt(win.scrollTop());
-     if (c < currentScrollTop && currentScrollTop > bodyPaddingTop + headerHeight) {
-       header.addClass("scrollUp");
-     } else if (c > currentScrollTop && !(currentScrollTop <= headerHeight)) {
-       header.removeClass("scrollUp");
-     }
-     c = currentScrollTop;
-   });
+    if (winW <= 900) {
+      currentScrollTop = parseInt(win.scrollTop());
+
+      // Scrolling down the page.
+      if (lastScrollTop < currentScrollTop) {
+
+        if (currentScrollTop > adminToolbarHeight + headerHeight) {
+          header.removeClass("show-menu-bar");
+        }
+      } else {
+      // Scrolling up the page.
+        // Current scroll is past top menus.
+        if (currentScrollTop > (adminToolbarHeight - bodyFixedAdminBarHeight)) {
+          header.css({'top': -(headerHeight)});
+          header.css({'margin-top': bodyFixedAdminBarHeight});
+          header.removeClass("no-transition");
+          header.addClass("scrollUp");
+          header.addClass("show-menu-bar");
+
+          // Current scroll is withing top menus.
+        } else  {
+          header.css({'top': adminToolbarHeight});
+          header.css({'margin-top': ''});
+          header.addClass("no-transition");
+          header.removeClass("scrollUp");
+          header.removeClass("show-menu-bar");
+        }
+      }
+      lastScrollTop = currentScrollTop;
+    }
+  });
 
 }(jQuery, Drupal));

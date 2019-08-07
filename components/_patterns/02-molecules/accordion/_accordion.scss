@@ -1,52 +1,163 @@
+$accordion-background-color-hover: $mushroom-lighter;
+$accordion-background-color-active: $mushroom-lightest;
+$accordion-border-color: $grey-e;
+
+.paragraph.tabs {
+  // Provides wrapper for position:static __item.
+  position: relative;
+}
+
 .accordion {
   margin: 0;
+
+  @include breakpoint($break-nav) {
+    &.tabs {
+      margin: 0 50px;
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  &__expand-icon {
+    fill: $grey-9;
+    height: $space-one-half;
+    left: $space-one-half;
+    width: $space-one-half;
+    position: absolute;
+
+    &.js-open {
+      transform: rotate(90deg);
+    }
+
+    @include breakpoint($break-nav) {
+      &.tabs {
+        display: none;
+      }
+    }
+  }
 
   &__item {
     position: relative;
     display: flex;
     flex-flow: column nowrap;
-    border: 1px solid $grey-e;
-    border-left: 4px solid $grey-e;
-    padding: $space-one-half $space-two-thirds $space $space-and-half;
     margin-bottom: $space-one-third;
-  }
 
-  &__expand-icon {
-    position: absolute;
-    left: $space-one-half;
-    height: $space-one-half;
-    width: $space-one-half;
-    top: 23px;
-    fill: $grey-9;
+    @include breakpoint($break-nav) {
+      &.tabs {
+        flex: 1 1 auto;
+        position: static;
 
-    &.js-active {
-      transform: rotate(90deg);
+        &::after {
+          display: block;
+          position: absolute;
+          content: " ";
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          z-index: -10;
+        }
+      }
     }
   }
 
   &__heading {
+    border: 1px solid $accordion-border-color;
+    border-bottom-color: transparent;
     cursor: pointer;
     display: flex;
     font-family: $font-tertiary;
     font-size: 1.7rem;
     font-weight: 500;
-    line-height: 1.76;
-    color: $grey-5;
+    line-height: 1.7;
+    padding: $space-one-half $space-and-half;
+
+    @include breakpoint($break-nav) {
+      &.tabs {
+        border-color: transparent;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        padding: $space-one-third $space-one-half;
+
+        & > *:first-child {
+          width: 100%;
+        }
+      }
+    }
+
+    &:hover {
+      background-color: $accordion-background-color-hover;
+      @include breakpoint($break-nav) {
+        &.tabs {
+          border: 1px solid $accordion-border-color;
+        }
+      }
+    }
+
+    &.js-open {
+      background-color: $accordion-background-color-active;
+      @include breakpoint($break-nav) {
+        &.tabs {
+          border: 1px solid $accordion-border-color;
+          border-bottom-color: $accordion-background-color-active;
+          color: $grey-5;
+          z-index: 10;
+        }
+      }
+    }
   }
 
   &__content {
+    border: 1px solid $accordion-border-color;
+    border-top-color: transparent;
     font-family: $font-primary;
     font-size: 1.9rem;
     line-height: 1.68;
-    color: $grey-5;
+    padding: 0 $space-one-third;
 
-    &.js-active {
-      padding-top: $space-one-third;
+    @include breakpoint($break-nav) {
+      padding: 0 $space-and-half;
+
+      &.tabs {
+        border-top-color: $accordion-border-color;
+        visibility: hidden;
+        position: absolute;
+        left: 0;
+        right: 0;
+      }
     }
 
-    &.js-hidden {
+    @include breakpoint($xl) {
+      &.tabs {
+        border-left-color: transparent;
+        border-right-color: transparent;
+      }
+    }
+
+    &.js-open {
+      padding-top: $space-one-third;
+      height: auto;
+      overflow: inherit;
+
+      @include breakpoint($break-nav) {
+        &.tabs {
+          background-color: $accordion-background-color-active;
+          visibility: visible;
+        }
+      }
+    }
+
+    &.js-closed {
       height: 0;
       overflow: hidden;
+
+      @include breakpoint($break-nav) {
+        &.tabs {
+          height: auto;
+          overflow: inherit;
+          visibility: hidden;
+        }
+      }
     }
   }
 }

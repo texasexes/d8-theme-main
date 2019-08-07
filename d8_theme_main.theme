@@ -1,15 +1,20 @@
 <?php
-require_once('modules/contrib/devel/kint/kint/Kint.class.php');
-
-use Drupal\Core\Url;
-use Drupal\Core\Form\FormStateInterface;
 /**
  * @file
  * Functions to support theming in the Pattern Lab theme.
  */
 
-// storing img_blockname in attributes so that I can pass it on
+use Drupal\block\Entity\Block;
+use Drupal\Core\Url;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\twig_tweak\TwigExtension;
+require_once('modules/contrib/devel/kint/kint/Kint.class.php');
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
 function d8_theme_main_preprocess_responsive_image_formatter(&$variables) {
+  // Storing img_blockname in attributes so that I can pass it on.
   if (isset($variables['item'])){
     $itemParent = $variables['item']->getParent();
     $fieldName = $itemParent->getName();
@@ -30,17 +35,22 @@ function d8_theme_main_preprocess_responsive_image_formatter(&$variables) {
   }
 }
 
-// fixes bug where style_name is never set
+/**
+ * Implements hook_preprocess_HOOK().
+ */
  function d8_theme_main_preprocess_responsive_image(&$variables) {
+   // Fixes bug where style_name is never set.
    if (isset($variables['responsive_image_style_id'])) {
      $variables['img_element']['#style_name'] = $variables['responsive_image_style_id'];
    }
  }
 
-// retrieving img_blockname from attributes so that it can be used in the BEM class
-// then unsetting it so it doesn't display as an attribute
+/**
+ * Implements hook_preprocess_HOOK().
+ */
 function d8_theme_main_preprocess_image(&$variables) {
-
+  // Retrieving img_blockname from attributes so that it can be used in the
+  // BEM class, then unsetting it so it doesn't display as an attribute.
   if (isset($variables['attributes']['img_blockname'])) {
     $variables['img_blockname'] = implode($variables['attributes']['img_blockname']);
     unset($variables['attributes']['img_blockname']);
@@ -52,6 +62,32 @@ function d8_theme_main_preprocess_image(&$variables) {
 }
 
 /**
+ * Implements hook_preprocess_HOOK().
+ */
+function d8_theme_main_preprocess_page(&$variables) {
+  $route_args = explode('.', \Drupal::routeMatch()->getRouteName());
+
+  foreach ($route_args as $key => $arg) {
+    $arg = str_replace([
+        "/",
+        "\\",
+        "\0",
+        '_',
+      ], [
+        '',
+        '',
+        '',
+        '-',
+      ],
+      $arg);
+      $route_args[$key] = $arg;
+  }
+
+  $route_based_class = $variables['theme_hook_original'] . '--' . implode('--', $route_args);
+  $variables['attributes']['class'][] = $route_based_class;
+}
+
+/**
  * Implements hook_theme_suggestions_HOOK().
  */
  function d8_theme_main_theme_suggestions_responsive_image_formatter_alter(array &$suggestions, array $variables) {
@@ -60,19 +96,19 @@ function d8_theme_main_preprocess_image(&$variables) {
 
    $fieldName = $itemParent->getName();
    $fieldNameBundle = $itemParent->getFieldDefinition()->getType();
-
    $fieldParent = $variables['item']->getEntity();
    $fieldParentBundle = $fieldParent->bundle();
-
    $fieldParentBundleType = $fieldParent->getEntityTypeId();
 
    array_push($suggestions, $variables['theme_hook_original'] . "__" . $fieldParentBundleType);
    array_push($suggestions, $variables['theme_hook_original'] . "__" . $fieldParentBundleType . "__" . $fieldParentBundle);
    array_push($suggestions, $variables['theme_hook_original'] . "__" . $fieldParentBundleType . "__" . $fieldName);
    array_push($suggestions, $variables['theme_hook_original'] . "__" . $fieldParentBundleType . "__" . $fieldName . "__" . $fieldParentBundle);
-
 }
 
+/**
+ * Implements hook_theme_suggestions_HOOK().
+ */
 function d8_theme_main_theme_suggestions_image_alter(array &$suggestions, array $variables) {
   $fieldParentBundle = NULL;
   $fieldParentBundleType = NULL;
@@ -101,7 +137,9 @@ function d8_theme_main_theme_suggestions_image_alter(array &$suggestions, array 
   array_push($suggestions, $variables['theme_hook_original'] . "__" . $fieldParentBundleType . "__" . $fieldName . "__" . $fieldParentBundle);
 }
 
-
+/**
+ * Implements hook_theme_suggestions_HOOK().
+ */
 function d8_theme_main_theme_suggestions_field_alter(array &$suggestions, array $variables) {
   $element = $variables['element'];
   $sanitized_view_mode = strtr($element['#view_mode'], '.', '_');
@@ -110,6 +148,9 @@ function d8_theme_main_theme_suggestions_field_alter(array &$suggestions, array 
   array_push($suggestions, 'field__' . $element['#entity_type'] . '__' . $element['#field_name'] . '__' . $element['#bundle'] . '__' . $sanitized_view_mode);
 }
 
+/**
+ * Implements hook_theme_suggestions_HOOK().
+ */
 function d8_theme_main_theme_suggestions_taxonomy_term_alter(array &$suggestions, &$variables) {
   $element = $variables['elements'];
   $sanitized_view_mode = strtr($element['#view_mode'], '.', '_');
@@ -118,8 +159,11 @@ function d8_theme_main_theme_suggestions_taxonomy_term_alter(array &$suggestions
 }
 
 
-// **** Adding theme suggestions to forms and form submit items
+/**
+ * Implements hook_form_alter().
+ */
 function d8_theme_main_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  // Adding theme suggestions to forms and form submit items.
   $form_id = str_replace('-', '_', $form['#id']);
   foreach (Drupal\Core\Render\Element::children($form) as $child_group) {
     $form[$child_group]['#attributes']['data-twig-suggestion'] = $form_id;
@@ -129,7 +173,11 @@ function d8_theme_main_form_alter(&$form, FormStateInterface $form_state, $form_
   }
 }
 
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
 function d8_theme_main_form_views_exposed_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  // Convert the very specific #id to underscores only for use in suggestion.
   $form_id = str_replace('-', '_', $form['#id']);
   $form['actions']['submit']['#attributes']['data-twig-suggestion'] = $form_id;
   foreach (Drupal\Core\Render\Element::children($form) as $child) {
@@ -137,19 +185,53 @@ function d8_theme_main_form_views_exposed_form_alter(&$form, FormStateInterface 
   }
 }
 
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function d8_theme_main_form_user_login_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  unset($form['name']['#attributes']['placeholder']);
+  unset($form['pass']['#attributes']['placeholder']);
+
+  $custom_template = '{% include "@molecules/social-auth/custom-social-auth-block.twig" %}';
+  $form['custom_social_auth'] = [
+    '#type' => 'inline_template',
+    '#template' => $custom_template,
+    '#context' => [
+      // Attributes need because custom twig function bem.php wants it as
+      // an array index in processing.
+      'attributes' => [],
+    ],
+    '#weight' => 100,
+  ];
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function d8_theme_main_form_user_pass_alter(&$form, FormStateInterface $form_state, $form_id) {
+  unset($form['name']['#attributes']['placeholder']);
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK().
+ */
 function d8_theme_main_theme_suggestions_form_alter(&$suggestions, array $variables) {
   $element = $variables['element'];
   $form_id = str_replace('-', '_', $element['#form_id']);
-  $suggestions[] = $variables['theme_hook_original'] . "__" . $form_id; // Machine name of form.
+  // Machine name of form.
+  $suggestions[] = $variables['theme_hook_original'] . "__" . $form_id;
 
-  // checks if the form_id isn't specific enough -- for example with form for a
-  // views exposed form
+  // Checks if the form_id isn't specific enough -- for example with form for a
+  // views exposed form.
   $alternate_form_id = str_replace('-', '_', $element['#id']);
   if ($form_id != $alternate_form_id) {
     $suggestions[] = $variables['theme_hook_original'] . "__" . $alternate_form_id;
   }
 }
 
+/**
+ * Implements hook_theme_suggestions_HOOK().
+ */
 function d8_theme_main_theme_suggestions_form_element_alter(array &$suggestions, array $variables, $hook) {
   $element = $variables['element'];
   if (isset($element['#attributes']['data-twig-suggestion'])) {
@@ -159,6 +241,9 @@ function d8_theme_main_theme_suggestions_form_element_alter(array &$suggestions,
   }
 }
 
+/**
+ * Implements hook_theme_suggestions_HOOK().
+ */
 function d8_theme_main_theme_suggestions_input_alter(&$suggestions, array $variables) {
   $element = $variables['element'];
   if (isset($element['#attributes']['data-twig-suggestion'])) {
@@ -179,12 +264,16 @@ function d8_theme_main_theme_suggestions_input_alter(&$suggestions, array $varia
 
 /**
  * Implements hook_theme_registry_alter().
+ *
  * @param $theme_registry
  */
 function d8_theme_main_theme_registry_alter(&$theme_registry) {
   $theme_registry['menu']['variables']['top_parent'] = "TEST";
 }
 
+/**
+ * Implements hook_preprocess_HOOK().
+ */
 function d8_theme_main_preprocess_breadcrumb(&$variables) {
   if (($node = \Drupal::routeMatch()->getParameter('node')) && $variables['breadcrumb']) {
     $title = $node->getTitle();
@@ -198,9 +287,12 @@ function d8_theme_main_preprocess_breadcrumb(&$variables) {
   }
 }
 
+/**
+ * Implements hook_preprocess_HOOK().
+ */
 function d8_theme_main_preprocess_field(&$variables) {
-  //get the value of the field
   $element = $variables['element'];
+  // Get the value of the field.
   $field_layout_type_value = NULL;
   $field_modifiers = NULL;
   $parent_entity = $element['#object'];
@@ -236,9 +328,10 @@ function d8_theme_main_preprocess_field(&$variables) {
   }
 }
 
-// function d8_theme_main_preprocess_paragraph__txex_paragraph_02(&$variables) {
+/**
+ * Implements hook_preprocess_HOOK().
+ */
 function d8_theme_main_preprocess_paragraph(&$variables) {
-
   $current_paragraph = $variables['elements']['#paragraph'];
   $paragraph_modifiers = [];
 
@@ -320,11 +413,8 @@ function d8_theme_main_preprocess_paragraph(&$variables) {
       }
     }
   }
-
   $variables['paragraph_modifiers'] = $paragraph_modifiers;
-
 }
-
 
 /**
  * Implements hook_preprocess_HOOK().
@@ -338,8 +428,11 @@ function d8_theme_main_preprocess_block(&$variables) {
   }
 
   if (isset($variables['elements']['#id'])) {
-    $region = \Drupal\block\Entity\Block::load($variables['elements']['#id'])->getRegion();
-    $variables['content']['#attributes']['region'] = $region;
+    $block = Block::load($variables['elements']['#id']);
+    if ($block) {
+      $region = $block->getRegion();
+      $variables['content']['#attributes']['region'] = $region;
+    }
   }
 }
 
@@ -347,39 +440,71 @@ function d8_theme_main_preprocess_block(&$variables) {
  * Implements hook_preprocess_HOOK().
  */
 function d8_theme_main_preprocess_user(&$variables) {
-  $user_id = $variables['user']->id();
-  $variables['user_edit_link'] = Url::fromRoute('entity.user.edit_form', ['user' => $user_id], []);
+  $view_mode = $variables['elements']['#view_mode'];
+  $user = $variables['user'];
+  $variables['user_edit_link'] = array_key_exists('#user_edit_link', $variables['elements']) ? $variables['elements']['#user_edit_link'] : null;
+  $variables['manage_membership_link'] = array_key_exists('#manage_membership_link', $variables['elements']) ? $variables['elements']['#manage_membership_link'] : null;
 
-  if ('profile_base_information'=== $variables['elements']['#view_mode']) {
-    $name_first = array_key_exists(0, $variables['elements']['field_txex_text_plain_01']) ? $variables['elements']['field_txex_text_plain_01'][0]['#context']['value'] : null;
-    $name_middle = array_key_exists(0, $variables['elements']['field_txex_text_plain_03']) ? $variables['elements']['field_txex_text_plain_03'][0]['#context']['value'] : null;
-    $name_last = array_key_exists(0, $variables['elements']['field_txex_text_plain_02']) ? $variables['elements']['field_txex_text_plain_02'][0]['#context']['value'] : null;
-    $name_suffix = array_key_exists(0, $variables['elements']['field_txex_text_plain_04']) ? $variables['elements']['field_txex_text_plain_04'][0]['#context']['value'] : null;
-
-    $names_array = array($name_first, $name_middle, $name_last, $name_suffix);
-    $full_name = implode(' ', array_filter($names_array, function($v){ return $v !== null; }));
-
-    $heading_template = '{% include "@atoms/03-text/01-heading/_heading.twig" %}';
-    $full_name_render_array = [
-      $build['full_name_render'] = [
-        '#type' => 'inline_template',
-        '#template' => $heading_template,
-        '#context' => [
-          'heading_base_class' => 'h4',
-          'heading_blockname' => 'wysiwyg',
-          'heading_content' => $full_name,
-          'heading_level' => 3,
-          // attributes need because custom twig function bem.php wants it as
-          // an array index in processing
-          'attributes' => [],
+  switch ($view_mode) {
+    case 'full':
+      $link_with_wrapper = [
+        '#type' => 'html_tag',
+        '#tag' => 'span',
+        'child' => $variables['user_edit_link'],
+        '#attributes' => [
+          'class' => 'txex-update-link',
         ],
-      ],
-    ];
+        '#prefix' => t('Profile'),
+      ];
 
-    $variables['full_name'] = $full_name_render_array;
+      $heading_template = '{% include "@atoms/03-text/01-heading/_heading.twig" %}';
+      $block_title_render_array = [
+        $build['block_title_render'] = [
+          '#type' => 'inline_template',
+          '#template' => $heading_template,
+          '#context' => [
+            'heading_base_class' => 'h2',
+            'heading_blockname' => 'wysiwyg',
+            'heading_content' => $link_with_wrapper,
+            'heading_level' => 2,
+            // attributes need because custom twig function bem.php wants it as
+            // an array index in processing
+            'attributes' => [],
+          ],
+        ],
+      ];
+
+      $variables['first_block_title'] = $block_title_render_array;
+      break;
   }
-}
 
+  $name_first = $user->field_txex_text_plain_01->isEmpty() ? NULL : $user->field_txex_text_plain_01->value;
+  $name_middle = $user->field_txex_text_plain_03->isEmpty() ? NULL : $user->field_txex_text_plain_03->value;
+  $name_last = $user->field_txex_text_plain_02->isEmpty() ? NULL : $user->field_txex_text_plain_02->value;
+  $name_suffix = $user->field_txex_text_plain_04->isEmpty() ? NULL : $user->field_txex_text_plain_04->value;
+
+  $names_array = array($name_first, $name_middle, $name_last, $name_suffix);
+  $full_name = implode(' ', array_filter($names_array, function($v){ return $v !== null; }));
+
+  $heading_template = '{% include "@atoms/03-text/01-heading/_heading.twig" %}';
+  $full_name_render_array = [
+    $build['full_name_render'] = [
+      '#type' => 'inline_template',
+      '#template' => $heading_template,
+      '#context' => [
+        'heading_base_class' => 'h4',
+        'heading_blockname' => 'wysiwyg',
+        'heading_content' => $full_name,
+        'heading_level' => 3,
+        // attributes need because custom twig function bem.php wants it as
+        // an array index in processing
+        'attributes' => [],
+      ],
+    ],
+  ];
+  $variables['full_name'] = $full_name;
+  $variables['full_name_render_array'] = $full_name_render_array;
+}
 
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
@@ -393,6 +518,9 @@ function d8_theme_main_theme_suggestions_menu_alter(&$suggestions, array $variab
   }
 }
 
+/**
+ * Implements hook_preprocess_HOOK().
+ */
 function d8_theme_main_preprocess_node__article__full(&$variables) {
   $current_node = $variables['elements']['#node'];
 
@@ -401,14 +529,16 @@ function d8_theme_main_preprocess_node__article__full(&$variables) {
 
   if (!$current_node->field_txex_ref_content_01->isEmpty() && !$current_node->field_txex_ref_content_01->entity->title->isEmpty()) {
     $author_field_title = $current_node->field_txex_ref_content_01->entity->title->value;
-  } else {
+  }
+  else {
     $author_field_title = NULL;
   }
 
   if (!$current_node->field_txex_ref_tax_term_01->isEmpty() && !$current_node->field_txex_ref_tax_term_01->entity->name->isEmpty()) {
     $article_type_name = $current_node->field_txex_ref_tax_term_01->entity->name->value;
     $article_type_parent_path = "/" . $current_node->field_txex_ref_tax_term_01->entity->field_txex_text_formatted_path->value;
-  } else {
+  }
+  else {
     $article_type_name = NULL;
     $article_type_parent_path = NULL;
   }
@@ -419,111 +549,41 @@ function d8_theme_main_preprocess_node__article__full(&$variables) {
   $variables['article_type_parent_path'] = $article_type_parent_path;
 }
 
-function d8_theme_main_preprocess_node__event__full(&$variables) {
-
-  $current_node = $variables['elements']['#node'];
-  $current_view_mode = $variables['elements']['#view_mode'];
-
-  // couldn't figure out how to alter the <time> tag in the default date field formatter
-  // suggestions alter is hard because it is just a render array so...
-  // we build a new render array for a <time> element
-
-  $date_start = $current_node->field_txex_date_01->view($current_view_mode);
-  $time_start = $current_node->field_txex_text_plain_01->view($current_view_mode);
-
-  $formatted_date_start_text = $date_start[0]['#text'];
-  $formatted_time_start_text = $time_start[0]['#context']['value'];
-  // lower case am/pm with periods per TXEX style guid (https://regex101.com/)
-  $formatted_time_start_text = preg_replace('/(?i)(?<= |^)am(?= |$)/', 'a.m.', $formatted_time_start_text);
-  $formatted_time_start_text = preg_replace('/(?i)(?<= |^)pm(?= |$)/', 'p.m.', $formatted_time_start_text);
-
-  // getting values for date and time field to use in the datetime attribute for the <time> element
-  $date_start_value = $current_node->field_txex_date_01->value;
-  $time_start_seconds = date("H:i:s", strtotime($current_node->field_txex_text_plain_01->value));
-
-  // format change from seconds to 00:00:00 for datetime attribute
-  $time_start_time = gmdate("H:i:s", strtotime($time_start_seconds));
-  // see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time or
-  // https://www.w3.org/TR/html5-author/the-time-element.html#attr-time-datetime
-  $combined_start_date_time = $date_start_value . "T" . $time_start_time;
-  $drupal_date_time_start = new \Drupal\Core\Datetime\DrupalDateTime($combined_start_date_time);
-
-  $variables['date_time_start'] = [
-    '#type' => 'html_tag',
-    '#tag' => 'time',
-    '#attributes' => [
-      'datetime' => $combined_start_date_time,
-    ],
-    '#value' => $formatted_date_start_text . ", " . $formatted_time_start_text,
-  ];
-
-  $date_end = $current_node->field_txex_date_02->view($current_view_mode);
-  $time_end = $current_node->field_txex_text_plain_02->view($current_view_mode);
-
-  $formatted_date_end_text = $date_end[0]['#text'];
-  $formatted_time_end_text = $time_end[0]['#context']['value'];
-  // lower case am/pm with periods per TXEX style guid (https://regex101.com/)
-  $formatted_time_end_text = preg_replace('/(?i)(?<= |^)am(?= |$)/', 'a.m.', $formatted_time_end_text);
-  $formatted_time_end_text = preg_replace('/(?i)(?<= |^)pm(?= |$)/', 'p.m.', $formatted_time_end_text);
-
-  // getting values for date and time field to use in the datetime attribute for the <time> element
-  $date_end_value = $current_node->field_txex_date_02->value;
-  $time_end_seconds = date("H:i:s", strtotime($current_node->field_txex_text_plain_02->value));
-
-  // format change from seconds to 00:00:00 for datetime attribute
-  $time_end_time = gmdate("H:i:s", strtotime($time_end_seconds));
-  // see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time or
-  // https://www.w3.org/TR/html5-author/the-time-element.html#attr-time-datetime
-  $combined_end_date_time = $date_end_value . "T" . $time_end_time;
-  $drupal_date_time_end = new \Drupal\Core\Datetime\DrupalDateTime($combined_end_date_time);
-
-  $variables['date_time_end'] = [
-    '#type' => 'html_tag',
-    '#tag' => 'time',
-    '#attributes' => [
-      'datetime' => $combined_end_date_time,
-    ],
-    '#value' => $formatted_date_end_text . ", " . $formatted_time_end_text,
-  ];
-
-  $combined_start_date_time_end_time = $date_start_value . "T" . $time_end_time;
-  $variables['date_start_time_end'] = [
-    '#type' => 'html_tag',
-    '#tag' => 'time',
-    '#attributes' => [
-      'datetime' => $combined_start_date_time_end_time,
-    ],
-    '#value' => $formatted_time_end_text,
-  ];
-
-  if ($current_node->field_txex_date_01->value === $current_node->field_txex_date_02->value) {
-    $variables['start_end_date_equal'] = TRUE;
-  } else {
-    $variables['start_end_date_equal'] = FALSE;
-  }
-
-}
-
+/**
+ * Implements hook_theme_suggestions_HOOK().
+ */
 function d8_theme_main_theme_suggestions_views_view_alter(array &$suggestions, array $variables) {
     $suggestions[] = $variables['theme_hook_original'] . '__' . $variables['view']->id();
     $suggestions[] = $variables['theme_hook_original'] . '__' . $variables['view']->id() . '__' . $variables['view']->current_display;
 }
 
+/**
+ * Implements hook_theme_suggestions_HOOK().
+ */
 function d8_theme_main_theme_suggestions_views_view_unformatted_alter(array &$suggestions, array $variables) {
     $suggestions[] = $variables['theme_hook_original'] . '__' . $variables['view']->id();
     $suggestions[] = $variables['theme_hook_original'] . '__' . $variables['view']->id() . '__' . $variables['view']->current_display;
 }
 
+/**
+ * Implements hook_theme_suggestions_HOOK().
+ */
 function d8_theme_main_theme_suggestions_views_view_fields_alter(array &$suggestions, array $variables) {
     $suggestions[] = $variables['theme_hook_original'] . '__' . $variables['view']->id();
     $suggestions[] = $variables['theme_hook_original'] . '__' . $variables['view']->id() . '__' . $variables['view']->current_display;
 }
 
+/**
+ * Implements hook_theme_suggestions_HOOK().
+ */
 function d8_theme_main_theme_suggestions_views_view_field_alter(array &$suggestions, array $variables) {
     $suggestions[] = $variables['theme_hook_original'] . '__' . $variables['view']->id();
     $suggestions[] = $variables['theme_hook_original'] . '__' . $variables['view']->id() . '__' . $variables['view']->current_display;
 }
 
+/**
+ * Implements hook_theme_suggestions_HOOK().
+ */
 function d8_theme_main_preprocess_views_view(&$variables) {
   $view_id = $variables['id'];
   $display_id = $variables['display_id'];
@@ -551,6 +611,9 @@ function d8_theme_main_preprocess_views_view(&$variables) {
   }
 }
 
+/**
+ * Implements hook_preprocess_HOOK().
+ */
 function d8_theme_main_preprocess_views_view__txex_articles__block_2(&$variables) {
   $icon_template = '{% include "@atoms/04-images/icons/_icon.twig" %}';
   $icon_render_array = [

@@ -1,0 +1,22 @@
+.form-textarea {
+  color: $grey-5;
+
+  &:focus {
+    border-color: transparent;
+    outline-color: $burnt-orange;
+    outline-offset: -1px;
+    outline-width: 4px;
+    outline-style: double;
+  }
+}
+
+.form-textarea {
+  border: 1px solid $grey-c;
+  border-radius: 2px;
+  padding: 1rem;
+  width: 100%;
+
+  &::placeholder {
+    color: $grey-b;
+  }
+}

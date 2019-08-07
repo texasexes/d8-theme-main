@@ -1,0 +1,24 @@
+{#
+/**
+ * @file
+ * Default theme implementation for an export icon.
+ *
+ * Available variables:
+ * - url: An internal system path of the data export.
+ * - attributes: Remaining HTML attributes for the export link.
+ *   - type: The type of export (csv, json, xml).
+ *   - class: HTML classes to be applied to the export link.
+ *
+ * @ingroup themeable
+ */
+#}
+<div>
+  {% include "@atoms/04-images/icons/_icon.twig" with {
+    icon_blockname: menu_bem_blockname,
+    icon_modifiers: my_icon_modifiers,
+    icon_name: 'txex-event-icon-download',
+  } %}
+  <a href="{{ url }}"{{ attributes.addClass('link') }}>
+    {{ 'Download @type'|t({'@type': type}) }}
+  </a>
+</div>

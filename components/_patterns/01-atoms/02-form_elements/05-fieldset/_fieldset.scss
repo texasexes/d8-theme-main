@@ -1,0 +1,27 @@
+.fieldset {
+  border: 1px solid $grey-e;
+  padding: $space-one-third;
+  margin-bottom: $space;
+
+  @include breakpoint($small) {
+    padding: $space;
+  }
+
+  &-wrapper {
+    color: #777;
+    font-family: $font-tertiary;
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 1.5;
+    width: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+@include breakpoint($break-nav) {
+  @at-root .tabs #{&} {
+    .webform-type-fieldset {
+      background-color: $white;
+    }
+  }
+}

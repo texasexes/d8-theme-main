@@ -10,12 +10,16 @@
 
 <div {{ bem(accordion_base_class, (accordion_modifiers), accordion_blockname) }}>
   {% for accordion_item in accordion_items %}
-    <div {{ bem("item", accordion_item_modifiers, accordion_base_class) }}>
-      {% include "@atoms/04-images/icons/_icon.twig" with {
-        icon_base_class: 'expand-icon',
-        icon_blockname: accordion_base_class,
-        icon_name: 'chevron',
-      } %}
+    <div {{ bem('item', accordion_item_modifiers, accordion_base_class) }}>
+      {% block accordion_icon %}
+        <div {{ bem('icon', accordion_term_modifiers, accordion_base_class) }}>
+          {% include "@atoms/04-images/icons/_icon.twig" with {
+            icon_base_class: 'expand-icon',
+            icon_blockname: accordion_base_class,
+            icon_name: 'chevron',
+          } %}
+        </div>
+      {% endblock %}
       {% block accordion_heading %}
         <div {{ bem('heading', accordion_term_modifiers, accordion_base_class) }}>{{ accordion_heading|default(accordion_item.heading) }}</div>
       {% endblock %}

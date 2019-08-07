@@ -59,12 +59,11 @@
 }
 
 .wysiwyg__h4--user {
-  display: inline-block;
+  display: inline;
   &::after {
     content: ":";
   }
 }
-
 
 .active-pledge-wrapper,
 .active-membership-wrapper,
@@ -73,9 +72,11 @@
 .txex-card-member-bio,
 .txex-profile-base-information,
 .membership-wrapper,
-#block-givinghistory,
-#block-commemorativetileblock {
-  margin-bottom: 10px;
+.block-attain-dashboard,
+.txex-tax-receipt-page,
+.views-data-export-feed,
+.event-summary-details {
+  margin-bottom: 20px;
   position: relative;
 
   .wysiwyg__h4,
@@ -83,24 +84,40 @@
     margin: 0;
   }
 
-  svg {
-    height: 30px;
-    fill: $burnt-orange;
-    float: left;
-    padding: 0;
-    width: 20px;
+  // svg {
+  //   height: 30px;
+  //   fill: $burnt-orange;
+  //   float: left;
+  //   padding: 0;
+  //   width: 20px;
+  //
+  //   & + a {
+  //     //vertically centers single line link following the icon
+  //     line-height: 30px;
+  //   }
+  // }
+}
 
-    & + a {
-      //vertically centers single line link following the icon
-      line-height: 30px;
+.event-summary-details {
+  :first-child {
+    display: inline-block;
+
+    &::after {
+      content: " –";
     }
   }
+}
+
+.toolbox-link-wrapper {
+  margin-bottom: 10px;
+  position: relative;
 }
 
 .active-pledge-wrapper,
 .active-membership-wrapper,
 .giving-links-wrapper,
-.toolbox-link-wrapper {
+.toolbox-link-wrapper,
+.views-data-export-feed {
   h3,
   p,
   a {
@@ -110,17 +127,19 @@
 }
 
 
-.txex-giving-status-block,
+
 .txex-giving-page,
 .txex-user-profile-page,
-.txex-membership-page {
+.txex-membership-page,
+.txex-tax-receipt-page,
+.block-attain-dashboard {
   .wysiwyg__h2 {
     border-bottom-style: solid;
     border-color: #f6f6f2;
     border-width: 1px;
 
     padding-bottom: 10px;
-    margin-bottom: 20px
+    margin-bottom: 10px
   }
 }
 
@@ -146,7 +165,31 @@
   }
 }
 
-.txex-profile-base-information,
+.field--user {
+  margin-bottom: 10px;
+}
+
+.p--user {
+  display: inline;
+}
+
+#gift-detail-table {
+  .gift-row:last-of-type {
+    .gift-data:last-of-type {
+      padding: 0;
+
+      .total-taxable-amount {
+        border-top-style: solid;
+        border-top-width: 1px;
+        display: inline-block;
+        font-weight: 500;
+        padding: 5px 0 5px 10px;
+        margin-right: 10px;
+      }
+    }
+  }
+}
+
 .txex-membership-renewal,
 .txex-profile-extra-information,
 .views-element-container,
@@ -154,45 +197,213 @@
   margin-bottom: 30px;
 }
 
+#gift-messages,
+#pledge-messages,
+#tile-messages,
+#ticket-messages {
+  .ajax-progress {
+    .p {
+      display: inline-block;
+    }
+
+    .throbber {
+      padding: 1px 6px;
+      margin-right: 5px;
+    }
+  }
+}
+
+#gift-detail-table-wrapper,
+.pledge-details-list-wrapper {
+  margin: 0 0 15px;
+}
+
 #gift-detail-table-wrapper {
   #gift-detail-table {
     border-collapse: collapse;
     width: 100%;
   }
-  .gift-header {
+
+  .gift-header,
+  th {
     @extend .wysiwyg__h4;
 
-    text-align: left;
+    &.gift-date,
+    &.gift-purpose,
+    &.gift-amount,
+    &.gift-deductible {
+      padding: 0 10px;
+    }
+
+    &.gift-date,
+    &.gift-purpose {
+      text-align: left;
+    }
+
+    &.gift-amount,
+    &.gift-deductible {
+      text-align: right;
+    }
   }
 
   .gift-sample-row {
     display: none;
   }
 
-  .gift-row {
+  .gift-row,
+  tr {
     border-top-style: solid;
     border-color: #f6f6f2;
     border-width: 1px;
     padding: 5px 0;
   }
 
-  .gift-data {
+  .gift-data,
+  td {
     @extend .p;
 
-    padding: 5px 0;
+    max-width: 46rem;
+    padding: 5px 10px;
+    vertical-align: top;
+
+    &.gift-amount,
+    &.gift-deductible {
+      text-align: right;
+    }
   }
 }
 
-#tile-information-wrapper {
-  @extend .p;
-
-  .tile-intro {
+#pledges-list-wrapper {
+  .pledge-details-table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  .pledge-sample-payments {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  .pledge-header {
     @extend .wysiwyg__h4;
 
+    &.pledge-date,
+    &.pledge-purpose,
+    &.pledge-amount {
+      padding: 0 10px;
+    }
+
+    &.pledge-date,
+    &.pledge-purpose {
+      text-align: left;
+    }
+
+    &.pledge-amount {
+      text-align: right;
+    }
+  }
+
+  .pledge-sample-row {
+    display: none;
+  }
+
+  .pledge-row {
     border-top-style: solid;
     border-color: #f6f6f2;
     border-width: 1px;
     padding: 5px 0;
+  }
+
+  .pledge-data {
+    @extend .p;
+
+    padding: 5px 10px;
+    vertical-align: top;
+
+    &.pledge-payment-amount {
+      text-align: right;
+    }
+
+    &.pledge-payment-link {
+      text-align: center;
+    }
+  }
+}
+
+#ticket-list-table-wrapper {
+  #ticket-detail-table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  .pledge-sample-payments {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  .ticket-header {
+    @extend .wysiwyg__h4;
+
+    &.ticket-date,
+    &.ticket-event,
+    &.ticket-info,
+    &.ticket-amount {
+      padding: 0 10px;
+      text-align: left;
+    }
+
+    &.ticket-amount {
+      text-align: right;
+    }
+  }
+
+  .ticket-sample-row {
+    display: none;
+  }
+
+  .ticket-row {
+    border-top-style: solid;
+    border-color: #f6f6f2;
+    border-width: 1px;
+    padding: 5px 0;
+  }
+
+  .ticket-data {
+    @extend .p;
+
+    padding: 5px 10px;
+    vertical-align: top;
+
+    &.ticket-amount {
+      text-align: right;
+    }
+  }
+}
+
+#tiles-list-wrapper {
+  @extend .p;
+
+  .tile-header {
+    font-weight: 400;
+    text-align: left;
+    width: 11rem;
+    vertical-align: top;
+  }
+
+  .tile-intro-header {
+    font-weight: 500;
+  }
+
+  .tile-wrapper {
+    border-bottom-style: solid;
+    border-color: #f6f6f2;
+    border-width: 1px;
+    padding: 5px 0;
+    margin-bottom: $space-two-thirds;
+  }
+
+  .tile-intro-row,
+  .tile-location-row,
+  .tile-inscription-row {
+    border-style: none;
   }
 
   .tile-location-wrapper,
@@ -206,4 +417,65 @@
     }
   }
 
+}
+
+.txex-user-events--txex-user-events-display {
+  > div:last-of-type,
+  .txex-event-purchase-block {
+    margin-bottom: $space;
+  }
+}
+
+.txex-registration-page {
+  margin: 0 45px;
+}
+
+.qr-code-wrapper {
+  @include breakpoint($break-layout) {
+    float: right;
+  }
+}
+
+.geofield-google-map {
+  clear: both;
+  margin: $space auto;
+}
+
+.dagger-super {
+  // Mock <sup> styling
+  .fieldset-legend.legend-span {
+    position: relative;
+
+    &:after {
+      color: #777;
+      content: '†';
+      font-family: "Sentinel A","Sentinel B",serif;
+      font-size: 50%;
+      font-weight: 700;
+      line-height: 0;
+      position: absolute;
+      top: .9em;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+  }
+
+  sup {
+    color: #777;
+    font-family: "Sentinel A","Sentinel B",serif;
+    font-weight: 700;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+.page--entity--webform--canonical {
+  .block-region-main {
+
+  @include breakpoint($break-layout) {
+    margin-left: 50px;
+    margin-right: 40px;
+  }
+
+  }
 }

@@ -90,10 +90,11 @@ $chapter-border: $mushroom-light;
   }
 }
 
-.chapter-add-content {
-  border: 8px solid $burnt-orange;
+.chapter-add-content,
+.chapter-report-toolbox {
   padding: 10px;
   margin-bottom: $space-two-thirds;
+  background-color: $mushroom-lightest;
 
   h2 {
     color: #555;
@@ -103,17 +104,5 @@ $chapter-border: $mushroom-light;
     font-weight: 800;
     margin: 0 0 20px;
     text-transform: none;
-  }
-
-  a {
-    color: #cb6015;
-    cursor: pointer;
-    font-family: Rubik, sans-serif;
-    font-size: 1.5rem;
-    line-height: 1.4;
-    text-decoration: none;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    display: inline;
   }
 }

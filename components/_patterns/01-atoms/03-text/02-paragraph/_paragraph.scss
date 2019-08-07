@@ -20,10 +20,7 @@ $font-paragraph: $font-tertiary;
 
 // When a paragraph is a block, this is it's class (BEM)
 p,
-.p,
-// using .text-long is ugly hack because of events description being difficult
-// to import
-.text-long {
+.p {
   @include paragraph;
 
   &--strong {
@@ -40,16 +37,6 @@ p,
   @extend .p;
 }
 
-.wysiwyg__p.hack__p--alt-1 {
-  @extend .p;
-
-  font-family: $font-primary;
-  font-size: 2.1rem;
-  font-weight: 400;
-  line-height: 1.3;
-  margin: 0 0 20px;
-}
-
 .wysiwyg {
   &__p {
     @extend .p;
@@ -57,6 +44,18 @@ p,
     margin: 0 0 20px;
 
     &--paragraph-no-margin {
+      margin: 0;
+    }
+
+    &.hack__p--alt-1{
+      font-family: $font-primary;
+      font-size: 2.1rem;
+      font-weight: 400;
+      line-height: 1.3;
+      margin: 0 0 20px;
+    }
+
+    &.no-margin {
       margin: 0;
     }
   }

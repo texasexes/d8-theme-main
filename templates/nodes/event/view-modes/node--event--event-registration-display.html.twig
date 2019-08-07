@@ -1,0 +1,47 @@
+{% extends  "node.html.twig" %}
+{% set attributes = attributes.addClass('event-registration') %}
+
+  {% block title %}
+  {% endblock title %}
+
+  {% block content %}
+    <div{{ content_attributes }}>
+      <div class="event-meta">
+        <div class="event-registration-meta-section">
+          <div class="event-meta-item event-date">
+            {% include "@atoms/04-images/icons/_icon.twig" with {
+              icon_blockname: menu_bem_blockname,
+              icon_modifiers: {'alt-1' : 'alt-1'},
+              icon_name: 'txex-event-icon-date',
+            } %}
+            {{ content.field_txex_date_range_01 }}
+            {% if not start_date_only %}
+              {{ content.field_txex_tz_01}}
+            {% endif %}
+            {% if ics_file_01 %}
+              <a class="wysiwyg__link do-not-print" href="{{ ics_file_01 }}">Add to Calendar</a>
+            {% endif %}
+            {% if ics_file_02 %}
+              <a class="wysiwyg__link do-not-print" href="{{ ics_file_02 }}">Add to Calendar</a>
+            {% endif %}
+          </div>
+          <div class="event-meta-item event-address">
+            {% include "@atoms/04-images/icons/_icon.twig" with {
+              icon_blockname: menu_bem_blockname,
+              icon_modifiers: {'alt-1' : 'alt-1'},
+              icon_name: 'txex-event-icon-location',
+            } %}
+            {{ content.field_txex_address_01 }}
+          </div>
+        </div>
+      </div>
+
+
+      {{ content.field_txex_ref_media_01 }}
+      {{ content.field_txex_geofield_01 }}
+
+      {#{ content.field_txex_text_long_02 }#}
+      {#{ content.field_txex_link_01 }#}
+
+    </div>
+  {% endblock content %}
