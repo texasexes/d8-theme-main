@@ -32,11 +32,35 @@
     padding: 20px 0;
   }
 
-  // &__tr {
-  //
-  // }
-
   &__td {
     color: $grey-7;
   }
+}
+
+.table {
+  border-collapse: collapse;
+  margin: 0 0 $space-one-half;
+  width: 100%;
+}
+
+.tr {
+  border-top-style: solid;
+  border-color: #f6f6f2;
+  border-width: 1px;
+  padding: 5px 0;
+}
+
+.th {
+  @extend .wysiwyg__h4;
+
+  text-align: left;
+  padding: 0 10px;
+}
+
+.td {
+  @extend .p;
+
+  max-width: 46rem;
+  padding: 5px 10px;
+  vertical-align: top;
 }

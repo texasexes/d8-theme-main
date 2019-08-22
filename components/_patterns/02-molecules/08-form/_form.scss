@@ -1,0 +1,22 @@
+.form {
+  margin-bottom: $space;
+
+  &.bef-exposed-form {
+    margin-bottom: 0;
+  }
+}
+
+// Copied from classy core theme because the defined library that contains it
+// has too many unwanted styles.
+.form-required:after {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin: 0 0.3em;
+  content: "";
+  vertical-align: super;
+  /* Use a background image to prevent screen readers from announcing the text. */
+  background-image: url(../images/required.svg);
+  background-repeat: no-repeat;
+  background-size: 6px 6px;
+}

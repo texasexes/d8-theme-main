@@ -1,0 +1,16 @@
+{#
+/**
+ * @file
+ * Theme override for an 'input' #type form element.
+ *
+ * Available variables:
+ * - attributes: A list of HTML attributes for the input element.
+ * - children: Optional additional rendered elements.
+ *
+ * @see template_preprocess_input()
+ */
+#}
+{% include "@atoms/02-form_elements/02-input/00-input.twig" with {
+  "input_children": children,
+  "input_attributes": attributes,
+} %}

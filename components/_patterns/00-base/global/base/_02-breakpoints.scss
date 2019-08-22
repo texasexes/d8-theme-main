@@ -16,3 +16,5 @@ $max-width: $xl;
 // These have to be here (instead of with the nav css) because they're used by the _flexbox__item.scss file
 $break-nav-max: max-width 899px;
 $break-nav: 900px;
+
+$break-layout: $medium;

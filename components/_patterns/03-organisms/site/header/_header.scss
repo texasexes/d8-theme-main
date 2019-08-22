@@ -9,19 +9,22 @@ $toobar-height: 39px;
     height: $header-wrapper-height;
     // line-height: 80px
     box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
-    position: fixed;
-    top: 0;
+    position: absolute;
     left: 0;
     width: 100%;
     z-index: 500;
-    transition: all 0.5s;
-    &.scrollUp {
-      top: 0;
-      transform: translateY(-$header-wrapper-height); //should match the height, but extra to accomodate admin toolbar (40px) if present?
+    transition: transform 0.5s;
 
-      @at-root .toolbar-vertical #{&} {
-        transform: translateY(-$header-wrapper-height + -$toobar-height);
-      }
+    &.no-transition {
+      transition-property: none;
+    }
+
+    &.show-menu-bar {
+      transform: translateY($header-wrapper-height);
+    }
+
+    &.scrollUp {
+      position: fixed;
     }
   }
 }

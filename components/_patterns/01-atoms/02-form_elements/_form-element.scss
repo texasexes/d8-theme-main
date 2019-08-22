@@ -1,0 +1,24 @@
+.webform-submission-form {
+  div.form-element.form-item, // hack because of over-specific webforms css
+  .form-element {
+    color: $grey-7;
+    font-size: 1.6rem;
+    font-family: $font-tertiary;
+    font-weight: 400;
+    line-height: 1.5;
+    margin-bottom: $space-one-third;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  .label {
+    margin: 0;
+  }
+}
+
+.form-element {
+  margin-bottom: $space-two-thirds;
+}
+
+.extra-form-element-info {
+  float: right;
+}

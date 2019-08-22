@@ -1,56 +1,17 @@
-@mixin login-form-text($color: $grey-7) {
-  font-family: $font-tertiary;
-  font-size: 1.6rem;
-  color: $color;
-}
-
 .page--user--login {
   .layout-content {
-    @include wrapper($container-max-width: $small);
+    max-width: $small;
+    margin: 0 auto;
   }
 }
 
-.user-login-form,
-.user-register-form,
-.user-pass {
-  padding-bottom: 170px;
-
-  .form-item {
-    display: flex;
-    flex-flow: row wrap;
-    margin-bottom: $space-one-third;
-  }
-
-  label {
-    @include login-form-text;
-
-    display: flex;
-    align-items: center;
-    width: 135px;
-  }
-
-  .form-text {
-    border: 1px solid $grey-c;
-    border-radius: 2px;
-    height: 34px;
-    padding: 0 0.5em;
-
-    @include breakpoint(350px) {
-      width: 234px;
-    }
-
-    &::placeholder {
-      @include login-form-text(
-        $color: $grey-b
-      );
-    }
-  }
-
+.user-login-form {
   .description {
     @include visually-hidden;
   }
 
   .form-submit {
-    @include button-small;
+    width: 100%;
+    font-size: 2rem;
   }
 }

@@ -1,15 +1,50 @@
 $event-search-max: max-width 800px;
 $event-search-form-max-width: 450px;
+.input {
+  color: $grey-5;
 
-.form-text {
-  max-width: 100%;
+  &:focus {
+    border-color: transparent;
+    outline-color: $burnt-orange;
+    outline-offset: -1px;
+    outline-width: 1px;
+    outline-style: solid;
+  }
 }
 
-.txex-input {
-  width: 20em;
+.input[type="submit"] {
+  background-color: $burnt-orange;
+  border: none;
+  border-radius: 2px;
+  color: $mushroom-lighter;
+  cursor: pointer;
+  font-size: 1.6rem;
+  font-family: $font-tertiary;
+  margin: $space-one-half 0 0;
+  min-width: 100px;
+  padding: .4em 1em;
+
+  &.button--danger {
+    background-color: red;
+  }
 }
 
-$toggle-check-width: 60px;
+.form-text,
+.form-email,
+.form-tel,
+.form-url {
+  border: 1px solid $grey-c;
+  border-radius: 2px;
+  padding: .75rem 1rem;
+  width: 100%;
+
+  &::placeholder {
+    color: $grey-b;
+  }
+}
+
+// $toggle-check-width: 60px;
+$toggle-check-width: 42px;
 $toggle-check-padding-vert: 0.4rem;
 $toggle-check-padding-horiz-small: 0.7rem;
 $toggle-check-padding-horiz-large: 3.1rem;
@@ -20,6 +55,24 @@ $toggle-check-button-circ-edge-padding: 0.4rem;
 .toggle-check {
   display: inline-block;
   position: relative;
+  vertical-align: middle;
+
+  // Help label be centered related to toggle 'button'.
+  & + .label {
+    display: inline-block;
+    font-weight: 500;
+    margin: 0;
+    padding: 0 0 0 $space-one-half;
+    vertical-align: text-bottom;
+
+    & + .description {
+      margin: 0;
+      // 4px is because the two elemens above are inline-block/inline-flex
+      // $space-one-half is the label left-padding
+      // and $toggle-check-width is the width of the 'checkbox'
+      padding-left: 4px + $space-one-half + $toggle-check-width;
+    }
+  }
 }
 
 .toggle-check-input {
@@ -39,7 +92,7 @@ $toggle-check-button-circ-edge-padding: 0.4rem;
   border-radius: $toggle-check-border-radius;
   color: $white;
   cursor: pointer;
-  display: inline-block;
+  display: inline-flex;
   padding: $toggle-check-padding-vert $toggle-check-padding-horiz-small $toggle-check-padding-vert $toggle-check-padding-horiz-large;
   position: relative;
   text-align: right;
@@ -62,7 +115,7 @@ $toggle-check-button-circ-edge-padding: 0.4rem;
 }
 
 .toggle-check-text:before {
-  content: 'No';
+  // content: 'No';
 }
 
 .toggle-check-input:checked ~ .toggle-check-text {
@@ -73,7 +126,7 @@ $toggle-check-button-circ-edge-padding: 0.4rem;
 }
 
 .toggle-check-input:checked ~ .toggle-check-text:before {
-  content: 'Yes';
+  // content: 'Yes';
 }
 
 .toggle-check-input:checked ~ .toggle-check-text:after {
@@ -87,7 +140,7 @@ $toggle-check-button-circ-edge-padding: 0.4rem;
 .event-search-head {
   margin-bottom: $space-one-half;
 
-  @include breakpoint($event-search-max) {
+  @include breakpoint($break-nav-max) {
     padding: $space-one-half $space;
   }
 }
@@ -137,8 +190,8 @@ $toggle-check-button-circ-edge-padding: 0.4rem;
       background-color: #272731;
       display: flex;
       justify-content: center;
-      width: 69px;
-      height: 69px;
+      width: 67px;
+      height: 67px;
       cursor: pointer;
     }
 
@@ -247,7 +300,8 @@ $toggle-check-button-circ-edge-padding: 0.4rem;
 // events search
 // events page
 .event-page-search-form {
-  div[data-drupal-selector="edit-proximity"] {
+  div[data-drupal-selector="edit-proximity"],
+  .form-item-sort-by {
     display: flex;
     align-content: center;
     flex-flow: column nowrap;
@@ -259,7 +313,7 @@ $toggle-check-button-circ-edge-padding: 0.4rem;
       padding: 0 $space+$space-one-third 0 $space-one-half;
     }
 
-    @include breakpoint($event-search-max) {
+    @include breakpoint($break-nav-max) {
       padding-left: $space-one-half;
       padding-right: $space-one-half;
     }
@@ -267,7 +321,33 @@ $toggle-check-button-circ-edge-padding: 0.4rem;
     @include breakpoint($large) {
       flex-flow: row wrap;
     }
+
+    .label {
+      margin: 0;
+      padding: 0 $space-one-half 0 0;
+    }
   }
+
+  .form-item-proximity-value {
+    display: flex;
+    flex: 0 auto;
+    align-items: center;
+    justify-content: space-between;
+
+    @include breakpoint($break-nav-max) {
+      padding-top: $space;
+    }
+
+    @include breakpoint($large) {
+      padding-left: $space-one-half;
+    }
+
+    .label {
+      margin: 0;
+      padding: 0 $space-one-half 0 0;
+    }
+  }
+
   .proximity-origin-client {
     flex-grow: 1;
     flex-shrink: 1;
@@ -278,27 +358,10 @@ $toggle-check-button-circ-edge-padding: 0.4rem;
     }
   }
 
-  .form-item-proximity-value {
-    display: flex;
-    flex: 0 auto;
-    align-items: center;
-    justify-content: space-between;
-
-    @include breakpoint($event-search-max) {
-      padding-top: $space;
-    }
-    @include breakpoint($large) {
-      padding-left: $space-one-half;
-    }
-    label {
-      margin: 0;
-      padding: 0 $space-one-half 0 0;
-    }
-  }
   .form-item-sort-by,
   .form-item-sort-order {
-    display: inline-block;
-    padding-top: $space;
+    // display: inline-block;
+    // padding-top: $space;
   }
   .search-trigger {
     position: absolute;
@@ -322,9 +385,13 @@ $toggle-check-button-circ-edge-padding: 0.4rem;
   }
 
   .txex-button {
-    margin-left: 200px;
-    margin-top: 20px;
-    position: absolute;
+    margin-top: 10px;
+
+    @include breakpoint($break-nav) {
+      margin-top: 0;
+      margin-left: 200px;
+      position: absolute;
+    }
   }
 }
 .form-item-proximity-source-configuration-search {
