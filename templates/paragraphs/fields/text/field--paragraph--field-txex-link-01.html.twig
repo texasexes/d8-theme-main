@@ -7,11 +7,15 @@
 {% endif %}
 
 {% block item_block %}
-  {% include "@atoms/01-links/link/link.twig" with {
+<a{{item.attributes}} href="{{ item.content['#url'] }}" {{ bem('link', (link_modifiers), field_blockname) }}>
+  {{ item.content['#title'] }}
+</a>
+{# {{ kint() }} #}
+  {# {% include "@atoms/01-links/link/link.twig" with {
     "link_blockname": field_blockname,
     "link_attributes": link_attributes,
     "link_modifiers": link_modifiers,
     "link_content": item.content['#title'],
     "link_url": item.content['#url'],
-  } %}
+  } %} #}
 {% endblock item_block%}
