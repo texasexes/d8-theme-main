@@ -99,6 +99,12 @@ $break-person-card: $large;
     @include h5-dark;
 
     line-height: 1.6;
+    margin-bottom: $space-one-third;
+
+    // Hacky fix until refactor.
+    & > div > div {
+      margin-bottom: $space-one-third;
+    }
   }
 
   &__text-heading {

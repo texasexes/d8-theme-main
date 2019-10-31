@@ -14,9 +14,10 @@
 #}
 {% set heading_base_class = heading_base_class|default('h' ~ heading_level) %}
 {% set heading_attributes = heading_attributes|default([]) %}
+{% set heading_extra_classes = heading_extra_classes|default([]) %}
 
 <h{{ heading_level }}
-  {{ bem(heading_base_class, (heading_modifiers), heading_blockname) }}
+  {{ bem(heading_base_class, (heading_modifiers), heading_blockname, heading_extra_classes) }}
   {{ add_attributes(heading_attributes) }}
 >
   {%- block heading_content -%}
