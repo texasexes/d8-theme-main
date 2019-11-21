@@ -87,6 +87,7 @@ $accordion-border-color: $grey-e;
 
     &:hover {
       background-color: $accordion-background-color-hover;
+
       @include breakpoint($break-nav) {
         &.tabs {
           border: 1px solid $accordion-border-color;
@@ -96,6 +97,7 @@ $accordion-border-color: $grey-e;
 
     &.js-open {
       background-color: $accordion-background-color-active;
+
       @include breakpoint($break-nav) {
         &.tabs {
           border: 1px solid $accordion-border-color;
@@ -115,8 +117,16 @@ $accordion-border-color: $grey-e;
     line-height: 1.68;
     padding: 0 $space-one-third;
 
+    & > *:first-child {
+      margin: $space-one-third 0;
+    }
+
     @include breakpoint($break-nav) {
       padding: 0 $space-and-half;
+
+      & > *:first-child {
+        margin: $space 0;
+      }
 
       &.tabs {
         border-top-color: $accordion-border-color;
@@ -131,11 +141,14 @@ $accordion-border-color: $grey-e;
       &.tabs {
         border-left-color: transparent;
         border-right-color: transparent;
+
+        &--alt-1 {
+          border-color: $accordion-border-color;
+        }
       }
     }
 
     &.js-open {
-      padding-top: $space-one-third;
       height: auto;
       overflow: inherit;
 

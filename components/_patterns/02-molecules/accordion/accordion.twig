@@ -6,26 +6,43 @@
  * - accordion_blockname - blockname prepended to the base classname
  */
 #}
+{{ attach_library('d8_theme_main/accordion') }}
+
 {% set accordion_base_class = accordion_base_class|default('accordion') %}
 
-<div {{ bem(accordion_base_class, (accordion_modifiers), accordion_blockname) }}>
-  {% for accordion_item in accordion_items %}
-    <div {{ bem('item', accordion_item_modifiers, accordion_base_class) }}>
-      {% block accordion_icon %}
-        <div {{ bem('icon', accordion_term_modifiers, accordion_base_class) }}>
-          {% include "@atoms/04-images/icons/_icon.twig" with {
-            icon_base_class: 'expand-icon',
-            icon_blockname: accordion_base_class,
-            icon_name: 'chevron',
-          } %}
-        </div>
-      {% endblock %}
-      {% block accordion_heading %}
-        <div {{ bem('heading', accordion_term_modifiers, accordion_base_class) }}>{{ accordion_heading|default(accordion_item.heading) }}</div>
-      {% endblock %}
-      {% block accordion_content %}
-        <div {{ bem('content', accordion_def_modifiers, accordion_base_class) }}>{{ accordion_content|default(accordion_item.content) }}</div>
-      {% endblock %}
-    </div>
-  {% endfor %}
+{% if clear_drupal_attributes == TRUE %}
+  {% set attributes = {} %}
+{% endif %}
+
+<div style="position:relative">
+  <div {{ bem(accordion_base_class, accordion_modifiers, accordion_blockname, (accordion_extra_classes)) }}>
+    {% for accordion_item in accordion_items %}
+      <div {{ bem('item', accordion_item_modifiers, accordion_base_class, (accordion_extra_classes)) }}>
+        {% block accordion_icon %}
+          <div {{ bem('icon', accordion_term_modifiers, accordion_base_class, (accordion_extra_classes)) }}>
+            {% include "@atoms/04-images/icons/_icon.twig" with {
+              icon_base_class: 'expand-icon',
+              icon_blockname: accordion_base_class,
+              icon_name: 'chevron',
+              icon_extra_classes: accordion_extra_classes,
+            } %}
+          </div>
+        {% endblock %}
+        {% block accordion_heading_wrapper_block %}
+          <div {{ bem('heading', accordion_term_modifiers, accordion_base_class, (accordion_extra_classes)) }}>
+            {% block accordion_heading_content_block %}
+              {{ accordion_heading_content|default(accordion_item.heading) }}
+            {% endblock accordion_heading_content_block %}
+          </div>
+        {% endblock accordion_heading_wrapper_block %}
+        {% block accordion_details_wrapper_block %}
+          <div {{ bem('content', accordion_def_modifiers, accordion_base_class, (accordion_extra_classes)) }}>
+            {% block accordion_details_content_block %}
+              {{ accordion_details_content|default(accordion_item.content) }}
+            {% endblock accordion_details_content_block %}
+          </div>
+        {% endblock accordion_details_wrapper_block %}
+      </div>
+    {% endfor %}
+  </div>
 </div>
