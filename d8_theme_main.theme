@@ -636,7 +636,7 @@ function d8_theme_main_preprocess_views_view(&$variables) {
 
   if ('txex_articles' === $view_id || 'txex_events' === $view_id) {
     if (array_key_exists('more', $variables)) {
-      $variables['more']['#options']['attributes']['class'] = ['flexbox__link',];
+      $variables['more']['#options']['attributes']['class'] = ['flexbox__link'];
     }
   }
 }
