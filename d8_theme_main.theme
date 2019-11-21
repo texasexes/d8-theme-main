@@ -639,6 +639,14 @@ function d8_theme_main_preprocess_views_view(&$variables) {
       $variables['more']['#options']['attributes']['class'] = ['flexbox__link'];
     }
   }
+
+  if ('groups' === $view_id && 'page_1' === $display_id) {
+    foreach ($variables['attachment_before'] as &$view_attachment) {
+      $view_attachment['#display_title'] = $view_attachment['#view']->getTitle();
+    }
+  }
+}
+
 }
 
 /**
