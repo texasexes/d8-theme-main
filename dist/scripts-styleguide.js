@@ -1,6 +1,39 @@
-'use strict';
+"use strict";
 
 (function ($, Drupal) {
+  // const dom = $(document);
+  var win = $(window);
+  var accordionItemTabs = $(".accordion__item.tabs");
+  var accordionContentTabs = $(".accordion__content.tabs");
+  var accordionHeadingTabs = $(".accordion__heading.tabs");
+  var accordionItem = $(".accordion__item");
+  var accordionHeading = $(".accordion__heading");
+  // const accordionContent = $(".accordion__content");
+  var accordionExapndIcon = $(".accordion__expand-icon");
+  // const activeClass = "js-active";
+  // const hiddenClass = "js-hidden";
+  var openClass = "js-open";
+  var closedClass = "js-closed";
+  var breakpoint = 900;
+
+  // const toolbarAdministration = null;
+  // const toolbarTrayHorizontal = null;
+  // const toolbarOffset = null;
+  var headerWrapperScrollUp = null;
+  var headerWrapper = null;
+  var headerWrapperOffset = null;
+  var additionalOffset = 0;
+  var bodyFixedAdminBar = null;
+  var bodyFixedAdminHorizontalTray = null;
+  var bodyFixedAdminBarHeight = 0;
+
+  var maxHeight = function maxHeight(elements) {
+    return Math.max.apply(null, elements
+    // eslint-disable-next-line func-names
+    .map(function () {
+      return $(this).outerHeight();
+    }).get());
+  };
 
   // WaitForFinalEvent Function
   // This function allow us to only perform re-calculations AFTER an event has copmleted.
@@ -21,111 +54,102 @@
       if (timers[uniqueId]) {
         clearTimeout(timers[uniqueId]);
       }
+      // callbackParameter is available in the callback function.
       timers[uniqueId] = setTimeout(callback, ms);
     };
   }();
 
-  var dom = $(document);
-  var win = $(window);
-  var accordionTabsItem = $('.accordion__item.tabs');
-  var accordionTabsItemContent = $('.accordion__content.tabs');
-  var accordionTabsItemHeading = $('.accordion__heading.tabs');
-  var accordionItem = $('.accordion__item');
-  var accordionHeading = $('.accordion__heading');
-  var accordionContent = $('.accordion__content');
-  var accordionIcon = $('.accordion__expand-icon');
-  var activeClass = 'js-active';
-  var hiddenClass = 'js-hidden';
-  var openClass = 'js-open';
-  var closedClass = 'js-closed';
-  var breakpoint = 900;
+  // Calculate body padding top (to accommodate the admin menu)
+  function calculateBodyFixedAdminBarHeight() {
+    bodyFixedAdminBar = $("body.toolbar-fixed #toolbar-bar");
+    bodyFixedAdminHorizontalTray = $("body.toolbar-fixed.toolbar-tray-open.toolbar-horizontal #toolbar-item-administration-tray");
+    bodyFixedAdminBarHeight = (parseInt(bodyFixedAdminBar.outerHeight(), 10) || 0) + (parseInt(bodyFixedAdminHorizontalTray.outerHeight(), 10) || 0);
+  }
 
-  var toolbarAdministration = null;
-  var toolbarTrayHorizontal = null;
-  var toolbarOffset = null;
-  var headerWrapperScrollUp = null;
-  var headerWrapper = null;
-  var headerWrapperOffset = null;
-  var additionalOffset = 0;
-  var bodyFixedAdminBar = null;
-  var bodyFixedAdminHorizontalTray = null;
-  var bodyFixedAdminBarHeight = 0;
+  function closeAllOtherAccordionElements(element) {
+    // Close all other elements but self.
+    $(element).parent().siblings().addClass(closedClass).removeClass(openClass);
+    $(element).parent().siblings().children().addClass(closedClass).removeClass(openClass);
+  }
+
+  function closeAllAccordionElements() {
+    $(accordionItem).addClass(closedClass).removeClass(openClass);
+    $(accordionItem).children().addClass(closedClass).removeClass(openClass);
+  }
+
+  function openAccordionElement(element) {
+    $(element).parent().addClass(openClass).removeClass(closedClass);
+    $(element).parent().children().addClass(openClass).removeClass(closedClass);
+  }
+
+  function toggleAccordionElement(element) {
+    $(element).parent().toggleClass(openClass).toggleClass(closedClass);
+    $(element).parent().children().toggleClass(openClass).toggleClass(closedClass);
+  }
+
+  function positionAccordionIcon() {
+    var maxHeadingHeight = maxHeight(accordionHeading);
+    var maxIconHeight = maxHeight(accordionExapndIcon);
+    var accordionTopOffset = parseInt(maxHeadingHeight, 10) / 2 - parseInt(maxIconHeight, 10) / 2;
+    accordionExapndIcon.css({ top: accordionTopOffset });
+  }
+
+  function positionAccordionTabs() {
+    var maxTabsHeadingHeight = maxHeight(accordionHeadingTabs);
+    var maxTabsContentHeight = maxHeight(accordionContentTabs);
+    var maxTabHeight = maxTabsHeadingHeight + maxTabsContentHeight;
+
+    accordionItemTabs.outerHeight(maxTabHeight);
+    // Add extra pixel to make header overlap content and override its bottom
+    // border.
+    accordionHeadingTabs.outerHeight(parseInt(maxTabsHeadingHeight, 10) + 1);
+    accordionContentTabs.css({ top: maxTabsHeadingHeight });
+  }
+
+  function initializeAccordion(winW) {
+    // Position accordion open/closed icon.
+    positionAccordionIcon();
+
+    // Tabs are allowed to be active.
+    if (winW > breakpoint) {
+      positionAccordionTabs();
+      // Initialize first tab as open.
+      openAccordionElement(accordionHeadingTabs.first());
+    }
+  }
+
+  // Hide content via js so that if js is disabled, all of the content is visible
+  // @TODO this works with un-tabbed accordion, but nee to make this work with
+  // tabs -- by preventing tabs and displaying a fully open accordion?
+  closeAllAccordionElements();
 
   var winW = parseInt(win.outerWidth(), 10);
 
-  var maxHeight = function maxHeight(elems) {
-    return Math.max.apply(null, elems.map(function () {
-      return $(this).outerHeight();
-    }).get());
-  };
+  initializeAccordion(winW);
 
-  // Calculate body padding top (to accommodate the admin menu)
-  function calculateBodyFixedAdminBarHeight() {
-    bodyFixedAdminBar = $('body.toolbar-fixed #toolbar-bar');
-    bodyFixedAdminHorizontalTray = $('body.toolbar-fixed.toolbar-tray-open.toolbar-horizontal #toolbar-item-administration-tray');
-    bodyFixedAdminBarHeight = (parseInt(bodyFixedAdminBar.outerHeight()) || 0) + (parseInt(bodyFixedAdminHorizontalTray.outerHeight()) || 0);
-  };
-
-  function calculateHeights() {
-    dom.ready(function () {
-      // Handle fixed Drupal admin bar.
-      calculateBodyFixedAdminBarHeight();
-    });
-  };
-
-  calculateHeights();
-
-  var maxTabsHeadingHeight = maxHeight(accordionTabsItemHeading);
-  var maxTabsContentHeight = maxHeight(accordionTabsItemContent);
-  var maxTabHeight = maxTabsHeadingHeight + maxTabsContentHeight;
-
-  // Tabs are allowed to be active.
-  if (winW > breakpoint) {
-    accordionTabsItem.outerHeight(maxTabHeight);
-    // Add extra pixel to make header overlap content and override it's border.
-    accordionTabsItemHeading.outerHeight(parseInt(maxTabsHeadingHeight) + 1);
-    accordionTabsItemContent.css({ top: maxTabsHeadingHeight });
-  }
-
-  var maxHeadingHeight = maxHeight(accordionHeading);
-  var maxIconHeight = maxHeight(accordionIcon);
-
-  var accordionTopOffset = parseInt(maxHeadingHeight) / 2 - parseInt(maxIconHeight) / 2;
-  accordionIcon.css({ top: accordionTopOffset });
-
-  // Hide content via js so that if js is disabled, all of the content is visible
-  accordionItem.addClass(closedClass);
-  accordionItem.children().addClass(closedClass);
-
-  // Initialize tabs if needed
-  accordionTabsItem.first().addClass(openClass).removeClass(closedClass);
-  accordionTabsItem.first().children().addClass(openClass).removeClass(closedClass);
-
+  // eslint-disable-next-line func-names
   accordionHeading.click(function (e) {
     e.preventDefault();
 
     // Close all other elements but self.
-    $(this).parent().siblings().addClass(closedClass).removeClass(openClass);
-    $(this).parent().siblings().children().addClass(closedClass).removeClass(openClass);
+    closeAllOtherAccordionElements(this);
 
     // When accordion uses tabs display and window is wider than breakpoint.
     // Keep in mind that tabs styles are only applied when wider than breakpoint
     // in scss files.
-    if ($(this).hasClass('tabs') && winW > breakpoint) {
+    if ($(this).hasClass("tabs") && winW > breakpoint) {
       // Click does not toggle, just sets to open.
-      $(this).parent().addClass(openClass).removeClass(closedClass);
-      $(this).parent().children().addClass(openClass).removeClass(closedClass);
+      openAccordionElement(this);
       // This is default accordion behavior (no tabs display).
     } else {
       // Click toggles element open/closed.
-      $(this).parent().toggleClass(openClass).toggleClass(closedClass);
-      $(this).parent().children().toggleClass(openClass).toggleClass(closedClass);
+      toggleAccordionElement(this);
 
       if (winW <= breakpoint) {
         // Handle scroll behavior offset in relation to scroll-hide mobile menu bar.
-        headerWrapper = $('.header-wrapper');
-        headerWrapperScrollUp = $('.header-wrapper .scrollUp');
-        headerWrapperOffset = (parseInt(headerWrapper.outerHeight()) || 0) - (parseInt(headerWrapperScrollUp.outerHeight()) || 0);
+        headerWrapper = $(".header-wrapper");
+        headerWrapperScrollUp = $(".header-wrapper .scrollUp");
+        headerWrapperOffset = (parseInt(headerWrapper.outerHeight(), 10) || 0) - (parseInt(headerWrapperScrollUp.outerHeight(), 10) || 0);
 
         if ($(this).offset().top < win.scrollTop() + headerWrapperOffset) {
           additionalOffset = headerWrapperOffset;
@@ -136,7 +160,7 @@
       additionalOffset += bodyFixedAdminBarHeight;
 
       // Scroll behavior when an accordion item is clicked.
-      $('html,body').animate({
+      $("html,body").animate({
         scrollTop: $(this).offset().top - additionalOffset
       }, 500);
       // Re-Initialize scroll additional offset for next click.
@@ -145,31 +169,27 @@
   });
 
   // Update everything when the window is resized
-  win.resize(function () {
+  win.resize(winW, function () {
     waitForFinalEvent(function () {
-      winW = parseInt(win.outerWidth(), 10);
-      // Clear manually set css and height
-      accordionTabsItem.outerHeight('');
-      accordionTabsItemHeading.outerHeight('');
-      accordionTabsItemContent.css({ top: '' });
+      // Clear any manually set css and height.
+      accordionItemTabs.outerHeight("");
+      accordionHeadingTabs.outerHeight("");
+      accordionContentTabs.css({ top: "" });
 
-      calculateHeights();
+      var winWafter = parseInt(win.outerWidth(), 10);
+      initializeAccordion(winWafter);
 
-      // Always position icon
-      accordionIcon.css({ top: parseInt(maxTabsHeadingHeight) / 2 });
-
-      // Tabs are allowed to be active.
-      if (winW > breakpoint) {
-        maxTabsHeadingHeight = maxHeight(accordionTabsItemHeading);
-        maxTabsContentHeight = maxHeight(accordionTabsItemContent);
-        maxTabHeight = maxTabsHeadingHeight + maxTabsContentHeight;
-
-        accordionTabsItem.outerHeight(maxTabHeight);
-        // Add extra pixel to make header overlap content and override it's border.
-        accordionTabsItemHeading.outerHeight(parseInt(maxTabsHeadingHeight) + 1);
-        accordionTabsItemContent.css({ top: maxTabsHeadingHeight });
+      // If we started at less than breakpoint and end at greater than
+      // breakpoint, open first tab.
+      if (winW <= breakpoint && winWafter > breakpoint) {
+        closeAllAccordionElements();
+        // Initialize first tab as open.
+        openAccordionElement(accordionHeadingTabs.first());
       }
-    }, 100, "Accordion - window resize");
+
+      // Reset for the next resize.
+      winW = parseInt(win.outerWidth(), 10);
+    }, 200, "Accordion - window resize");
   });
 })(jQuery, Drupal);
 'use strict';

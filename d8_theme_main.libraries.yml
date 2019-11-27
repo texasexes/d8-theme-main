@@ -41,3 +41,6 @@ sprite:
 accordion:
   js:
     dist/02-molecules/accordion/accordion.js: {}
+  dependencies:
+    - core/jquery
+    - core/jquery.once

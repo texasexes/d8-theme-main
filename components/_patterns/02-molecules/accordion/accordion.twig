@@ -15,11 +15,11 @@
 {% endif %}
 
 <div style="position:relative">
-  <div {{ bem(accordion_base_class, accordion_modifiers, accordion_blockname, (accordion_extra_classes)) }}>
+  <div {{ bem(accordion_base_class, accordion_modifiers, accordion_blockname, accordion_extra_classes) }}>
     {% for accordion_item in accordion_items %}
-      <div {{ bem('item', accordion_item_modifiers, accordion_base_class, (accordion_extra_classes)) }}>
+      <div {{ bem('item', accordion_item_modifiers, accordion_base_class, accordion_extra_classes) }}>
         {% block accordion_icon %}
-          <div {{ bem('icon', accordion_term_modifiers, accordion_base_class, (accordion_extra_classes)) }}>
+          <div {{ bem('icon', accordion_term_modifiers, accordion_base_class, accordion_extra_classes) }}>
             {% include "@atoms/04-images/icons/_icon.twig" with {
               icon_base_class: 'expand-icon',
               icon_blockname: accordion_base_class,
@@ -29,14 +29,14 @@
           </div>
         {% endblock %}
         {% block accordion_heading_wrapper_block %}
-          <div {{ bem('heading', accordion_term_modifiers, accordion_base_class, (accordion_extra_classes)) }}>
+          <div {{ bem('heading', accordion_term_modifiers, accordion_base_class, accordion_extra_classes) }}>
             {% block accordion_heading_content_block %}
               {{ accordion_heading_content|default(accordion_item.heading) }}
             {% endblock accordion_heading_content_block %}
           </div>
         {% endblock accordion_heading_wrapper_block %}
         {% block accordion_details_wrapper_block %}
-          <div {{ bem('content', accordion_def_modifiers, accordion_base_class, (accordion_extra_classes)) }}>
+          <div {{ bem('content', accordion_def_modifiers, accordion_base_class, accordion_extra_classes) }}>
             {% block accordion_details_content_block %}
               {{ accordion_details_content|default(accordion_item.content) }}
             {% endblock accordion_details_content_block %}
