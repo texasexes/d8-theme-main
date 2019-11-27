@@ -210,7 +210,10 @@ $font-heading-h3-alt-11: $font-secondary-30;
     }
 
     &--views-view-group-by {
-      margin: $space-two-thirds 0 0;
+      margin: $space-two-thirds 0 5px;
+      border-bottom-style: solid;
+      border-width: 1px;
+      border-color: $grey-e;
     }
   }
 
