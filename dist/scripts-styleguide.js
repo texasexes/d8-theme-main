@@ -9,11 +9,12 @@
   var accordionItem = $(".accordion__item");
   var accordionHeading = $(".accordion__heading");
   // const accordionContent = $(".accordion__content");
-  var accordionExapndIcon = $(".accordion__expand-icon");
+  var accordionExpandIcon = $(".accordion__icon--expand");
   // const activeClass = "js-active";
   // const hiddenClass = "js-hidden";
   var openClass = "js-open";
   var closedClass = "js-closed";
+  var tabsClass = "tabs";
   var breakpoint = 900;
 
   // const toolbarAdministration = null;
@@ -70,31 +71,38 @@
     // Close all other elements but self.
     $(element).parent().siblings().addClass(closedClass).removeClass(openClass);
     $(element).parent().siblings().children().addClass(closedClass).removeClass(openClass);
+    $(element).parent().siblings().children().children().addClass(closedClass).removeClass(openClass);
   }
 
   function closeAllAccordionElements() {
     $(accordionItem).addClass(closedClass).removeClass(openClass);
     $(accordionItem).children().addClass(closedClass).removeClass(openClass);
+    $(accordionItem).children().children().addClass(closedClass).removeClass(openClass);
   }
 
   function openAccordionElement(element) {
     $(element).parent().addClass(openClass).removeClass(closedClass);
     $(element).parent().children().addClass(openClass).removeClass(closedClass);
+    $(element).parent().children().children().addClass(openClass).removeClass(closedClass);
   }
 
   function toggleAccordionElement(element) {
     $(element).parent().toggleClass(openClass).toggleClass(closedClass);
     $(element).parent().children().toggleClass(openClass).toggleClass(closedClass);
+    $(element).parent().children().children().toggleClass(openClass).toggleClass(closedClass);
   }
 
   function positionAccordionIcon() {
-    var maxHeadingHeight = maxHeight(accordionHeading);
-    var maxIconHeight = maxHeight(accordionExapndIcon);
-    var accordionTopOffset = parseInt(maxHeadingHeight, 10) / 2 - parseInt(maxIconHeight, 10) / 2;
-    accordionExapndIcon.css({ top: accordionTopOffset });
+    accordionItem.each(function (index, element) {
+      var headingHeight = maxHeight($(element).find(accordionHeading));
+      var iconHeight = maxHeight($(element).find(accordionExpandIcon));
+      var accordionTopOffset = parseInt(headingHeight, 10) / 2 - parseInt(iconHeight, 10) / 2;
+
+      $(element).find(accordionExpandIcon).css({ top: accordionTopOffset });
+    });
   }
 
-  function positionAccordionTabs() {
+  function setAccordionTabsHeights() {
     var maxTabsHeadingHeight = maxHeight(accordionHeadingTabs);
     var maxTabsContentHeight = maxHeight(accordionContentTabs);
     var maxTabHeight = maxTabsHeadingHeight + maxTabsContentHeight;
@@ -106,13 +114,12 @@
     accordionContentTabs.css({ top: maxTabsHeadingHeight });
   }
 
-  function initializeAccordion(winW) {
-    // Position accordion open/closed icon.
-    positionAccordionIcon();
-
-    // Tabs are allowed to be active.
-    if (winW > breakpoint) {
-      positionAccordionTabs();
+  function initializeAccordionTabs(currentWinWidth) {
+    if (currentWinWidth > breakpoint) {
+      setAccordionTabsHeights();
+    }
+    // If current width great than breakpoint and no accordion item is open.
+    if (currentWinWidth > breakpoint && !$(accordionItem).hasClass(openClass)) {
       // Initialize first tab as open.
       openAccordionElement(accordionHeadingTabs.first());
     }
@@ -125,7 +132,8 @@
 
   var winW = parseInt(win.outerWidth(), 10);
 
-  initializeAccordion(winW);
+  positionAccordionIcon();
+  initializeAccordionTabs(winW);
 
   // eslint-disable-next-line func-names
   accordionHeading.click(function (e) {
@@ -137,7 +145,7 @@
     // When accordion uses tabs display and window is wider than breakpoint.
     // Keep in mind that tabs styles are only applied when wider than breakpoint
     // in scss files.
-    if ($(this).hasClass("tabs") && winW > breakpoint) {
+    if ($(this).hasClass(tabsClass) && winW > breakpoint) {
       // Click does not toggle, just sets to open.
       openAccordionElement(this);
       // This is default accordion behavior (no tabs display).
@@ -177,15 +185,9 @@
       accordionContentTabs.css({ top: "" });
 
       var winWafter = parseInt(win.outerWidth(), 10);
-      initializeAccordion(winWafter);
 
-      // If we started at less than breakpoint and end at greater than
-      // breakpoint, open first tab.
-      if (winW <= breakpoint && winWafter > breakpoint) {
-        closeAllAccordionElements();
-        // Initialize first tab as open.
-        openAccordionElement(accordionHeadingTabs.first());
-      }
+      positionAccordionIcon();
+      initializeAccordionTabs(winWafter);
 
       // Reset for the next resize.
       winW = parseInt(win.outerWidth(), 10);
