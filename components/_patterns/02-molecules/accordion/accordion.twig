@@ -21,10 +21,11 @@
         {% block accordion_icon %}
           <div {{ bem('icon', accordion_term_modifiers, accordion_base_class, accordion_extra_classes) }}>
             {% include "@atoms/04-images/icons/_icon.twig" with {
-              icon_base_class: 'expand-icon',
+              icon_base_class: 'icon',
               icon_blockname: accordion_base_class,
               icon_name: 'chevron',
               icon_extra_classes: accordion_extra_classes,
+              icon_modifiers: ['expand'],
             } %}
           </div>
         {% endblock %}

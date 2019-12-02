@@ -12,12 +12,15 @@
 
 {% set test_attributes = create_attribute() %}
   <div {{ bem('item', accordion_item_modifiers, accordion_base_class, extra_classes) }}>
-    {% include "@atoms/04-images/icons/_icon.twig" with {
-      icon_base_class: 'expand-icon',
-      icon_blockname: accordion_base_class,
-      icon_name: 'chevron',
-      icon_extra_classes: extra_classes,
-    } %}
+    <div {{ bem('icon', accordion_term_modifiers, accordion_base_class, extra_classes) }}>
+      {% include "@atoms/04-images/icons/_icon.twig" with {
+        icon_base_class: 'icon',
+        icon_blockname: accordion_base_class,
+        icon_name: 'chevron',
+        icon_extra_classes: extra_classes,
+        icon_modifiers: ['expand'],
+      } %}
+    </div>
     <div {{ bem('heading', accordion_term_modifiers, accordion_base_class, extra_classes) }}>
       {{ content.field_txex_ref_rev_para_01 }}
     </div>

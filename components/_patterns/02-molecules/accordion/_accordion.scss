@@ -18,20 +18,22 @@ $accordion-border-color: $grey-e;
     }
   }
 
-  &__expand-icon {
-    fill: $grey-9;
-    height: $space-one-half;
-    left: $space-one-half;
-    width: $space-one-half;
-    position: absolute;
+  &__icon {
+    &--expand{
+      fill: $grey-9;
+      height: $space-one-half;
+      left: $space-one-half;
+      width: $space-one-half;
+      position: absolute;
 
-    &.js-open {
-      transform: rotate(90deg);
-    }
+      &.js-open {
+        transform: rotate(90deg);
+      }
 
-    @include breakpoint($break-nav) {
-      &.tabs {
-        display: none;
+      @include breakpoint($break-nav) {
+        &.tabs {
+          display: none;
+        }
       }
     }
   }
