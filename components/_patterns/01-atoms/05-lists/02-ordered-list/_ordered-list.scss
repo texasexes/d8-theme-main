@@ -5,12 +5,14 @@
   $font-family: $font-paragraph,
   $font-size: 1.6rem,
   $line-height: 1.7em,
-  $margin: '0 0 10px') {
+  $margin: '0 0 10px',
+  $padding-inline-start: $space-two-thirds) {
   color: #{$color};
   font-family: $font-family;
   font-size: #{$font-size};
   line-height: $line-height;
   margin: #{$margin};
+  padding-inline-start: #{$padding-inline-start};
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
