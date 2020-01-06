@@ -1,21 +1,20 @@
 <?php
+
 /**
  * @file
- * Functions to support theming in the Pattern Lab theme.
+ * Functions to support theming in the Texas Exes Main theme.
  */
 
 use Drupal\block\Entity\Block;
-use Drupal\Core\Url;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\twig_tweak\TwigExtension;
-// require_once('modules/contrib/devel/kint/kint/Kint.class.php');
+use Drupal\Core\Render\Element;
 
 /**
  * Implements hook_preprocess_HOOK().
  */
 function d8_theme_main_preprocess_responsive_image_formatter(&$variables) {
   // Storing img_blockname in attributes so that I can pass it on.
-  if (isset($variables['item'])){
+  if (isset($variables['item'])) {
     $itemParent = $variables['item']->getParent();
     $fieldName = $itemParent->getName();
     $fieldNameBundle = $itemParent->getFieldDefinition()->getType();
@@ -38,12 +37,12 @@ function d8_theme_main_preprocess_responsive_image_formatter(&$variables) {
 /**
  * Implements hook_preprocess_HOOK().
  */
- function d8_theme_main_preprocess_responsive_image(&$variables) {
-   // Fixes bug where style_name is never set.
-   if (isset($variables['responsive_image_style_id'])) {
-     $variables['img_element']['#style_name'] = $variables['responsive_image_style_id'];
-   }
- }
+function d8_theme_main_preprocess_responsive_image(&$variables) {
+  // Fixes bug where style_name is never set.
+  if (isset($variables['responsive_image_style_id'])) {
+    $variables['img_element']['#style_name'] = $variables['responsive_image_style_id'];
+  }
+}
 
 /**
  * Implements hook_preprocess_HOOK().
@@ -69,18 +68,18 @@ function d8_theme_main_preprocess_page(&$variables) {
 
   foreach ($route_args as $key => $arg) {
     $arg = str_replace([
-        "/",
-        "\\",
-        "\0",
-        '_',
-      ], [
-        '',
-        '',
-        '',
-        '-',
-      ],
-      $arg);
-      $route_args[$key] = $arg;
+      "/",
+      "\\",
+      "\0",
+      '_',
+    ], [
+      '',
+      '',
+      '',
+      '-',
+    ],
+    $arg);
+    $route_args[$key] = $arg;
   }
 
   $route_based_class = $variables['theme_hook_original'] . '--' . implode('--', $route_args);
@@ -90,20 +89,20 @@ function d8_theme_main_preprocess_page(&$variables) {
 /**
  * Implements hook_theme_suggestions_HOOK().
  */
- function d8_theme_main_theme_suggestions_responsive_image_formatter_alter(array &$suggestions, array $variables) {
+function d8_theme_main_theme_suggestions_responsive_image_formatter_alter(array &$suggestions, array $variables) {
 
-   $itemParent = $variables['item']->getParent();
+  $itemParent = $variables['item']->getParent();
 
-   $fieldName = $itemParent->getName();
-   $fieldNameBundle = $itemParent->getFieldDefinition()->getType();
-   $fieldParent = $variables['item']->getEntity();
-   $fieldParentBundle = $fieldParent->bundle();
-   $fieldParentBundleType = $fieldParent->getEntityTypeId();
+  $fieldName = $itemParent->getName();
+  $fieldNameBundle = $itemParent->getFieldDefinition()->getType();
+  $fieldParent = $variables['item']->getEntity();
+  $fieldParentBundle = $fieldParent->bundle();
+  $fieldParentBundleType = $fieldParent->getEntityTypeId();
 
-   array_push($suggestions, $variables['theme_hook_original'] . "__" . $fieldParentBundleType);
-   array_push($suggestions, $variables['theme_hook_original'] . "__" . $fieldParentBundleType . "__" . $fieldParentBundle);
-   array_push($suggestions, $variables['theme_hook_original'] . "__" . $fieldParentBundleType . "__" . $fieldName);
-   array_push($suggestions, $variables['theme_hook_original'] . "__" . $fieldParentBundleType . "__" . $fieldName . "__" . $fieldParentBundle);
+  array_push($suggestions, $variables['theme_hook_original'] . "__" . $fieldParentBundleType);
+  array_push($suggestions, $variables['theme_hook_original'] . "__" . $fieldParentBundleType . "__" . $fieldParentBundle);
+  array_push($suggestions, $variables['theme_hook_original'] . "__" . $fieldParentBundleType . "__" . $fieldName);
+  array_push($suggestions, $variables['theme_hook_original'] . "__" . $fieldParentBundleType . "__" . $fieldName . "__" . $fieldParentBundle);
 }
 
 /**
@@ -165,9 +164,9 @@ function d8_theme_main_theme_suggestions_taxonomy_term_alter(array &$suggestions
 function d8_theme_main_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   // Adding theme suggestions to forms and form submit items.
   $form_id = str_replace('-', '_', $form['#id']);
-  foreach (Drupal\Core\Render\Element::children($form) as $child_group) {
+  foreach (Element::children($form) as $child_group) {
     $form[$child_group]['#attributes']['data-twig-suggestion'] = $form_id;
-    foreach (Drupal\Core\Render\Element::children($form[$child_group]) as $child) {
+    foreach (Element::children($form[$child_group]) as $child) {
       $form[$child_group][$child]['#attributes']['data-twig-suggestion'] = $form_id;
     }
   }
@@ -180,7 +179,7 @@ function d8_theme_main_form_views_exposed_form_alter(&$form, FormStateInterface 
   // Convert the very specific #id to underscores only for use in suggestion.
   $form_id = str_replace('-', '_', $form['#id']);
   $form['actions']['submit']['#attributes']['data-twig-suggestion'] = $form_id;
-  foreach (Drupal\Core\Render\Element::children($form) as $child) {
+  foreach (Element::children($form) as $child) {
     $form[$child]['#attributes']['data-twig-suggestion'] = $form_id;
   }
 }
@@ -264,27 +263,9 @@ function d8_theme_main_theme_suggestions_input_alter(&$suggestions, array $varia
 
 /**
  * Implements hook_theme_registry_alter().
- *
- * @param $theme_registry
  */
 function d8_theme_main_theme_registry_alter(&$theme_registry) {
   $theme_registry['menu']['variables']['top_parent'] = "TEST";
-}
-
-/**
- * Implements hook_preprocess_HOOK().
- */
-function d8_theme_main_preprocess_breadcrumb(&$variables) {
-  if (($node = \Drupal::routeMatch()->getParameter('node')) && $variables['breadcrumb']) {
-    $title = $node->getTitle();
-    $path = \Drupal::service('path.current')->getPath();
-
-    foreach ($variables['breadcrumb'] as $key => $value) {
-      if ($variables['breadcrumb'][$key]['url'] == $path) {
-        $variables['breadcrumb'][$key]['text'] = $title;
-      }
-    }
-  }
 }
 
 /**
@@ -305,7 +286,7 @@ function d8_theme_main_preprocess_field(&$variables) {
       $loaded_entity = \Drupal\node\Entity\Node::load($referenced_entity['target_id']);
       if (isset($loaded_entity)) {
         if ($loaded_entity->hasField('field_txex_text_list_08')) {
-          if (!$loaded_entity->get('field_txex_text_list_08')->isEmpty()){
+          if (!$loaded_entity->get('field_txex_text_list_08')->isEmpty()) {
             $field_layout_type = $loaded_entity->get('field_txex_text_list_08')->first()->getValue();
             $field_layout_type_value = $field_layout_type['value'];
           }
@@ -317,7 +298,7 @@ function d8_theme_main_preprocess_field(&$variables) {
           if (!$loaded_entity->get('field_txex_text_list_07')->isEmpty()) {
             $field_text_type = $loaded_entity->get('field_txex_text_list_07')->first()->getValue();
             $field_text_type_value = $field_text_type['value'];
-            $field_modifiers = $field_modifiers + array($field_text_type_value => $field_text_type_value);
+            $field_modifiers = $field_modifiers + [$field_text_type_value => $field_text_type_value];
           }
         }
       }
@@ -356,7 +337,7 @@ function d8_theme_main_preprocess_paragraph(&$variables) {
           if (!$loaded_entity->get('field_txex_text_list_03')->isEmpty()) {
             $paragraph_box_layout = $loaded_entity->get('field_txex_text_list_03')->first()->getValue();
             $paragraph_box_layout_value = $paragraph_box_layout['value'];
-            $paragraph_modifiers = $paragraph_modifiers + array($paragraph_box_layout_value => $paragraph_box_layout_value);
+            $paragraph_modifiers = $paragraph_modifiers + [$paragraph_box_layout_value => $paragraph_box_layout_value];
           }
         }
 
@@ -364,7 +345,7 @@ function d8_theme_main_preprocess_paragraph(&$variables) {
           if (!$loaded_entity->get('field_txex_text_list_04')->isEmpty()) {
             $paragraph_background = $loaded_entity->get('field_txex_text_list_04')->first()->getValue();
             $paragraph_background_value = $paragraph_background['value'];
-            $paragraph_modifiers = $paragraph_modifiers + array($paragraph_background_value => $paragraph_background_value);
+            $paragraph_modifiers = $paragraph_modifiers + [$paragraph_background_value => $paragraph_background_value];
           }
         }
 
@@ -372,7 +353,7 @@ function d8_theme_main_preprocess_paragraph(&$variables) {
           if (!$loaded_entity->get('field_txex_text_list_05')->isEmpty()) {
             $paragraph_layout_orientation = $loaded_entity->get('field_txex_text_list_05')->first()->getValue();
             $paragraph_layout_orientation_value = $paragraph_layout_orientation['value'];
-            $paragraph_modifiers = $paragraph_modifiers + array($paragraph_layout_orientation_value => $paragraph_layout_orientation_value);
+            $paragraph_modifiers = $paragraph_modifiers + [$paragraph_layout_orientation_value => $paragraph_layout_orientation_value];
           }
         }
 
@@ -380,7 +361,7 @@ function d8_theme_main_preprocess_paragraph(&$variables) {
           if (!$loaded_entity->get('field_txex_text_list_06')->isEmpty()) {
             $paragraph_layout_width = $loaded_entity->get('field_txex_text_list_06')->first()->getValue();
             $paragraph_layout_width_value = $paragraph_layout_width['value'];
-            $paragraph_modifiers = $paragraph_modifiers + array($paragraph_layout_width_value => $paragraph_layout_width_value);
+            $paragraph_modifiers = $paragraph_modifiers + [$paragraph_layout_width_value => $paragraph_layout_width_value];
           }
         }
 
@@ -388,15 +369,15 @@ function d8_theme_main_preprocess_paragraph(&$variables) {
           if (!$loaded_entity->get('field_txex_text_list_09')->isEmpty()) {
             $paragraph_item_box_layout = $loaded_entity->get('field_txex_text_list_09')->first()->getValue();
             $paragraph_item_box_layout_value = $paragraph_item_box_layout['value'];
-            $paragraph_modifiers = $paragraph_modifiers + array($paragraph_item_box_layout_value => $paragraph_item_box_layout_value);
+            $paragraph_modifiers = $paragraph_modifiers + [$paragraph_item_box_layout_value => $paragraph_item_box_layout_value];
           }
         }
 
         if ($loaded_entity->hasField('field_txex_text_list_10')) {
-            if (!$loaded_entity->get('field_txex_text_list_10')->isEmpty()) {
+          if (!$loaded_entity->get('field_txex_text_list_10')->isEmpty()) {
             $paragraph_item_box_layout = $loaded_entity->get('field_txex_text_list_10')->first()->getValue();
             $paragraph_item_box_layout_value = $paragraph_item_box_layout['value'];
-            $paragraph_modifiers = $paragraph_modifiers + array($paragraph_item_box_layout_value => $paragraph_item_box_layout_value);
+            $paragraph_modifiers = $paragraph_modifiers + [$paragraph_item_box_layout_value => $paragraph_item_box_layout_value];
           }
         }
       }
@@ -409,7 +390,7 @@ function d8_theme_main_preprocess_paragraph(&$variables) {
     if (!$current_paragraph->get('field_txex_boolean_01')->isEmpty()) {
       $paragraph_reverse_order = $current_paragraph->get('field_txex_boolean_01')->first()->getValue();
       if ($paragraph_reverse_order['value']) {
-        $paragraph_modifiers = $paragraph_modifiers + array('reverse-order' => 'reverse-order');
+        $paragraph_modifiers = $paragraph_modifiers + ['reverse-order' => 'reverse-order'];
       }
     }
   }
@@ -467,8 +448,8 @@ function d8_theme_main_preprocess_user(&$variables) {
             'heading_blockname' => 'wysiwyg',
             'heading_content' => $link_with_wrapper,
             'heading_level' => 2,
-            // attributes need because custom twig function bem.php wants it as
-            // an array index in processing
+            // Attributes needed because custom twig function bem.php wants it
+            // as an array index in processing.
             'attributes' => [],
           ],
         ],
@@ -483,8 +464,8 @@ function d8_theme_main_preprocess_user(&$variables) {
   $name_last = $user->field_txex_text_plain_02->isEmpty() ? NULL : $user->field_txex_text_plain_02->value;
   $name_suffix = $user->field_txex_text_plain_04->isEmpty() ? NULL : $user->field_txex_text_plain_04->value;
 
-  $names_array = array($name_first, $name_middle, $name_last, $name_suffix);
-  $full_name = implode(' ', array_filter($names_array, function($v){ return $v !== null; }));
+  $names_array = [$name_first, $name_middle, $name_last, $name_suffix];
+  $full_name = implode(' ', array_filter($names_array, function ($v) {return $v !== NULL; }));
 
   $heading_template = '{% include "@atoms/03-text/01-heading/_heading.twig" %}';
   $full_name_render_array = [
@@ -496,8 +477,8 @@ function d8_theme_main_preprocess_user(&$variables) {
         'heading_blockname' => 'wysiwyg',
         'heading_content' => $full_name,
         'heading_level' => 3,
-        // attributes need because custom twig function bem.php wants it as
-        // an array index in processing
+        // Attributes need because custom twig function bem.php wants it as
+        // an array index in processing.
         'attributes' => [],
       ],
     ],
@@ -525,7 +506,7 @@ function d8_theme_main_preprocess_node__article__full(&$variables) {
   $current_node = $variables['elements']['#node'];
 
   $created_date = $current_node->getCreatedTime();
-  $formatted_created_date = date('F j, Y',$created_date);
+  $formatted_created_date = date('F j, Y', $created_date);
 
   if (!$current_node->field_txex_ref_content_01->isEmpty() && !$current_node->field_txex_ref_content_01->entity->title->isEmpty()) {
     $author_field_title = $current_node->field_txex_ref_content_01->entity->title->value;
@@ -553,8 +534,8 @@ function d8_theme_main_preprocess_node__article__full(&$variables) {
  * Implements hook_theme_suggestions_HOOK_alter().
  */
 function d8_theme_main_theme_suggestions_views_view_alter(array &$suggestions, array $variables) {
-    $suggestions[] = $variables['theme_hook_original'] . '__' . $variables['view']->id();
-    $suggestions[] = $variables['theme_hook_original'] . '__' . $variables['view']->id() . '__' . $variables['view']->current_display;
+  $suggestions[] = $variables['theme_hook_original'] . '__' . $variables['view']->id();
+  $suggestions[] = $variables['theme_hook_original'] . '__' . $variables['view']->id() . '__' . $variables['view']->current_display;
 }
 
 /**
@@ -569,8 +550,8 @@ function d8_theme_main_theme_suggestions_views_view_grouping_alter(array &$sugge
  * Implements hook_theme_suggestions_HOOK_alter().
  */
 function d8_theme_main_theme_suggestions_views_view_unformatted_alter(array &$suggestions, array $variables) {
-    $suggestions[] = $variables['theme_hook_original'] . '__' . $variables['view']->id();
-    $suggestions[] = $variables['theme_hook_original'] . '__' . $variables['view']->id() . '__' . $variables['view']->current_display;
+  $suggestions[] = $variables['theme_hook_original'] . '__' . $variables['view']->id();
+  $suggestions[] = $variables['theme_hook_original'] . '__' . $variables['view']->id() . '__' . $variables['view']->current_display;
 }
 
 /**
@@ -585,16 +566,16 @@ function d8_theme_main_theme_suggestions_views_view_grid_alter(array &$suggestio
  * Implements hook_theme_suggestions_HOOK_alter().
  */
 function d8_theme_main_theme_suggestions_views_view_fields_alter(array &$suggestions, array $variables) {
-    $suggestions[] = $variables['theme_hook_original'] . '__' . $variables['view']->id();
-    $suggestions[] = $variables['theme_hook_original'] . '__' . $variables['view']->id() . '__' . $variables['view']->current_display;
+  $suggestions[] = $variables['theme_hook_original'] . '__' . $variables['view']->id();
+  $suggestions[] = $variables['theme_hook_original'] . '__' . $variables['view']->id() . '__' . $variables['view']->current_display;
 }
 
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
  */
 function d8_theme_main_theme_suggestions_views_view_field_alter(array &$suggestions, array $variables) {
-    $suggestions[] = $variables['theme_hook_original'] . '__' . $variables['view']->id();
-    $suggestions[] = $variables['theme_hook_original'] . '__' . $variables['view']->id() . '__' . $variables['view']->current_display;
+  $suggestions[] = $variables['theme_hook_original'] . '__' . $variables['view']->id();
+  $suggestions[] = $variables['theme_hook_original'] . '__' . $variables['view']->id() . '__' . $variables['view']->current_display;
 }
 
 /**
