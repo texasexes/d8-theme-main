@@ -6,6 +6,10 @@
     "emulsify-gulp": "^2.6.0",
     "gulp": "^3.9.1"
   },
+  "resolutions": {
+    "growl": "^1.10.0",
+    "lodash": "^4.17.12"
+  },
   "scripts": {
     "start": "gulp compile && gulp theme",
     "postinstall": "./scripts/pattern_lab.sh && ./scripts/twig_functions.sh"

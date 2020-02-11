@@ -4613,10 +4613,10 @@ fsevents@^1.0.0:
   languageName: node
   linkType: hard
 
-"growl@npm:1.9.2":
-  version: 1.9.2
-  resolution: "growl@npm:1.9.2"
-  checksum: b820814e0a14733d9fe3e831e01f369a86532295f47c91001459d17b7896afbec234fdbb636c647c30e4c6b2a6e66ce2055ac1ab2269a714aeba38856c75c75c
+"growl@npm:^1.10.0":
+  version: 1.10.5
+  resolution: "growl@npm:1.10.5"
+  checksum: 38976c4867bab627344bb4dcc0b12c8ce77c9db451e95111d08c62a828ef31adfa071977f1e7c8cf1a4079b9c5e6625e0c9bb0d943e20bf7b5b13d26ac5248a5
   languageName: node
   linkType: hard
 
@@ -6880,31 +6880,10 @@ fsevents@^1.0.0:
   languageName: node
   linkType: hard
 
-"lodash@npm:^3.10.1":
-  version: 3.10.1
-  resolution: "lodash@npm:3.10.1"
-  checksum: c1279efdb9411cff9799c3afdf00f8e9bf3b3967eec7339448dbf30bdcc228bddd0dc917815336ed8b5563ba04229ffc1498e38b71ce9ad7f43970af89f870f2
-  languageName: node
-  linkType: hard
-
-"lodash@npm:^4.0.0, lodash@npm:^4.1.0, lodash@npm:^4.14.0, lodash@npm:^4.17.4, lodash@npm:^4.3.0, lodash@npm:^4.5.1, lodash@npm:~4.17.4":
-  version: 4.17.4
-  resolution: "lodash@npm:4.17.4"
-  checksum: d38d1a1f9b50507467f2cb053292d7bc7bbd4bcfa68a746c212f458d45b6f606980fbed1f5fa23c0a4b72a1bfb1654f179086a427f47e031f665495ceeb1848a
-  languageName: node
-  linkType: hard
-
-"lodash@npm:^4.17.10":
-  version: 4.17.10
-  resolution: "lodash@npm:4.17.10"
-  checksum: b3a096e31efae5429140cd086f45b1f8b67764013879f9dd2bd5670e727bef7939b96d0b0ea5ddb8ac2f169f689f5062d358f357e5c9088e14c287e27a142665
-  languageName: node
-  linkType: hard
-
-"lodash@npm:~1.0.1":
-  version: 1.0.2
-  resolution: "lodash@npm:1.0.2"
-  checksum: 21d446f20112f105cfe14a594d7008a6d8ca651a67e9f39d25cc21cd6422b728380991c20edf63e9df12204e957239fee76b52415838158f767a67b2c6eceede
+"lodash@npm:^4.17.12":
+  version: 4.17.15
+  resolution: "lodash@npm:4.17.15"
+  checksum: b018ec8d4c95f14a4b57005a247eca1bc25639322939471a1958d3bc721b4f18e90edb6ea564854593a8bc1f94956a0352cf0cd372991b98c42d61c0cd11e5a3
   languageName: node
   linkType: hard
 
