@@ -6624,10 +6624,10 @@ fsevents@^1.0.0:
   languageName: node
   linkType: hard
 
-"lodash.mergewith@npm:^4.6.0":
-  version: 4.6.0
-  resolution: "lodash.mergewith@npm:4.6.0"
-  checksum: 787a874572d0fc846024b6d825cb8817cd332a6a3b5e27f9c84367f201872516026eeba3c2ab82559e07edee45ed466a8eada986a9f830852b0faf5e436f12b3
+"lodash.mergewith@npm:^4.6.2":
+  version: 4.6.2
+  resolution: "lodash.mergewith@npm:4.6.2"
+  checksum: 6512209b969e37b3df996f32ae5f33acaaadd1da4a0474ed6136601c4e343e2a4abdb3c4abd0ffb6bacfacc7ff0f6abaa9349d1fc4c9ea96c52956a21c9e71a3
   languageName: node
   linkType: hard
 
