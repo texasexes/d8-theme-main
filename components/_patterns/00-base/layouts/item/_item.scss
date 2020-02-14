@@ -100,6 +100,10 @@
   &--item-box-5 {
     &:first-of-type {
       padding: 0 $component-padding/2 0 0;
+
+      img {
+        min-width: 75px;
+      }
     }
 
     & {
