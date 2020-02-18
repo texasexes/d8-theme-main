@@ -103,6 +103,10 @@
 
       img {
         min-width: 75px;
+
+        @include breakpoint($break-layout) {
+          max-width: 75px;
+        }
       }
     }
 
