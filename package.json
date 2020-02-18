@@ -10,7 +10,15 @@
     "growl": "^1.10.0",
     "lodash": "^4.17.12",
     "lodash.template": "^4.5.0",
-    "lodash.mergewith": "^4.6.2"
+    "lodash.mergewith": "^4.6.2",
+    "mime": "^1.4.1",
+    "tar": "^2.2.2",
+    "deep-extend": "^0.5.1",
+    "js-yaml": "^3.13.1",
+    "minimatch": "^3.0.2",
+    "sshpk": "^1.13.2",
+    "tough-cookie": "^2.3.3",
+    "cryptiles": "^4.1.2"
   },
   "scripts": {
     "start": "gulp compile && gulp theme",
