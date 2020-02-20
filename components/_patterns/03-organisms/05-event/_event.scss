@@ -17,3 +17,12 @@
     margin-bottom: $space-one-half;
   }
 }
+
+article.event-list {
+  .flexbox__item {
+    img {
+      min-width: 75px;
+      max-width: 75px;
+    }
+  }
+}
