@@ -17,3 +17,20 @@
     margin-bottom: $space-one-half;
   }
 }
+
+article.event-list {
+  .flexbox__item {
+    &--feature-15 {
+      &:first-of-type {
+        flex: 0 1 90px;
+      }
+    }
+  }
+
+  .flexbox__item {
+    img {
+      min-width: 75px;
+      max-width: 75px;
+    }
+  }
+}
