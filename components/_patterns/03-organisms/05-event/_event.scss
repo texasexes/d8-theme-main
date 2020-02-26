@@ -28,9 +28,11 @@ article.event-list {
   }
 
   .flexbox__item {
-    img {
-      min-width: 75px;
-      max-width: 75px;
-    }
+    &--horizontal {
+      img {
+        min-width: 75px;
+        max-width: 75px;
+      }
+      }
   }
 }
