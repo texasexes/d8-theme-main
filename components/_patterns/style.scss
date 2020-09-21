@@ -13,6 +13,20 @@
 // @import "04-templates/**/*.scss";
 @import "05-pages/**/*.scss";
 
+.wysiwyg__td {
+  vertical-align: top !important;
+  /* border-bottom: 1px solid #ccc; */
+  padding: inherit; 
+}
+.wysiwyg__tr {
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0px;
+}
+
+table {
+  border-collapse: collapse; 
+}
+
 .sg-pattern-example {
   // border-style: dotted;
   // border-width: 1px;
