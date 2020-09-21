@@ -24,6 +24,7 @@
     "ws": "^1.1.5",
     "atob": "^2.1.0",
     "concat-with-sourcemaps": "^1.0.6",
+    "graceful-fs": "^4.2.4",
     "express": "^3.11.0",
     "braces": "^2.3.1",
     "hoek": "^4.2.1",
@@ -41,7 +42,8 @@
   },
   "scripts": {
     "start": "gulp compile && gulp theme",
-    "postinstall": "./scripts/pattern_lab.sh && ./scripts/twig_functions.sh"
+    "postinstall": "./scripts/pattern_lab.sh && ./scripts/twig_functions.sh",
+    "preinstall": "npx npm-force-resolutions"
   },
   "precommit.silent": true
 }
