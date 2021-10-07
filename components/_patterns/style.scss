@@ -76,3 +76,11 @@
 //     color: $burnt-orange;
 //   }
 // }
+
+// Override for popup model forms to move the windows to a more sensible location.
+.spb_center {
+  margin: auto;
+  top: 20%;
+  left: 50%;
+  margin-top: -70px; /* height of pop up / 2 = in negtaive* as margin left*/
+}
