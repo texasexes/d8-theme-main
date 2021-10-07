@@ -8,6 +8,7 @@
 use Drupal\block\Entity\Block;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Render\Element;
+use Drupal\node\Entity\Node;
 
 /**
  * Implements hook_preprocess_HOOK().
@@ -84,6 +85,37 @@ function d8_theme_main_preprocess_page(&$variables) {
 
   $route_based_class = $variables['theme_hook_original'] . '--' . implode('--', $route_args);
   $variables['attributes']['class'][] = $route_based_class;
+}
+
+function _get_nodes_by_term($term_id) {
+  $query = \Drupal::database()->select('taxonomy_index', 'ti');
+  $query->fields('ti', ['nid']);
+  $query->condition('ti.tid', $term_id);
+  $nodes = $query->execute()->fetchAssoc();
+  return $nodes;
+}
+
+function d8_theme_main_preprocess_node(&$variables) {
+  /**
+   * Scholarship pages determine pagination. Determines next / prev based on index of nid
+   */
+  if ($variables['node']->getType() == 'person_scholarship_recipient')
+  {
+    $classYear = $variables['node']->get('field_txex_ref_tax_term_01')->getString();
+    $nid = $variables['node']->get('nid')->getString();
+    $nids = \Drupal::entityQuery('node')
+            ->condition('type','person_scholarship_recipient')
+            ->condition('field_txex_ref_tax_term_01', $classYear)
+            ->execute();
+    $nids = array_values($nids);
+    $first = array_search($nid, $nids) == 0;
+    $last = array_search($nid, $nids) == count($nids)-1;
+    $prev = $first ? null : $nids[(int)array_search($nid, $nids)-1];
+    $next = $last ? null : $nids[(int)array_search($nid, $nids)+1];
+    $variables['node_path'] = "/node/";
+    $variables['next'] = $next;
+    $variables['prev'] = $prev;
+  }
 }
 
 /**

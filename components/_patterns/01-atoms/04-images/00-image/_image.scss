@@ -43,3 +43,12 @@ img {
 .block__img {
   @extend .img;
 }
+
+// Images used as tags square decorators on the home page(?)
+.flexbox__item .flexbox__item--feature-15 {
+  img.img--txex_resp_image_style_1 {
+    min-width: 75px;
+    max-width: 75px;
+  }
+}
+

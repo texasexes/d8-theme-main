@@ -14,3 +14,13 @@
 {% endembed %}
 
 {{ content|without('field_txex_ref_media_01', 'field_txex_text_formatted_01', 'field_txex_text_formatted_06', 'field_txex_text_formatted_02', 'field_txex_text_formatted_03', 'field_txex_text_formatted_05', 'field_txex_ref_tax_term_01') }}
+
+<div style="display: flex; justify-content: space-between; margin-bottom: 15px; font-family: Rubik,sans-serif; -webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;"> 
+{% if prev %}
+  <a style="background: #cb6015; border-radius: 4px; color: #fff; padding: .75em 1.5em; text-decoration: none; margin-right: 15px;" href="/node/{{prev}}"> Prev </a>
+{% endif %}
+{% if next %}
+  <a style="background: #cb6015; border-radius: 4px; color: #fff; padding: .75em 1.5em; text-decoration: none;" href="/node/{{ next }}"> Next </a>
+{% endif %}
+</div>
