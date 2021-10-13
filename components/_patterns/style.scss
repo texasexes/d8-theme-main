@@ -44,7 +44,31 @@ table {
   //   z-index: -10;
   // }
 }
+#spb-block-webform {
+  .spb_center {
+    transform: translate(-50%, -50%);
+    max-width:800px;
+    width: auto !important;
+    margin: 0 !important;
+    position: relative;
+    @media only screen
+    and (max-width: 991px) {
+      max-width:90%;
+    }
 
+    .webform-submission-market-research-architypes-form-form {
+      .js-form-type-radio {
+        display: flex;
+        input {
+          margin-top: 4px;
+        }
+      }
+      .form-actions {
+        text-align: center;
+      }
+    }
+  }
+}
 #block-webform {
   width: 100% !important;
 }
@@ -85,7 +109,7 @@ table {
 }
 
 #block-webform  .fieldset {
-  padding: 30px !important;
+  padding-bottom: 0px;
   border: none !important;
 }
 
@@ -162,11 +186,3 @@ table {
 //     color: $burnt-orange;
 //   }
 // }
-
-// Override for popup model forms to move the windows to a more sensible location.
-.spb_center {
-  margin: auto;
-  top: 20%;
-  left: 50%;
-  margin-top: -70px; /* height of pop up / 2 = in negtaive* as margin left*/
-}
