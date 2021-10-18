@@ -46,7 +46,7 @@
 .wysiwyg__td {
   vertical-align: top !important;
   /* border-bottom: 1px solid #ccc; */
-  padding: inherit; 
+  padding: inherit;
 }
 .wysiwyg__tr {
   border-bottom: 1px solid #ccc;
@@ -54,7 +54,7 @@
 }
 
 table {
-  border-collapse: collapse; 
+  border-collapse: collapse;
 }
 
 .sg-pattern-example {
@@ -75,13 +75,39 @@ table {
   // }
 }
 
+#spb-block-webform {
+  .spb_center {
+    transform: translate(-50%, -50%);
+    max-width:800px;
+    width: auto !important;
+    margin: 0 !important;
+    position: relative;
+    @media only screen
+    and (max-width: 991px) {
+      max-width:90%;
+    }
+
+    .webform-submission-market-research-architypes-form-form {
+      .js-form-type-radio {
+        display: flex;
+        input {
+          margin-top: 4px;
+        }
+      }
+      .form-actions {
+        text-align: center;
+      }
+    }
+  }
+}
+
 #block-webform {
   width: 100% !important;
 }
 
 /* Portrait and Landscape */
-@media only screen 
-  and (min-device-width: 320px) 
+@media only screen
+  and (min-device-width: 320px)
   and (max-device-width: 480px)
   and (-webkit-min-device-pixel-ratio: 2) {
     .spb-popup-main-wrapper{
@@ -115,13 +141,13 @@ table {
 }
 
 #block-webform  .fieldset {
-  padding: 30px !important;
+  padding-bottom: 0px;
   border: none !important;
 }
 
 /* Portrait and Landscape */
-@media only screen 
-  and (min-device-width: 320px) 
+@media only screen
+  and (min-device-width: 320px)
   and (max-device-width: 480px)
   and (-webkit-min-device-pixel-ratio: 2) {
     #block-webform .txex-mra-icon {
@@ -192,11 +218,3 @@ table {
 //     color: $burnt-orange;
 //   }
 // }
-
-// Override for popup model forms to move the windows to a more sensible location.
-.spb_center {
-  margin: auto;
-  top: 20%;
-  left: 50%;
-  margin-top: -70px; /* height of pop up / 2 = in negtaive* as margin left*/
-}
