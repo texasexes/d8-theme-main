@@ -92,6 +92,7 @@ table {
         display: flex;
         input {
           margin-top: 4px;
+          flex-shrink: 0;
         }
       }
       .form-actions {
