@@ -62,6 +62,10 @@
   &--feature-33 {
     &:first-of-type {
       flex: 0 1 33%;
+
+      @include breakpoint(max-width $medium) {
+        flex: 0 0 33%;
+      }
     }
 
     &:only-of-type {
@@ -194,7 +198,7 @@
 
       @include breakpoint(max-width $break-layout) {
         @at-root .flexbox__item#{&} {
-          padding: $space;
+          padding: $space 0px;
         }
       }
     }
@@ -221,7 +225,7 @@
         }
 
         @at-root .flexbox__item#{&} {
-          padding: $space;
+          padding: 0px $space $space;
         }
       }
     }
