@@ -179,7 +179,11 @@
     &--layout-row,
     &--layout-row.flexbox--paragraph-wrapper {
       flex-direction: column;
+      padding: 0px;
       margin: 0 0 $space;
+      &.flexbox--layout-box-8 {
+        padding: $space;
+      }
     }
   }
 }
