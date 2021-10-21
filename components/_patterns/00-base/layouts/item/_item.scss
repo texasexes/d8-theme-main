@@ -202,6 +202,9 @@
     &,
     &:only-of-type {
       padding: 0 $component-padding 0 80px;
+      @include breakpoint(max-width $medium) {
+        padding-left: $component-padding;
+      }
     }
   }
 

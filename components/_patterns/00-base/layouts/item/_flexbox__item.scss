@@ -52,6 +52,10 @@
   &--feature-25 {
     &:first-of-type {
       flex: 0 1 25%;
+
+      @include breakpoint(max-width $medium) {
+        flex: 0 0 25%;
+      }
     }
 
     &:only-of-type {
