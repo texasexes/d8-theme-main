@@ -105,6 +105,9 @@
     &.flexbox__item--feature-100 {
       @include breakpoint(max-width $medium) {
         padding-right: 0;
+        &:not(.flexbox__item--layout-background-1) {
+          padding: $component-padding/2 0px;
+        }
       }
     }
 
