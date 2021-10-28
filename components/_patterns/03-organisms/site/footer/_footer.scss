@@ -13,10 +13,6 @@ $break-footer: 980px;
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-between;
-
-    @include breakpoint($break-footer) {
-      flex-flow: row wrap;
-    }
   }
 
   &__item {
