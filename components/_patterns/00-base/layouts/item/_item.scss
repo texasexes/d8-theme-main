@@ -59,6 +59,12 @@
     &,
     &:only-of-type {
       padding: 0 $row-padding;
+      @include breakpoint(max-width $break-layout) {
+        padding: $row-padding 0px;
+        &--item-background-7 {
+          padding: $row-padding;
+        }
+      }
     }
   }
 
@@ -94,6 +100,12 @@
     &,
     &:only-of-type {
       padding: 0 $component-padding;
+      @include breakpoint(max-width $medium) {
+        padding: $component-padding;
+        &.flexbox__item--feature-50 {
+          padding: $component-padding/2 0px;
+        }
+      }
     }
   }
 

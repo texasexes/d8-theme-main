@@ -181,7 +181,7 @@
       flex-direction: column;
       padding: 0px;
       margin: 0 0 $space;
-      &.flexbox--feature-33 {
+      &.flexbox--layout-background-3, &.flexbox--layout-background-1 {
         padding: $space;
       }
     }

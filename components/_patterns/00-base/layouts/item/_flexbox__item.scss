@@ -113,8 +113,7 @@
         flex-basis: auto;
 
         @at-root .flexbox__item#{&} {
-          padding: $space;
-          &:not(.flexbox) {
+          &--layout-background-7 {
             padding: $space 0px;
           }
         }
