@@ -52,6 +52,10 @@
   &--feature-25 {
     &:first-of-type {
       flex: 0 1 25%;
+
+      @include breakpoint(max-width $medium) {
+        flex: 0 0 25%;
+      }
     }
 
     &:only-of-type {
@@ -62,6 +66,10 @@
   &--feature-33 {
     &:first-of-type {
       flex: 0 1 33%;
+
+      @include breakpoint(max-width $medium) {
+        flex: 0 0 33%;
+      }
     }
 
     &:only-of-type {
@@ -105,7 +113,9 @@
         flex-basis: auto;
 
         @at-root .flexbox__item#{&} {
-          padding: $space;
+          &--layout-background-7 {
+            padding: $space 0px;
+          }
         }
       }
     }
@@ -124,6 +134,9 @@
 
         @at-root .flexbox__item#{&} {
           padding: $space;
+          &:not(.flexbox) {
+            padding: $space 0px;
+          }
         }
       }
     }
@@ -142,6 +155,9 @@
 
         @at-root .flexbox__item#{&} {
           padding: $space;
+          &:not(.flexbox) {
+            padding: $space 0px;
+          }
         }
       }
     }
@@ -221,7 +237,7 @@
         }
 
         @at-root .flexbox__item#{&} {
-          padding: $space;
+          padding: 0px $space $space;
         }
       }
     }
