@@ -36,6 +36,10 @@
                 }
             ],
             "description": "Twig function that allows addition of attributes that can be rendered in both Drupal and Pattern Lab",
+            "support": {
+                "issues": "https://github.com/drupal-pattern-lab/add-attributes-twig-extension/issues",
+                "source": "https://github.com/drupal-pattern-lab/add-attributes-twig-extension/tree/v1.0.1"
+            },
             "time": "2017-08-17T03:05:07+00:00"
         },
         {
@@ -68,6 +72,10 @@
                 }
             ],
             "description": "Twig function that inserts static classes into Pattern Lab and adds them to the Attributes object in Drupal",
+            "support": {
+                "issues": "https://github.com/drupal-pattern-lab/bem-twig-extension/issues",
+                "source": "https://github.com/drupal-pattern-lab/bem-twig-extension/tree/v1.0.1"
+            },
             "time": "2017-08-17T03:08:26+00:00"
         },
         {
@@ -93,6 +101,10 @@
                 }
             ],
             "description": "Share Pattern Lab's custom Twig extensions with Drupal 8.",
+            "support": {
+                "issues": "https://github.com/drupal-pattern-lab/unified-twig-extensions/issues",
+                "source": "https://github.com/drupal-pattern-lab/unified-twig-extensions.git"
+            },
             "time": "2017-08-08T19:57:42+00:00"
         }
     ],
