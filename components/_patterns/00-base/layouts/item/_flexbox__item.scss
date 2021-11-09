@@ -31,7 +31,11 @@
 
   &--feature-15 {
     &:first-of-type {
-      flex: 0 1 15%;
+      flex: 0 0 15%;
+    }
+
+    @include breakpoint(min-width $medium) {
+      flex: 0 0 33%;
     }
 
     &:only-of-type {
@@ -65,7 +69,7 @@
 
   &--feature-33 {
     &:first-of-type {
-      flex: 0 1 30%;
+      flex: 0 0 33%;
 
       @include breakpoint(min-width $medium) {
         flex: 0 0 15%;
