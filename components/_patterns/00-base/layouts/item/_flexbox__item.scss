@@ -68,7 +68,7 @@
       flex: 0 1 33%;
 
       @include breakpoint(max-width $medium) {
-        flex: 0 0 33%;
+        flex: 0 0 15%;
       }
     }
 
