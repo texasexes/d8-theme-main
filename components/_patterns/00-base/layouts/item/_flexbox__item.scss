@@ -33,13 +33,13 @@
     &:first-of-type {
       flex: 0 1 30%;
     }
-    @include breakpoint(min-width $small) {
+    @include breakpoint(min-width $medium) {
       &:first-of-type {
         flex: 0 1 30%;
       }
     }
     
-    @include breakpoint(min-width $medium) {
+    @include breakpoint(min-width $large) {
       &:first-of-type {
         flex: 0 1 15%;
       }
