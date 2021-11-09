@@ -39,7 +39,7 @@
       }
     }
     
-    @include breakpoint(max-width $medium) {
+    @include breakpoint(min-width $medium) {
       &:first-of-type {
         flex: 0 1 15%;
       }
