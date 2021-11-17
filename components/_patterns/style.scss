@@ -151,6 +151,11 @@ table {
   border: none !important;
 }
 
+/* alcalde docs imgs */
+.img--fpsc_1_1_150x150 img {
+  width: 75px;
+}
+
 /* Portrait and Landscape */
 @media only screen
   and (min-device-width: 320px)
