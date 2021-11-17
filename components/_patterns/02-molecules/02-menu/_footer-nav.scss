@@ -4,6 +4,10 @@
   &__menu {
     padding: 0;
     margin: 2em 0 2em;
+    @media only screen
+    and (max-width: 980px) {
+      margin-bottom: 2em;
+    }
     &--item {
       display: inline-block;
 
