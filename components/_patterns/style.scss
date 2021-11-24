@@ -221,6 +221,13 @@ table {
   text-transform: uppercase;
   margin-left: 0.5em;
 }
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .event-search-head {
+      padding: 30px 1px;
+  }
+}
+
 //
 // .event,
 // .generic-page {
