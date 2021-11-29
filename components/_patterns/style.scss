@@ -236,24 +236,20 @@ table {
   .absolute__h1--alt-2, 
   .block__h1--alt-2, 
   .flexbox__h1--alt-2 {
-    font-size: 5.1rem;
+    font-size: 5.1rem !important;
   }
 
-  .wysiwyg {
-    &__h1 {
-      font-size: 5rem;
+  .wysiwyg__h1 {
+      font-size: 5rem !important;
     }
-  }
 
-  .wysiwyg {
-    &__h2 {
-      font-size: 2.75rem;
+  .wysiwyg__h2 {
+      font-size: 2.75rem !important;
     }
-  }
 
   .person-card--scholarship__scholarship {
-    font-size: 2.25rem;
-    font-size: 700;
-    line-height: 1.2;
+    font-size: 2.25rem !important;
+    font-size: 700 !important;
+    line-height: 1.2 !important;
   }
 }
