@@ -138,3 +138,11 @@ $break-person-card: $large;
     font-size: 1.5rem;
   }
 }
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .person-card--scholarship__scholarship {
+    font-size: 2.25rem;
+    font-size: 700;
+    line-height: 1.2;
+  }
+}
