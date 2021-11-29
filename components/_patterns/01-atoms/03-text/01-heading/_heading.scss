@@ -570,25 +570,3 @@ $font-heading-h3-alt-11: $font-secondary-30;
   padding: 0 5px 0 0;
   text-transform: none;
 }
-
-@media (min-width: 320px) and (max-width: 767px) {
-  
-  /* headings */
-  .absolute__h1--alt-2, 
-  .block__h1--alt-2, 
-  .flexbox__h1--alt-2 {
-    font-size: 5.1rem;
-  }
-
-  .wysiwyg {
-    &__h1 {
-      font-size: 5rem;
-    }
-  }
-
-  .wysiwyg {
-    &__h2 {
-      font-size: 2.75rem;
-    }
-  }
-}

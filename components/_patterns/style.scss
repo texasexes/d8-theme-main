@@ -229,3 +229,31 @@ table {
 //     color: $burnt-orange;
 //   }
 // }
+
+@media (min-width: 320px) and (max-width: 767px) {
+  
+  /* headings */
+  .absolute__h1--alt-2, 
+  .block__h1--alt-2, 
+  .flexbox__h1--alt-2 {
+    font-size: 5.1rem;
+  }
+
+  .wysiwyg {
+    &__h1 {
+      font-size: 5rem;
+    }
+  }
+
+  .wysiwyg {
+    &__h2 {
+      font-size: 2.75rem;
+    }
+  }
+
+  .person-card--scholarship__scholarship {
+    font-size: 2.25rem;
+    font-size: 700;
+    line-height: 1.2;
+  }
+}
