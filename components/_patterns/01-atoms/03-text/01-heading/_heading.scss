@@ -142,9 +142,9 @@ $font-heading-h3-alt-11: $font-secondary-30;
     @extend .h2;
 
     color: $heading-color-h1-default;
-    font-size: 3rem;
+    font-size: 3.25rem;
     font-weight: 700;
-    line-height: 1.2;
+    line-height: 1.15;
     margin: 0 0 $space-two-thirds;
 
     &--article-title,
