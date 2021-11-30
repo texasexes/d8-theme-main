@@ -236,3 +236,13 @@ img.img.img--fpsc_1_1_150x150 {
 //     color: $burnt-orange;
 //   }
 // }
+
+@media (min-width: 320px) and (max-width: 767px) {
+  
+  /* headings */
+  .absolute__h1--alt-2, 
+  .block__h1--alt-2, 
+  .flexbox__h1--alt-2 {
+    font-size: 5.1rem;
+  }
+}
