@@ -571,6 +571,13 @@ $font-heading-h3-alt-11: $font-secondary-30;
   text-transform: none;
 }
 
+
+@media (min-width: 1024px) {
+  .absolute__h1--alt-2, .block__h1--alt-2, .flexbox__h1--alt-2 {
+      font-size: 6rem;
+  }
+}
+
 @media (min-width: 320px) and (max-width: 767px) {
     .wysiwyg__h1 {
       font-size: 5rem;
