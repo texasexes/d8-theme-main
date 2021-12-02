@@ -139,8 +139,6 @@ $break-person-card: $large;
   }
 }
 
-@media (min-width: 320px) and (max-width: 767px) {
-  .person-card--scholarship__image-wrapper {
-    margin-bottom: 20px;
-  }
+.person-card--scholarship__image-wrapper {
+  margin-bottom: 20px;
 }
