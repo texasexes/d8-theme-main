@@ -66,7 +66,7 @@ $color-link--hover: $grey-a;
     margin: auto;
     line-height: 1.4;
     padding: 0.5em 1em;
-    text-transform: uppercase;
+    text-transform: initial;
 
     &:hover {
       background-color: $color-button--bg--hover;
@@ -85,7 +85,7 @@ $color-link--hover: $grey-a;
   margin-right: 30px;
   line-height: 1.4;
   padding: 0.5em 1em;
-  text-transform: uppercase;
+  text-transform: initial;
 
   &:hover {
     background-color: $color-button--bg--hover;

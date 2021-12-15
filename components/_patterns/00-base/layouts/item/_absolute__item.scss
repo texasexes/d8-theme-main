@@ -127,3 +127,15 @@
     left: 0;
   }
 }
+
+@media (min-width: 320px) and (max-width: 1023px) {
+  .absolute__item--overlay-full:nth-of-type(2) {
+    padding: 5% 10%;
+  }
+
+  .absolute__h1--alt-9, 
+  .block__h1--alt-9, 
+  .flexbox__h1--alt-9 {
+    font-size: 5.1rem !important;
+  }
+}

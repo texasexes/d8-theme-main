@@ -20,10 +20,10 @@ $accordion-border-color: $grey-e;
 
   &__icon {
     &--expand{
-      fill: $grey-9;
-      height: $space-one-half;
-      left: $space-one-half;
-      width: $space-one-half;
+      fill: #ccc;
+      height: 13px;
+      left: 13px;
+      width: 13px;
       position: absolute;
 
       &.js-open {
@@ -42,7 +42,7 @@ $accordion-border-color: $grey-e;
     position: relative;
     display: flex;
     flex-flow: column nowrap;
-    margin-bottom: $space-one-third;
+    margin-bottom: 0;
 
     @include breakpoint($break-nav) {
       &.tabs {
@@ -64,7 +64,7 @@ $accordion-border-color: $grey-e;
   }
 
   &__heading {
-    border: 1px solid $accordion-border-color;
+    border-top: 1px solid $accordion-border-color;
     border-bottom-color: transparent;
     cursor: pointer;
     display: flex;
@@ -72,7 +72,7 @@ $accordion-border-color: $grey-e;
     font-size: 1.7rem;
     font-weight: 500;
     line-height: 1.7;
-    padding: $space-one-half $space-and-half;
+    padding: 15px 40px;
 
     @include breakpoint($break-nav) {
       &.tabs {
