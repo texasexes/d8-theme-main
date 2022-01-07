@@ -21,7 +21,6 @@
 #}
 {{ attach_library('classy/messages') }}
 {% block messages %}
-{% if is_admin %}
 {% for type, messages in message_list %}
   {%
     set classes = [
@@ -52,5 +51,4 @@
   {# Remove type specific classes. #}
   {% set attributes = attributes.removeClass(classes) %}
 {% endfor %}
-{% endif %}
 {% endblock messages %}
