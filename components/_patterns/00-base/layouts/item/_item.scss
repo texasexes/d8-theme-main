@@ -274,3 +274,11 @@
     // padding: 0 $space-one-third;
   }
 }
+
+@media (max-width: 768px) {
+  .absolute__item--item-background-9, 
+  .block__item--item-background-9, 
+  .flexbox__item--item-background-9 {
+    background-color: rgb(52,54,77);
+  }
+}

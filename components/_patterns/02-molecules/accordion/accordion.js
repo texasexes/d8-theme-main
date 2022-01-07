@@ -7,6 +7,7 @@
   const accordionItem = $(".accordion__item");
   const accordionHeading = $(".accordion__heading");
   // const accordionContent = $(".accordion__content");
+  const accordionIcon = $(".accordion__icon");
   const accordionExpandIcon = $(".accordion__icon--expand");
   // const activeClass = "js-active";
   // const hiddenClass = "js-hidden";
@@ -259,3 +260,52 @@
     );
   });
 })(jQuery, Drupal);
+
+const accordionExpandIcon = jQuery(".accordion__icon--expand");
+accordionExpandIcon.click(function (e) {
+  accordionExpandIcon.click(function (){
+    window.scrollTo({
+        top: jQuery(this).position().top - 100,
+        behavior: 'smooth'
+    })
+  })
+
+  if (jQuery(this).hasClass("js-closed")) {
+    accordionExpandIcon.parent().parent().removeClass("js-open");
+    accordionExpandIcon.parent().removeClass("js-open");
+    accordionExpandIcon.parent().next().next().removeClass("js-open");
+    accordionExpandIcon.parent().next().removeClass("js-open");
+    accordionExpandIcon.removeClass("js-open");
+  
+    accordionExpandIcon.parent().parent().addClass("js-closed");
+    accordionExpandIcon.parent().addClass("js-closed");
+    accordionExpandIcon.parent().next().next().addClass("js-closed");
+    accordionExpandIcon.parent().next().addClass("js-closed");
+    accordionExpandIcon.addClass("js-closed");
+  
+  
+          jQuery(this).removeClass("js-closed");
+          jQuery(this).parent().parent().removeClass("js-closed");
+          jQuery(this).parent().removeClass("js-closed");
+          jQuery(this).parent().next().removeClass("js-closed");
+          jQuery(this).parent().next().next().removeClass("js-closed");
+  
+          jQuery(this).addClass("js-open");
+          jQuery(this).parent().parent().addClass("js-open");
+          jQuery(this).parent().addClass("js-open");
+          jQuery(this).parent().next().addClass("js-open");
+          jQuery(this).parent().next().next().addClass("js-open");
+      } else {
+    accordionExpandIcon.parent().parent().removeClass("js-open");
+    accordionExpandIcon.parent().removeClass("js-open");
+    accordionExpandIcon.parent().next().next().removeClass("js-open");
+    accordionExpandIcon.parent().next().removeClass("js-open");
+    accordionExpandIcon.removeClass("js-open");
+  
+    accordionExpandIcon.parent().parent().addClass("js-closed");
+    accordionExpandIcon.parent().addClass("js-closed");
+    accordionExpandIcon.parent().next().next().addClass("js-closed");
+    accordionExpandIcon.parent().next().addClass("js-closed");
+    accordionExpandIcon.addClass("js-closed");
+      }
+  })
