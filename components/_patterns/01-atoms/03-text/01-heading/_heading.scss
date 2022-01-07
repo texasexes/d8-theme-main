@@ -579,8 +579,17 @@ $font-heading-h3-alt-11: $font-secondary-30;
 }
 
 @media (min-width: 320px) and (max-width: 767px) {
+    .absolute__h1--alt-9, 
+    .block__h1--alt-9, 
+    .flexbox__h1--alt-9,
     .wysiwyg__h1 {
       font-size: 5rem;
+    }
+
+    .absolute__h1--alt-9, 
+    .block__h1--alt-9, 
+    .flexbox__h1--alt-9 {
+      padding: 5% 10%;
     }
 
     .wysiwyg__h2 {
