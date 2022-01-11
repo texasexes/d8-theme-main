@@ -227,6 +227,12 @@ img.img.img--fpsc_1_1_150x150 {
   width: 75px;
 }
 
+// Longhorn Business
+  // Hiding until can be prioritized: https://app.asana.com/0/706831088057313/1201032650090228
+.txex-lbn-search-landing-search-input-zipcode {
+  display: none;
+}
+
 @media (min-width: 320px) and (max-width: 767px) {
   .event-search-head {
       padding: 30px 1px;
