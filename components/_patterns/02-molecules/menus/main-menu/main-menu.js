@@ -83,6 +83,7 @@
   $(document).ready(function () {
     if (document.baseURI.endsWith('find-chapter-or-network')) {
       jQuery('.side-menu__dropdown--level-0').removeClass('js-visible');
+      jQuery('.side-menu__dropdown--level-0').removeClass('side-menu__sub-icon--open');
     }
   })
 
