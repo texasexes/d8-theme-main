@@ -329,8 +329,8 @@ accordionExpandIcon.click(function (e) {
   // Close menu when page loads for "Find a Chapter or Network"
   $(document).ready(function () {
     if (document.baseURI.endsWith('find-chapter-or-network')) {
-      jQuery('.side-menu__dropdown--level-0').removeClass('js-visible');
-      jQuery('.side-menu__dropdown--level-0').removeClass('side-menu__sub-icon--open');
+      $('.side-menu__dropdown--level-0').removeClass('js-visible');
+      $('.side-menu__dropdown--level-0').removeClass('side-menu__sub-icon--open');
     }
   });
 
