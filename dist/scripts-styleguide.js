@@ -330,7 +330,7 @@ accordionExpandIcon.click(function (e) {
   $(document).ready(function () {
     if (document.baseURI.endsWith('find-chapter-or-network')) {
       $('.side-menu__dropdown--level-0').removeClass('js-visible');
-      $('.side-menu__dropdown--level-0').removeClass('side-menu__sub-icon--open');
+      $('.side-menu__sub-icon').removeClass('side-menu__sub-icon--open');
     }
   });
 
