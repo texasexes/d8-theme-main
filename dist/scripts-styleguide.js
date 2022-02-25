@@ -1,6 +1,23 @@
 "use strict";
 
 (function ($, Drupal) {
+    if (window.location.pathname == '/connect-longhorn-business-network') {
+        var mobileBanner = "/modules/custom/txex_lbn/images/tx_mutual_320x50.gif";
+        var desktopBanner = "/modules/custom/txex_lbn/images/tx_mutual_728x90.gif";
+        document.getElementById('lbn__heading').parentElement.style.textAlign = 'center';
+        if (window.innerWidth > 400) {
+            console.log("Not mobile");
+            document.getElementById('lbn__heading').insertAdjacentHTML('beforebegin', "<a href=\"https://www.texasmutual.com/employers/on-the-job/overarching?utm_source=UT-Texas+Exes-LBN&utm_medium=Banner&utm_campaign=LBN&utm_id=UT-Texas+Exes-LBN\"><img src=" + desktopBanner + " alt=\"texas mutual ad\" style=\"margin-top: 3%; margin-bottom: 3%;\" /></a>");
+        } else {
+            console.log("mobile");
+            document.getElementById('lbn__heading').insertAdjacentHTML('beforebegin', "<a href=\"https://www.texasmutual.com/employers/on-the-job/overarching?utm_source=UT-Texas+Exes-LBN&utm_medium=Banner&utm_campaign=LBN&utm_id=UT-Texas+Exes-LBN\"><img src=" + mobileBanner + " alt=\"texas mutual ad\" style=\"margin-top: 5%; margin-bottom: 2%;\" /></a>");
+        }
+        console.log("Hello LBN Network");
+    }
+})(jQuery, Drupal);
+"use strict";
+
+(function ($, Drupal) {
   // const dom = $(document);
   var win = $(window);
   var accordionItemTabs = $(".accordion__item.tabs");
@@ -190,7 +207,7 @@
       positionAccordionIcon();
       initializeAccordionTabs(winWafter);
 
-      // Reset for the next resize.
+      // Reset for the next resize
       winW = parseInt(win.outerWidth(), 10);
     }, 200, "Accordion - window resize");
   });
