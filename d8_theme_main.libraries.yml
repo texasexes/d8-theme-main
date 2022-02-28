@@ -47,4 +47,4 @@ accordion:
 
 lbn_heading: 
   js: 
-    dist/01-atoms/lbn_banner/lbn_banner.js: {}
+    dist/01-atoms/lbn-banner/lbn_banner.js: {}
