@@ -44,3 +44,7 @@ accordion:
   dependencies:
     - core/jquery
     - core/jquery.once
+
+lbn_heading: 
+  js: 
+    dist/01-atoms/lbn_banner/lbn_banner.js: {}
