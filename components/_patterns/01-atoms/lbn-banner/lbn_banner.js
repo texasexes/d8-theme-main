@@ -3,7 +3,7 @@
         let mobileBanner = "/modules/custom/txex_lbn/images/tx_mutual_320x50.gif";
         let desktopBanner = "/modules/custom/txex_lbn/images/tx_mutual_728x90.gif";
         document.getElementById('lbn__heading').parentElement.style.textAlign = 'center';
-        if (window.innerWidth > 400) {
+        if (window.innerWidth > 767) {
             console.log("Not mobile");
             document.getElementById('lbn__heading').insertAdjacentHTML('beforebegin', `<a href="https://www.texasmutual.com/employers/on-the-job/overarching?utm_source=UT-Texas+Exes-LBN&utm_medium=Banner&utm_campaign=LBN&utm_id=UT-Texas+Exes-LBN"><img src=${desktopBanner} alt="texas mutual ad" style="margin-top: 3%; margin-bottom: 3%;" /></a>`);
         } else {
