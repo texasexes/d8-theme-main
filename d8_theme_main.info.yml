@@ -2,7 +2,7 @@ name: Texas Exes D8 Main Theme
 type: theme
 description: Texas Exes primary theme based on <a href="http://emulsify.info">Emulsify</a>.
 base theme: stable
-core: 9.x
+core_version_requirement: ^8 || ^9
 
 # Libraries (These are loaded on every page. Use https://www.drupal.org/developing/api/8/assets#twig whenever possible.)
 libraries:
