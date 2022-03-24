@@ -2,7 +2,7 @@ name: Texas Exes D8 Main Theme
 type: theme
 description: Texas Exes primary theme based on <a href="http://emulsify.info">Emulsify</a>.
 base theme: stable
-core: 8.x
+core: 9.x
 
 # Libraries (These are loaded on every page. Use https://www.drupal.org/developing/api/8/assets#twig whenever possible.)
 libraries:
@@ -53,28 +53,29 @@ regions:
 # always be the folders immediately under the `$sourceDir` patterns folder
 # `$sourceDir` = defined in `pattern-lab/config/config.yml` under `sourceDir
 # patterns folder = `$sourceDir` + `_patterns/`
-component-libraries:
-  base:
-    paths:
-      - components/_patterns/00-base
-  atoms:
-    paths:
-      - components/_patterns/01-atoms
-  molecules:
-    paths:
-      - components/_patterns/02-molecules
-  organisms:
-    paths:
-      - components/_patterns/03-organisms
-  pages:
-    paths:
-      - components/_patterns/05-pages
-  paragraph-templates:
-    paths:
-      - templates/paragraphs
-  views-templates:
-    paths:
-      - templates/views
-  d8-theme-main:
-    paths:
-      - templates
+components:
+  namespaces:
+    base:
+      paths:
+        - components/_patterns/00-base
+    atoms:
+      paths:
+        - components/_patterns/01-atoms
+    molecules:
+      paths:
+        - components/_patterns/02-molecules
+    organisms:
+      paths:
+        - components/_patterns/03-organisms
+    pages:
+      paths:
+        - components/_patterns/05-pages
+    paragraph-templates:
+      paths:
+        - templates/paragraphs
+    views-templates:
+      paths:
+        - templates/views
+    d8-theme-main:
+      paths:
+        - templates
