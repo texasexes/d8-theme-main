@@ -8,6 +8,7 @@ core: 8.x
 libraries:
   - 'd8_theme_main/global'
   - 'd8_theme_main/fonts'
+  - 'd8_theme_main/lbn_heading'
   # - 'd8_theme_main/typekit'
 
 # Libraries override allows you to remove libraries added by other projects.

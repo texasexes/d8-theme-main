@@ -252,7 +252,7 @@
         positionAccordionIcon();
         initializeAccordionTabs(winWafter);
 
-        // Reset for the next resize.
+        // Reset for the next resize
         winW = parseInt(win.outerWidth(), 10);
       },
       200,

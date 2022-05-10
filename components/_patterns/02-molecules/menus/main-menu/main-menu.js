@@ -79,6 +79,14 @@
   $('.side-menu__item--active-trail > .side-menu__expand-sub > .side-menu__sub-icon').addClass(sideMenuSubOpen);
   $('.side-menu__item--active-trail > .side-menu__dropdown').addClass(menuVisible);
 
+  // Close menu when page loads for "Find a Chapter or Network"
+  $(document).ready(function () {
+    if (document.baseURI.endsWith('find-chapter-or-network')) {
+      $('.side-menu__dropdown--level-0').removeClass('js-visible');
+      $('.side-menu__sub-icon').removeClass('side-menu__sub-icon--open');
+    }
+  })
+
   // Remove mobile nav background
   function removeMainMenuBg() {
     mainMenuBg.remove();
