@@ -1,0 +1,81 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a single Drupal page while offline.
+ *
+ * All available variables are mirrored in page.html.twig.
+ * Some may be blank but they are provided for consistency.
+ *
+ * @see template_preprocess_maintenance_page()
+ *
+ * @ingroup themeable
+ */
+#}
+<header role="banner" class="maintenance__header">
+  {% if logo %}
+    <a href="{{ front_page }}" title="{{ 'Home'|t }}" rel="home">
+      <img class="maintenance__logo" src="{{ logo }}" alt="{{ 'Home'|t }}"/>
+    </a>
+  {% endif %}
+
+  {% if site_name or site_slogan %}
+    {% if site_name %}
+      {# <h1><a href="{{ front_page }}" title="{{ 'Home'|t }}" rel="home">{{ site_name }}</a></h1> #}
+    {% endif %}
+
+    {% if site_slogan %}
+      <div>{{ site_slogan }}</div>
+    {% endif %}
+  {% endif %}
+</header>
+
+<main role="main">
+  <div class="main__maintenance__heading">
+    {% if title %}
+      <h3>{{ title }}</h3>
+    {% endif %}
+    {{ page.highlighted }}
+    {# {{ page.content }} #}
+    <p>Our site is down for scheduled maintenance.</p>
+  </div>
+
+  <div class="maintenance__class-news">
+   <h2>Good news for the Class of 2022!</h2>
+   <p>New grads and family members looking to make it official with a Life Membership can still do so. Our membership forms are secure and working!</p>
+  </div>
+
+  <div class="maintenance__class-offer">
+    <h2>Special Offer for the Class of 2022</h2>
+    
+  <div class="maintenance__join-flex">
+    <div class="maintenance__join-flex-item">
+      <h3>Join as a Life Member and save!</h3>
+      <p><a href="https://forms.texasexes.org/551?Gift=False&Pricing=New%20Grad%20Full&Product_Id=01tf4000004HsJCAA0&Recipient=Individual&User=%5Buser%3Asalesforce_id%5D&signature=eMRvSN%2F0H%2BvchXtyOhYDL56YjyQzytdT6TX0%2FqvXjeg%3D&expire=1652815635">Pay in full - $600</a></p>
+      <p><a href="https://forms.texasexes.org/551?Gift=True&Pricing=New%20Grad%20Payment%20Plan&Product_Id=01tf4000004HsJCAA0&Recipient=Individual&User=%5Buser%3Asalesforce_id%5D&signature=1PqojY%2BWekPC7TbQ7XaPIEmut3ZrQiD9UvzNbOpBzw4%3D&expire=1652815666">Payment plan - $700</a></p>
+    </div>
+    <div class="maintenance__join-flex-item">
+      <h3>Gifting a Life Membership to a New Grad?</h3>
+      <p><a href="https://forms.texasexes.org/551?Gift=True&Pricing=New%20Grad%20Full&Product_Id=01tf4000004HsJCAA0&Recipient=Individual&User=%5Buser%3Asalesforce_id%5D&signature=C6KnNOOO1Bd0%2BJy%2FOelOLRbNpviWO9h2JReglrxwu8g%3D&expire=1652815518">Pay in full - $600</a></p>
+      <p><a href="https://forms.texasexes.org/551?Gift=False&Pricing=New%20Grad%20Payment%20Plan&Product_Id=01tf4000004HsJCAA0&Recipient=Individual&User=%5Buser%3Asalesforce_id%5D&signature=RSDdMXr%2BSdpvsfspXGQZEZ0YeqBZOHqVaAiH2hrdu5E%3D&expire=1652815701">Payment plan - $700</a></p>
+    </div>
+  </div>
+  </div>
+</main>
+
+{% if page.sidebar_first %}
+  <aside role="complementary">
+    {{ page.sidebar_first }}
+  </aside>
+{% endif %}
+
+{% if page.sidebar_second %}
+  <aside role="complementary">
+    {{ page.sidebar_second }}
+  </aside>
+{% endif %}
+
+{% if page.footer %}
+  <footer role="contentinfo">
+    {{ page.footer }}
+  </footer>
+{% endif %}
