@@ -223,7 +223,9 @@ img.img.img--fpsc_1_1_150x150 {
 }
 
 /* alcalde docs imgs */
-img.img.img--fpsc_1_1_150x150 {
+img.img.img--fpsc_1_1_150x150,
+// Thumbnails on main page
+.flexbox--item-box-5.flexbox--layout-level-1 img {
   width: 75px;
 }
 
