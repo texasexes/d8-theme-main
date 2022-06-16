@@ -39,8 +39,22 @@
   line-height: 1.5;
 }
 
-.wysiwyg__p {
+.wysiwyg__p,
+.wysiwyg__ul li,
+.wysiwyg__ol li {
   line-height: 1.6;
+}
+
+.wysiwyg__ul li,
+.wysiwyg__ol li {
+  font-size: 1.6rem;
+  font-family: Rubik,sans-serif;
+  font-weight: 400;
+  margin: 0 0 10px;
+  color: #777;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  margin: 0 0 5px;
 }
 
 .wysiwyg__td {
