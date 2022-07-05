@@ -201,3 +201,8 @@ $color-link--hover: $grey-a;
 .more-link {
   margin-top: $space-two-thirds;
 }
+
+// Hide Create Event link on chapter pages for chapter leaders
+#block-sidebarblockforgroupadmin .item-list li:nth-child(2) {
+  display: none;
+}
