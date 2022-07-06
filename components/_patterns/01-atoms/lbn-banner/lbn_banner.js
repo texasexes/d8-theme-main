@@ -1,7 +1,7 @@
 (function ($, Drupal) {
     if (window.location.pathname == '/connect-longhorn-business-network') {
-        let mobileBanner = "/modules/custom/txex_lbn/images/tx_mutual_320x50.gif";
-        let desktopBanner = "/modules/custom/txex_lbn/images/tx_mutual_728x90.gif";
+        let mobileBanner = "/modules/custom/txex_lbn/images/BIB_Safety_320x50.gif";
+        let desktopBanner = "/modules/custom/txex_lbn/images/BIB_Safety_728x90_ALT.gif";
         document.getElementById('lbn__heading').parentElement.style.textAlign = 'center';
         if (window.innerWidth > 767) {
             console.log("Not mobile");
