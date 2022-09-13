@@ -39,8 +39,22 @@
   line-height: 1.5;
 }
 
-.wysiwyg__p {
+.wysiwyg__p,
+.wysiwyg__ul li,
+.wysiwyg__ol li {
   line-height: 1.6;
+}
+
+.wysiwyg__ul li,
+.wysiwyg__ol li {
+  font-size: 1.6rem;
+  font-family: Rubik,sans-serif;
+  font-weight: 400;
+  margin: 0 0 10px;
+  color: #777;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  margin: 0 0 5px;
 }
 
 .wysiwyg__td {
@@ -223,28 +237,124 @@ img.img.img--fpsc_1_1_150x150 {
 }
 
 /* alcalde docs imgs */
-img.img.img--fpsc_1_1_150x150 {
+img.img.img--fpsc_1_1_150x150,
+// Thumbnails on main page
+.flexbox--item-box-5.flexbox--layout-level-1 img {
   width: 75px;
 }
 
 // Longhorn Business
   // Hiding until can be prioritized: https://app.asana.com/0/706831088057313/1201032650090228
 .txex-lbn-search-landing-search-input-zipcode {
-  display: none;
+  /*display: none;*/
 }
 
 #search-form #zipcode {
-  display: none;
+  /*display: none;*/
 }
 
-/* Just for Testing Purposes */
-.js-quickedit-page-title {
-  color: red;
+.lbn-select {
+  font-size: 16px;
 }
+
+// Impact Map
+  // Powered by Google
+
+// main impact map page
+.legislative-district-view .powered-by-google {
+  width: 15%;
+  margin-top: 5px;
+}
+
+// district pages
+.flexbox__h1--alt-10 .powered-by-google {
+  width: 30%
+}
+
+// site maintenance
+.maintenance__header,
+.main__maintenance__heading,
+.maintenance__class-news,
+.maintenance__class-offer,
+.maintenance_join-flex {
+  text-align: center;
+}
+
+.main__maintenance__heading h3,
+.maintenance__class-news h2,
+.maintenance__class-offer h2,
+.maintenance__join-flex h3 {
+  font-family: 'Rubik';
+  font-weight: 500;
+}
+
+.main__maintenance__heading {
+  margin-bottom: 2%;
+}
+
+.maintenance__class-news p {
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 30px;
+}
+
+.maintenance__join-flex {
+    display: flex;
+    justify-content: space-around;
+    width: 49%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.maintenance__join-flex a {
+  color: #cb6015;
+}
+
+.maintenance__logo {
+  width: 300px;
+}
+
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  
+  // site maintenance
+  .main__maintenance__heading {
+    margin-bottom: 4%;
+  }
+
+  .maintenance__class-news p {
+    width: 47%;
+  }
+
+  .maintenance__join-flex {
+    width: 88%;
+  }
+} 
 
 @media (min-width: 320px) and (max-width: 767px) {
   .event-search-head {
       padding: 30px 1px;
+  }
+
+  /* headings */
+  .absolute__h1--alt-2, 
+  .block__h1--alt-2, 
+  .flexbox__h1--alt-2 {
+    font-size: 5.1rem;
+  }
+
+  // site maintenance
+  .main__maintenance__heading {
+    margin-bottom: 10%;
+  }
+
+  .maintenance__class-news p {
+    width: 95%;
+  }
+
+  .maintenance__join-flex {
+    flex-direction: column;
   }
 }
 

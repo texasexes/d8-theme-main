@@ -1,6 +1,23 @@
 "use strict";
 
 (function ($, Drupal) {
+    if (window.location.pathname == '/connect-longhorn-business-network') {
+        var mobileBanner = "/modules/custom/txex_lbn/images/Dividends-320x50.gif";
+        var desktopBanner = "/modules/custom/txex_lbn/images/Dividends-728x90.gif";
+        document.getElementById('lbn__heading').parentElement.style.textAlign = 'center';
+        if (window.innerWidth > 767) {
+            console.log("Not mobile");
+            document.getElementById('lbn__heading').insertAdjacentHTML('beforebegin', "<a href=\"https://www.texasmutual.com/employers/pr/dividend-program?utm_source=UT+LBN&utm_medium=Digital&utm_campaign=Dividends&utm_id=EMP+Dividendss\"><img src=" + desktopBanner + " alt=\"texas mutual ad\" style=\"margin-top: 3%; margin-bottom: 3%;\" /></a>");
+        } else {
+            console.log("mobile");
+            document.getElementById('lbn__heading').insertAdjacentHTML('beforebegin', "<a href=\"https://www.texasmutual.com/employers/pr/dividend-program?utm_source=UT+LBN&utm_medium=Digital&utm_campaign=Dividends&utm_id=EMP+Dividendss\"><img src=" + mobileBanner + " alt=\"texas mutual ad\" style=\"margin-top: 5%; margin-bottom: 2%;\" /></a>");
+        }
+        console.log("Hello LBN Network");
+    }
+})(jQuery, Drupal);
+"use strict";
+
+(function ($, Drupal) {
   // const dom = $(document);
   var win = $(window);
   var accordionItemTabs = $(".accordion__item.tabs");
@@ -190,7 +207,7 @@
       positionAccordionIcon();
       initializeAccordionTabs(winWafter);
 
-      // Reset for the next resize.
+      // Reset for the next resize
       winW = parseInt(win.outerWidth(), 10);
     }, 200, "Accordion - window resize");
   });
@@ -325,6 +342,14 @@ accordionExpandIcon.click(function (e) {
 
   $('.side-menu__item--active-trail > .side-menu__expand-sub > .side-menu__sub-icon').addClass(sideMenuSubOpen);
   $('.side-menu__item--active-trail > .side-menu__dropdown').addClass(menuVisible);
+
+  // Close menu when page loads for "Find a Chapter or Network"
+  $(document).ready(function () {
+    if (document.baseURI.endsWith('find-chapter-or-network')) {
+      $('.side-menu__dropdown--level-0').removeClass('js-visible');
+      $('.side-menu__sub-icon').removeClass('side-menu__sub-icon--open');
+    }
+  });
 
   // Remove mobile nav background
   function removeMainMenuBg() {
