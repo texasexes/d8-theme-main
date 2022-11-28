@@ -332,7 +332,7 @@ img.img.img--fpsc_1_1_150x150,
   }
 } 
 
-@media (min-width: 320px) and (max-width: 767px) {
+@media (max-width: 767px) {
   .event-search-head {
       padding: 30px 1px;
   }
@@ -356,27 +356,14 @@ img.img.img--fpsc_1_1_150x150,
   .maintenance__join-flex {
     flex-direction: column;
   }
-}
 
-//
-// .event,
-// .generic-page {
-//   a {
-//     text-decoration: none;
-//     color: $burnt-orange;
-//   }
-// }
+  // business listing banner tablet-desktop
+  article.event-list.max-width-image .img--fpsc_wysiwyg_728x90 {
+    display: none;
+ }   
+}
 
 /* test comment */
 img.img.img--fpsc_1_1_150x150 {
   width: 75px;
-}
-
-@media (min-width: 320px) and (max-width: 767px) {
-  /* headings */
-  .absolute__h1--alt-2, 
-  .block__h1--alt-2, 
-  .flexbox__h1--alt-2 {
-    font-size: 5.1rem;
-  }
 }
