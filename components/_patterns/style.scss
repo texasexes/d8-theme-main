@@ -316,8 +316,7 @@ img.img.img--fpsc_1_1_150x150,
 }
 
 
-@media (min-width: 768px) and (max-width: 1023px) {
-  
+@media (min-width: 767px) and (max-width: 1023px) {
   // site maintenance
   .main__maintenance__heading {
     margin-bottom: 4%;
@@ -358,9 +357,16 @@ img.img.img--fpsc_1_1_150x150,
   }
 
   // business listing banner tablet-desktop
-  article.event-list.max-width-image .img--fpsc_wysiwyg_728x90 {
+  img.img.img--fpsc_wysiwyg_728x90 {
     display: none;
- }   
+  }   
+}
+
+@media (min-width: 767px ) {
+  // business listing mobile banner
+  img.img.img--fpsc_wysiwyg_320x50 {
+    display: none;
+  }   
 }
 
 /* test comment */
