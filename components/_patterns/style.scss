@@ -71,6 +71,22 @@ table {
   border-collapse: collapse;
 }
 
+// Search Headings
+a.wysiwyg__h4 {
+  color: #cb6015;
+  text-decoration: none;
+}
+
+// Benefit terms
+.views-field.views-field-field-txex-ref-tax-term-02 span {
+  color: #777;
+  font-family: Rubik, sans-serif;
+}
+
+.views-field views-field-field-search-text {
+  margin: 0 0 30px;
+}
+
 .sg-pattern-example {
   // border-style: dotted;
   // border-width: 1px;
