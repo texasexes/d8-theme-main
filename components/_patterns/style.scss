@@ -78,9 +78,10 @@ a.wysiwyg__h4 {
 }
 
 // Benefit terms
-.views-field.views-field-field-txex-ref-tax-term-02 span {
+.views-field-field-txex-ref-tax-term-02 .field-content a {
   color: #777;
   font-family: Rubik, sans-serif;
+  text-decoration: none;
 }
 
 .views-field views-field-field-search-text {
