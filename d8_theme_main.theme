@@ -614,6 +614,7 @@ function d8_theme_main_theme_suggestions_views_view_field_alter(array &$suggesti
  * Implements hook_theme_suggestions_HOOK_alter().
  */
 function d8_theme_main_theme_suggestions_container_alter(array &$suggestions, array $variables) {
+  if (isset($variables['element']['#type'])) {
   if ($variables['element']['#type'] === 'view') {
     $pieces = [
       $variables['element']['#type'],
@@ -621,6 +622,7 @@ function d8_theme_main_theme_suggestions_container_alter(array &$suggestions, ar
       $variables['element']['#display_id'],
     ];
     $suggestions[] = $variables['theme_hook_original'] . '__' . implode('__', $pieces);
+  }
   }
 }
 
