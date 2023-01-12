@@ -71,6 +71,27 @@ table {
   border-collapse: collapse;
 }
 
+// Search Headings
+a.wysiwyg__h4 {
+  color: #cb6015;
+  text-decoration: none;
+}
+
+a.wysiwyg__h4:hover {
+  text-decoration: underline;
+}
+
+// Benefit terms
+.views-field-field-txex-ref-tax-term-02 .field-content a {
+  color: #777;
+  font-family: Rubik, sans-serif;
+  text-decoration: none;
+}
+
+.views-field.views-field-field-search-text.wysiwyg__p {
+  margin: 0 0 30px;
+}
+
 .sg-pattern-example {
   // border-style: dotted;
   // border-width: 1px;
@@ -212,7 +233,7 @@ img.img.img--fpsc_1_1_150x150 {
 // This non-namespaced rule messes up lots of things, including admin styles
 // main {
 //   font: 100%/1.5 $font-primary;
-// 	color: $grey-5;
+//  color: $grey-5;
 //   margin-bottom: 5em;
 //   font-weight: 300;
 //   line-height: 1.875em;
@@ -316,8 +337,7 @@ img.img.img--fpsc_1_1_150x150,
 }
 
 
-@media (min-width: 768px) and (max-width: 1023px) {
-  
+@media (min-width: 767px) and (max-width: 1023px) {
   // site maintenance
   .main__maintenance__heading {
     margin-bottom: 4%;
@@ -332,7 +352,7 @@ img.img.img--fpsc_1_1_150x150,
   }
 } 
 
-@media (min-width: 320px) and (max-width: 767px) {
+@media (max-width: 767px) {
   .event-search-head {
       padding: 30px 1px;
   }
@@ -356,27 +376,21 @@ img.img.img--fpsc_1_1_150x150,
   .maintenance__join-flex {
     flex-direction: column;
   }
+
+  // business listing banner tablet-desktop
+  img.img.img--fpsc_wysiwyg_728x90 {
+    display: none;
+  }   
 }
 
-//
-// .event,
-// .generic-page {
-//   a {
-//     text-decoration: none;
-//     color: $burnt-orange;
-//   }
-// }
+@media (min-width: 767px ) {
+  // business listing mobile banner
+  img.img.img--fpsc_6x1_325x50 {
+    display: none;
+  }   
+}
 
 /* test comment */
 img.img.img--fpsc_1_1_150x150 {
   width: 75px;
-}
-
-@media (min-width: 320px) and (max-width: 767px) {
-  /* headings */
-  .absolute__h1--alt-2, 
-  .block__h1--alt-2, 
-  .flexbox__h1--alt-2 {
-    font-size: 5.1rem;
-  }
 }
