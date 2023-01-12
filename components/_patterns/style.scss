@@ -233,7 +233,7 @@ img.img.img--fpsc_1_1_150x150 {
 // This non-namespaced rule messes up lots of things, including admin styles
 // main {
 //   font: 100%/1.5 $font-primary;
-// 	color: $grey-5;
+//  color: $grey-5;
 //   margin-bottom: 5em;
 //   font-weight: 300;
 //   line-height: 1.875em;
@@ -385,7 +385,7 @@ img.img.img--fpsc_1_1_150x150,
 
 @media (min-width: 767px ) {
   // business listing mobile banner
-  img.img.img--fpsc_wysiwyg_320x50 {
+  img.img.img--fpsc_6x1_325x50 {
     display: none;
   }   
 }
