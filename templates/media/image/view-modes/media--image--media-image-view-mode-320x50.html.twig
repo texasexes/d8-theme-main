@@ -2,6 +2,7 @@
 {% set attributes = attributes.addClass('event-list', 'max-width-image') %}
 {% set wrap_url = content.field_txex_link_01[0]['#url'] %}
 
+
 {% block content_block %}
   {% if content %}
     {{ content|without('field_txex_link_01') }}
