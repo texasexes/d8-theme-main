@@ -377,17 +377,17 @@ img.img.img--fpsc_1_1_150x150,
     flex-direction: column;
   }
 
-  // business listing banner tablet-desktop
-  img.img.img--fpsc_wysiwyg_728x90 {
-    display: none;
-  }   
+// Hide desktop banner on mobile
+  [data-history-node-id="4453"] .img.img--fpsc_wysiwyg_728x90 {
+      display: none;
+  }
 }
 
-@media (min-width: 767px ) {
-  // business listing mobile banner
-  img.img.img--fpsc_6x1_325x50 {
-    display: none;
-  }   
+@media (min-width: 767px) {
+ // Hide mobile banner on tablet and desktop
+    [data-history-node-id="4453"] .img.img--txex_resp_image_style_6_ {
+        display: none;
+    }    
 }
 
 /* test comment */
